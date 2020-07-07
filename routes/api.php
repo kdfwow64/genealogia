@@ -1106,3 +1106,13 @@ Route::middleware(['api', 'auth', 'core', 'multitenant'])
                 Route::get('{personSubm}', 'Show')->name('show');
             });
     });
+
+Route::middleware(['api', 'guest'])
+    ->group(function () {
+        Route::namespace('About')
+            ->prefix('about')
+            ->as('about.')
+            ->group(function () {
+                Route::get('', 'Index')->name('index');
+            });
+    });
