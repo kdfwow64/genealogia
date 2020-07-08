@@ -2,6 +2,19 @@
 
 use Illuminate\Support\Facades\Route;
 
+     Route::middleware(['guest'])
+	->prefix('api')
+	->group(
+         function() {
+
+        Route::namespace('About')
+            ->prefix('about')
+            ->as('about.')
+            ->group(function () {
+                Route::get('about', 'Index')->name('index');
+    });
+});
+
     // Route::middleware(['api'])->group(
     //     function() {
     Route::post('register', '\App\Http\Controllers\Auth\RegisterController@register');
@@ -1104,15 +1117,5 @@ Route::middleware(['api', 'auth', 'core', 'multitenant'])
 
                 Route::get('options', 'Options')->name('options');
                 Route::get('{personSubm}', 'Show')->name('show');
-            });
-    });
-
-Route::middleware(['api', 'guest'])
-    ->group(function () {
-        Route::namespace('About')
-            ->prefix('about')
-            ->as('about.')
-            ->group(function () {
-                Route::get('', 'Index')->name('index');
             });
     });
