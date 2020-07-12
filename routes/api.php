@@ -2,19 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-     Route::middleware(['guest'])
-	->prefix('api')
-	->group(
-         function() {
-
-        Route::namespace('About')
-            ->prefix('about')
-            ->as('about.')
-            ->group(function () {
-                Route::get('about', 'Index')->name('index');
-    });
-});
-
     // Route::middleware(['api'])->group(
     //     function() {
     Route::post('register', '\App\Http\Controllers\Auth\RegisterController@register');
