@@ -48,8 +48,6 @@ class TreeBuilder
             ->permissions()
             ->has('menu')
             ->get(['id', 'name']);
-            error_log('//////////////////////////////////////////////////'.json_encode($this->permissions));
-
         return $this;
     }
 

@@ -26,7 +26,12 @@ class TableData extends Controller
         $this->tableClass = CompanyTable::class;
         $conn =  $this->getConnection();
         if($conn == 'tenant') {
-            $this->tableClass = CompanyTableIndi::class;
+            $exist = $this->checkDBExist();
+            if($exist) {
+                $this->tableClass = CompanyTableIndi::class;
+            }else{
+                return;
+            }
         }
 
         ['table' => $table, 'config' => $config] = $this->data($request);

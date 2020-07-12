@@ -34,4 +34,20 @@ trait ConnectionTrait
         $db = \Session::get('db');
         return $db;
     }
+
+    public function checkDBExist() {
+        $conn = \Session::get('conn');
+        $db_name = \Session::get('db');
+        if($conn == 'tenant') {
+            $query = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '".$db_name."'";
+            $db = \DB::select($query);
+            if (empty($db)) {
+                return false;
+            } else {
+                return true;
+            }        
+        }else {
+            return true;
+        }
+    }
 }
