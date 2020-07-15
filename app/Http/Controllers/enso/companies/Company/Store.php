@@ -32,8 +32,8 @@ class Store extends Controller
             $company->attachPerson($person_id);
             $company_id = $company->id;
             // create database
-            CreateDB::dispatch($company);
-            Migration::dispatch($company, Auth::user()->name, Auth::user()->email, '123123');
+            CreateDB::dispatch($company_id, Auth::user()->id);
+            Migration::dispatch($company_id, Auth::user()->id, Auth::user()->name, Auth::user()->email, '123123');
         }
         // attachPerson
         return [

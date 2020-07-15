@@ -37,6 +37,7 @@ class ImportGedcom implements ShouldQueue
         $this->user_id = $user_id;
         $this->conn = $conn;
         $this->db = $db;
+        $this->queue = 'high';
     }
 
     /**

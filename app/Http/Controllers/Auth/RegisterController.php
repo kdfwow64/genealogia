@@ -19,6 +19,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\enso\companies\Company;
+use App\Traits\ConnectionTrait;
+use LaravelEnso\Multitenancy\Enums\Connections;
 
 use Str;
 
@@ -26,6 +28,7 @@ class RegisterController extends Controller
 {
     use RegistersUsers;
     use ActivationTrait;
+    use ConnectionTrait;
 
     protected $redirectTo = RouteServiceProvider::HOME;
 
@@ -91,10 +94,17 @@ class RegisterController extends Controller
 
             $person->companies()->attach($company->id, ['person_id' => $person->id, 'is_main' => 1, 'is_mandatary' => 1, 'company_id' => $company->id]);
 
+            // set session
+            $main_company = $company;
+            if($main_company !== null && !($user->isAdmin())) {
+                $c_id = $main_company->id;
+                $db = $c_id;
+                $this->setConnection(Connections::Tenant, $db, $user->id);
+            }
             // Dispatch Tenancy Jobs
 
-            CreateDB::dispatch($company);
-            Migration::dispatch($company, $data['name'], $data['email'], $data['password']);
+            CreateDB::dispatch($company->id, $user->id);
+            Migration::dispatch($company->id, $user->id, $data['name'], $data['email'], $data['password']);
 
             return $user;
         } catch (\Exception $e) {

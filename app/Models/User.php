@@ -33,31 +33,14 @@ use LaravelEnso\Roles\Enums\Roles;
 use LaravelEnso\Tables\Traits\TableCache;
 use LaravelEnso\Teams\Models\Team;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Cashier\Billable;
 
 class User extends Authenticatable implements Activatable, HasLocalePreference
 {
     use ActiveState, AvoidsDeletionConflicts, CascadesMorphMap,
     HasApiTokens, HasAvatar, HasPassword, Impersonates, IsPerson, Notifiable,
-        Relations, Rememberable, TableCache, Uploads;
+        Relations, Rememberable, TableCache, Uploads, Billable;
 
-    // public function __construct(Array $attributes = [])
-    // {
-    //     parent::__construct($attributes);
-    //     $db = \Session::get('db');
-    //     if(empty($db)) {
-    //         $db = env('DB_DATABASE', 'enso');
-    //     }
-    //     if($db === env('DB_DATABASE')) {
-    //         $key = 'database.connections.mysql.database';
-    //         config([$key => $db]);
-    //     } else { 
-    //         $key = 'database.connections.mysql.database';
-    //         config([$key => $db]);
-    //     }
-    //     \DB::purge('mysql');
-    //     \DB::reconnect('mysql');
-    //     $this->setConnection('mysql');
-    // }
     
     protected $hidden = ['password', 'remember_token', 'password_updated_at'];
 

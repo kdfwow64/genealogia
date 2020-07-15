@@ -9,23 +9,23 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\DB;
 use App\Models\enso\companies\Company;
-use App\Service\Tenant;
-use LaravelEnso\Multitenancy\Traits\TenantResolver;
+use LaravelEnso\Multitenancy\Enums\Connections;
 
 class CreateDB implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, TenantResolver;
-    private $tenant;
-
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    private $company_id;
+    private $user_id;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(Company $tenant)
+    public function __construct($c_id, $u_id)
     {
         //
-        $this->tenant = $tenant;
+        $this->company_id = $c_id;
+        $this->user_id = $u_id;
     }
 
     /**
@@ -35,9 +35,7 @@ class CreateDB implements ShouldQueue
      */
     public function handle()
     {
-        //
-        Tenant::set($this->tenant);
-
-        DB::statement('CREATE DATABASE '.$this->tenantDatabase());
+        $dbname = Connections::Tenant.$this->user_id.'_'.$this->company_id;
+        DB::statement('CREATE DATABASE '.$dbname);
     }
 }

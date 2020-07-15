@@ -16,6 +16,7 @@ use LaravelEnso\Multitenancy\Enums\Connections;
 use LaravelEnso\Multitenancy\Services\Tenant;
 use App\Traits\ConnectionTrait;
 use Illuminate\Http\Request;
+
 class ChartController extends Controller
 {
     use ConnectionTrait;
@@ -112,8 +113,8 @@ class ChartController extends Controller
     public function changedb(Request $request) {
         $company_id = $request->get('comid');
         if(!empty($company_id)){
-            $db = Connections::Tenant.$company_id;
-            $this->setConnection(Connections::Tenant, $db);
+            $db = $company_id;
+            $this->setConnection(Connections::Tenant, $db, Auth::user()->id);
         } else {
             $this->setConnection('mysql');
         }

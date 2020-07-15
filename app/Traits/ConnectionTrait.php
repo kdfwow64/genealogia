@@ -7,14 +7,16 @@ use LaravelEnso\Multitenancy\Enums\Connections;
 
 trait ConnectionTrait
 {
-    public function setConnection($conn='mysql', $db='enso')
+    public function setConnection($conn='mysql', $db='enso', $user_id='')
     {
+        $dbname = $db;
         if($conn == Connections::Tenant) {
             $key = 'database.connections.tenant.database';
+            $dbname = Connections::Tenant.$user_id."_".$db;
             config([$key => $db]);
         }
         \Session::put('conn', $conn);
-        \Session::put('db', $db);
+        \Session::put('db', $dbname);
     }
 
     public function getConnection()

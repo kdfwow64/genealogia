@@ -22,7 +22,8 @@ use Str;
 class Migration implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    private $tenant;
+    private $c_id;
+    private $u_id;
     private $name;
     private $email;
     private $password;
@@ -32,10 +33,11 @@ class Migration implements ShouldQueue
      *
      * @return void
      */
-    public function __construct(Company $tenant, $name = '', $email = '', $password = '')
+    public function __construct($c_id, $u_id, $name = '', $email = '', $password = '')
     {
         //
-        $this->tenant = $tenant;
+        $this->c_id = $c_id;
+        $this->u_id = $u_id;
         $this->name = $name;
         $this->email = $email;
         $this->password = $password;
@@ -49,11 +51,11 @@ class Migration implements ShouldQueue
      */
     public function handle()
     {
-        //
-
-        Tenant::set($this->tenant);
-        $company = Tenant::get();
-        $db = Connections::Tenant.$company->id;
+        $db = Connections::Tenant.$this->u_id."_".$this->c_id;
+        $key = 'database.connections.tenant.database';
+        $value = $db;
+        config([$key => $value]);
+        
         Artisan::call('migrate', [
             '--database' => Connections::Tenant,
             '--path' => '/database/migrations/tenant',

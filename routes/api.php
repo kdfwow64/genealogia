@@ -1144,3 +1144,17 @@ Route::middleware(['api', 'auth', 'core', 'multitenant'])
                 Route::get('{personSubm}', 'Show')->name('show');
             });
     });
+
+Route::middleware(['api', 'auth'])
+    ->group(function () {
+        Route::prefix('stripe')
+            ->as('stripe.')
+            ->group(function () {
+                Route::get('/user/setup-intent', 'StripeController@getSetupIntent');
+                Route::put('/user/subscription', 'StripeController@updateSubscription');
+                Route::post('/user/payments', 'StripeController@postPaymentMethods');
+                Route::get('/user/payment-methods', 'StripeController@getPaymentMethods');
+                Route::post('/user/remove-payment', 'StripeController@removePaymentMethod');
+            });
+    });
+    

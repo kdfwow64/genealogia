@@ -28,6 +28,7 @@ class GedComProgressSent implements ShouldBroadcast
         $this->slug = $slug;
         $this->total = $total;
         $this->complete = $complete;
+        $this->queue = 'low';
     }
 
     /**

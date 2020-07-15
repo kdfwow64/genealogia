@@ -41,7 +41,6 @@ class Store extends Controller
                     // $parser->parse($request->file('file'), $slug, true);
                     $filename = 'app/gedcom/'.$_name;
                     ImportGedcom::dispatch($filename, $slug, $currentUser->id, $conn, $db);
-                    // Artisan::call('queue:work');
                     return ['File uploaded'];
                 } catch (Exception $e) {
                     return ['Not uploaded'];
