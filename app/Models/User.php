@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+	
 use App\Models\enso\core\Login;
 use App\Models\enso\core\Preference;
 use App\Models\enso\core\UserGroup;
@@ -49,6 +49,8 @@ class User extends Authenticatable implements Activatable, HasLocalePreference
     protected $casts = [
         'is_active' => 'boolean', 'person_id' => 'int', 'group_id' => 'int', 'role_id' => 'int',
     ];
+
+    protected $guarded = ['id', 'password'];
 
     protected $dates = ['password_updated_at'];
 
