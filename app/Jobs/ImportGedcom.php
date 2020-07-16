@@ -51,7 +51,8 @@ class ImportGedcom implements ShouldQueue
         $slug = $this->slug;
         $user_id = $this->user_id;
         $status = 'queue';
-        if($this->conn == 'tenant') {
+
+        if($this->conn === 'tenant') {
             $key = 'database.connections.tenant.database';
             $value = $this->db;
             config([$key => $value]);
@@ -59,7 +60,7 @@ class ImportGedcom implements ShouldQueue
         ImportJob::on($this->conn)->create(compact('user_id', 'slug', 'status'));
 
         $parser = new GedcomParser();
-        $parser->parse($this->conn, storage_path($this->filename), $slug, true);
+        $parser->parse(storage_path($this->filename), $slug, true);
         File::delete(storage_path($this->filename));
         
 

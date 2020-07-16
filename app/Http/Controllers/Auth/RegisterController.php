@@ -56,7 +56,6 @@ class RegisterController extends Controller
             $person->email = $data['email'];
             $person->save();
 
-            
             // get user_group_id
             $user_group = UserGroup::where('name', 'Administrators')->first();
             if ($user_group == null) {
@@ -77,6 +76,8 @@ class RegisterController extends Controller
                 'role_id' => $role->id,
                 'is_active' => 1,
             ]);
+
+
             // send verification email;
 
             $this->initiateEmailActivation($user);

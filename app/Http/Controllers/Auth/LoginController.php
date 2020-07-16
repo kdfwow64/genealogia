@@ -72,6 +72,11 @@ class LoginController extends Controller
             $this->setConnection(Connections::Tenant, $db, $user->id);
         }
 
+	else {
+            $this->setConnection('mysql', 'enso', $user->id);
+        }
+
+
         if (! optional($user)->currentPasswordIs($request->input('password'))) {
             return;
         }
