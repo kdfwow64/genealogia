@@ -70,6 +70,8 @@ class LoginController extends Controller
             $c_id = $main_company->id;
             $db = $c_id;
             $this->setConnection(Connections::Tenant, $db, $user->id);
+        }else {
+            $this->setConnection('mysql', 'enso', $user->id);
         }
 
 	else {
