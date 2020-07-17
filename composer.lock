@@ -5085,7 +5085,7 @@
         },
         {
             "name": "modularsoftware/laravel-gedcom",
-            "version": "v1.3.0",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/modularsoftware/laravel-gedcom.git",
@@ -7520,16 +7520,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.41.1",
+            "version": "v7.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "36c9cd7a33439186da05dc8bce1e6d361d25a225"
+                "reference": "9cf82f40a216f3ec17a72a9edf6cf5af68a30ff3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/36c9cd7a33439186da05dc8bce1e6d361d25a225",
-                "reference": "36c9cd7a33439186da05dc8bce1e6d361d25a225",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/9cf82f40a216f3ec17a72a9edf6cf5af68a30ff3",
+                "reference": "9cf82f40a216f3ec17a72a9edf6cf5af68a30ff3",
                 "shasum": ""
             },
             "require": {
@@ -7573,7 +7573,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2020-07-15T23:11:12+00:00"
+            "time": "2020-07-16T04:13:46+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -10392,16 +10392,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.10.8",
+            "version": "1.10.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "56e0e094478f30935e9128552188355fa9712291"
+                "reference": "83c3250093d5491600a822e176b107a945baf95a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/56e0e094478f30935e9128552188355fa9712291",
-                "reference": "56e0e094478f30935e9128552188355fa9712291",
+                "url": "https://api.github.com/repos/composer/composer/zipball/83c3250093d5491600a822e176b107a945baf95a",
+                "reference": "83c3250093d5491600a822e176b107a945baf95a",
                 "shasum": ""
             },
             "require": {
@@ -10482,7 +10482,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-24T19:23:30+00:00"
+            "time": "2020-07-16T10:57:00+00:00"
         },
         {
             "name": "composer/semver",

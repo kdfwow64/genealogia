@@ -715,7 +715,7 @@ Route::middleware(['api', 'auth', 'core', 'multitenant'])
             });
     });
 
-Route::middleware(['api', 'auth', 'core'])
+Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
         Route::namespace('Gedcom')
             ->prefix('gedcom')
