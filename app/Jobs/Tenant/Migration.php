@@ -55,7 +55,7 @@ class Migration implements ShouldQueue
         $key = 'database.connections.tenant.database';
         $value = $db;
         config([$key => $value]);
-        
+
         Artisan::call('migrate', [
             '--database' => Connections::Tenant,
             '--path' => '/database/migrations/tenant',
@@ -77,6 +77,7 @@ class Migration implements ShouldQueue
         $role = 1;
 
         $person = DB::connection(Connections::Tenant)->table('users')->insert([
+            'id' => $this->u_id,
             'email' => $this->email,
             'password' => Hash::make($this->password),
             'person_id' => $person,

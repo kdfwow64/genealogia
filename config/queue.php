@@ -37,6 +37,7 @@ return [
             'table' => 'jobs',
             'queue' => 'default',
             'retry_after' => 7200,
+            'connection' => 'mysql'
         ],
 
         'beanstalkd' => [
