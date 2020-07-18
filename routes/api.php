@@ -38,7 +38,7 @@ use Illuminate\Support\Facades\Route;
         //         Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
         //         Route::post('password/reset', 'ResetPasswordController@attemptReset')->name('password.reset');
         //     });
-    
+
         //     Route::middleware('auth')->group(function () {
         //         Route::post('logout', 'LoginController@logout')->name('logout');
         //     });
@@ -113,7 +113,7 @@ use Illuminate\Support\Facades\Route;
      */
 
     Route::namespace('\App\Http\Controllers\enso\people')
-        ->middleware(['api', 'auth', 'core'])
+        ->middleware(['api', 'auth', 'core','multitenant'])
         ->prefix('administration/people')
         ->as('administration.people.')
         ->group(function () {
@@ -149,10 +149,10 @@ use Illuminate\Support\Facades\Route;
                 Route::get('initTable', 'InitTable')->name('initTable');
                 Route::get('tableData', 'TableData')->name('tableData');
                 Route::get('exportExcel', 'ExportExcel')->name('exportExcel');
-        
+
                 Route::get('options', 'Options')->name('options');
             });
-        
+
             // require 'app/people.php';
             Route::namespace('Person')
             ->group(function () {
@@ -167,7 +167,7 @@ use Illuminate\Support\Facades\Route;
                         Route::delete('{company}/{person}', 'Destroy')->name('destroy');
                     });
             });
-        
+
         });
 
     /**
@@ -441,7 +441,7 @@ use Illuminate\Support\Facades\Route;
             Route::get('share/{file}', 'Share')->name('share');
         });
 
-    
+
     Route::namespace('Auth')
         ->middleware('web')
         ->group(function () {
@@ -474,7 +474,7 @@ use Illuminate\Support\Facades\Route;
             Route::patch('{avatar}', 'Update')->name('update');
             Route::get('{avatar}', 'Show')->name('show');
         });
-    
+
         // example data for the dashboard
 Route::middleware(['web', 'auth', 'multitenant'])
     ->namespace('Dashboard')
@@ -1157,4 +1157,4 @@ Route::middleware(['api', 'auth'])
                 Route::post('/user/remove-payment', 'StripeController@removePaymentMethod');
             });
     });
-    
+

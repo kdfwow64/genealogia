@@ -24,15 +24,17 @@ class TableData extends Controller
     public function __invoke(Request $request)
     {
         $this->tableClass = PersonTable::class;
-        $conn =  $this->getConnection();
-        if($conn == 'tenant') {
-            $exist = $this->checkDBExist();
-            if($exist) {
-                $this->tableClass = PersonTableIndi::class;
-            }else{
-                return;
-            }            
-        }
+        //$conn =  $this->getConnection();
+
+        // Disabled filter by user_id
+//        if($conn == 'tenant') {
+//            $exist = $this->checkDBExist();
+//            if($exist) {
+//                $this->tableClass = PersonTableIndi::class;
+//            }else{
+//                return;
+//            }
+//        }
 
         ['table' => $table, 'config' => $config] = $this->data($request);
 
