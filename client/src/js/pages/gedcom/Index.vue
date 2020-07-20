@@ -103,8 +103,7 @@ export default {
             axios
                 .get(this.getProgressLink, { params })
                 .then(res => {
-                    const data = JSON.parse(res);
-                    this.slug = data.slug;
+                    this.slug = res.data.slug;
                 })
                 .catch();
         },

@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Events\GedComProgressSent;
 use App\ImportJob;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -10,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\File;
-use ModularSoftware\LaravelGedcom\Utils\GedcomParser;
+use App\Utils\GedcomParser;
 use Illuminate\Support\Facades\Artisan;
 
 class ImportGedcom implements ShouldQueue
