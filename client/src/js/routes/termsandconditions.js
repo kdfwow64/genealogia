@@ -9,6 +9,7 @@ export default {
     meta: {
         breadcrumb: 'termsandconditions',
         route: 'termsandconditions.index',
+        guestGuard: true,
     },
     children: routes,
 };

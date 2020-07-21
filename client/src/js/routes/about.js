@@ -9,6 +9,7 @@ export default {
     meta: {
         breadcrumb: 'about',
         route: 'about.index',
+	guestGuard: true,
     },
     children: routes,
 };

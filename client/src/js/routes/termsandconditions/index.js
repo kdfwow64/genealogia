@@ -7,5 +7,6 @@ export default {
     meta: {
         breadcrumb: 'index',
         title: 'Terms and Conditions',
+        guestGuard: true,
     },
 };

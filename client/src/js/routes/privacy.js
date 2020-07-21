@@ -9,6 +9,7 @@ export default {
     meta: {
         breadcrumb: 'privacy',
         route: 'privacy.index',
+        guestGuard: true,
     },
     children: routes,
 };

@@ -7,5 +7,6 @@ export default {
     meta: {
         breadcrumb: 'index',
         title: 'Privacy Policy',
+        guestGuard: true,
     },
 };
