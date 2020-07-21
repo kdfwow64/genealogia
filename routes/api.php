@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
             ->group(function () {
                 Route::get('about', 'Index')->name('index');
     });
+        Route::namespace('Termsandconditions')
+            ->prefix('termsandconditions')
+            ->as('termsandconditions.')
+            ->group(function () {
+                Route::get('termsandconditions', 'Index')->name('index');
+    });
+        Route::namespace('Privacy')
+            ->prefix('privacy')
+            ->as('privacy.')
+            ->group(function () {
+                Route::get('privacy', 'Index')->name('index');
+    });
 });
 
     // Route::middleware(['api'])->group(
