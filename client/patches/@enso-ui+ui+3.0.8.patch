@@ -51,7 +51,7 @@ index cfb133c..73e9652
 +                                                    <a class="button is-link" href="/contact">Contact</a>&nbsp;
 +                                                    <a class="button is-link" href="/about">About</a>&nbsp;
 +                                                    <a class="button is-link" href="/privacy">Privacy</a>&nbsp;
-+                                                    <a class="button is-link" href="/conditions">Terms and Conditions</a>
++                                                    <a class="button is-link" href="/termsandconditions">Terms and Conditions</a>
 +                                                </div>
                          <div class="level-item">
                              <strong class="has-margin-right-small">
