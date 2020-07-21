@@ -1,46 +1,5 @@
-diff --git a/node_modules/@enso-ui/ui/.eslintrc.js b/node_modules/@enso-ui/ui/.eslintrc.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/.github/issue_template.md b/node_modules/@enso-ui/ui/.github/issue_template.md
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/LICENSE b/node_modules/@enso-ui/ui/LICENSE
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/README.md b/node_modules/@enso-ui/ui/README.md
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/bulma/index.js b/node_modules/@enso-ui/ui/bulma/index.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/renderless/components/index.js b/node_modules/@enso-ui/ui/renderless/components/index.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/renderless/components/menu/index.js b/node_modules/@enso-ui/ui/renderless/components/menu/index.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/renderless/components/navbar/index.js b/node_modules/@enso-ui/ui/renderless/components/navbar/index.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/renderless/components/navbar/io/index.js b/node_modules/@enso-ui/ui/renderless/components/navbar/io/index.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/renderless/components/settings/index.js b/node_modules/@enso-ui/ui/renderless/components/settings/index.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/renderless/index.js b/node_modules/@enso-ui/ui/renderless/index.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/renderless/layouts/index.js b/node_modules/@enso-ui/ui/renderless/layouts/index.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/App.vue b/node_modules/@enso-ui/ui/src/bulma/App.vue
-old mode 100644
-new mode 100755
 diff --git a/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue b/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue
-old mode 100644
-new mode 100755
-index cfb133c..73e9652
+index cfb133c..e39d28f 100644
 --- a/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue
 +++ b/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue
 @@ -4,6 +4,12 @@
@@ -67,7 +26,7 @@ index cfb133c..73e9652
 +                                                                                                      width="28"
 +                                                                                                      height="28">
 +                                                        </a>
-+                            			    +
++							+
                              <a href="https://vuejs.org"
                                  target="_blank">
                                  <img src="/images/vue-badge.png"
@@ -92,174 +51,314 @@ index cfb133c..73e9652
                              target="_blank">
                              <span class="icon">
                                  <fa :icon="['fab', 'github']"/>
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/Bookmarks.vue b/node_modules/@enso-ui/ui/src/bulma/components/Bookmarks.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/Breadcrumbs.vue b/node_modules/@enso-ui/ui/src/bulma/components/Breadcrumbs.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/Loader.vue b/node_modules/@enso-ui/ui/src/bulma/components/Loader.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/PageHeader.vue b/node_modules/@enso-ui/ui/src/bulma/components/PageHeader.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/VueAside.vue b/node_modules/@enso-ui/ui/src/bulma/components/VueAside.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/menu/MenuItem.vue b/node_modules/@enso-ui/ui/src/bulma/components/menu/MenuItem.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/menu/Menus.vue b/node_modules/@enso-ui/ui/src/bulma/components/menu/Menus.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/menu/Sidebar.vue b/node_modules/@enso-ui/ui/src/bulma/components/menu/Sidebar.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/menu/icons/index.js b/node_modules/@enso-ui/ui/src/bulma/components/menu/icons/index.js
-old mode 100644
-new mode 100755
 diff --git a/node_modules/@enso-ui/ui/src/bulma/components/navbar/AppUpdate.vue b/node_modules/@enso-ui/ui/src/bulma/components/navbar/AppUpdate.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/navbar/IO.vue b/node_modules/@enso-ui/ui/src/bulma/components/navbar/IO.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/navbar/MissingKeys.vue b/node_modules/@enso-ui/ui/src/bulma/components/navbar/MissingKeys.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/navbar/Navbar.vue b/node_modules/@enso-ui/ui/src/bulma/components/navbar/Navbar.vue
-old mode 100644
-new mode 100755
+index c93f97a..564d0b0 100644
+--- a/node_modules/@enso-ui/ui/src/bulma/components/navbar/AppUpdate.vue
++++ b/node_modules/@enso-ui/ui/src/bulma/components/navbar/AppUpdate.vue
+@@ -11,7 +11,7 @@
+ </template>
+ 
+ <script>
+-import { mapState, mapMutations, mapGetters } from 'vuex';
++import { mapState, mapActions, mapGetters } from 'vuex';
+ import { VTooltip } from 'v-tooltip';
+ import { library } from '@fortawesome/fontawesome-svg-core';
+ import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+@@ -23,10 +23,10 @@ export default {
+ 
+     directives: { tooltip: VTooltip },
+ 
+-    inject: ['i18n'],
++    inject: ['i18n', 'toastr'],
+ 
+     data: () => ({
+-        tooltip: null
++        tooltip: null,
+     }),
+ 
+     computed: {
+@@ -41,13 +41,13 @@ export default {
+     },
+ 
+     methods: {
+-        ...mapMutations('websockets', ['connect']),
++        ...mapActions('websockets', ['connect']),
+         listen() {
+             window.Echo.private(this.appUpdates)
+                 .listen('.new-update', ({ title, message, tooltip }) => {
+                     this.tooltip = this.i18n(tooltip);
+ 
+-                    this.$toastr.duration(30000)
++                    this.toastr.duration(30000)
+                         .title(this.i18n(title))
+                         .warning(this.i18n(message));
+                 });
 diff --git a/node_modules/@enso-ui/ui/src/bulma/components/navbar/NavbarRefresh.vue b/node_modules/@enso-ui/ui/src/bulma/components/navbar/NavbarRefresh.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/navbar/Notifications.vue b/node_modules/@enso-ui/ui/src/bulma/components/navbar/Notifications.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/navbar/ProfileControl.vue b/node_modules/@enso-ui/ui/src/bulma/components/navbar/ProfileControl.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/navbar/Search.vue b/node_modules/@enso-ui/ui/src/bulma/components/navbar/Search.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/navbar/SettingsControl.vue b/node_modules/@enso-ui/ui/src/bulma/components/navbar/SettingsControl.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/navbar/icons/app.js b/node_modules/@enso-ui/ui/src/bulma/components/navbar/icons/app.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/navbar/icons/enso.js b/node_modules/@enso-ui/ui/src/bulma/components/navbar/icons/enso.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/navbar/icons/index.js b/node_modules/@enso-ui/ui/src/bulma/components/navbar/icons/index.js
-old mode 100644
-new mode 100755
+new file mode 100644
+index 0000000..7790ef3
+--- /dev/null
++++ b/node_modules/@enso-ui/ui/src/bulma/components/navbar/NavbarRefresh.vue
+@@ -0,0 +1,44 @@
++<template>
++    <vue-pull-refresh
++        :config="config"
++        :on-refresh="refresh">
++        <navbar class="animated slideInDown"/>
++    </vue-pull-refresh>
++</template>
++
++<script>
++
++import VuePullRefresh from 'vue-pull-refresh';
++import Navbar from './Navbar.vue';
++
++export default {
++    name: 'NavbarRefresh',
++
++    components: {
++        VuePullRefresh, Navbar,
++    },
++
++    inject: ['i18n'],
++
++    data: v => ({
++        config: {
++            startLabel: v.i18n('Pull down to refresh'),
++            readyLabel: v.i18n('Release to refresh'),
++            loadingLabel: v.i18n('Refreshing...'),
++            errorLabel: v.i18n('Something wrong happened'),
++        },
++    }),
++
++    methods: {
++        refresh() {
++            return new Promise(() => window.location.reload(true));
++        },
++    },
++};
++</script>
++
++<style>
++    .pull-down-header {
++        z-index: 1000;
++    }
++</style>
 diff --git a/node_modules/@enso-ui/ui/src/bulma/components/navbar/io/Operation.vue b/node_modules/@enso-ui/ui/src/bulma/components/navbar/io/Operation.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/settings/BookmarksState.vue b/node_modules/@enso-ui/ui/src/bulma/components/settings/BookmarksState.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/settings/KeyCollector.vue b/node_modules/@enso-ui/ui/src/bulma/components/settings/KeyCollector.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/settings/LanguageSelector.vue b/node_modules/@enso-ui/ui/src/bulma/components/settings/LanguageSelector.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/settings/MenuOrganizer.vue b/node_modules/@enso-ui/ui/src/bulma/components/settings/MenuOrganizer.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/settings/Settings.vue b/node_modules/@enso-ui/ui/src/bulma/components/settings/Settings.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/settings/SidebarState.vue b/node_modules/@enso-ui/ui/src/bulma/components/settings/SidebarState.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/settings/ThemeSelector.vue b/node_modules/@enso-ui/ui/src/bulma/components/settings/ThemeSelector.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/settings/ToastrPosition.vue b/node_modules/@enso-ui/ui/src/bulma/components/settings/ToastrPosition.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/settings/Tutorial.vue b/node_modules/@enso-ui/ui/src/bulma/components/settings/Tutorial.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/settings/corners/bottom-center.svg b/node_modules/@enso-ui/ui/src/bulma/components/settings/corners/bottom-center.svg
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/settings/corners/bottom-left.svg b/node_modules/@enso-ui/ui/src/bulma/components/settings/corners/bottom-left.svg
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/settings/corners/bottom-right.svg b/node_modules/@enso-ui/ui/src/bulma/components/settings/corners/bottom-right.svg
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/settings/corners/top-center.svg b/node_modules/@enso-ui/ui/src/bulma/components/settings/corners/top-center.svg
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/settings/corners/top-left.svg b/node_modules/@enso-ui/ui/src/bulma/components/settings/corners/top-left.svg
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/settings/corners/top-right.svg b/node_modules/@enso-ui/ui/src/bulma/components/settings/corners/top-right.svg
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/components/settings/flags/flags.scss b/node_modules/@enso-ui/ui/src/bulma/components/settings/flags/flags.scss
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/layouts/Auth.vue b/node_modules/@enso-ui/ui/src/bulma/layouts/Auth.vue
-old mode 100644
-new mode 100755
+index 0c83526..3fdaa3c 100644
+--- a/node_modules/@enso-ui/ui/src/bulma/components/navbar/io/Operation.vue
++++ b/node_modules/@enso-ui/ui/src/bulma/components/navbar/io/Operation.vue
+@@ -1,18 +1,14 @@
+ <template>
+     <core-operation v-bind="$attrs">
+-        <template v-slot:default="{ operation, since, isIn, avatar }">
++        <template v-slot:default="{ operation, since, isIn }">
+             <div class="navbar-content">
+                 <div class="is-operation">
+                     <div class="level is-marginless">
+                         <div class="level-left">
+                             <div class="level-item">
+-                                <figure v-tooltip.left-start="operation.owner.name"
+-                                    class="media">
+-                                    <p class="image is-16x16">
+-                                        <img class="is-rounded"
+-                                            :src="avatar(operation.owner)">
+-                                    </p>
+-                                </figure>
++                                <avatar v-tooltip.left-start="operation.owner.name"
++                                    class="media  is-16x16"
++                                    :user="operation.owner"/>
+                                 <span v-tooltip.left-start="
+                                         `${i18n('file')}: ${operation.name}, ${i18n('elapsed time')}: ${since(operation.since)}`
+                                     "
+@@ -50,6 +46,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
+ import { faDatabase, faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
+ import { VTooltip } from 'v-tooltip';
+ import CoreOperation from '../../../../core/components/navbar/io/Operation.vue';
++import Avatar from '../../../pages/administration/users/components/Avatar.vue';
+ 
+ library.add(faDatabase, faCaretLeft, faCaretRight);
+ 
+@@ -58,7 +55,7 @@ export default {
+ 
+     directives: { tooltip: VTooltip },
+ 
+-    components: { CoreOperation },
++    components: { CoreOperation, Avatar },
+ 
+     inject: ['i18n'],
+ };
 diff --git a/node_modules/@enso-ui/ui/src/bulma/layouts/Default.vue b/node_modules/@enso-ui/ui/src/bulma/layouts/Default.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/layouts/Home.vue b/node_modules/@enso-ui/ui/src/bulma/layouts/Home.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/MainRouter.vue b/node_modules/@enso-ui/ui/src/bulma/pages/MainRouter.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/NotFound.vue b/node_modules/@enso-ui/ui/src/bulma/pages/NotFound.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/Router.vue b/node_modules/@enso-ui/ui/src/bulma/pages/Router.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/Unauthorized.vue b/node_modules/@enso-ui/ui/src/bulma/pages/Unauthorized.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/administration/userGroups/Create.vue b/node_modules/@enso-ui/ui/src/bulma/pages/administration/userGroups/Create.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/administration/userGroups/Edit.vue b/node_modules/@enso-ui/ui/src/bulma/pages/administration/userGroups/Edit.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/administration/userGroups/Index.vue b/node_modules/@enso-ui/ui/src/bulma/pages/administration/userGroups/Index.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/Create.vue b/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/Create.vue
-old mode 100644
-new mode 100755
+index e16415c..d785a50 100644
+--- a/node_modules/@enso-ui/ui/src/bulma/layouts/Default.vue
++++ b/node_modules/@enso-ui/ui/src/bulma/layouts/Default.vue
+@@ -5,7 +5,7 @@
+         }">
+         <div class="app-main"
+             :class="{ 'lights-off': lightsOff }">
+-            <navbar class="animated slideInDown"/>
++            <navbar-refresh/>
+             <slide-down>
+                 <bookmarks :class="[
+                         { 'with-sidebar': sidebar.isVisible },
+@@ -41,7 +41,7 @@
+ import { SlideDown, HorizontalSlide } from '@enso-ui/transitions';
+ import ScrollToTop from '@enso-ui/scroll-to-top/bulma';
+ import CoreDefault from '../../core/layouts/Default.vue';
+-import Navbar from '../components/navbar/Navbar.vue';
++import NavbarRefresh from '../components/navbar/NavbarRefresh.vue';
+ import Sidebar from '../components/menu/Sidebar.vue';
+ import Settings from '../components/settings/Settings.vue';
+ import AppFooter from '../components/AppFooter.vue';
+@@ -56,7 +56,7 @@ export default {
+         CoreDefault,
+         SlideDown,
+         HorizontalSlide,
+-        Navbar,
++        NavbarRefresh,
+         Sidebar,
+         Settings,
+         ScrollToTop,
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/Edit.vue b/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/Edit.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/Index.vue b/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/Index.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/Show.vue b/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/Show.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/components/Avatar.vue b/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/components/Avatar.vue
-old mode 100644
-new mode 100755
+index 6c8c3ec..1ad5c06 100644
+--- a/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/Edit.vue
++++ b/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/Edit.vue
+@@ -63,33 +63,51 @@
+                             <span class="is-hidden-mobile"/>
+                         </a>
+                     </div>
++                    <div class="level-item"
++                        v-if="canAccess('administration.users.token')">
++                        <a class="button is-link"
++                           @click="generateToken"
++                           v-if="ready">
++                            <span class="is-hidden-mobile">
++                                {{ i18n('Generate Token') }}
++                            </span>
++                            <span class="icon">
++                                <fa icon="key"/>
++                            </span>
++                            <span class="is-hidden-mobile"/>
++                        </a>
++                    </div>
+                 </template>
+             </enso-form>
+             <delete-modal :user-id="deletableUser"
+                 @close="deletableUser = null"
+                 @destroyed="navigateToIndex"
+                 v-if="!!deletableUser"/>
++            <url :show="token !== ''"
++                :link="token"
++                @close="token = ''"/>
+         </div>
+     </div>
+ </template>
+ 
+ <script>
+ import { library } from '@fortawesome/fontawesome-svg-core';
+-import { faUserTie, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
++import { faUserTie, faTrashAlt, faKey } from '@fortawesome/free-solid-svg-icons';
+ import { EnsoForm, FormField } from '@enso-ui/forms/bulma';
++import Url from '@enso-ui/files/src/bulma/pages/files/components/Url.vue'; // TODO:: refactor to a package
+ import PasswordStrength from '../../auth/components/PasswordStrength.vue';
+ import DeleteModal from './components/DeleteModal.vue';
+ 
+-library.add(faUserTie, faTrashAlt);
++library.add(faUserTie, faTrashAlt, faKey);
+ 
+ export default {
+     name: 'Edit',
+ 
+     components: {
+-        EnsoForm, FormField, PasswordStrength, DeleteModal,
++        EnsoForm, FormField, PasswordStrength, DeleteModal, Url,
+     },
+ 
+-    inject: ['i18n', 'canAccess'],
++    inject: ['i18n', 'canAccess', 'route'],
+ 
+     data: () => ({
+         deletableUser: null,
+@@ -97,6 +115,7 @@ export default {
+         pivotParams: { userGroups: { id: null } },
+         password: null,
+         passwordConfirmation: null,
++        token: '',
+     }),
+ 
+     methods: {
+@@ -109,6 +128,10 @@ export default {
+                 });
+             });
+         },
++        generateToken() {
++            axios.post(this.route('administration.users.token', this.$route.params))
++                .then(({ data }) => (this.token = data.token));
++        },
+     },
+ };
+ </script>
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/components/DeleteModal.vue b/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/components/DeleteModal.vue
-old mode 100644
-new mode 100755
+index 9bd6ddd..a3b520e 100644
+--- a/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/components/DeleteModal.vue
++++ b/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/components/DeleteModal.vue
+@@ -1,6 +1,5 @@
+ <template>
+-    <modal show
+-        v-on="$listeners">
++    <modal v-on="$listeners">
+         <div class="box">
+             <h5 class="subtitle is-5">
+                 {{ i18n("The selected user is about to be deleted. Are you sure?") }}
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/components/UserProfile.vue b/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/components/UserProfile.vue
-old mode 100644
-new mode 100755
+index 0924523..1cb7721 100644
+--- a/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/components/UserProfile.vue
++++ b/node_modules/@enso-ui/ui/src/bulma/pages/administration/users/components/UserProfile.vue
+@@ -62,7 +62,8 @@
+                             <a class="button is-fullwidth is-warning"
+                                 @click="$root.$emit('start-impersonating', profile.id)"
+                                 v-if="
+-                                    !isSelfVisiting
++                                    !isWebview
++                                    && !isSelfVisiting
+                                     && canAccess('core.impersonate.start')
+                                     && !impersonating
+                                 ">
+@@ -180,9 +181,8 @@
+     </div>
+ </template>
+ 
+-
+ <script>
+-import { mapState, mapMutations, mapActions } from 'vuex';
++import { mapState, mapMutations, mapActions, mapGetters } from 'vuex';
+ import { library } from '@fortawesome/fontawesome-svg-core';
+ import {
+     faUser, faSyncAlt, faTrashAlt, faUpload, faSignOutAlt, faPencilAlt,
+@@ -208,6 +208,7 @@ export default {
+         ...mapState(['user', 'meta', 'enums', 'impersonating']),
+         ...mapState('auth', ['isAuth']),
+         ...mapState('layout', ['isMobile']),
++        ...mapGetters(['isWebview']),
+         isSelfVisiting() {
+             return this.user.id === this.profile.id;
+         },
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/auth/Login.vue b/node_modules/@enso-ui/ui/src/bulma/pages/auth/Login.vue
-old mode 100644
-new mode 100755
+index f53508c..3bd52c2 100644
+--- a/node_modules/@enso-ui/ui/src/bulma/pages/auth/Login.vue
++++ b/node_modules/@enso-ui/ui/src/bulma/pages/auth/Login.vue
+@@ -24,7 +24,11 @@ export default {
+         ...mapMutations(['setShowQuote', 'setCsrfToken']),
+         init(data) {
+             this.setShowQuote(this.meta.showQuote);
+-            this.setCsrfToken(data.csrfToken);
++
++            if (data.csrfToken) {
++                this.setCsrfToken(data.csrfToken);
++            }
++
+             setTimeout(() => {
+                 this.login();
+                 this.home(true);
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/auth/Register.vue b/node_modules/@enso-ui/ui/src/bulma/pages/auth/Register.vue
 new file mode 100755
 index 0000000..aa296ae
@@ -343,12 +442,45 @@ index 0000000..ba084e6
 +    };
 +    </script>
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/AuthForm.vue b/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/AuthForm.vue
-old mode 100644
-new mode 100755
-index 8e4e7b1..ed53df4
+index 12bf71d..709260d 100644
 --- a/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/AuthForm.vue
 +++ b/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/AuthForm.vue
-@@ -117,6 +117,11 @@
+@@ -7,6 +7,7 @@
+                     <img src="/images/logo.svg">
+                 </figure>
+                 {{ meta.appName }}
++                <span v-if="isWebview"> Mobile</span>
+             </h3>
+             <form class="has-margin-bottom-medium"
+                 @submit.prevent="submit()">
+@@ -49,7 +50,7 @@
+                         </span>
+                         <reveal-password :meta="passwordMeta"
+                             :class="{ 'is-spaced': isSuccessful || errors.has('password') }"
+-                            v-if="password"/>
++                            v-if="password && !isSuccessful"/>
+                         <span v-if="isSuccessful"
+                             class="icon is-small is-right has-text-success">
+                             <fa icon="check"/>
+@@ -80,7 +81,7 @@
+                         </span>
+                         <reveal-password :meta="confirmationMeta"
+                             :class="{ 'is-spaced': match || isSuccessful || errors.has('password')}"
+-                            v-if="passwordConfirmation"/>
++                            v-if="passwordConfirmation && !isSuccessful"/>
+                         <span v-if="errors.has('password')"
+                             class="icon is-small is-right has-text-danger">
+                             <fa icon="exclamation-triangle"/>
+@@ -95,7 +96,7 @@
+                         {{ errors.get('password') }}
+                     </p>
+                 </div>
+-                <div v-if="isLogin" class="field">
++                <div v-if="isLogin && !isWebview" class="field">
+                     <div class="control">
+                         <label class="checkbox">
+                         <input v-model="remember"
+@@ -116,18 +117,54 @@
                      </button>
                  </div>
              </form>
@@ -360,9 +492,152 @@ index 8e4e7b1..ed53df4
              <router-link v-if="isLogin"
                  :to="{ name: 'password.email' }"
                  class="is-pulled-right">
-diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/PasswordStrength.vue b/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/PasswordStrength.vue
-old mode 100644
-new mode 100755
+                 {{ i18n('Forgot password') }}
+             </router-link>
++<div>
++<br />
++            <router-link v-if="isLogin"
++                         :to="{ name: 'about.index' }"
++                         class="is-pulled-left">
++                {{ i18n('About') }}&nbsp;
++            </router-link>
++            <router-link v-if="isLogin"
++                         :to="{ name: 'contact.index' }"
++                         class="is-pulled-right">
++                {{ i18n('Contact') }} &nbsp;
++            </router-link>
++</div>
++<br />
++<div>
++            <router-link v-if="isLogin"
++                         :to="{ name: 'privacy.index' }"
++                         class="is-pulled-left">
++                {{ i18n('Privacy Policy') }}	
++            </router-link>
++            <router-link v-if="isLogin"
++                         :to="{ name: 'termsandconditions.index' }"
++                         class="is-pulled-right">
++                {{ i18n('Terms and Conditions') }}
++            </router-link>
++</div>
++<br /><br /><br />
++<div>
++Copyright 2020 Genealogia Ltd. International House, 12 Constance Street
++London, E16 2DQ. Company Number: 12734769
++</div>
+             <div class="is-clearfix"/>
+         </div>
+     </div>
+ </template>
+ 
+ <script>
+-import { mapState } from 'vuex';
++import { mapState, mapGetters } from 'vuex';
+ import { library } from '@fortawesome/fontawesome-svg-core';
+ import {
+     faEnvelope, faCheck, faExclamationTriangle, faLock, faUser,
+@@ -150,25 +187,26 @@ export default {
+     inject: {
+         i18n: { from: 'i18n' },
+         routeResolver: { from: 'route' },
++        toastr: { from: 'toastr' },
+     },
+ 
+     props: {
+         action: {
+             required: true,
+-            type: String
++            type: String,
+         },
+         isLogin: {
+             default: false,
+-            type: Boolean
++            type: Boolean,
+         },
+         isReset: {
+             default: false,
+-            type: Boolean
++            type: Boolean,
+         },
+         route: {
+             required: true,
+-            type: String
+-        }
++            type: String,
++        },
+     },
+ 
+     data: () => ({
+@@ -189,6 +227,7 @@ export default {
+ 
+     computed: {
+         ...mapState(['meta']),
++        ...mapGetters(['isWebview']),
+         token() {
+             return this.isReset
+                 ? this.$route.params.token
+@@ -212,13 +251,23 @@ export default {
+         },
+         loginParams() {
+             const { email, password, remember } = this;
++            const params = { email, password, remember };
+ 
+-            return { email, password, remember };
++            return this.isWebview
++                ? { ...params, device_name: 'mobile_app' }
++                : params;
++        },
++        config() {
++            return this.isWebview
++                ? { headers: { webview: this.isWebview } }
++                : {};
+         },
+         resetParams() {
+             const { email, password, token } = this;
+ 
+-            return { email, password, password_confirmation: this.passwordConfirmation, token };
++            return {
++                email, password, password_confirmation: this.passwordConfirmation, token,
++            };
+         },
+     },
+ 
+@@ -227,25 +276,25 @@ export default {
+             this.loading = true;
+             this.isSuccessful = false;
+ 
+-            axios.post(this.routeResolver(this.route), this.postParams)
++            axios.post(this.routeResolver(this.route), this.postParams, this.config)
+                 .then(({ data }) => {
+                     this.loading = false;
+                     this.isSuccessful = true;
+                     this.$emit('success', data);
+-                }).catch((error) => {
++                }).catch(error => {
+                     this.loading = false;
+ 
+                     const { status, data } = error.response;
+ 
+                     switch (status) {
+-                        case 422:
+-                            this.errors.set(data.errors);
+-                            break;
+-                        case 429:
+-                            this.$toastr.error(data.message);
+-                            break;
+-                        default:
+-                            throw error;
++                    case 422:
++                        this.errors.set(data.errors);
++                        break;
++                    case 429:
++                        this.toastr.error(data.message);
++                        break;
++                    default:
++                        throw error;
+                     }
+                 });
+         },
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/RegisterForm.vue b/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/RegisterForm.vue
 new file mode 100755
 index 0000000..6784dd1
@@ -843,56 +1118,75 @@ index 0000000..e9b04f1
 +    },
 +}];
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/auth/password/Email.vue b/node_modules/@enso-ui/ui/src/bulma/pages/auth/password/Email.vue
-old mode 100644
-new mode 100755
+index accb7e6..147506e 100644
+--- a/node_modules/@enso-ui/ui/src/bulma/pages/auth/password/Email.vue
++++ b/node_modules/@enso-ui/ui/src/bulma/pages/auth/password/Email.vue
+@@ -1,7 +1,7 @@
+ <template>
+     <auth-form action="Send a reset password link"
+         route="password.email"
+-        @success="$toastr.success($event.status)"/>
++        @success="toastr.success($event.status)"/>
+ </template>
+ 
+ <script>
+@@ -11,5 +11,7 @@ export default {
+     name: 'Email',
+ 
+     components: { AuthForm },
++
++    inject: ['toastr'],
+ };
+ </script>
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/auth/password/Reset.vue b/node_modules/@enso-ui/ui/src/bulma/pages/auth/password/Reset.vue
-old mode 100644
-new mode 100755
+index 6228520..20c22ca 100644
+--- a/node_modules/@enso-ui/ui/src/bulma/pages/auth/password/Reset.vue
++++ b/node_modules/@enso-ui/ui/src/bulma/pages/auth/password/Reset.vue
+@@ -20,9 +20,11 @@ export default {
+ 
+     components: { AuthForm, PasswordStrength },
+ 
++    inject: ['toastr'],
++
+     methods: {
+         success({ status }) {
+-            this.$toastr.success(status);
++            this.toastr.success(status);
+             setTimeout(() => this.$router.push({ name: 'login' }), 350);
+         },
+     },
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/notifications/Index.vue b/node_modules/@enso-ui/ui/src/bulma/pages/notifications/Index.vue
-old mode 100644
-new mode 100755
+index 9a2f6e5..c2e082a 100644
+--- a/node_modules/@enso-ui/ui/src/bulma/pages/notifications/Index.vue
++++ b/node_modules/@enso-ui/ui/src/bulma/pages/notifications/Index.vue
+@@ -140,7 +140,7 @@ export default {
+                 .catch(this.errorHandler);
+         },
+         updateAll() {
+-            this.notifications.forEach((notification) => {
++            this.notifications.forEach(notification => {
+                 notification.read_at = notification.read_at || format(new Date(), 'Y-MM-DD H:mm:s');
+             });
+ 
 diff --git a/node_modules/@enso-ui/ui/src/bulma/routes.js b/node_modules/@enso-ui/ui/src/bulma/routes.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/administration.js b/node_modules/@enso-ui/ui/src/bulma/routes/administration.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/administration/userGroups.js b/node_modules/@enso-ui/ui/src/bulma/routes/administration/userGroups.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/administration/userGroups/create.js b/node_modules/@enso-ui/ui/src/bulma/routes/administration/userGroups/create.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/administration/userGroups/edit.js b/node_modules/@enso-ui/ui/src/bulma/routes/administration/userGroups/edit.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/administration/userGroups/index.js b/node_modules/@enso-ui/ui/src/bulma/routes/administration/userGroups/index.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/administration/users.js b/node_modules/@enso-ui/ui/src/bulma/routes/administration/users.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/administration/users/create.js b/node_modules/@enso-ui/ui/src/bulma/routes/administration/users/create.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/administration/users/edit.js b/node_modules/@enso-ui/ui/src/bulma/routes/administration/users/edit.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/administration/users/index.js b/node_modules/@enso-ui/ui/src/bulma/routes/administration/users/index.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/administration/users/show.js b/node_modules/@enso-ui/ui/src/bulma/routes/administration/users/show.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/auth.js b/node_modules/@enso-ui/ui/src/bulma/routes/auth.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/notFound.js b/node_modules/@enso-ui/ui/src/bulma/routes/notFound.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/notifications.js b/node_modules/@enso-ui/ui/src/bulma/routes/notifications.js
-old mode 100644
-new mode 100755
+index 0f23938..335a0e5 100644
+--- a/node_modules/@enso-ui/ui/src/bulma/routes.js
++++ b/node_modules/@enso-ui/ui/src/bulma/routes.js
+@@ -7,14 +7,11 @@ const routes = routeImporter(require.context('./routes', false, /.*\.js$/));
+     .add(routeImporter(require.context('@enso-ui/companies/src/bulma/routes', false, /.*\.js$/)))
+     .add(routeImporter(require.context('@enso-ui/data-import/src/bulma/routes', false, /.*\.js$/)))
+     .add(routeImporter(require.context('@enso-ui/files/src/bulma/routes', false, /.*\.js$/)))
+-    .add(routeImporter(require.context('@enso-ui/how-to/src/bulma/routes', false, /.*\.js$/)))
+     .add(routeImporter(require.context('@enso-ui/localisation/src/bulma/routes', false, /.*\.js$/)))
+     .add(routeImporter(require.context('@enso-ui/menus/src/bulma/routes', false, /.*\.js$/)))
+     .add(routeImporter(require.context('@enso-ui/people/src/bulma/routes', false, /.*\.js$/)))
+     .add(routeImporter(require.context('@enso-ui/permissions/src/bulma/routes', false, /.*\.js$/)))
+     .add(routeImporter(require.context('@enso-ui/roles/src/bulma/routes', false, /.*\.js$/)))
+     .add(routeImporter(require.context('@enso-ui/teams/src/bulma/routes', false, /.*\.js$/)))
+-    .add(routeImporter(require.context('@enso-ui/tutorials/src/bulma/routes', false, /.*\.js$/)))
+     .add(routeImporter(require.context('@enso-ui/logs/src/bulma/routes', false, /.*\.js$/)))
+-    .add(routeImporter(require.context('@enso-ui/activity-log/src/bulma/routes', false, /.*\.js$/)));
+ export default routes;
 diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/register.js b/node_modules/@enso-ui/ui/src/bulma/routes/register.js
 new file mode 100755
 index 0000000..8c9ba1f
@@ -921,12 +1215,6 @@ index 0000000..8c9ba1f
 +                title: 'Register',
 +            },
 +}];
-diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/system.js b/node_modules/@enso-ui/ui/src/bulma/routes/system.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/unauthorized.js b/node_modules/@enso-ui/ui/src/bulma/routes/unauthorized.js
-old mode 100644
-new mode 100755
 diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/verify.js b/node_modules/@enso-ui/ui/src/bulma/routes/verify.js
 new file mode 100755
 index 0000000..84d71c8
@@ -956,200 +1244,522 @@ index 0000000..84d71c8
 +            },
 +}];
 diff --git a/node_modules/@enso-ui/ui/src/core/App.vue b/node_modules/@enso-ui/ui/src/core/App.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/components/AppFooter.vue b/node_modules/@enso-ui/ui/src/core/components/AppFooter.vue
-old mode 100644
-new mode 100755
+index d5e52c1..1d735c9 100644
+--- a/node_modules/@enso-ui/ui/src/core/App.vue
++++ b/node_modules/@enso-ui/ui/src/core/App.vue
+@@ -1,15 +1,18 @@
+ <script>
+ import { mapState, mapActions, mapGetters } from 'vuex';
+-import { canAccess, errorHandler, i18n } from '@enso-ui/mixins';
++import { canAccess, errorHandler } from '@enso-ui/mixins';
+ import RouteMapper from '@enso-ui/route-mapper';
++import toastr from '@enso-ui/toastr';
++import i18n from '../modules/plugins/i18n';
+ 
+ export default {
+     name: 'CoreApp',
+ 
+-    mixins: [canAccess, errorHandler, i18n],
++    mixins: [canAccess, errorHandler],
+ 
+     data: () => ({
+         routeMapper: null,
++        toastr,
+     }),
+ 
+     computed: {
+@@ -35,6 +38,9 @@ export default {
+ 
+     methods: {
+         ...mapActions('layout', ['loadTheme']),
++        i18n(key, params = null) {
++            return i18n(key, params);
++        },
+         route(name, params, absolute) {
+             return this.routeMapper.get(name, params, absolute);
+         },
+@@ -46,6 +52,7 @@ export default {
+             errorHandler: this.errorHandler,
+             i18n: this.i18n,
+             route: this.route,
++            toastr: this.toastr,
+         };
+     },
+ 
 diff --git a/node_modules/@enso-ui/ui/src/core/components/Bookmarks.vue b/node_modules/@enso-ui/ui/src/core/components/Bookmarks.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/components/Breadcrumbs.vue b/node_modules/@enso-ui/ui/src/core/components/Breadcrumbs.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/components/DocumentTitle.vue b/node_modules/@enso-ui/ui/src/core/components/DocumentTitle.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/components/Loader.vue b/node_modules/@enso-ui/ui/src/core/components/Loader.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/components/PageHeader.vue b/node_modules/@enso-ui/ui/src/core/components/PageHeader.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/components/menu/MenuItem.vue b/node_modules/@enso-ui/ui/src/core/components/menu/MenuItem.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/components/menu/Menus.vue b/node_modules/@enso-ui/ui/src/core/components/menu/Menus.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/components/menu/Sidebar.vue b/node_modules/@enso-ui/ui/src/core/components/menu/Sidebar.vue
-old mode 100644
-new mode 100755
+index 8bf805c..f8a4927 100644
+--- a/node_modules/@enso-ui/ui/src/core/components/Bookmarks.vue
++++ b/node_modules/@enso-ui/ui/src/core/components/Bookmarks.vue
+@@ -111,7 +111,7 @@ export default {
+             stickBindings: bookmark => ({
+                 click: () => this.stick(bookmark),
+             }),
+-            bookmarkBindings: (bookmark) => {
++            bookmarkBindings: bookmark => {
+                 this.uniqueId(bookmark);
+             },
+             removeBindings: bookmark => ({
 diff --git a/node_modules/@enso-ui/ui/src/core/components/navbar/IO.vue b/node_modules/@enso-ui/ui/src/core/components/navbar/IO.vue
-old mode 100644
-new mode 100755
+index 43e9741..607a57a 100644
+--- a/node_modules/@enso-ui/ui/src/core/components/navbar/IO.vue
++++ b/node_modules/@enso-ui/ui/src/core/components/navbar/IO.vue
+@@ -1,6 +1,5 @@
+ <script>
+-import { mapState, mapMutations, mapGetters } from 'vuex';
+-import Pusher from 'pusher-js'; //TODO remove?
++import { mapState, mapGetters, mapActions } from 'vuex';
+ 
+ export default {
+     name: 'IO',
+@@ -26,7 +25,7 @@ export default {
+     },
+ 
+     methods: {
+-        ...mapMutations('websockets', ['connect']),
++        ...mapActions('websockets', ['connect']),
+         listen() {
+             window.Echo.private(this.ioChannel)
+                 .listen('.io-started', ({ operation }) => {
 diff --git a/node_modules/@enso-ui/ui/src/core/components/navbar/MissingKeys.vue b/node_modules/@enso-ui/ui/src/core/components/navbar/MissingKeys.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/components/navbar/Navbar.vue b/node_modules/@enso-ui/ui/src/core/components/navbar/Navbar.vue
-old mode 100644
-new mode 100755
+index ebc0cce..449a73f 100644
+--- a/node_modules/@enso-ui/ui/src/core/components/navbar/MissingKeys.vue
++++ b/node_modules/@enso-ui/ui/src/core/components/navbar/MissingKeys.vue
+@@ -4,7 +4,7 @@ import { mapState, mapMutations } from 'vuex';
+ export default {
+     name: 'MissingKeys',
+ 
+-    inject: ['errorHandler', 'route'],
++    inject: ['errorHandler', 'route', 'toastr'],
+ 
+     data: () => ({
+         hover: false,
+@@ -30,7 +30,7 @@ export default {
+             ).then(({ data }) => {
+                 this.missingKeys.forEach(key => this.addKey(key));
+                 this.clearMissingKeys();
+-                this.$toastr.success(data.message);
++                this.toastr.success(data.message);
+             }).catch(this.errorHandler);
+         },
+     },
 diff --git a/node_modules/@enso-ui/ui/src/core/components/navbar/Notifications.vue b/node_modules/@enso-ui/ui/src/core/components/navbar/Notifications.vue
-old mode 100644
-new mode 100755
+index 1e7dcb3..48b7a00 100644
+--- a/node_modules/@enso-ui/ui/src/core/components/navbar/Notifications.vue
++++ b/node_modules/@enso-ui/ui/src/core/components/navbar/Notifications.vue
+@@ -1,8 +1,8 @@
+ <script>
+ import debounce from 'lodash/debounce';
+-import { mapState, mapMutations, mapGetters } from 'vuex';
+-import Pusher from 'pusher-js';
+-import Echo from 'laravel-echo';
++import {
++    mapState, mapGetters, mapActions,
++} from 'vuex';
+ import Favico from 'favico.js';
+ import format from '../../../modules/plugins/date-fns/format';
+ import formatDistance from '../../../modules/plugins/date-fns/formatDistance';
+@@ -10,7 +10,7 @@ import formatDistance from '../../../modules/plugins/date-fns/formatDistance';
+ export default {
+     name: 'Notifications',
+ 
+-    inject: ['errorHandler', 'route'],
++    inject: ['errorHandler', 'route', 'toastr'],
+ 
+     props: {
+         favicoAnimation: {
+@@ -38,6 +38,7 @@ export default {
+ 
+     computed: {
+         ...mapGetters('websockets', ['privateChannel']),
++        ...mapGetters(['isWebview']),
+         ...mapState(['user']),
+         ...mapState('layout', ['isTouch']),
+     },
+@@ -58,7 +59,7 @@ export default {
+     },
+ 
+     methods: {
+-        ...mapMutations('websockets', ['connect']),
++        ...mapActions('websockets', ['connect']),
+         toggle() {
+             this.visible = !this.visible;
+ 
+@@ -131,23 +132,15 @@ export default {
+             });
+         },
+         listen() {
+-            window.Echo.private(this.privateChannel).notification(({
+-                level, body, title, icon,
+-            }) => {
++            window.Echo.private(this.privateChannel).notification(notification => {
+                 this.unread++;
+                 this.needsUpdate = true;
+                 this.offset = 0;
+ 
+-                if (document.hidden && this.desktopNotifications) {
+-                    const notification = new Notification(title, { body });
+-                    notification.onclick = () => (window.focus());
+-                    window.navigator.vibrate(500);
+-                    return;
+-                }
++                this.toast(notification);
+ 
+-                this.$toastr.when(title, toastr => toastr.title(title))
+-                    .when(icon, toastr => toastr.icon(icon))
+-                    .when(level, toastr => toastr[level](body), toastr => toastr.info(body));
++                return this.webview(notification)
++                    || this.desktop(notification);
+             });
+         },
+         computeScrollPosition(event) {
+@@ -196,6 +189,37 @@ export default {
+         now() {
+             return format(new Date());
+         },
++        webview({ body, title }) {
++            if (this.isWebview) {
++                ReactNativeWebView.postMessage(JSON.stringify({
++                    title,
++                    body,
++                    type: 'notification',
++                }));
++
++                return true;
++            }
++
++            return false;
++        },
++        desktop({ body, title }) {
++            if (document.hidden && this.desktopNotifications) {
++                const notification = new Notification(title, { body });
++                notification.onclick = () => (window.focus());
++                window.navigator.vibrate(500);
++
++                return true;
++            }
++
++            return false;
++        },
++        toast({
++            level, body, title, icon,
++        }) {
++            this.toastr.when(title, toastr => toastr.title(title))
++                .when(icon, toastr => toastr.icon(icon))
++                .when(level, toastr => toastr[level](body), toastr => toastr.info(body));
++        },
+     },
+ 
+     render() {
 diff --git a/node_modules/@enso-ui/ui/src/core/components/navbar/ProfileControl.vue b/node_modules/@enso-ui/ui/src/core/components/navbar/ProfileControl.vue
-old mode 100644
-new mode 100755
+index 4a4795a..36286a5 100644
+--- a/node_modules/@enso-ui/ui/src/core/components/navbar/ProfileControl.vue
++++ b/node_modules/@enso-ui/ui/src/core/components/navbar/ProfileControl.vue
+@@ -1,5 +1,5 @@
+ <script>
+-import { mapState, mapGetters } from 'vuex';
++import { mapState } from 'vuex';
+ 
+ export default {
+     name: 'CoreProfileControl',
 diff --git a/node_modules/@enso-ui/ui/src/core/components/navbar/Search.vue b/node_modules/@enso-ui/ui/src/core/components/navbar/Search.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/components/navbar/SettingsControl.vue b/node_modules/@enso-ui/ui/src/core/components/navbar/SettingsControl.vue
-old mode 100644
-new mode 100755
+index b302845..3c496b8 100644
+--- a/node_modules/@enso-ui/ui/src/core/components/navbar/Search.vue
++++ b/node_modules/@enso-ui/ui/src/core/components/navbar/Search.vue
+@@ -103,7 +103,6 @@ export default {
+         },
+         addShortcut() {
+             document.addEventListener('keydown', this.keyDown);
+-            const input = this.$el.querySelector('input');
+ 
+             this.$once('hook:destroyed', () => {
+                 document.removeEventListener('keydown', this.keyDown);
+@@ -121,7 +120,10 @@ export default {
+                 errorHandler: this.errorHandler,
+             },
+             controlEvents: {
+-                click: this.showSearch,
++                click: e => {
++                    this.showSearch();
++                    e.stopPropagation();
++                },
+             },
+             events: {
+                 selected: this.redirect,
 diff --git a/node_modules/@enso-ui/ui/src/core/components/navbar/io/Operation.vue b/node_modules/@enso-ui/ui/src/core/components/navbar/io/Operation.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/components/settings/BookmarksState.vue b/node_modules/@enso-ui/ui/src/core/components/settings/BookmarksState.vue
-old mode 100644
-new mode 100755
+index 5a1404f..3912855 100644
+--- a/node_modules/@enso-ui/ui/src/core/components/navbar/io/Operation.vue
++++ b/node_modules/@enso-ui/ui/src/core/components/navbar/io/Operation.vue
+@@ -28,9 +28,6 @@ export default {
+     },
+ 
+     methods: {
+-        avatar({ avatarId }) {
+-            return this.route('core.avatars.show', avatarId);
+-        },
+         since(since) {
+             return formatDistance(since);
+         },
+@@ -41,7 +38,6 @@ export default {
+             operation: this.operation,
+             since: this.since,
+             isIn: this.isIn,
+-            avatar: this.avatar,
+         });
+     },
+ };
 diff --git a/node_modules/@enso-ui/ui/src/core/components/settings/KeyCollector.vue b/node_modules/@enso-ui/ui/src/core/components/settings/KeyCollector.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/components/settings/LanguageSelector.vue b/node_modules/@enso-ui/ui/src/core/components/settings/LanguageSelector.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/components/settings/MenuOrganizer.vue b/node_modules/@enso-ui/ui/src/core/components/settings/MenuOrganizer.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/components/settings/Settings.vue b/node_modules/@enso-ui/ui/src/core/components/settings/Settings.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/components/settings/SidebarState.vue b/node_modules/@enso-ui/ui/src/core/components/settings/SidebarState.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/components/settings/ThemeSelector.vue b/node_modules/@enso-ui/ui/src/core/components/settings/ThemeSelector.vue
-old mode 100644
-new mode 100755
+index 3449c5b..240af9a 100644
+--- a/node_modules/@enso-ui/ui/src/core/components/settings/KeyCollector.vue
++++ b/node_modules/@enso-ui/ui/src/core/components/settings/KeyCollector.vue
+@@ -18,7 +18,7 @@ export default {
+                 value: this.collect,
+             },
+             events: {
+-                input: (state) => {
++                input: state => {
+                     this.collect = state;
+                     this.setKeyCollector(state);
+                 },
 diff --git a/node_modules/@enso-ui/ui/src/core/components/settings/ToastrPosition.vue b/node_modules/@enso-ui/ui/src/core/components/settings/ToastrPosition.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/components/settings/Tutorial.vue b/node_modules/@enso-ui/ui/src/core/components/settings/Tutorial.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/layouts/Auth.vue b/node_modules/@enso-ui/ui/src/core/layouts/Auth.vue
-old mode 100644
-new mode 100755
+index e5bd84b..dc3d991 100644
+--- a/node_modules/@enso-ui/ui/src/core/components/settings/ToastrPosition.vue
++++ b/node_modules/@enso-ui/ui/src/core/components/settings/ToastrPosition.vue
+@@ -5,6 +5,8 @@ import { positions } from '@enso-ui/toastr/config';
+ export default {
+     name: 'ToastrPosition',
+ 
++    inject: ['toastr'],
++
+     data: () => ({
+         positions,
+     }),
+@@ -15,7 +17,8 @@ export default {
+ 
+     created() {
+         if (this.toastrPosition) {
+-            this.$toastr.position(this.toastrPosition);
++            this.toastr.defaults({ position: this.toastrPosition }).reset();
++            this.$toastr.defaults({ position: this.toastrPosition }).reset();
+         }
+     },
+ 
+@@ -23,7 +26,8 @@ export default {
+         ...mapActions('preferences', ['setToastrPosition']),
+         update(position) {
+             this.setToastrPosition(position);
+-            this.$toastr.position(this.toastrPosition);
++            this.toastr.defaults({ position }).reset();
++            this.$toastr.defaults({ position }).reset();
+         },
+     },
+ 
 diff --git a/node_modules/@enso-ui/ui/src/core/layouts/Default.vue b/node_modules/@enso-ui/ui/src/core/layouts/Default.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/core/layouts/Home.vue b/node_modules/@enso-ui/ui/src/core/layouts/Home.vue
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/middleware/before.js b/node_modules/@enso-ui/ui/src/middleware/before.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/middleware/before/allow.js b/node_modules/@enso-ui/ui/src/middleware/before/allow.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/middleware/before/auth.js b/node_modules/@enso-ui/ui/src/middleware/before/auth.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/middleware/before/guest.js b/node_modules/@enso-ui/ui/src/middleware/before/guest.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/filters/index.js b/node_modules/@enso-ui/ui/src/modules/filters/index.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/filters/numberFormat.js b/node_modules/@enso-ui/ui/src/modules/filters/numberFormat.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/filters/shortNumber.js b/node_modules/@enso-ui/ui/src/modules/filters/shortNumber.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/importers/RouteMerger.js b/node_modules/@enso-ui/ui/src/modules/importers/RouteMerger.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/importers/routeImporter.js b/node_modules/@enso-ui/ui/src/modules/importers/routeImporter.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/importers/storeImporter.js b/node_modules/@enso-ui/ui/src/modules/importers/storeImporter.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/importers/themeImporter.js b/node_modules/@enso-ui/ui/src/modules/importers/themeImporter.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/index.js b/node_modules/@enso-ui/ui/src/modules/index.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/plugins/axios.js b/node_modules/@enso-ui/ui/src/modules/plugins/axios.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/plugins/bookmarkHelpers.js b/node_modules/@enso-ui/ui/src/modules/plugins/bookmarkHelpers.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/plugins/bootEnums.js b/node_modules/@enso-ui/ui/src/modules/plugins/bootEnums.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/plugins/date-fns/format.js b/node_modules/@enso-ui/ui/src/modules/plugins/date-fns/format.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/plugins/date-fns/formatDistance.js b/node_modules/@enso-ui/ui/src/modules/plugins/date-fns/formatDistance.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/plugins/date-fns/i18n.js b/node_modules/@enso-ui/ui/src/modules/plugins/date-fns/i18n.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/plugins/date-fns/unicode2php.js b/node_modules/@enso-ui/ui/src/modules/plugins/date-fns/unicode2php.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/plugins/fontawesome.js b/node_modules/@enso-ui/ui/src/modules/plugins/fontawesome.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/plugins/i18n.js b/node_modules/@enso-ui/ui/src/modules/plugins/i18n.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/plugins/index.js b/node_modules/@enso-ui/ui/src/modules/plugins/index.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/plugins/menuOrganizer.js b/node_modules/@enso-ui/ui/src/modules/plugins/menuOrganizer.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/plugins/route.js b/node_modules/@enso-ui/ui/src/modules/plugins/route.js
-old mode 100644
-new mode 100755
+index 92ef6c3..0be35b0 100644
+--- a/node_modules/@enso-ui/ui/src/core/layouts/Default.vue
++++ b/node_modules/@enso-ui/ui/src/core/layouts/Default.vue
+@@ -6,7 +6,7 @@ import {
+ export default {
+     name: 'Default',
+ 
+-    inject: ['errorHandler', 'route'],
++    inject: ['errorHandler', 'route', 'toastr'],
+ 
+     computed: {
+         ...mapState(['meta', 'appState']),
+@@ -75,14 +75,14 @@ export default {
+         startImpersonating(id) {
+             axios.get(this.route('core.impersonate.start', id))
+                 .then(({ data }) => {
+-                    this.$toastr.warning(data.message);
++                    this.toastr.warning(data.message);
+                     this.loadAppState();
+                 }).catch(this.errorHandler);
+         },
+         stopImpersonating() {
+             axios.get(this.route('core.impersonate.stop'))
+                 .then(({ data }) => {
+-                    this.$toastr.info(data.message);
++                    this.toastr.info(data.message);
+                     this.loadAppState();
+                 }).catch(this.errorHandler);
+         },
 diff --git a/node_modules/@enso-ui/ui/src/modules/plugins/toastr.js b/node_modules/@enso-ui/ui/src/modules/plugins/toastr.js
-old mode 100644
-new mode 100755
+index dc5f2d5..85339e8 100644
+--- a/node_modules/@enso-ui/ui/src/modules/plugins/toastr.js
++++ b/node_modules/@enso-ui/ui/src/modules/plugins/toastr.js
+@@ -1,10 +1,4 @@
+ import Vue from 'vue';
+-import Toastr from '@enso-ui/toastr/bulma';
+-import ToastrPlugin from '@enso-ui/toastr';
++import toastr from '@enso-ui/toastr';
+ 
+-Vue.use(ToastrPlugin, {
+-    layout: Toastr,
+-    options: {
+-        duration: 3500,
+-    },
+-});
++Vue.prototype.$toastr = toastr;
 diff --git a/node_modules/@enso-ui/ui/src/modules/store.js b/node_modules/@enso-ui/ui/src/modules/store.js
-old mode 100644
-new mode 100755
+index 4cfa90d..64a927d 100644
+--- a/node_modules/@enso-ui/ui/src/modules/store.js
++++ b/node_modules/@enso-ui/ui/src/modules/store.js
+@@ -1,6 +1,6 @@
+ import Vue from 'vue';
+ import { init as sentryInit } from '@sentry/browser';
+-import { Vue as sentryVue } from '@sentry/integrations';
++import { Vue as SentryVue } from '@sentry/integrations';
+ import router from '@root/router';
+ import localState from '@root/localState';
+ import storeImporter from './importers/storeImporter';
+@@ -24,6 +24,7 @@ const coreState = {
+ 
+ const coreGetters = {
+     routes: state => Object.keys(state.routes),
++    isWebview: () => typeof ReactNativeWebView !== 'undefined',
+     requests: state => state.requests.length,
+     requestIndex: state => ({ url, method }) => state.requests
+         .findIndex(request => method === request.method && url === request.url),
+@@ -58,9 +59,9 @@ const coreMutations = {
+ };
+ 
+ const coreActions = {
+-    setPageTitle({ commit }, { route, title }) {
++    setPageTitle({ commit }, title) {
+         commit('setPageTitle', title);
+-        commit('bookmarks/title', { route, title });
++        commit('bookmarks/title', title);
+     },
+     loadGuestState({ commit }) {
+         axios.get('/api/meta', {
+@@ -98,7 +99,7 @@ const coreActions = {
+             if (data.meta.sentryDsn) {
+                 sentryInit({
+                     dsn: data.meta.sentryDsn,
+-                    integrations: [new sentryVue({ Vue, logErrors: true })],
++                    integrations: [new SentryVue({ Vue, logErrors: true })],
+                 });
+             }
+ 
 diff --git a/node_modules/@enso-ui/ui/src/modules/store/auth.js b/node_modules/@enso-ui/ui/src/modules/store/auth.js
-old mode 100644
-new mode 100755
+index 02040ac..1f7e079 100644
+--- a/node_modules/@enso-ui/ui/src/modules/store/auth.js
++++ b/node_modules/@enso-ui/ui/src/modules/store/auth.js
+@@ -14,6 +14,7 @@ export const mutations = {
+     logout(state) {
+         state.isAuth = false;
+         localStorage.setItem('isAuth', false);
++        localStorage.removeItem('authorization');
+     },
+     setIntendedRoute: (state, value) => (state.intendedRoute = value),
+     setIntendedPath: (state, value) => (state.intendedPath = value),
 diff --git a/node_modules/@enso-ui/ui/src/modules/store/bookmarks.js b/node_modules/@enso-ui/ui/src/modules/store/bookmarks.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/store/layout.js b/node_modules/@enso-ui/ui/src/modules/store/layout.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/store/layout/search.js b/node_modules/@enso-ui/ui/src/modules/store/layout/search.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/store/layout/settings.js b/node_modules/@enso-ui/ui/src/modules/store/layout/settings.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/store/layout/sidebar.js b/node_modules/@enso-ui/ui/src/modules/store/layout/sidebar.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/store/localisation.js b/node_modules/@enso-ui/ui/src/modules/store/localisation.js
-old mode 100644
-new mode 100755
-diff --git a/node_modules/@enso-ui/ui/src/modules/store/menu.js b/node_modules/@enso-ui/ui/src/modules/store/menu.js
-old mode 100644
-new mode 100755
+index da4e270..fae126e 100644
+--- a/node_modules/@enso-ui/ui/src/modules/store/bookmarks.js
++++ b/node_modules/@enso-ui/ui/src/modules/store/bookmarks.js
+@@ -14,11 +14,11 @@ export const getters = {
+     stickies: state => stickies(state.bookmarks),
+     index: state => bookmark => index(state.bookmarks, bookmark),
+     state: state => bookmark => state.bookmarks[index(state.bookmarks, bookmark)].state,
+-    sticky: (state, getters) => bookmark => state.bookmarks[index(state.bookmarks, bookmark)].sticky,
++    sticky: state => bookmark => state.bookmarks[index(state.bookmarks, bookmark)].sticky,
+ };
+ 
+ export const mutations = {
+-    init: (state) => {
++    init: state => {
+         const bookmarks = localStorage.getItem('bookmarks');
+         state.bookmarks = bookmarks && JSON.parse(bookmarks) || [];
+     },
+@@ -28,8 +28,8 @@ export const mutations = {
+         current.state = data;
+         persist(state.bookmarks);
+     },
+-    title: (state, { route, title }) => {
+-        const current = state.bookmarks[index(state.bookmarks, route)];
++    title: (state, title) => {
++        const current = state.bookmarks[index(state.bookmarks, state.route)];
+         current.meta.title = title;
+         persist(state.bookmarks);
+     },
+@@ -55,7 +55,7 @@ export const mutations = {
+         state.bookmarks = [bookmark];
+         persist(state.bookmarks);
+     },
+-    empty: (state) => {
++    empty: state => {
+         state.bookmarks = [];
+         persist(state.bookmarks);
+     },
 diff --git a/node_modules/@enso-ui/ui/src/modules/store/preferences.js b/node_modules/@enso-ui/ui/src/modules/store/preferences.js
-old mode 100644
-new mode 100755
+index 3318647..2cd4018 100644
+--- a/node_modules/@enso-ui/ui/src/modules/store/preferences.js
++++ b/node_modules/@enso-ui/ui/src/modules/store/preferences.js
+@@ -9,8 +9,6 @@ const store = payload => axios.patch(route('core.preferences.store'), payload);
+ 
+ const updateGlobal = () => store({ global: state.global });
+ 
+-const updateLocal = payload => store({ route: payload.route, value: payload.value });
+-
+ export const getters = {
+     global: state => state.global,
+     local: state => route => state.local[route],
+@@ -32,7 +30,7 @@ export const mutations = {
+     toastrPosition: (state, position) => (state.global.toastrPosition = position),
+     expandedSidebar: (state, expandedSidebar) => (state.global.expandedSidebar = expandedSidebar),
+     bookmarks: (state, bookmarks) => (state.global.bookmarks = bookmarks),
+-    local: (state, payload) => (state.local[payload.route] = payload.value),
++    local: (state, value) => (state.local[state.route.name] = value),
+ };
+ 
+ export const actions = {
+@@ -40,11 +38,13 @@ export const actions = {
+         commit('global', payload);
+         updateGlobal();
+     },
+-    setLocal: ({ commit }, payload) => {
+-        commit('local', payload);
+-        updateLocal(payload);
++    setLocal: ({ commit, state }, value) => {
++        commit('local', value);
++        store({ route: state.route.name, value });
+     },
+-    setLang: ({ commit, dispatch, getters, rootGetters }, lang) => {
++    setLang: ({
++        commit, dispatch, getters, rootGetters,
++    }, lang) => {
+         const isRtl = rootGetters['localisation/rtl'];
+         commit('lang', lang);
+         localStorage.setItem('locale', lang);
 diff --git a/node_modules/@enso-ui/ui/src/modules/store/websockets.js b/node_modules/@enso-ui/ui/src/modules/store/websockets.js
-old mode 100644
-new mode 100755
+index 6bf8a0d..53614ab 100644
+--- a/node_modules/@enso-ui/ui/src/modules/store/websockets.js
++++ b/node_modules/@enso-ui/ui/src/modules/store/websockets.js
+@@ -1,4 +1,5 @@
+ import Echo from 'laravel-echo';
++import Pusher from 'pusher-js';
+ 
+ export const state = {
+     channels: {
+@@ -20,7 +21,10 @@ export const mutations = {
+         state.channels = config.channels;
+         state.pusher = config.pusher;
+     },
+-    connect: (state) => {
++};
++
++export const actions = {
++    connect: ({ state }) => {
+         if (!window.Echo) {
+             window.Echo = new Echo({
+                 broadcaster: 'pusher',
+@@ -29,7 +33,8 @@ export const mutations = {
+                 useTLS: state.pusher.options.useTLS,
+                 namespace: 'App.Events',
+             });
++
++            window.Echo.connector.pusher.config.authEndpoint = `/api/broadcasting/auth`;
+         }
+     },
+ };
+-
