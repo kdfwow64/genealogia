@@ -1,5 +1,11 @@
 <template>
 <div>
+            <router-link
+                         :to="{ name: 'login' }"
+                         class="is-pulled-left">
+                {{ i18n('Home') }}
+            </router-link>
+
 <div>
     Privacy policy
 </div>

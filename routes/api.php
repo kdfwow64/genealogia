@@ -25,6 +25,12 @@ use Illuminate\Support\Facades\Route;
             ->group(function () {
                 Route::get('privacy', 'Index')->name('index');
     });
+        Route::namespace('Contact')
+            ->prefix('contact')
+            ->as('contact.')
+            ->group(function () {
+                Route::get('contact', 'Index')->name('index');
+    });
 });
 
     // Route::middleware(['api'])->group(

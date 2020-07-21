@@ -1,5 +1,11 @@
 <template>
 <div>
+            <router-link
+                         :to="{ name: 'login' }"
+                         class="is-pulled-left">
+                {{ i18n('Home') }}
+            </router-link>
+
 <p>
 Genealogia is a secure online website which you can create your own
  family tree(s) with. It is designed to have extensive
