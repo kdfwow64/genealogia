@@ -83,6 +83,7 @@ use Illuminate\Support\Facades\Route;
 
                 Route::namespace('Administration')
                 ->prefix('administration')
+		->middleware('auth', 'core','api','multitenant')
                 ->as('administration.')
                 ->group(function () {
                     // require 'administration/userGroups.php';
@@ -152,7 +153,7 @@ use Illuminate\Support\Facades\Route;
      * overwrite companies
      */
     Route::namespace('\App\Http\Controllers\enso\companies')
-        ->middleware(['api', 'auth', 'core'])
+        ->middleware(['api', 'auth', 'core','multitenant'])
         ->prefix('administration/companies')
         ->as('administration.companies.')
         ->group(function () {
@@ -192,7 +193,7 @@ use Illuminate\Support\Facades\Route;
      * overwrite team
      */
     Route::namespace('\App\Http\Controllers\enso\teams')
-        ->middleware(['api', 'auth', 'core'])
+        ->middleware(['api', 'auth', 'core','multitenant'])
         ->prefix('administration/teams')
         ->as('administration.teams.')
         ->group(function () {
