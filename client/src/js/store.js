@@ -9,7 +9,7 @@ import storeImporter from '@core/modules/importers/storeImporter';
 const modules = storeImporter(require.context('./store', false, /.*\.js$/));
 
 Vue.use(Vuex);
-Vue.prototype.PUSHER_KEY = '2e7bbf1d37acc270e41f';
+Vue.prototype.PUSHER_KEY = 'c13859d4def045bae123';
 Vue.prototype.PUSHER_CLUSTER = 'eu';
 
 const state = {};

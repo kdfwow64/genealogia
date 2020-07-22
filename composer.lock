@@ -5170,7 +5170,7 @@
         },
         {
             "name": "modularsoftware/laravel-gedcom",
-            "version": "v1.3.1",
+            "version": "v1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/modularsoftware/laravel-gedcom.git",
