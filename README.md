@@ -1,4 +1,4 @@
-# Modular Genealogy Software
+# Genealogia
  ![Latest Stable Version](https://img.shields.io/github/release/modularsoftware/genealogy.svg) 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/modularsoftware/genealogy/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/modularsoftware/genealogy/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/modularsoftware/genealogy/badges/build.png?b=master)](https://scrutinizer-ci.com/g/modularsoftware/genealogy/build-status/master)
