@@ -9,7 +9,7 @@ export default {
     meta: {
         breadcrumb: 'contact',
         route: 'contact.index',
-	guestGuard: true,
+        guestGuard: true,
     },
     children: routes,
 };

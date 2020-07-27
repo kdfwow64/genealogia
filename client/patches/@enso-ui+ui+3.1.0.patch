@@ -52,7 +52,7 @@ index cfb133c..e39d28f 100644
                              <span class="icon">
                                  <fa :icon="['fab', 'github']"/>
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/auth/Register.vue b/node_modules/@enso-ui/ui/src/bulma/pages/auth/Register.vue
-new file mode 100755
+new file mode 100644
 index 0000000..aa296ae
 --- /dev/null
 +++ b/node_modules/@enso-ui/ui/src/bulma/pages/auth/Register.vue
@@ -94,7 +94,7 @@ index 0000000..aa296ae
 +    };
 +    </script>
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/auth/Verify.vue b/node_modules/@enso-ui/ui/src/bulma/pages/auth/Verify.vue
-new file mode 100755
+new file mode 100644
 index 0000000..ba084e6
 --- /dev/null
 +++ b/node_modules/@enso-ui/ui/src/bulma/pages/auth/Verify.vue
@@ -186,7 +186,7 @@ index 8e4e7b1..709260d 100644
          </div>
      </div>
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/RegisterForm.vue b/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/RegisterForm.vue
-new file mode 100755
+new file mode 100644
 index 0000000..6784dd1
 --- /dev/null
 +++ b/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/RegisterForm.vue
@@ -457,7 +457,7 @@ index 0000000..6784dd1
 +        }
 +    </style>
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/VerifyForm.vue b/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/VerifyForm.vue
-new file mode 100755
+new file mode 100644
 index 0000000..e9b04f1
 --- /dev/null
 +++ b/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/VerifyForm.vue
@@ -665,7 +665,7 @@ index 0000000..e9b04f1
 +    },
 +}];
 diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/register.js b/node_modules/@enso-ui/ui/src/bulma/routes/register.js
-new file mode 100755
+new file mode 100644
 index 0000000..8c9ba1f
 --- /dev/null
 +++ b/node_modules/@enso-ui/ui/src/bulma/routes/register.js
@@ -693,7 +693,7 @@ index 0000000..8c9ba1f
 +            },
 +}];
 diff --git a/node_modules/@enso-ui/ui/src/bulma/routes/verify.js b/node_modules/@enso-ui/ui/src/bulma/routes/verify.js
-new file mode 100755
+new file mode 100644
 index 0000000..84d71c8
 --- /dev/null
 +++ b/node_modules/@enso-ui/ui/src/bulma/routes/verify.js

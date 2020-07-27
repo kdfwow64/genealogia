@@ -19,7 +19,7 @@ services:
       - enso
 
   mysqldb:
-    image: mysql:8
+    image: mysql
     container_name: enso-${DB_CONNECTION}
     restart: always
     env_file:

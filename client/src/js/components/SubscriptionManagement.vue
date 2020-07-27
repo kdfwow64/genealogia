@@ -6,11 +6,9 @@
         <input id="card-holder-name" type="text" v-model="name" class="form-control mb-2">
 
         <label>Card</label>
-        <div id="card-element">
+        <div id="card-element"/>
 
-        </div>
-
-        <button class="btn btn-primary mt-3" id="add-card-button" v-on:click="submitPaymentMethod()">
+        <button class="btn btn-primary mt-3" id="add-card-button" @click="submitPaymentMethod()">
             Save Payment Method
         </button>
 
@@ -18,20 +16,20 @@
             OR
         </div>
 
-        <div v-show="paymentMethodsLoadStatus == 2 
+        <div v-show="paymentMethodsLoadStatus == 2
             && paymentMethods.length == 0"
             class="">
                 No payment method on file, please add a payment method.
         </div>
 
-        <div v-show="paymentMethodsLoadStatus == 2 
+        <div v-show="paymentMethodsLoadStatus == 2
                 && paymentMethods.length > 0">
-            <div v-for="(method, key) in paymentMethods" 
-                    v-bind:key="'method-'+key" 
-                    v-on:click="paymentMethodSelected = method.id"
+            <div v-for="(method, key) in paymentMethods"
+                    :key="'method-'+key"
+                    @click="paymentMethodSelected = method.id"
                     class="border rounded row p-1"
-                    v-bind:class="{
-                    'bg-success text-light': paymentMethodSelected == method.id    
+                    :class="{
+                    'bg-success text-light': paymentMethodSelected == method.id
                 }">
                     <div class="col-2">
                         {{ method.brand.charAt(0).toUpperCase() }}{{ method.brand.slice(1) }}
@@ -40,16 +38,18 @@
                         Ending In: {{ method.last_four }} Exp: {{ method.exp_month }} / {{ method.exp_year }}
                     </div>
                     <div class="col-3">
-                        <span v-on:click.stop="removePaymentMethod( method.id )">Remove</span>
+                        <span @click.stop="removePaymentMethod( method.id )">Remove</span>
                     </div>
             </div>
         </div>
 
-        <h4 class="mt-3 mb-3">Select Subscription</h4>
+        <h4 class="mt-3 mb-3">
+Select Subscription
+</h4>
 
-        <div class="mt-3 row rounded border p-1" 
-             v-bind:class="{'bg-success text-light': selectedPlan == 'price_1H4MLzGPqFnokzh8s7GL2RUV'}" 
-             v-on:click="selectedPlan = 'price_1H4MLzGPqFnokzh8s7GL2RUV'">
+        <div class="mt-3 row rounded border p-1"
+             :class="{'bg-success text-light': selectedPlan == 'price_1H4MLzGPqFnokzh8s7GL2RUV'}"
+             @click="selectedPlan = 'price_1H4MLzGPqFnokzh8s7GL2RUV'">
             <div class="col-6">
                 Basic
             </div>
@@ -58,9 +58,9 @@
             </div>
         </div>
 
-        <div class="mt-3 row rounded border p-1" 
-             v-bind:class="{'bg-success text-light': selectedPlan == 'price_1H4MLzGPqFnokzh84nneuFUm'}" 
-             v-on:click="selectedPlan = 'price_1H4MLzGPqFnokzh84nneuFUm'">
+        <div class="mt-3 row rounded border p-1"
+             :class="{'bg-success text-light': selectedPlan == 'price_1H4MLzGPqFnokzh84nneuFUm'}"
+             @click="selectedPlan = 'price_1H4MLzGPqFnokzh84nneuFUm'">
             <div class="col-6">
                 Professional
             </div>
@@ -69,9 +69,9 @@
             </div>
         </div>
 
-        <div class="mt-3 row rounded border p-1" 
-             v-bind:class="{'bg-success text-light': selectedPlan == 'price_1H4MLzGPqFnokzh86c0FSfeB'}" 
-             v-on:click="selectedPlan = 'price_1H4MLzGPqFnokzh86c0FSfeB'">
+        <div class="mt-3 row rounded border p-1"
+             :class="{'bg-success text-light': selectedPlan == 'price_1H4MLzGPqFnokzh86c0FSfeB'}"
+             @click="selectedPlan = 'price_1H4MLzGPqFnokzh86c0FSfeB'">
             <div class="col-6">
                 Enterprise
             </div>
@@ -80,7 +80,7 @@
             </div>
         </div>
 
-        <button class="btn btn-primary mt-3" id="add-card-button" v-on:click="updateSubscription()">
+        <button class="btn btn-primary mt-3" id="add-card-button" @click="updateSubscription()">
             Subscribe
         </button>
     </div>
@@ -90,7 +90,7 @@
 export default {
     name: 'SubScription',
 
-    data(){
+    data() {
         return {
             stripeAPIToken: 'pk_test_5l3xlABNOIznzGHPoxfJLIKk00b1VLg1fz',
 
@@ -109,13 +109,13 @@ export default {
             paymentMethodSelected: {},
 
             selectedPlan: '',
-        }
+        };
     },
 
-    mounted(){
-        this.includeStripe('js.stripe.com/v3/', function(){
+    mounted() {
+        this.includeStripe('js.stripe.com/v3/', () => {
             this.configureStripe();
-        }.bind(this) );
+        });
 
         this.loadIntent();
 
@@ -126,21 +126,21 @@ export default {
         /*
             Includes Stripe.js dynamically
         */
-        includeStripe( URL, callback ){
-            var documentTag = document, tag = 'script',
-                object = documentTag.createElement(tag),
-                scriptTag = documentTag.getElementsByTagName(tag)[0];
-            object.src = '//' + URL;
-            if (callback) { object.addEventListener('load', function (e) { callback(null, e); }, false); }
+        includeStripe(URL, callback) {
+            const documentTag = document; const tag = 'script';
+            const object = documentTag.createElement(tag);
+            const scriptTag = documentTag.getElementsByTagName(tag)[0];
+            object.src = `//${URL}`;
+            if (callback) { object.addEventListener('load', e => { callback(null, e); }, false); }
             scriptTag.parentNode.insertBefore(object, scriptTag);
         },
 
         /*
-            Configures Stripe by setting up the elements and 
+            Configures Stripe by setting up the elements and
             creating the card element.
         */
-        configureStripe(){
-            this.stripe = Stripe( this.stripeAPIToken );
+        configureStripe() {
+            this.stripe = Stripe(this.stripeAPIToken);
 
             this.elements = this.stripe.elements();
             this.card = this.elements.create('card');
@@ -151,11 +151,11 @@ export default {
         /*
             Loads the payment intent key for the user to pay.
         */
-        loadIntent(){
+        loadIntent() {
             axios.get('/api/stripe/user/setup-intent')
-                .then( function( response ){
+                .then(response => {
                     this.intentToken = response.data;
-                }.bind(this));
+                });
         },
 
         /*
@@ -163,7 +163,7 @@ export default {
             to Stripe. Upon success, we save the payment
             method to our system to be used.
         */
-        submitPaymentMethod(){
+        submitPaymentMethod() {
             this.addPaymentStatus = 1;
 
             this.stripe.confirmCardSetup(
@@ -171,69 +171,69 @@ export default {
                     payment_method: {
                         card: this.card,
                         billing_details: {
-                            name: this.name
-                        }
-                    }
-                }
-            ).then(function(result) {
+                            name: this.name,
+                        },
+                    },
+                },
+            ).then(result => {
                 if (result.error) {
                     this.addPaymentStatus = 3;
                     this.addPaymentStatusError = result.error.message;
                 } else {
-                    this.savePaymentMethod( result.setupIntent.payment_method );
+                    this.savePaymentMethod(result.setupIntent.payment_method);
                     this.addPaymentStatus = 2;
                     this.card.clear();
                     this.name = '';
                 }
-            }.bind(this));
+            });
         },
 
         /*
             Saves the payment method for the user and
             re-loads the payment methods.
         */
-        savePaymentMethod( method ){
+        savePaymentMethod(method) {
             axios.post('/api/stripe/user/payments', {
-                payment_method: method
-            }).then( function(){
+                payment_method: method,
+            }).then(() => {
                 this.loadPaymentMethods();
-            }.bind(this));
+            });
         },
 
         /*
             Loads all of the payment methods for the
             user.
         */
-        loadPaymentMethods(){
+        loadPaymentMethods() {
             this.paymentMethodsLoadStatus = 1;
 
             axios.get('/api/stripe/user/payment-methods')
-                .then( function( response ){
+                .then(response => {
                     this.paymentMethods = response.data;
 
                     this.paymentMethodsLoadStatus = 2;
                     // this.setDefaultPaymentMethod();
-                }.bind(this));
+                });
         },
 
-        removePaymentMethod( paymentID ){
+        removePaymentMethod(paymentID) {
             axios.post('/api/stripe/user/remove-payment', {
-                id: paymentID
-            }).then( function( response ){
+                id: paymentID,
+            }).then(response => {
                 this.loadPaymentMethods();
-            }.bind(this));
+            });
         },
 
-        updateSubscription(){
+        updateSubscription() {
             axios.put('/api/stripe/user/subscription', {
                 plan: this.selectedPlan,
-                payment: this.paymentMethodSelected
-            }).then( function( response ){
-                console.log( response );
-            }.bind(this));
+                payment: this.paymentMethodSelected,
+            }).then(response => {
+                console.log(response);
+            });
         },
-    }
-}
+    },
+};
 </script>
 <style lang="scss">
 </style>

@@ -2,9 +2,9 @@
 
 namespace App;
 
-use App\Models\enso\companies\Company;
+use LaravelEnso\Companies\Models\Company;
 use App\Models\User;
-use App\Traits\enso\DynamicMethods\Relations;
+use LaravelEnso\DynamicMethods\Traits\Relations;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\RoutesNotifications;
