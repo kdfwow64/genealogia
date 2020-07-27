@@ -30,7 +30,7 @@ Note that most sections have short demo clips.
 
 ### Installation Steps
 
-1. Download the project with `git clone https://github.com/modularsoftware/genealogy.git --depth 1`
+1. Download the project with `git clone https://github.com/modularsoftware/genealogia.git`
 
 2. Within the project folder run `composer install`
 
@@ -56,7 +56,7 @@ for the back-end API (which you've configured at step 4)
 
 ### Thanks
 
-Built with Laravel Enso 3.x which is crafted on Laravel 7, Bulma, Vuejs and:
+Built with Laravel Enso 4.x which is crafted on Laravel 7, Bulma, Vuejs and:
 
 [Vue Router](https://router.vuejs.org/en), [Vuex](https://vuex.vuejs.org/en/), [Axios](https://github.com/axios/axios),
 [Font awesome 5](https://fontawesome.com), [Animate.css](https://daneden.github.io/animate.css/), 
