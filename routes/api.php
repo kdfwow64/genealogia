@@ -1,10 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Cashier\Http\Middleware\VerifyWebhookSignature;
 
-Route::get('auth_user', function () {
+Route::get('has-payment-method', function () {
     $user = auth()->user();
-    return [ 'email' => $user->email, 'user_id' => $user->id ];
+    return [ 'success' => $user->hasDefaultPaymentMethod() ];
+})->middleware(['auth']);
+
+Route::get('get-intent', function() {
+    $user = auth()->user();
+    return ['intent' => $user->createSetupIntent()];
+})->middleware(['auth']);
+
+Route::post('subscribe', function() {
+    $user = auth()->user();
+    $paymentMethod = request()->payment_method;
+    $plan_id = request()->plan_id;
+    $user->newSubscription('default', $plan_id)->create($paymentMethod);
+    return ['success' => true];
 })->middleware(['auth']);
 
 Route::post('webhook', function () {
@@ -33,7 +47,7 @@ Route::post('webhook', function () {
         break;
     }
     $user->save();
-});
+})->middleware([VerifyWebhookSignature::class]);
 
 Route::middleware(['guest'])
     ->prefix('api')

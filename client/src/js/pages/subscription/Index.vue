@@ -8,9 +8,16 @@
                     </div>
                 </div>
                 <footer class="card-footer">
-                    <button @click="subscribe(plan.plan_id)" class="card-footer-item">
-Subscribe
-</button>
+                    <button v-if="has_payment_method"
+                        @click="subscribe()"
+                        class="card-footer-item">
+                        Subscribe
+                    </button>
+                    <router-link v-else
+                        :to="{ name: 'payment.index', params: { planId: plan.plan_id }}"
+                        class="card-footer-item">
+                        Subscribe
+                    </router-link>
                 </footer>
             </div>
         </div>
@@ -18,14 +25,11 @@ Subscribe
 </template>
 
 <script>
-import { loadStripe } from '@stripe/stripe-js';
-
 export default {
     name: 'Index',
     data() {
         return {
-            email: '',
-            user_id: '',
+            has_payment_method: false,
             plans: [
                 { id: 1, title: '1GBP for 1 tree monthly', plan_id: 'price_1H9ZbJJZEMHu7eXxlVHmrPiN' },
                 { id: 3, title: '2.50GBP for 10 trees monthly', plan_id: 'price_1H9ZbJJZEMHu7eXxTVw8KMqw' },
@@ -37,32 +41,14 @@ export default {
         };
     },
     created() {
-        axios.get('/api/auth_user')
+        axios.get('/api/has-payment-method')
             .then(response => {
-                this.email = response.data.email;
-                this.user_id = response.data.user_id;
+                this.has_payment_method = response.data.success;
             });
     },
     methods: {
-        async subscribe(priceId) {
-            const DOMAIN = window.location.origin;
-            const stripe = await loadStripe('pk_test_51H7yygJZEMHu7eXxCr3ZJfotMBatunOIqfyZOKUPo3An1z2JF5YH8YhsxmCufKtb2PxxPiXah7xGmIxUXskTvDWp00fEsEHvSS');
-            stripe
-                .redirectToCheckout({
-                    customerEmail: this.email,
-                    lineItems: [{ price: priceId, quantity: 1 }],
-                    successUrl: `${DOMAIN}/success?session_id={CHECKOUT_SESSION_ID}`,
-                    cancelUrl: `${DOMAIN}/cancel`,
-                    mode: 'subscription',
-                    clientReferenceId: `${this.user_id},${priceId}`,
-                })
-                .then(this.handleResult);
-        },
-        handleResult(result) {
-            if (result.error) {
-                const displayError = document.getElementById('error-message');
-                displayError.textContent = result.error.message;
-            }
+        subscribe() {
+            console.log('subscribe!');
         },
     },
 };

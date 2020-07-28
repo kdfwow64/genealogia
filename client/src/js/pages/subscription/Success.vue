@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-content">
                     <div class="content">
-                        Subscription successfull! {{ $route.query.session_id }}
+                        Subscription successfull!
                     </div>
                 </div>
             </div>
