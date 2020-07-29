@@ -17,7 +17,7 @@ Route::post('subscribe', function() {
     $user = auth()->user();
     $paymentMethod = request()->payment_method;
     $plan_id = request()->plan_id;
-    $user->newSubscription('default', $plan_id)->create($paymentMethod);
+    $user->newSubscription('default', $plan_id)->create($paymentMethod,['name' => request()->card_holder_name, "address" => ["country" => 'GB', "state" => 'England', "city" => 'Abberley', "postal_code" => 'WR6', "line1" => 'test', "line2" => ""]]);
     return ['success' => true];
 })->middleware(['auth']);
 

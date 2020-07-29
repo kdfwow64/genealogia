@@ -58,7 +58,7 @@ export default {
     },
     methods: {
         async confirmCard() {
-            const { setupIntent } = await this.stripe.confirmCardSetup(
+            const { setupIntent, error } = await this.stripe.confirmCardSetup(
                 this.clientSecret, {
                     payment_method: {
                         card: this.cardElement,
@@ -66,17 +66,24 @@ export default {
                     },
                 },
             );
-            this.payment_method = setupIntent.payment_method;
-            this.subscribe();
+            if (error) {
+                // Display "error.message" to the user...
+                console.log(error.message);
+            } else {
+                // The card has been verified successfully...
+                this.payment_method = setupIntent.payment_method;
+                this.subscribe();
+            }
         },
         subscribe() {
             axios.post('/api/subscribe', {
                 payment_method: this.payment_method,
                 plan_id: this.plan_id,
+                card_holder_name: this.cardHolderName,
             })
                 .then(response => {
                     if (response.data.success) {
-                        this.$router.push({ name: 'subscription.Success' });
+                        this.$router.push({ name: 'subscription.success' });
                     }
                 });
         },
