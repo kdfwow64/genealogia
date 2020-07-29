@@ -127,6 +127,9 @@ class Show extends Controller
 
     private function getGraphDataUpward($start_id, $nest = 0)
     {
+        $conn = $this->getConnection();
+        $db = $this->getDB();
+
         $threshold = (int) ($this->nest) * 1;
         $has = (int) ($nest) * 1;
         if ($threshold >= $has) {
