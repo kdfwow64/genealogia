@@ -256,8 +256,8 @@ class Show extends Controller
             }
             // get brother/sisters
             $brothers = Person::where('child_in_family_id', $person->child_in_family_id)
-            ->whereNotNull('child_in_family_id')
-            ->where('id', '<>', $start_id)->get();
+                ->whereNotNull('child_in_family_id')
+                ->where('id', '<>', $start_id)->get();
             // $nest = $nest -1;
             foreach ($brothers as $brother) {
                 $this->getGraphDataUpward($brother->id, $nest);
