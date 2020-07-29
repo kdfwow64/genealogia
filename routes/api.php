@@ -3,9 +3,17 @@
 use Illuminate\Support\Facades\Route;
 use Laravel\Cashier\Http\Middleware\VerifyWebhookSignature;
 
-Route::get('has-payment-method', function () {
+Route::get('get-current-subscription', function () {
     $user = auth()->user();
-    return [ 'success' => $user->hasDefaultPaymentMethod() ];
+    $data = [];
+    $data['has_payment_method'] = $user->hasDefaultPaymentMethod();
+    if ($user->subscribed('default')) {
+        $data['subscribed'] = true;
+        $data['plan_id'] = $user->subscription()->stripe_plan;
+    } else {
+        $data['subscribed'] = false;
+    }
+    return $data;
 })->middleware(['auth']);
 
 Route::get('get-intent', function() {
@@ -15,9 +23,24 @@ Route::get('get-intent', function() {
 
 Route::post('subscribe', function() {
     $user = auth()->user();
-    $paymentMethod = request()->payment_method;
     $plan_id = request()->plan_id;
-    $user->newSubscription('default', $plan_id)->create($paymentMethod,['name' => request()->card_holder_name, "address" => ["country" => 'GB', "state" => 'England', "city" => 'Abberley', "postal_code" => 'WR6', "line1" => 'test', "line2" => ""]]);
+    if(request()->has('payment_method')) {
+        $paymentMethod = request()->payment_method;
+        $user->newSubscription('default', $plan_id)->create($paymentMethod,['name' => request()->card_holder_name, "address" => ["country" => 'GB', "state" => 'England', "city" => 'Abberley', "postal_code" => 'WR6', "line1" => 'test', "line2" => ""]]);
+    } else if($user->hasDefaultPaymentMethod()) {
+        $paymentMethod = $user->defaultPaymentMethod();
+        $user->newSubscription('default', $plan_id)->create($paymentMethod->id);
+    } else {
+        $user->subscription('default')->swap($plan_id);
+    }
+    return ['success' => true];
+})->middleware(['auth']);
+
+Route::post('unsubscribe', function() {
+    $user = auth()->user();
+    $user->subscription('default')->cancelNow();
+    $user->role_id = 3; //expired role
+    $user->save();
     return ['success' => true];
 })->middleware(['auth']);
 

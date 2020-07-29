@@ -18,7 +18,7 @@
                     <footer class="card-footer">
                         <button
                             @click="confirmCard()"
-                            data-secret="{{ clientSecret }}"
+                            :data-secret="clientSecret"
                             class="card-footer-item">
                             Pay
                         </button>
