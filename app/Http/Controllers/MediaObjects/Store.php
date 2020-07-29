@@ -8,14 +8,14 @@ use Illuminate\Routing\Controller;
 
 class Store extends Controller
 {
-    public function __invoke(ValidateMediaObjectRequest $request, MediaObject $object)
+    public function __invoke(ValidateMediaObjectRequest $request, MediaObject $mediaobject)
     {
-        $object->fill($request->validated())->save();
+        $mediaobject->fill($request->validated())->save();
 
         return [
-            'message' => __('The object was successfully created'),
-            'redirect' => 'objects.edit',
-            'param' => ['object' => $object->id],
+            'message' => __('The media object was successfully created'),
+            'redirect' => 'mediaobjects.edit',
+            'param' => ['mediaobject' => $mediaobject->id],
         ];
     }
 }

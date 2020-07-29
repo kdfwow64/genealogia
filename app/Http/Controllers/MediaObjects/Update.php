@@ -8,10 +8,10 @@ use Illuminate\Routing\Controller;
 
 class Update extends Controller
 {
-    public function __invoke(ValidateMediaObjectRequest $request, MediaObject $object)
+    public function __invoke(ValidateMediaObjectRequest $request, MediaObject $mediaobject)
     {
-        $object->update($request->validated());
+        $mediaobject->update($request->validated());
 
-        return ['message' => __('The object was successfully updated')];
+        return ['message' => __('The media object was successfully updated')];
     }
 }

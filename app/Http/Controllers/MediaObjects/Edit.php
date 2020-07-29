@@ -8,8 +8,8 @@ use Illuminate\Routing\Controller;
 
 class Edit extends Controller
 {
-    public function __invoke(MediaObject $object, MediaObjectForm $form)
+    public function __invoke(MediaObject $mediaobject, MediaObjectForm $form)
     {
-        return ['form' => $form->edit($object)];
+        return ['form' => $form->edit($mediaobject)];
     }
 }

@@ -7,13 +7,13 @@ use Illuminate\Routing\Controller;
 
 class Destroy extends Controller
 {
-    public function __invoke(MediaObject $object)
+    public function __invoke(MediaObject $mediaobject)
     {
-        $object->delete();
+        $mediaobject->delete();
 
         return [
-            'message' => __('The object was successfully deleted'),
-            'redirect' => 'objects.index',
+            'message' => __('The media object was successfully deleted'),
+            'redirect' => 'mediaobjects.index',
         ];
     }
 }

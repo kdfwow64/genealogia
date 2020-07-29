@@ -295,8 +295,8 @@ Route::get('gedcom/progress', '\App\Http\Controllers\Gedcom\Progress@index')->na
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
         Route::namespace('MediaObjects')
-            ->prefix('objects')
-            ->as('objects.')
+            ->prefix('mediaobjects')
+            ->as('mediaobjects.')
             ->group(function () {
                 Route::get('', 'Index')->name('index');
                 Route::get('create', 'Create')->name('create');
