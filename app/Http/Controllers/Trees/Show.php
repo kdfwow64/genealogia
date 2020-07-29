@@ -22,11 +22,13 @@ class Show extends Controller
     private $links;
     private $nest;
 
-    $conn = $this->getConnection();
-    $db = $this->getDB();
+
 
     public function __invoke(Request $request)
     {
+        $conn = $this->getConnection();
+        $db = $this->getDB();
+
         $start_id = $request->get('start_id', 1);
         $nest = $request->get('nest', 3);
         $ret = [];
