@@ -14,12 +14,10 @@ use App\Providers\RouteServiceProvider;
 use App\Traits\ActivationTrait;
 use Illuminate\Support\Facades\DB;
 // use LaravelEnso\Multitenancy\Jobs\CreateDatabase;
-
 // use LaravelEnso\Multitenancy\Jobs\Migrate;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use LaravelEnso\Companies\Models\Company;
 use App\Traits\ConnectionTrait;
 use LaravelEnso\Multitenancy\Enums\Connections;
 
