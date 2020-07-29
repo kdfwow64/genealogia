@@ -106,7 +106,7 @@ class RegisterController extends Controller
             }
             // Dispatch Tenancy Jobs
 
-            $name = $data['first_name'] . ' ' . $data['last_name'];
+            $name = '(' . $data['email'] . ')' . $data['first_name'] . ' ' . $data['last_name'];
 
             CreateDB::dispatch($company->id, $user->id);
             Migration::dispatch($company->id, $user->id, $name, $data['email'], $data['password']);
