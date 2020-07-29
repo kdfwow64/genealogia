@@ -8,7 +8,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\DB;
-use App\Models\enso\companies\Company;
+use LaravelEnso\Companies\Models\Company;
 use LaravelEnso\Multitenancy\Enums\Connections;
 
 class CreateDB implements ShouldQueue
