@@ -85,7 +85,7 @@ class RegisterController extends Controller
             $this->initiateEmailActivation($user);
 
             $company = Company::create([
-                'name' => $data['name'],
+                'name' => $data['first_name'] . ' ' . $data['last_name'],
                 'email' => $data['email'],
                 // 'is_active' => 1,
                 'is_tenant' => 1,
@@ -106,8 +106,10 @@ class RegisterController extends Controller
             }
             // Dispatch Tenancy Jobs
 
+            $name = $data['first_name'] . ' ' . $data['last_name'];
+
             CreateDB::dispatch($company->id, $user->id);
-            Migration::dispatch($company->id, $user->id, $data['name'], $data['email'], $data['password']);
+            Migration::dispatch($company->id, $user->id, $name, $data['email'], $data['password']);
 
             return $user;
         } catch (\Exception $e) {
