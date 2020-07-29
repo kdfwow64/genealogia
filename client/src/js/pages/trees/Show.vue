@@ -138,7 +138,8 @@
                 // remove root nodes and circle-connections
                 var remove_inserted_root_nodes = n => {
                     // remove all inserted root nodes
-                    this.dag.children = this.dag.children.filter(c => !n.inserted_roots.includes(c));
+                    this.dag.children = this.dag.children.filter
+                    (c => !n.inserted_roots.includes(c));
                     // remove inserted connections
                     n.inserted_connections.forEach(
                         arr => {
@@ -156,7 +157,8 @@
                 remove_inserted_root_nodes(d);
 
                 // collapse neighbors which are visible and have been inserted by this node
-                var vis_inserted_nei = d.neighbors.filter(n => n.visible&d.inserted_nodes.includes(n));
+                var vis_inserted_nei = d.neighbors.filter
+                (n => n.visible&d.inserted_nodes.includes(n));
 
                 vis_inserted_nei.forEach(
                     n => {
@@ -393,7 +395,8 @@
                     .attr('class', 'node')
                     .attr('r', 1e-6)
                     .style("fill", function (d) {
-                        return d.neighbors.filter(n => !n.visible).length > 0 ? "lightsteelblue":"#fff";
+                        return d.neighbors.filter
+                        (n => !n.visible).length > 0 ? "lightsteelblue":"#fff";
                     });
 
                 // Add names as node labels
@@ -428,7 +431,8 @@
                 nodeUpdate.select('circle.node')
                     .attr('r', d => 10 * !d.data.isUnion + 0 * d.data.isUnion)
                     .style("fill", function (d) {
-                        return d.neighbors.filter(n => !n.visible).length > 0 ? "lightsteelblue":"#fff";
+                        return d.neighbors.filter
+                        (n => !n.visible).length > 0 ? "lightsteelblue":"#fff";
                     })
                     .attr('cursor', 'pointer');
 
@@ -469,7 +473,9 @@
                 // Transition back to the parent element position
                 linkUpdate.transition()
                     .duration(this.duration)
-                    .attr('d', d => {let _this = this; return _this.diagonal(d.source, d.target, 2);});
+                    .attr('d', d => {
+                        let _this = this; return _this.diagonal(d.source, d.target, 2);
+                    });
 
                 // Remove any exiting links
                 var linkExit = link.exit().transition()
