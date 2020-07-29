@@ -26,9 +26,6 @@ class Show extends Controller
 
     public function __invoke(Request $request)
     {
-        $conn = $this->getConnection();
-        $db = $this->getDB();
-
         $start_id = $request->get('start_id', 1);
         $nest = $request->get('nest', 3);
         $ret = [];
@@ -52,6 +49,10 @@ class Show extends Controller
 
     private function getGraphData($start_id, $nest = 1)
     {
+
+        $conn = $this->getConnection();
+        $db = $this->getDB();
+
         if ($this->nest >= $nest) {
             $nest++;
 
