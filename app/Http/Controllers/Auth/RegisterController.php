@@ -75,6 +75,7 @@ class RegisterController extends Controller
                 'group_id' => $user_group->id,
                 'role_id' => $role->id,
                 'is_active' => 1,
+                'trial_ends_at' => now()->addDays(7)
             ]);
 
 
