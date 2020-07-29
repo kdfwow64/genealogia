@@ -548,7 +548,8 @@
                 //         function (d) {
                 //             if (d.data.isUnion) return;
                 //             var content = `
-                //             <span style='margin-left: 2.5px;'><b>` + d.data.name + `</b></span><br>
+                //             <span style='margin-left: 2.5px;'>
+                //             <b>` + d.data.name + `</b></span><br>
                 //             <table style="margin-top: 2.5px;">
                 //                     <tr><td>born</td><td>` + (d.data.birthyear||"?")
                 //                      + ` in ` + (d.data.birthplace||"?") + `</td></tr>
@@ -606,7 +607,8 @@
                 // prepare node data
                 this.all_nodes = this.dag.descendants()
                 this.all_nodes.forEach(n => {
-                    n.data = this.data.persons[n.id] ? this.data.persons[n.id] : this.data.unions[n.id];
+                    n.data = this.data.persons[n.id] ? this.data.persons[n.id]
+                        : this.data.unions[n.id];
                     n._children = n.children; // all nodes collapsed by default
                     n.children = [];
                     n.inserted_nodes = [];
