@@ -187,10 +187,10 @@ index 8e4e7b1..709260d 100644
      </div>
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/RegisterForm.vue b/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/RegisterForm.vue
 new file mode 100644
-index 0000000..6784dd1
+index 0000000..3e54a86
 --- /dev/null
 +++ b/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/RegisterForm.vue
-@@ -0,0 +1,265 @@
+@@ -0,0 +1,292 @@
 +<template>
 +        <div class="login">
 +            <div class="box has-padding-medium">
@@ -205,13 +205,13 @@ index 0000000..6784dd1
 +                                       @submit.prevent="submit()">
 +                    <div class="field">
 +                        <div class="control has-icons-left has-icons-right">
-+                            <input v-model="name"
++                            <input v-model="first_name"
 +                                                                v-focus
 +                                                                class="input"
 +                                                                type="text"
-+                                                                :class="{ 'is-danger': errors.has('name'), 'is-success': isSuccessful }"
-+                                                                :placeholder="i18n('User Name')"
-+                                                                @input="errors.clear('name')">
++                                                                :class="{ 'is-danger': errors.has('first_name'), 'is-success': isSuccessful }"
++                                                                :placeholder="i18n('First Name')"
++                                                                @input="errors.clear('first_name')">
 +                            <span class="icon is-small is-left">
 +                            <fa icon="user"/>
 +                        </span>
@@ -219,14 +219,40 @@ index 0000000..6784dd1
 +                                                               class="icon is-small is-right has-text-success">
 +                            <fa icon="check"/>
 +                        </span>
-+                            <span v-if="errors.has('name')"
++                            <span v-if="errors.has('first_name')"
 +                                                               class="icon is-small is-right has-text-danger">
 +                            <fa icon="exclamation-triangle"/>
 +                        </span>
 +                        </div>
 +                        <p class="has-text-left has-text-danger is-size-7"
-+                                                    v-if="errors.has('name')">
-+                            {{ errors.get('name') }}
++                                                    v-if="errors.has('first_name')">
++                            {{ errors.get('first_name') }}
++                        </p>
++                    </div>
++                    <div class="field">
++                        <div class="control has-icons-left has-icons-right">
++                            <input v-model="last_name"
++                                   v-focus
++                                   class="input"
++                                   type="text"
++                                   :class="{ 'is-danger': errors.has('last_name'), 'is-success': isSuccessful }"
++                                   :placeholder="i18n('Last Name')"
++                                   @input="errors.clear('last_name')">
++                            <span class="icon is-small is-left">
++                            <fa icon="user"/>
++                        </span>
++                            <span v-if="isSuccessful"
++                                  class="icon is-small is-right has-text-success">
++                            <fa icon="check"/>
++                        </span>
++                            <span v-if="errors.has('last_name')"
++                                  class="icon is-small is-right has-text-danger">
++                            <fa icon="exclamation-triangle"/>
++                        </span>
++                        </div>
++                        <p class="has-text-left has-text-danger is-size-7"
++                           v-if="errors.has('last_name')">
++                            {{ errors.get('last_name') }}
 +                        </p>
 +                    </div>
 +                    <div class="field">
@@ -374,7 +400,8 @@ index 0000000..6784dd1
 +            },
 +
 +            data: () => ({
-+                name: '',
++                first_name: '',
++                last_name: '',
 +                email: '',
 +                errors: new Errors(),
 +                isSuccessful: false,
@@ -402,9 +429,9 @@ index 0000000..6784dd1
 +                        return this.registerParams;
 +                    },
 +                registerParams() {
-+                        const { email, password, name, password_confirmation } = this;
++                        const { email, password, first_name, last_name, password_confirmation } = this;
 +
-+                            return { email, password, name, password_confirmation};
++                            return { email, password, first_name, last_name, password_confirmation};
 +                    },
 +                registerLink() {
 +                        return '/api/register';

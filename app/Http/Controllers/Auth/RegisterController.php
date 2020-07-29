@@ -5,20 +5,21 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Jobs\Tenant\CreateDB;
 use App\Jobs\Tenant\Migration;
-use App\Models\enso\core\UserGroup;
-use App\Models\enso\Roles\Role;
+use LaravelEnso\Companies\Models\Company;
+use LaravelEnso\Core\Models\UserGroup;
+use LaravelEnso\Roles\Models\Role;
 use App\Models\User;
 use App\Person;
 use App\Providers\RouteServiceProvider;
 use App\Traits\ActivationTrait;
-use DB;
+use Illuminate\Support\Facades\DB;
 // use LaravelEnso\Multitenancy\Jobs\CreateDatabase;
 
 // use LaravelEnso\Multitenancy\Jobs\Migrate;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use App\Models\enso\companies\Company;
+use LaravelEnso\Companies\Models\Company;
 use App\Traits\ConnectionTrait;
 use LaravelEnso\Multitenancy\Enums\Connections;
 
@@ -40,7 +41,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:5', 'confirmed'],
         ]);
@@ -52,7 +54,9 @@ class RegisterController extends Controller
             // DB::beginTransaction();
             // create person
             $person = new Person();
-            $person->name = $data['name'];
+            $person->givn = $data['first_name'];
+            $person->surn = $data['last_name'];
+            $person->name = $data['first_name'] . ' ' . $data['last_name'];
             $person->email = $data['email'];
             $person->save();
 
