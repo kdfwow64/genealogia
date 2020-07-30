@@ -2,8 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use Stripe;
+
 class StripeController extends Controller
 {
+    protected $plans;
+
+    public function __construct(){
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        $this->plans = Stripe\Plan::all();
+    }
+
+    public function getPlans() {
+        foreach($this->plans as $plan) {
+            switch($plan->nickname) {
+                case 'UTY':
+                    $plan->title = '50GBP for unlimited trees yearly';
+                break;
+                case 'UTM':
+                    $plan->title = '5GBP for unlimited trees monthly';
+                break;
+                case 'TTY':
+                    $plan->title = '25GBP for 10 trees yearly';
+                break;
+                case 'TTM':
+                    $plan->title = '2.50GBP for 10 trees monthly';
+                break;
+                case 'OTY':
+                    $plan->title = '10GBP for 1 tree yearly';
+                break;
+                case 'OTM':
+                    $plan->title = '1GBP for 1 tree monthly';
+                break;
+            }
+            $plan->subscribed = false;
+        }
+        return $this->plans;
+    }
+
     public function getCurrentSubscription() {
         $user = auth()->user();
         $data = [];
@@ -50,25 +86,29 @@ class StripeController extends Controller
         $custom_data = explode(",", $data['data']['object']['client_reference_id']);
         $user = App\Models\User::find($custom_data[0]);
         $user->stripe_id = $data['data']['object']['customer'];
-        switch($custom_data[1]) {
-            case 'price_1H9ZbJJZEMHu7eXxIv0Kn3NG':
-                $user->role_id = 9;
-            break;
-            case 'price_1H9ZbJJZEMHu7eXxKtlWHRjL':
-                $user->role_id = 8;
-            break;
-            case 'price_1H9ZbKJZEMHu7eXxf2jzzyol':
-                $user->role_id = 7;
-            break;
-            case 'price_1H9ZbJJZEMHu7eXxTVw8KMqw':
-                $user->role_id = 6;
-            break;
-            case 'price_1H9ZbKJZEMHu7eXxFUsuK0kd':
-                $user->role_id = 5;
-            break;
-            case 'price_1H9ZbJJZEMHu7eXxlVHmrPiN':
-                $user->role_id = 4;
-            break;
+        foreach($this->plans as $plan) {
+            if($custom_data[1] == $plan->id) {
+                switch($plan->nickname) {
+                    case 'UTY':
+                        $user->role_id = 9;
+                    break;
+                    case 'UTM':
+                        $user->role_id = 8;
+                    break;
+                    case 'TTY':
+                        $user->role_id = 7;
+                    break;
+                    case 'TTM':
+                        $user->role_id = 6;
+                    break;
+                    case 'OTY':
+                        $user->role_id = 5;
+                    break;
+                    case 'OTM':
+                        $user->role_id = 4;
+                    break;
+                }
+            }
         }
         $user->save();
     }

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Laravel\Cashier\Http\Middleware\VerifyWebhookSignature;
 
+Route::get('get-plans', 'StripeController@getPlans');
+
 Route::get('get-current-subscription', 'StripeController@getCurrentSubscription')->middleware(['auth']);
 
 Route::get('get-intent', 'StripeController@getIntent')->middleware(['auth']);

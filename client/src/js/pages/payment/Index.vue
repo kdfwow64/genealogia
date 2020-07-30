@@ -51,7 +51,7 @@ export default {
             .then(response => {
                 this.clientSecret = response.data.intent.client_secret;
             });
-        this.stripe = await loadStripe('pk_test_51H7yygJZEMHu7eXxCr3ZJfotMBatunOIqfyZOKUPo3An1z2JF5YH8YhsxmCufKtb2PxxPiXah7xGmIxUXskTvDWp00fEsEHvSS');
+        this.stripe = await loadStripe(process.env.VUE_APP_STRIPE_KEY);
         const elements = this.stripe.elements();
         this.cardElement = elements.create('card');
         this.cardElement.mount('#card-element');
@@ -83,7 +83,7 @@ export default {
             })
                 .then(response => {
                     if (response.data.success) {
-                        this.$router.push({ name: 'subscription.success' });
+                        this.$toastr.success('Subscribe Successfully!');
                     }
                 });
         },
