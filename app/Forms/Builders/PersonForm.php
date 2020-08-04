@@ -3,10 +3,15 @@
 namespace App\Forms\Builders;
 
 use App\Person;
+use App\Traits\ConnectionTrait;
 use LaravelEnso\Forms\Services\Form;
 
 class PersonForm
 {
+    use ConnectionTrait;
+    $conn = $this->getConnection();
+    $db = $this->getDB();
+
     protected const TemplatePath = __DIR__.'/../Templates/person.json';
 
     protected Form $form;
