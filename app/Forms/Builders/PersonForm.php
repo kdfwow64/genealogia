@@ -9,8 +9,6 @@ use LaravelEnso\Forms\Services\Form;
 class PersonForm
 {
     use ConnectionTrait;
-    $conn = $this->getConnection();
-    $db = $this->getDB();
 
     protected const TemplatePath = __DIR__.'/../Templates/person.json';
 
@@ -18,6 +16,8 @@ class PersonForm
 
     public function __construct()
     {
+        $conn = $this->getConnection();
+        $db = $this->getDB();
         $this->form = new Form(static::TemplatePath);
     }
 
