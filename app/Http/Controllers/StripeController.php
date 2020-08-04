@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Stripe;
+use App\Notifications\SubscribeSuccessfully;
+use App\Notifications\UnsubscribeSuccessfully;
 
 class StripeController extends Controller
 {
@@ -64,9 +66,11 @@ class StripeController extends Controller
         if(request()->has('payment_method')) {
             $paymentMethod = request()->payment_method;
             $user->newSubscription('default', $plan_id)->create($paymentMethod,['name' => request()->card_holder_name, "address" => ["country" => 'GB', "state" => 'England', "city" => 'Abberley', "postal_code" => 'WR6', "line1" => 'test', "line2" => ""]]);
+            $user->notify(new SubscribeSuccessfully($plan_id));
         } else if($user->hasDefaultPaymentMethod()) {
             $paymentMethod = $user->defaultPaymentMethod();
             $user->newSubscription('default', $plan_id)->create($paymentMethod->id);
+            $user->notify(new SubscribeSuccessfully($plan_id));
         } else {
             $user->subscription('default')->swap($plan_id);
         }
@@ -78,6 +82,7 @@ class StripeController extends Controller
         $user->subscription('default')->cancel();
         $user->role_id = 3; //expired role
         $user->save();
+        $user->notify(new UnsubscribeSuccessfully($user->subscription()->stripe_plan));
         return ['success' => true];
     }
 
