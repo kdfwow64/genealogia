@@ -8,34 +8,70 @@
                     </div>
                 </div>
                 <footer class="card-footer">
-                    <button v-if="has_payment_method && plan.subscribed == false"
-                        @click="subscribe(plan.id)"
-                        class="card-footer-item">
-                        Subscribe
-                    </button>
-                    <router-link tag="button" v-if="has_payment_method == false"
-                        :to="{ name: 'payment.index', params: { planId: plan.id }}"
-                        class="card-footer-item">
-                        Subscribe
-                    </router-link>
-                    <button v-if="plan.subscribed"
-                        @click="unsubscribe()"
-                        class="card-footer-item">
-                        Unsubscribe
-                    </button>
+                    <div
+                        class="card-footer-item"
+                        v-if="has_payment_method && plan.subscribed == false">
+                        <button @click="open(plan.id)"
+                            class="button">
+                            Subscribe
+                        </button>
+                    </div>
+                    <div class="card-footer-item" v-if="has_payment_method == false">
+                        <router-link tag="button"
+                            :to="{ name: 'payment.index', params: { planId: plan.id }}"
+                            class="button">
+                            Subscribe
+                        </router-link>
+                    </div>
+                    <div class="card-footer-item" v-if="plan.subscribed">
+                        <button
+                            @click="open(null)"
+                            class="button" :class="{ 'is-success': plan.subscribed }">
+                            Unsubscribe
+                        </button>
+                    </div>
                 </footer>
             </div>
         </div>
+        <modal-card v-if="isActive" @close="close()">
+            <template v-slot:header>
+                Confirmation
+            </template>
+            <template v-slot:body>
+                Are you sure?
+            </template>
+            <template v-slot:footer>
+                <button
+                    class="button is-success"
+                    @click="subscribe()"
+                    v-if="selectedPlanId != null">
+Yes
+</button>
+                <button class="button is-success" @click="unsubscribe()" v-else>
+Yes
+</button>
+                <button @click="close()" class="button">
+No
+</button>
+            </template>
+        </modal-card>
     </div>
 </template>
 
 <script>
+import { ModalCard } from '@enso-ui/modal/bulma';
+
 export default {
     name: 'Index',
+    components: {
+        ModalCard,
+    },
     data() {
         return {
             has_payment_method: false,
             plans: [],
+            selectedPlanId: null,
+            isActive: false,
         };
     },
     created() {
@@ -54,16 +90,21 @@ export default {
                         this.plans
                             .find(plan => plan.id === response.data.plan_id)
                             .subscribed = true;
+                        this.plans
+                            .find(plan => plan.id !== response.data.plan_id)
+                            .subscribed = false;
                     }
                 });
         },
-        subscribe(planId) {
+        subscribe() {
             axios.post('/api/subscribe', {
-                plan_id: planId,
+                plan_id: this.selectedPlanId,
             })
                 .then(response => {
                     if (response.data.success) {
+                        this.isActive = false;
                         this.$toastr.success('Subscribe Successfully!');
+                        this.getCurrentSubscription();
                     }
                 });
         },
@@ -71,9 +112,18 @@ export default {
             axios.post('/api/unsubscribe')
                 .then(response => {
                     if (response.data.success) {
-                        this.$toastr.success('Unsubscribed  Successfully!');
+                        this.isActive = false;
+                        this.$toastr.success('Unsubscribed Successfully!');
+                        this.getCurrentSubscription();
                     }
                 });
+        },
+        open(planId) {
+            this.isActive = true;
+            this.selectedPlanId = planId;
+        },
+        close() {
+            this.isActive = false;
         },
     },
 };

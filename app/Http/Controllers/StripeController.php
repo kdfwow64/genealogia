@@ -9,7 +9,7 @@ class StripeController extends Controller
     protected $plans;
 
     public function __construct(){
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        Stripe\Stripe::setApiKey(\Config::get('services.stripe.secret'));
         $this->plans = Stripe\Plan::all();
     }
 

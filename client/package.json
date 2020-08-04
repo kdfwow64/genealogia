@@ -30,6 +30,7 @@
         "@enso-ui/forms": "^2.0",
         "@enso-ui/how-to": "^2.0",
         "@enso-ui/mixins": "^2.0",
+        "@enso-ui/modal": "^2.0.1",
         "@enso-ui/tables": "^2.0",
         "@enso-ui/themes": "1.1.x",
         "@enso-ui/transitions": "1.0.x",
