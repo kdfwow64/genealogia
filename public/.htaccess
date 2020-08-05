@@ -4,12 +4,12 @@
     </IfModule>
 
     RewriteEngine On
+RewriteCond %{HTTP_HOST} !^local
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*) https://www.%{SERVER_NAME}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-#Enforce HTTPS
-RewriteCond %{HTTPS} off 
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} !^local
+RewriteRule ^(.*) https://%{SERVER_NAME}%{REQUEST_URI} [L,R=301]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .

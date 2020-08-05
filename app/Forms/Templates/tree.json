@@ -1,0 +1,7 @@
+{
+    "routePrefix": "trees",
+    "sections": [{
+        "columns": 2,
+        "fields": []
+    }]
+}

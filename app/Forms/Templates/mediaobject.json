@@ -1,5 +1,5 @@
 {
-  "routePrefix": "objects",
+  "routePrefix": "mediaobjects",
   "sections": [{
     "columns": "2",
     "fields": [

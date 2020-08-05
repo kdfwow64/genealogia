@@ -1,6 +1,6 @@
 {
     "name": "Media Objects",
-    "routePrefix": "objects",
+    "routePrefix": "mediaobjects",
     "crtNo": true,
     "buttons": ["excel", "create", "show", "edit", "destroy"],
   "columns": [

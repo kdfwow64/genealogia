@@ -83,6 +83,16 @@
             ]
         },
         {
+            "label": "Death",
+            "name": "deathday",
+            "data": "people.deathday",
+            "meta": [
+                "searchable",
+                "sortable",
+                "date"
+            ]
+        },
+        {
             "label": "User",
             "name": "user",
             "data": "users.id",

@@ -7,8 +7,8 @@ use Illuminate\Routing\Controller;
 
 class Show extends Controller
 {
-    public function __invoke(MediaObject $object)
+    public function __invoke(MediaObject $mediaobject)
     {
-        return ['object' => $object];
+        return ['mediaobject' => $mediaobject];
     }
 }

@@ -5,20 +5,19 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Jobs\Tenant\CreateDB;
 use App\Jobs\Tenant\Migration;
-use App\Models\enso\core\UserGroup;
-use App\Models\enso\Roles\Role;
+use LaravelEnso\Companies\Models\Company;
+use LaravelEnso\Core\Models\UserGroup;
+use LaravelEnso\Roles\Models\Role;
 use App\Models\User;
 use App\Person;
 use App\Providers\RouteServiceProvider;
 use App\Traits\ActivationTrait;
-use DB;
+use Illuminate\Support\Facades\DB;
 // use LaravelEnso\Multitenancy\Jobs\CreateDatabase;
-
 // use LaravelEnso\Multitenancy\Jobs\Migrate;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use App\Models\enso\companies\Company;
 use App\Traits\ConnectionTrait;
 use LaravelEnso\Multitenancy\Enums\Connections;
 
@@ -40,7 +39,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:5', 'confirmed'],
         ]);
@@ -52,7 +52,9 @@ class RegisterController extends Controller
             // DB::beginTransaction();
             // create person
             $person = new Person();
-            $person->name = $data['name'];
+            $person->givn = $data['first_name'];
+            $person->surn = $data['last_name'];
+            $person->name = $data['first_name'] . ' ' . $data['last_name'];
             $person->email = $data['email'];
             $person->save();
 
@@ -84,7 +86,7 @@ class RegisterController extends Controller
             $this->initiateEmailActivation($user);
 
             $company = Company::create([
-                'name' => $data['name'],
+                'name' => $data['first_name'] . ' ' . $data['last_name'],
                 'email' => $data['email'],
                 // 'is_active' => 1,
                 'is_tenant' => 1,
@@ -105,8 +107,10 @@ class RegisterController extends Controller
             }
             // Dispatch Tenancy Jobs
 
+            $name = $data['email'] . ' - ' . $data['first_name'] . ' ' . $data['last_name'];
+
             CreateDB::dispatch($company->id, $user->id);
-            Migration::dispatch($company->id, $user->id, $data['name'], $data['email'], $data['password']);
+            Migration::dispatch($company->id, $user->id, $name, $data['email'], $data['password']);
 
             return $user;
         } catch (\Exception $e) {

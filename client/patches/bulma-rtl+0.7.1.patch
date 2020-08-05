@@ -4,24 +4,24 @@ index 32cafa4..4d9a938 100644
 +++ b/node_modules/bulma-rtl/sass/base/helpers.sass
 @@ -4,10 +4,10 @@
    +clearfix
-
+ 
  .is-pulled-left
 -  float: left !important
 +  float: right !important
-
+ 
  .is-pulled-right
 -  float: right !important
 +  float: left !important
-
+ 
  // Overflow
-
+ 
 @@ -47,7 +47,7 @@
  +fullhd
    +typography-size('fullhd')
-
+ 
 -$alignments: ('centered': 'center', 'justified': 'justify', 'left': 'left', 'right': 'right')
 +$alignments: ('centered': 'center', 'justified': 'justify', 'left': 'right', 'right': 'left')
-
+ 
  @each $alignment, $text-align in $alignments
    .has-text-#{$alignment}
 diff --git a/node_modules/bulma-rtl/sass/components/level.sass b/node_modules/bulma-rtl/sass/components/level.sass
@@ -100,7 +100,7 @@ index b07363c..74d8043 100644
        &:not(:last-child)
 -        margin-right: 0.5rem
 +        margin-#{$right}: 0.5rem
-
+ 
  .tag:not(body)
    align-items: center
 @@ -75,17 +76,17 @@ $tag-delete-margin: 1px !default
