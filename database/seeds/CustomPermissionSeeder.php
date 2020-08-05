@@ -52,7 +52,7 @@ class CustomPermissionSeeder extends Seeder
     ];
     public function run()
     {
-        $c_role = Role::where('name', 'supervisor')->first();
+        $c_role = Role::where('name', 'trial')->first();
         $role_id = $c_role->id;
         foreach($this->link as $link){
             $permission = Permission::where('name', $link)->first();

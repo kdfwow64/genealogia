@@ -91,6 +91,10 @@ class LoginController extends Controller
                 'email' => 'Account disabled. Please contact the administrator.',
             ]);
         }
+        if($user->onGenericTrial()) {
+            $user->role_id = 3; //expired role
+            $user->save();
+        }
 
         return $user;
     }

@@ -740,4 +740,3 @@ Route::middleware(['api', 'auth', 'core'])
             });
     });
 
-
