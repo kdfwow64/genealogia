@@ -23,11 +23,16 @@ class PersonForm
 
     public function create()
     {
+        $conn = $this->getConnection();
+        $db = $this->getDB();
         return $this->form->create();
     }
 
     public function edit(Person $person)
     {
+        $conn = $this->getConnection();
+        $db = $this->getDB();
+
         if ($person->hasUser()) {
             $this->form->meta(
                 'email',

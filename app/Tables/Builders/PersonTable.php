@@ -32,4 +32,10 @@ class PersonTable extends \LaravelEnso\People\Tables\Builders\PersonTable
                     ->where('company_person.is_main', true)
             )->leftJoin('companies', 'company_person.company_id', 'companies.id');
     }
+
+    public function templatePath(): string
+    {
+        return static::TemplatePath;
+    }
+
 }
