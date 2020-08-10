@@ -4,6 +4,8 @@ namespace App;
 
 use LaravelEnso\Companies\Models\Company;
 use App\Models\User;
+use App\Family;
+use App\Place;
 use LaravelEnso\DynamicMethods\Traits\Relations;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -44,7 +46,7 @@ class Person extends \LaravelEnso\People\Models\Person
      *
      * @var array
      */
-    protected $dates = ['deleted_at', 'birthday'];
+    protected $dates = ['deleted_at', 'birthday','deathday'];
 
     protected $fillable = [
         'gid',
@@ -159,7 +161,7 @@ class Person extends \LaravelEnso\People\Models\Person
 
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(\LaravelEnso\Core\Models\User::class);
     }
 
     public function companies()
@@ -176,6 +178,11 @@ class Person extends \LaravelEnso\People\Models\Person
     public function company()
     {
         return $this->companies()->wherePivot('is_main', true)->first();
+    }
+
+    public function appellative()
+    {
+        return $this->appellative ?? $this->name;
     }
 
     public function gender()
