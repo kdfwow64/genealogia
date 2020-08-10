@@ -40,4 +40,3 @@ class PersonForm extends \LaravelEnso\People\Forms\Builders\PersonForm
             ->edit($person);
     }
 }
-}
