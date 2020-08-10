@@ -6,7 +6,7 @@ use App\Person;
 use App\Traits\ConnectionTrait;
 use LaravelEnso\Forms\Services\Form;
 
-class PersonForm
+class PersonForm extends \LaravelEnso\People\Forms\Builders\PersonForm
 {
     use ConnectionTrait;
 
@@ -16,6 +16,8 @@ class PersonForm
 
     public function __construct()
     {
+        $conn = $this->getConnection();
+        $db = $this->getDB();
         $this->form = new Form(static::TemplatePath);
     }
 
