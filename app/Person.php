@@ -51,6 +51,8 @@ class Person extends Model
      */
     protected $dates = ['deleted_at', 'birthday','deathday'];
 
+    protected $guarded = ['id'];
+
     protected $fillable = [
         'gid',
         'givn',
