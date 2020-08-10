@@ -20,7 +20,7 @@ use LaravelEnso\Tables\Traits\TableCache;
 use LaravelEnso\TrackWho\Traits\CreatedBy;
 use LaravelEnso\TrackWho\Traits\UpdatedBy;
 
-class Person extends Model
+class Person extends LaravelEnso\People\Models\Person
 {
     use Addressable,
         AvoidsDeletionConflicts,
