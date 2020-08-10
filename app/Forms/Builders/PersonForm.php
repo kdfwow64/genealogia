@@ -16,8 +16,6 @@ class PersonForm
 
     public function __construct()
     {
-        $conn = $this->getConnection();
-        $db = $this->getDB();
         $this->form = new Form(static::TemplatePath);
     }
 
