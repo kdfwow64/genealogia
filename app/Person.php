@@ -152,11 +152,6 @@ class Person extends \LaravelEnso\People\Models\Person
         return $this->events->where('title', '=', 'DEAT')->first();
     }
 
-    public function appellative()
-    {
-        return $this->givn;
-    }
-
     protected $touches = ['user'];
 
     public function user()
