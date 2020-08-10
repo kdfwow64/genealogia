@@ -36,10 +36,13 @@ class Person extends \LaravelEnso\People\Models\Person
         SoftDeletes,
         SystemConnection;
 
-        public function __construct(Array $attributes = [])
+   /**
+         public function __construct(Array $attributes = [])
         {
             parent::__construct($attributes);
         }
+
+    */
 
     /**
      * The attributes that should be mutated to dates.
@@ -152,6 +155,11 @@ class Person extends \LaravelEnso\People\Models\Person
         return $this->events->where('title', '=', 'DEAT')->first();
     }
 
+    public function appellative()
+    {
+        return $this->givn;
+    }
+
     protected $touches = ['user'];
 
     public function user()
@@ -173,11 +181,6 @@ class Person extends \LaravelEnso\People\Models\Person
     public function company()
     {
         return $this->companies()->wherePivot('is_main', true)->first();
-    }
-
-    public function appellative()
-    {
-        return $this->appellative ?? $this->name;
     }
 
     public function gender()
