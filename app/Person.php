@@ -6,6 +6,7 @@ use LaravelEnso\Companies\Models\Company;
 use App\Models\User;
 use App\Family;
 use App\Place;
+use App\PersonEvent;
 use LaravelEnso\DynamicMethods\Traits\Relations;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -22,7 +23,7 @@ use LaravelEnso\Tables\Traits\TableCache;
 use LaravelEnso\TrackWho\Traits\CreatedBy;
 use LaravelEnso\TrackWho\Traits\UpdatedBy;
 
-class Person extends \LaravelEnso\People\Models\Person
+class Person extends Model
 {
     use Addressable,
         AvoidsDeletionConflicts,
@@ -36,13 +37,12 @@ class Person extends \LaravelEnso\People\Models\Person
         SoftDeletes,
         SystemConnection;
 
-   /**
+
          public function __construct(Array $attributes = [])
         {
             parent::__construct($attributes);
         }
 
-    */
 
     /**
      * The attributes that should be mutated to dates.
