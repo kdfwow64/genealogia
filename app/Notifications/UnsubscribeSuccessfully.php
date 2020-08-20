@@ -21,7 +21,7 @@ class UnsubscribeSuccessfully extends Notification
     public function __construct($plan_id)
     {
         $stripe = new \Stripe\StripeClient(\Config::get('services.stripe.secret'));
-        $this->plan = $stripe->plans->retrieve($plan_id, []);
+        $this->plan = $stripe->plans->retrieve($plan_id);
     }
 
     /**

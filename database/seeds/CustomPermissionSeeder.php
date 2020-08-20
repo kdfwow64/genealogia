@@ -50,6 +50,17 @@ class CustomPermissionSeeder extends Seeder
         'administration.companies.people.store',
         'administration.companies.people.update',
         'administration.companies.people.destroy',
+        'trees.create',
+        'trees.destroy',
+        'trees.edit',
+        'trees.exportExcel',
+        'trees.index',
+        'trees.initTable',
+        'trees.options',
+        'trees.show',
+        'trees.store',
+        'trees.tableData',
+        'trees.update'
     ];
     public function run()
     {
