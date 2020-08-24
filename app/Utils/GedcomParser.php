@@ -26,6 +26,8 @@ class GedcomParser
      */
     protected $persons_id = [];
     protected $subm_ids = [];
+    protected $sour_ids = [];
+    protected $obje_ids = [];
     protected $conn = '';
     public function parse($conn, string $filename, string $slug, bool $progressBar = false)
     {
@@ -108,7 +110,11 @@ class GedcomParser
         foreach ($sour as $item){
             // $this->getSour($item);
             if($item) {
-                \ModularSoftware\LaravelGedcom\Utils\Importer\Sour::read($this->conn,$item);
+                $_sour_id = $item->getSour();
+                $sour_id = \ModularSoftware\LaravelGedcom\Utils\Importer\Sour::read($this->conn,$item);
+                if($sour_id != 0){
+                    $this->sour_ids[$_sour_id] = $sour_id;
+                }
             }
             if ($progressBar === true) {
                 $bar->advance();
@@ -147,7 +153,11 @@ class GedcomParser
         foreach ($obje as $item){
             // $this->getObje($item);
             if($item) {
-                \ModularSoftware\LaravelGedcom\Utils\Importer\Obje::read($this->conn,$item);
+                $_obje_id = $item->getId();
+                $obje_id = \ModularSoftware\LaravelGedcom\Utils\Importer\Obje::read($this->conn,$item);
+                if($obje_id != 0) {
+                    $this->obje_ids[$_obje_id] = $obje_id;
+                }
             }
             if ($progressBar === true) {
                 $bar->advance();
@@ -194,10 +204,27 @@ class GedcomParser
         $givn = '';
         $surn = '';
 
-        if (!empty($individual->getName())) {
-            $surn = current($individual->getName())->getSurn();
-            $givn = current($individual->getName())->getGivn();
-            $name = current($individual->getName())->getName();
+         $name = '';
+         $npfx = '';
+         $givn = '';
+         $nick = '';
+         $spfx = '';
+         $surn = '';
+         $nsfx = '';
+         $type = '';
+         $fone = null; // PhpGedcom/
+         $romn = null;
+         $names = $individual->getName();
+
+        if (!empty($names)) {
+            $name = current($names)->getName();
+            $npfx = current($names)->getNpfx();
+            $givn = current($names)->getGivn();
+            $nick = current($names)->getNick();
+            $spfx = current($names)->getSpfx();
+            $surn = current($names)->getSurn();
+            $nsfx = current($names)->getNsfx();
+            $type = current($names)->getType();
         }
 
 
@@ -226,7 +253,6 @@ class GedcomParser
         $desi = $individual->getDesi();
         $refn = $individual->getRefn(); // \PhpGedcom\Record\Refn array
         $obje = $individual->getObje();
-
         // object
         $bapl = $individual->getBapl();
         $conl = $individual->getConl();
@@ -257,6 +283,11 @@ class GedcomParser
 
         $_group = 'indi';
         $_gid= $person->id;
+        if($names != null && count($names) > 0) {
+            foreach($names as $item) {
+                \ModularSoftware\LaravelGedcom\Utils\Importer\Indi\Name::read($this->conn,$item, $_group, $_gid);
+            }
+        }
         if($note != null && count($note) > 0) {
             foreach($note as $item) {
                 \ModularSoftware\LaravelGedcom\Utils\Importer\NoteRef::read($this->conn,$item, $_group, $_gid);
@@ -264,7 +295,7 @@ class GedcomParser
         }
         if($sour !== null && count($sour) > 0) {
             foreach($sour as $item) {
-                \ModularSoftware\LaravelGedcom\Utils\Importer\SourRef::read($this->conn,$item, $_group, $_gid);
+                \ModularSoftware\LaravelGedcom\Utils\Importer\SourRef::read($this->conn,$item, $_group, $_gid, $this->sour_ids);
             }
         }
 
@@ -326,16 +357,16 @@ class GedcomParser
         }
 
         if($bapl !== null) {
-            \ModularSoftware\LaravelGedcom\Utils\Importer\Lds::read($this->conn,$bapl, $_group, $_gid, 'BAPL');
+            \ModularSoftware\LaravelGedcom\Utils\Importer\Indi\Lds::read($this->conn,$bapl, $_group, $_gid, 'BAPL');
         }
         if($conl !== null) {
-            \ModularSoftware\LaravelGedcom\Utils\Importer\Lds::read($this->conn,$conl, $_group, $_gid, 'CONL');
+            \ModularSoftware\LaravelGedcom\Utils\Importer\Indi\Lds::read($this->conn,$conl, $_group, $_gid, 'CONL');
         }
         if($endl !== null) {
-            \ModularSoftware\LaravelGedcom\Utils\Importer\Lds::read($this->conn,$endl, $_group, $_gid, 'ENDL');
+            \ModularSoftware\LaravelGedcom\Utils\Importer\Indi\Lds::read($this->conn,$endl, $_group, $_gid, 'ENDL');
         }
         if($slgc !== null) {
-            \ModularSoftware\LaravelGedcom\Utils\Importer\Lds::read($this->conn,$slgc, $_group, $_gid, 'SLGC');
+            \ModularSoftware\LaravelGedcom\Utils\Importer\Indi\Lds::read($this->conn,$slgc, $_group, $_gid, 'SLGC');
         }
     }
 
