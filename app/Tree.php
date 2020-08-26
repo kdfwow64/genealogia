@@ -9,5 +9,8 @@ class Tree extends Model
 {
 	use TableCache;
 
-    //
+    /**
+     * @var array
+     */
+    protected $fillable = ['name', 'description'];
 }

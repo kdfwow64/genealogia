@@ -33,14 +33,13 @@ class Migration implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($c_id, $u_id, $name = '', $email = '', $password = '')
+    public function __construct($c_id, $u_id, $name = '', $email = '')
     {
         //
         $this->c_id = $c_id;
         $this->u_id = $u_id;
         $this->name = $name;
         $this->email = $email;
-        $this->password = $password;
         // $this->queue = 'sync';
     }
 
@@ -61,6 +60,7 @@ class Migration implements ShouldQueue
             '--path' => '/database/migrations/tenant',
             '--force' => true,
         ]);
+        
         Artisan::call('db:seed', [
             '--database' => Connections::Tenant,
             '--force' => true,
@@ -70,20 +70,6 @@ class Migration implements ShouldQueue
             'email'=>$this->email,
             'name' => $this->name,
         ]);
-        // get user_group_id
-        $user_group = 1;
 
-        // get role_id
-        $role = 1;
-
-        $person = DB::connection(Connections::Tenant)->table('users')->insert([
-            'id' => $this->u_id,
-            'email' => $this->email,
-            'password' => Hash::make($this->password),
-            'person_id' => $person,
-            'group_id' => $user_group,
-            'role_id' => $role,
-            'is_active' => 1,
-        ]);
     }
 }

@@ -1,6 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Cashier\Http\Middleware\VerifyWebhookSignature;
+
+Route::get('get-plans', 'StripeController@getPlans');
+
+Route::get('get-current-subscription', 'StripeController@getCurrentSubscription')->middleware(['auth']);
+
+Route::get('get-intent', 'StripeController@getIntent')->middleware(['auth']);
+Route::post('subscribe', 'StripeController@subscribe')->middleware(['auth']);
+Route::post('unsubscribe', 'StripeController@unsubscribe')->middleware(['auth']);
+Route::post('webhook', 'StripeController@webhook')->middleware([VerifyWebhookSignature::class]);
 
      Route::middleware(['guest'])
 	->prefix('api')
@@ -766,5 +776,3 @@ Route::middleware(['api', 'auth', 'core'])
 
             });
     });
-
-
