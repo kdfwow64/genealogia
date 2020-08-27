@@ -4,7 +4,7 @@ const routes = routeImporter(require.context('./dna', false, /.*\.js$/));
 const RouterView = () => import('@core/bulma/pages/Router.vue');
 
 export default {
-    path: '\dna',
+    path: '/dna',
     component: RouterView,
     meta: {
         breadcrumb: 'dna',
