@@ -1,4 +1,4 @@
-const DnaIndex = () => import('..\..\pages/dna/Index.vue');
+const DnaIndex = () => import('../../pages/dna/Index.vue');
 
 export default {
     name: 'dna.index',

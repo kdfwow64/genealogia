@@ -1,4 +1,4 @@
-const DnaShow = () => import('..\..\pages/dna/Show.vue');
+const DnaShow = () => import('../../pages/dna/Show.vue');
 
 export default {
     name: 'dna.show',

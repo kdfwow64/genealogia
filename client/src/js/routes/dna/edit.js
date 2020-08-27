@@ -1,4 +1,4 @@
-const DnaEdit = () => import('..\..\pages/dna/Edit.vue');
+const DnaEdit = () => import('../../pages/dna/Edit.vue');
 
 export default {
     name: 'dna.edit',

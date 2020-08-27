@@ -1,4 +1,4 @@
-const DnaCreate = () => import('..\..\pages/dna/Create.vue');
+const DnaCreate = () => import('../../pages/dna/Create.vue');
 
 export default {
     name: 'dna.create',
