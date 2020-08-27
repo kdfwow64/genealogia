@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTreesTable extends Migration
+class AddColumnsForUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateTreesTable extends Migration
      */
     public function up()
     {
-        Schema::create('trees', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->integer('company_id');
-            $table->string('name',255);
-            $table->text('description');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('email_verified_at')->after('is_active')->nullable();
         });
     }
 
@@ -30,6 +25,8 @@ class CreateTreesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trees');
+        Schema::table('users', function ($table) {
+            $table->dropColumn('email_verified_at');
+        });
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTreesTable extends Migration
+class CreateActivationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateTreesTable extends Migration
      */
     public function up()
     {
-        Schema::create('trees', function (Blueprint $table) {
+        Schema::create('activations', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('company_id');
-            $table->string('name',255);
-            $table->text('description');
+            $table->unsignedBigInteger('user_id')->unsigned()->index();
+            $table->string('token');
+            $table->ipAddress('ip_address')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateTreesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trees');
+        Schema::dropIfExists('activations');
     }
 }
