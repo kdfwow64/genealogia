@@ -3,10 +3,18 @@
     "routePrefix": "trees",
     "crtNo": true,
     "buttons": ["excel", "create", "show", "edit", "destroy"],
-    "columns": [{
-        "label": "Id",
-        "name": "id",
-        "data": "trees.id",
-        "meta": ["searchable", "sortable"]
-    }]
+    "columns": [
+        {
+            "label": "Name",
+            "name": "name",
+            "data": "trees.name",
+            "meta": ["searchable", "sortable"]
+        },
+        {
+            "label": "Description",
+            "name": "description",
+            "data": "trees.description",
+            "meta": ["searchable", "sortable"]
+        }
+    ]
 }

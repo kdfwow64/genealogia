@@ -10,6 +10,7 @@ use LaravelEnso\Core\Models\UserGroup;
 use LaravelEnso\Roles\Models\Role;
 use App\Models\User;
 use App\Person;
+use App\Tree;
 use App\Providers\RouteServiceProvider;
 use App\Traits\ActivationTrait;
 use Illuminate\Support\Facades\DB;
@@ -20,8 +21,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Traits\ConnectionTrait;
 use LaravelEnso\Multitenancy\Enums\Connections;
-
-use Str;
 
 class RegisterController extends Controller
 {
@@ -66,10 +65,7 @@ class RegisterController extends Controller
             }
 
             // get role_id
-            $role = Role::where('name', 'supervisor')->first();
-            if ($role == null) {
-                $role = Role::create(['menu_id'=>1, 'name'=>'supervisor', 'display_name'=>'Supervisor', 'description'=>'Supervisor role.']);
-            }
+            $role = Role::where('name', 'trial')->first();
             $user = User::create([
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
@@ -77,6 +73,7 @@ class RegisterController extends Controller
                 'group_id' => $user_group->id,
                 'role_id' => $role->id,
                 'is_active' => 1,
+                'trial_ends_at' => now()->addDays(7)
             ]);
 
 
@@ -108,8 +105,15 @@ class RegisterController extends Controller
 
             $name = $data['email'] . ' - ' . $data['first_name'] . ' ' . $data['last_name'];
 
-            CreateDB::dispatch($company->id, $user->id);
-            Migration::dispatch($company->id, $user->id, $name, $data['email'], $data['password']);
+            CreateDB::dispatch($company, $user->id);
+            Migration::dispatch($company->id, $user->id, $name, $data['email']);
+
+            $tree = new Tree();
+            $tree->company_id = $company->id;
+            $tree->user_id = $user->id;
+            $tree->name = 'default';
+            $tree->description = 'Default Tree';
+            $tree->save();
 
             return $user;
         } catch (\Exception $e) {
