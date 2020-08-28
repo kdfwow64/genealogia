@@ -21,7 +21,11 @@ class SubscribeSuccessfully extends Notification
     public function __construct($plan_id)
     {
         $stripe = new \Stripe\StripeClient(\Config::get('services.stripe.secret'));
-        $this->plan = $stripe->plans->retrieve($plan_id);
+        if(is_array($plan_id)) {
+            $this->plan = $stripe->plans->retrieve($plan_id['planId']);
+        } else{
+            $this->plan = $stripe->plans->retrieve($plan_id);
+        }
     }
 
     /**
