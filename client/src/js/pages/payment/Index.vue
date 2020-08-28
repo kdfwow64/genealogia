@@ -84,6 +84,7 @@ export default {
                 .then(response => {
                     if (response.data.success) {
                         this.$toastr.success('Subscribe Successfully!');
+                        this.$router.push('subscription');
                     }
                 });
         },
