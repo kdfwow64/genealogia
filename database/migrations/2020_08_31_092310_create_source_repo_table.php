@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMediaObjectsTable extends Migration
+class CreateSourceRepoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateMediaObjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('media_objects', function (Blueprint $table) {
+        Schema::create('source_repo', function (Blueprint $table) {
             $table->id();
-            $table->integer('gid')->nullable();
-            $table->string('group')->nullable();
-            $table->string('titl')->nullable();
-            $table->string('obje_id')->nullable();
+            $table->string('group');
+            $table->integer('gid');
+            $table->integer('repo_id');
+            $table->text('caln');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateMediaObjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('media_objects');
+        Schema::dropIfExists('source_repo');
     }
 }
