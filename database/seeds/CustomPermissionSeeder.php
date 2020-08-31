@@ -73,6 +73,28 @@ class CustomPermissionSeeder extends Seeder
                 $permission->roles()->attach($role_id);
             }
         }
+        $expired = Role::where('name', 'expired')->first();
+        $role_id = $expired->id;
+        $expired_permissions = [
+            'core.home.index',
+            'core.avatars.update',
+            'core.avatars.show',
+            'core.avatars.store',
+            'core.preferences.store',
+            'core.preferences.reset',
+            'dashboard.index',
+            'payment.index',
+            'subscription.index',
+            'subscription.success',
+            'subscription.cancel'
+        ];
+        foreach($expired_permissions as $permission){
+            $permission = Permission::where('name', $permission)->first();
+            if($permission !== null ) {
+                $permission->roles()->detach($role_id);
+                $permission->roles()->attach($role_id);
+            }
+        }
         $roles = Role::whereNotIn('name', ['trial', 'expired'])->get();
         foreach($roles as $role) {
 
