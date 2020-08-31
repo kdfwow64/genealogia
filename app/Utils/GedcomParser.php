@@ -28,6 +28,8 @@ class GedcomParser
     protected $subm_ids = [];
     protected $sour_ids = [];
     protected $obje_ids = [];
+    protected $note_ids = [];
+    protected $repo_ids = [];
     protected $conn = '';
     public function parse($conn, string $filename, string $slug, bool $progressBar = false)
     {
@@ -127,7 +129,9 @@ class GedcomParser
         foreach ($note as $item){
             // $this->getNote($item);
             if($item) {
-                \ModularSoftware\LaravelGedcom\Utils\Importer\Note::read($this->conn,$item);
+                $note_id = $item->getId();
+                $_note_id = \ModularSoftware\LaravelGedcom\Utils\Importer\Note::read($this->conn,$item);
+                $this->note_ids[$note_id] = $_note_id;
             }
 
             if ($progressBar === true) {
@@ -141,7 +145,9 @@ class GedcomParser
         foreach ($repo as $item){
             // $this->getRepo($item);
             if($item) {
-                \ModularSoftware\LaravelGedcom\Utils\Importer\Repo::read($this->conn,$item);
+                $repo_id = $item->getId();
+                $_repo_id = \ModularSoftware\LaravelGedcom\Utils\Importer\Repo::read($this->conn,$item);
+                $this->repo_ids[$repo_id] = $_repo_id;
             }
             if ($progressBar === true) {
                 $bar->advance();
@@ -226,7 +232,6 @@ class GedcomParser
             $nsfx = current($names)->getNsfx();
             $type = current($names)->getType();
         }
-
 
         // array value
         $fams = $individual->getFams();  // self family, leave it now, note would be included in family

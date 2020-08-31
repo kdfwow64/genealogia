@@ -15,6 +15,9 @@ use LaravelEnso\Tables\Traits\TableCache;
  * @property string $rfn
  * @property string $lang
  * @property string $phon
+ * @property string $email
+ * @property string $fax
+ * @property string $www
  * @property string $created_at
  * @property string $updated_at
  */
@@ -32,5 +35,5 @@ class Subm extends Model
     /**
      * @var array
      */
-    protected $fillable = ['group', 'gid', 'name', 'addr_id', 'rin', 'rfn', 'lang', 'phon', 'created_at', 'updated_at'];
+    protected $fillable = ['group', 'gid', 'name', 'addr_id', 'rin', 'rfn', 'lang','phon','email','fax','www', 'created_at', 'updated_at'];
 }
