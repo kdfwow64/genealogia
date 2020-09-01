@@ -23,6 +23,7 @@ class TreeForm
 
     public function edit(Tree $tree)
     {
+        $this->form->actions(['back', 'destroy', 'show']);
         return $this->form->edit($tree);
     }
 }
