@@ -494,7 +494,7 @@ index 0000000..88a461b
 +</style>
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/VerifyForm.vue b/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/VerifyForm.vue
 new file mode 100644
-index 0000000..e9b04f1
+index 0000000..1bf0488
 --- /dev/null
 +++ b/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/VerifyForm.vue
 @@ -0,0 +1,202 @@
@@ -513,7 +513,7 @@ index 0000000..e9b04f1
 +                    <p class="t-center" v-if="isSuccessful"> Thank you for using Genealogia.</p>
 +                </div>
 +
-+                <router-link v-if="isLogin"
++                <router-link
 +                                              :to="{ name: 'login' }"
 +                                              class="is-pulled-right">
 +                    {{ i18n('Log in') }}
