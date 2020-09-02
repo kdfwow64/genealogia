@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePersonAliaTable extends Migration
+class CreateMediaObjectsFileTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreatePersonAliaTable extends Migration
      */
     public function up()
     {
-        Schema::create('person_alia', function (Blueprint $table) {
+        Schema::create('media_objects_file', function (Blueprint $table) {
             $table->id();
-            $table->string('group')->nullable();
-            $table->integer('gid')->nullable();
-            $table->string('alia')->nullable();
-            $table->integer('import_confirm')->default(0);
+            $table->string('form')->nullable();
+            $table->string('medi')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreatePersonAliaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('person_alia');
+        Schema::dropIfExists('media_objects_file');
     }
 }

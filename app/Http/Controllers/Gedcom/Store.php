@@ -37,10 +37,11 @@ class Store extends Controller
                     $_name = uniqid().'.ged';
                     $request->file->storeAs('gedcom', $_name);
                     define('STDIN', fopen('php://stdin', 'r'));
-                    // $parser = new GedcomParser();
-                    // $parser->parse($request->file('file'), $slug, true);
+                    error_log('store_log_____________________________________'.$conn);
+                    $parser = new GedcomParser();
+                    $parser->parse($request->file('file'), $slug, true);
                     $filename = 'app/gedcom/'.$_name;
-                    ImportGedcom::dispatch($filename, $slug, $currentUser->id, $conn, $db);
+                    // ImportGedcom::dispatch($filename, $slug, $currentUser->id, $conn, $db);
                     return ['File uploaded: conn:-'.$conn.'-'];
                 } catch (\Exception $e) {
                     return ['Not uploaded'];

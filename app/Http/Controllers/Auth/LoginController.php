@@ -70,10 +70,13 @@ class LoginController extends Controller
             $c_id = $main_company->id;
             $db = $c_id;
             $this->setConnection(Connections::Tenant, $db, $user->id);
+            error_log('login log: ****************************************'.$db);
         }else {
+            error_log('admin login log: **************************************** enso');
 
             $this->setConnection('mysql', 'enso', $user->id);
         }
+        error_log('admin login log: **************************************** enso');
 
         if (!optional($user)->currentPasswordIs($request->input('password'))) {
             return;
@@ -87,7 +90,7 @@ class LoginController extends Controller
 
         if ($user->isInactive()) {
             throw ValidationException::withMessages([
-                'email' => 'Account disabled. Please contact the administrator.',
+                'email' => 'Account disabled. Please contact the administrator. wwwwwwwwwwwwwwwwww',
             ]);
         }
 
