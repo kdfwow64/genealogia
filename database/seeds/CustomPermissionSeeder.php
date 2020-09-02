@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use LaravelEnso\Permissions\Models\Permission;
 use LaravelEnso\Roles\Models\Role;
+
 class CustomPermissionSeeder extends Seeder
 {
     /**
@@ -49,16 +50,67 @@ class CustomPermissionSeeder extends Seeder
         'administration.companies.people.store',
         'administration.companies.people.update',
         'administration.companies.people.destroy',
+        'trees.create',
+        'trees.destroy',
+        'trees.edit',
+        'trees.exportExcel',
+        'trees.index',
+        'trees.initTable',
+        'trees.options',
+        'trees.show',
+        'trees.store',
+        'trees.tableData',
+        'trees.update'
     ];
     public function run()
     {
-        $c_role = Role::where('name', 'supervisor')->first();
-        $role_id = $c_role->id;
+        $trial = Role::where('name', 'trial')->first();
+        $role_id = $trial->id;
         foreach($this->link as $link){
             $permission = Permission::where('name', $link)->first();
             if($permission !== null ) {
                 $permission->roles()->detach($role_id);
                 $permission->roles()->attach($role_id);
+            }
+        }
+        $expired = Role::where('name', 'expired')->first();
+        $role_id = $expired->id;
+        $expired_permissions = [
+            'core.home.index',
+            'core.avatars.update',
+            'core.avatars.show',
+            'core.avatars.store',
+            'core.preferences.store',
+            'core.preferences.reset',
+            'dashboard.index',
+            'payment.index',
+            'subscription.index',
+            'subscription.success',
+            'subscription.cancel'
+        ];
+        foreach($expired_permissions as $permission){
+            $permission = Permission::where('name', $permission)->first();
+            if($permission !== null ) {
+                $permission->roles()->detach($role_id);
+                $permission->roles()->attach($role_id);
+            }
+        }
+        $roles = Role::whereNotIn('name', ['trial', 'expired'])->get();
+        foreach($roles as $role) {
+
+            $permissions = Permission::where([
+                ['name','not like', '%system%'],
+                ['name','not like', '%administration.userGroups%'],
+                ['name','not like', '%administration.users%'],
+                ['name','not like', '%administration.teams%'],
+                ['name','not like', '%administration.companies%'],
+            ])->get();
+
+            foreach($permissions as $permission){
+                if($permission !== null ) {
+                    $permission->roles()->detach($role->id);
+                    $permission->roles()->attach($role->id);
+                }
             }
         }
     }

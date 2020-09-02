@@ -5,7 +5,7 @@ use LaravelEnso\Migrator\Database\Migration;
 class CreateStructureForTreeShow extends Migration
 {
     protected array $permissions = [
-        ['name' => 'trees.show', 'description' => 'Show tree', 'is_default' => false],
+        ['name' => 'trees.show', 'description' => 'Show tree', 'is_default' => true],
     ];
 
     protected array $menu = [

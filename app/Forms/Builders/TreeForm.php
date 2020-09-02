@@ -7,7 +7,7 @@ use LaravelEnso\Forms\Services\Form;
 
 class TreeForm
 {
-    protected const TemplatePath = __DIR__.'/../Templates//tree.json';
+    protected const TemplatePath = __DIR__.'/../Templates/tree.json';
 
     protected Form $form;
 
@@ -23,6 +23,7 @@ class TreeForm
 
     public function edit(Tree $tree)
     {
+        $this->form->actions(['back', 'destroy', 'show']);
         return $this->form->edit($tree);
     }
 }

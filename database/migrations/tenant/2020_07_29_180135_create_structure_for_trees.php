@@ -12,16 +12,13 @@ class CreateStructureForTrees extends Migration
         ['name' => 'trees.update', 'description' => 'Update tree', 'is_default' => false],
         ['name' => 'trees.destroy', 'description' => 'Delete tree', 'is_default' => false],
         ['name' => 'trees.initTable', 'description' => 'Init table for trees', 'is_default' => false],
-
         ['name' => 'trees.tableData', 'description' => 'Get table data for trees', 'is_default' => false],
-
         ['name' => 'trees.exportExcel', 'description' => 'Export excel for trees', 'is_default' => false],
-
         ['name' => 'trees.options', 'description' => 'Get tree options for select', 'is_default' => false],
     ];
 
     protected array $menu = [
-        'name' => 'Trees', 'icon' => 'book', 'route' => 'trees.index', 'order_index' => 999, 'has_children' => false
+        'name' => 'Trees', 'icon' => 'eye', 'route' => 'trees.index', 'order_index' => 999, 'has_children' => false
     ];
 
     protected ?string $parentMenu = 'Administration';

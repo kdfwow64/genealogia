@@ -14,7 +14,6 @@ use Illuminate\Notifications\RoutesNotifications;
 use Illuminate\Support\Collection;
 use LaravelEnso\Addresses\Traits\Addressable;
 use LaravelEnso\Helpers\Traits\AvoidsDeletionConflicts;
-use LaravelEnso\Helpers\Traits\CascadesMorphMap;
 use LaravelEnso\Multitenancy\Traits\SystemConnection;
 use LaravelEnso\People\Enums\Genders;
 use LaravelEnso\People\Enums\Titles;
@@ -23,11 +22,10 @@ use LaravelEnso\Tables\Traits\TableCache;
 use LaravelEnso\TrackWho\Traits\CreatedBy;
 use LaravelEnso\TrackWho\Traits\UpdatedBy;
 
-class Person extends Model
+class Person extends \LaravelEnso\People\Models\Person
 {
     use Addressable,
         AvoidsDeletionConflicts,
-        CascadesMorphMap,
         CreatedBy,
         Relations,
         Rememberable,

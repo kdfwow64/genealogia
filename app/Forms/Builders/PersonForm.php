@@ -2,7 +2,8 @@
 
 namespace App\Forms\Builders;
 
-use App\Person;
+// use App\Person;
+use LaravelEnso\People\Models\Person;
 use App\Traits\ConnectionTrait;
 use LaravelEnso\Forms\Services\Form;
 

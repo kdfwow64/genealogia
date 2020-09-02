@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
-use LaravelEnso\Core\Events\Login;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Traits\ConnectionTrait;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use LaravelEnso\Core\Events\Login;
 use LaravelEnso\Multitenancy\Enums\Connections;
 use LaravelEnso\Multitenancy\Services\Tenant;
-use App\Traits\ConnectionTrait;
 
 class LoginController extends Controller
 {
@@ -37,7 +37,7 @@ class LoginController extends Controller
     {
         $user = $this->loggableUser($request);
 
-        if (! $user) {
+        if (!$user) {
             return false;
         }
 
@@ -66,18 +66,19 @@ class LoginController extends Controller
         }
         // set company id as default
         $main_company = $user->person->company();
-        if($main_company !== null && !($user->isAdmin())) {
+        if ($main_company !== null && !($user->isAdmin())) {
             $c_id = $main_company->id;
             $db = $c_id;
             $this->setConnection(Connections::Tenant, $db, $user->id);
-        }
+            error_log('login log: ****************************************'.$db);
+        }else {
+            error_log('admin login log: **************************************** enso');
 
-	else {
             $this->setConnection('mysql', 'enso', $user->id);
         }
+        error_log('admin login log: **************************************** enso');
 
-
-        if (! optional($user)->currentPasswordIs($request->input('password'))) {
+        if (!optional($user)->currentPasswordIs($request->input('password'))) {
             return;
         }
 
@@ -86,10 +87,16 @@ class LoginController extends Controller
                 'email' => 'Password expired. Please set a new one.',
             ]);
         }
+
         if ($user->isInactive()) {
             throw ValidationException::withMessages([
-                'email' => 'Account disabled. Please contact the administrator.',
+                'email' => 'Account disabled. Please contact the administrator. wwwwwwwwwwwwwwwwww',
             ]);
+        }
+
+        if (!$user->onGenericTrial()) {
+            $user->role_id = 3; //expired role
+            $user->save();
         }
 
         return $user;

@@ -4,7 +4,7 @@ namespace App\Service;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use App\Models\enso\companies\Company;
+use LaravelEnso\Companies\Models\Company;
 use LaravelEnso\Multitenancy\Enums\Connections;
 
 class Tenant

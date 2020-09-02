@@ -30,7 +30,7 @@ class MixedConnection
     {
         $key = 'database.connections.'.Connections::Mixed.'.database';
         $value = config("database.connections.{$connection}.database");
-        error_log('+++++++++++++++++++++++++++++++++++'.$value);
+        error_log('CONNETCION lOG:  +++++++++++++++++++++++++++++++++++'.$value);
         config([$key => $value]);
     }
 }
