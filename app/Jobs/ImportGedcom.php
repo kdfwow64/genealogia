@@ -11,7 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\File;
-use App\Utils\GedcomParser;
+// use App\Utils\GedcomParser;
+use ModularSoftware\LaravelGedcom\Utils\GedcomParser;
 use Illuminate\Support\Facades\Artisan;
 
 class ImportGedcom implements ShouldQueue
