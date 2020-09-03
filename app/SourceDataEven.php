@@ -33,5 +33,5 @@ class SourceDataEven extends Model
     /**
      * @var array
      */
-    protected $fillable = ['date', 'plac', 'created_at', 'updated_at'];
+    protected $fillable = ['group','gid','date', 'plac', 'created_at', 'updated_at'];
 }

@@ -12,10 +12,10 @@ Genealogia
 </div>
 </div>
 <div>
-Telephone: +44 333 880 1107
+Telephone: +44 330 122 8571
 </div>
 <div>
-WhatsApp: +44 333 880 1107
+WhatsApp: +44 330 122 8571
 </div>
 <div>
 Email: support@genealogia.co.uk

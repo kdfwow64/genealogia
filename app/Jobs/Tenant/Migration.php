@@ -4,7 +4,7 @@ namespace App\Jobs\Tenant;
 
 use App\Models\User;
 use App\Person;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -17,7 +17,7 @@ use LaravelEnso\Core\Models\UserGroup;
 use LaravelEnso\Multitenancy\Enums\Connections;
 use App\Service\Tenant;
 use LaravelEnso\Roles\Models\Role;
-use Str;
+use Illuminate\Support\Str;
 
 class Migration implements ShouldQueue
 {
@@ -60,7 +60,7 @@ class Migration implements ShouldQueue
             '--path' => '/database/migrations/tenant',
             '--force' => true,
         ]);
-        
+
         Artisan::call('db:seed', [
             '--database' => Connections::Tenant,
             '--force' => true,
@@ -70,6 +70,23 @@ class Migration implements ShouldQueue
             'email'=>$this->email,
             'name' => $this->name,
         ]);
+
+        // get user_group_id
+        $user_group = 1;
+
+        // get role_id
+        $role = 1;
+
+        DB::connection(Connections::Tenant)->table('users')->insert([
+            'id' => $this->u_id,
+            'email' => $this->email,
+            'password' => Hash::make($this->password),
+            'person_id' => $person,
+            'group_id' => $user_group,
+            'role_id' => $role,
+            'is_active' => 1,
+        ]);
+
 
     }
 }

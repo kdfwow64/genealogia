@@ -12,22 +12,22 @@ Genealogia
 </div>
 </div>
 <div>
-Genealogia is a secure online website which you can create your own
+Genealogia is a secure online website which you can use to create your own
  family tree(s) with. It is designed to have extensive
-features but be easy and accessible to use. You can easily import
+features but also be easy and accessible to use. You can easily import
  and export GEDCOM files, view and manipulate the data.
 </div>
 <div>
-It has a tree viewer and more features are planned such as DNA support
- and the inclusion of archive databases and
+It has a tree viewer and DNA support more features are planned such
+ as the inclusion of archive databases and
 collections of records such as census, birth, marriage and death records.
 </div>
 <div>
 It is aimed to be affordable with a 7 day no obligation trial with different
  pricing levels depending on how many trees
 you require. There is no limit to the size of your trees and it should
- easily support hundreds of thousands of records
-any issues you can always contact our support team.
+easily support hundreds of thousands of records.
+Any issues you can always contact our support team.
 </div>
 <div class="level">
 <div class="level-item">

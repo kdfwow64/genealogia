@@ -1346,7 +1346,7 @@
     "@sentry/browser" "^5.15.0"
     vue "^2.5.16"
 
-"@enso-ui/modal@^2.0":
+"@enso-ui/modal@^2.0", "@enso-ui/modal@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@enso-ui/modal/-/modal-2.0.1.tgz#68a66bb87545ec892bf04fe8e3357ecf9a72607e"
   integrity sha512-sD1vTe9FR01Y9gP8biofNoO0v9D1FvBMKeaOu95Sf+i4G4OfKuFzZ3Buu2cAf7baW2C/ZcszHkhwmEm1ABCGTA==
@@ -1871,10 +1871,10 @@
   resolved "https://registry.yarnpkg.com/@soda/get-current-script/-/get-current-script-1.0.2.tgz#a53515db25d8038374381b73af20bb4f2e508d87"
   integrity sha512-T7VNNlYVM1SgQ+VsMYhnDkcGmWhQdL0bDyGm5TlQ3GBXnJscEClUUOKduWTmm2zCnvNLC1hc3JpuXjs/nFOc5w==
 
-"@stripe/stripe-js@^1.8.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-1.8.0.tgz#100f102d757cd024f94635dba231993554c8cfba"
-  integrity sha512-VsIohJw70LIdB4b621RN6pTyw49ZMy+QjB81fl+Psu5X5ppiq/c+rG0F+XKHSVpp4JZRNDkQnsOGeuHow0aluA==
+"@stripe/stripe-js@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-1.9.0.tgz#a4a166b5de88903573c9a7fd04f39610648f4769"
+  integrity sha512-/8+zfeRHlsEsxj0qmq9qbrnyF3fx+r97sDxfv7kqOyZFUFzC7DBwQwZlmss6XiV3ez5vz1G1QIjEW29PmLmsAw==
 
 "@tinymce/tinymce-vue@^3.0.1":
   version "3.2.2"
@@ -8178,7 +8178,7 @@ pascalcase@^0.1.1:
   resolved "https://registry.yarnpkg.com/pascalcase/-/pascalcase-0.1.1.tgz#b363e55e8006ca6fe21784d2db22bd15d7917f14"
   integrity sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ=
 
-patch-package@^6.2.2:
+patch-package@^6.0.2:
   version "6.2.2"
   resolved "https://registry.yarnpkg.com/patch-package/-/patch-package-6.2.2.tgz#71d170d650c65c26556f0d0fbbb48d92b6cc5f39"
   integrity sha512-YqScVYkVcClUY0v8fF0kWOjDYopzIM8e3bj/RU1DPeEF14+dCGm6UeOYm4jvCyxqIEQ5/eJzmbWfDWnUleFNMg==
@@ -9029,7 +9029,7 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.2, postcss@^7.0.27
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-postinstall-postinstall@^2.1.0:
+postinstall-postinstall@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/postinstall-postinstall/-/postinstall-postinstall-2.1.0.tgz#4f7f77441ef539d1512c40bd04c71b06a4704ca3"
   integrity sha512-7hQX6ZlZXIoRiWNrbMQaLzUUfH+sSx39u8EJ9HYuDc1kLo9IXKWjM5RSquZN1ad5GnH8CGFM78fsAAQi3OKEEQ==

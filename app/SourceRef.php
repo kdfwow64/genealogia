@@ -18,13 +18,6 @@ use LaravelEnso\Tables\Traits\TableCache;
  */
 class SourceRef extends Model
 {
-    //
-    // $table->string('group')->nullable();
-    // $table->integer('gid')->nullable();
-    // $table->integer('sour_id')->nullable();
-    // $table->string('text')->nullable();
-    // $table->string('quay')->nullable();
-    // $table->string('page')->nullable();    
     use TableCache;
 
     /**
