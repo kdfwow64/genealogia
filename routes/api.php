@@ -759,7 +759,7 @@ Route::middleware(['api', 'auth', 'core'])
 
                 Route::get('', 'Index')->name('index');
                 Route::get('create', 'Create')->name('create');
-                Route::post('', 'Store')->name('store');
+                Route::post('store', 'Store')->name('store');
                 Route::get('{dna}/edit', 'Edit')->name('edit');
 
                 Route::patch('{dna}', 'Update')->name('update');

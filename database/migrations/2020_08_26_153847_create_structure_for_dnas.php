@@ -4,7 +4,7 @@ use LaravelEnso\Migrator\Database\Migration;
 
 class CreateStructureForDnas extends Migration
 {
-    protected $permissions = [
+    protected array $permissions = [
         ['name' => 'dna.index', 'description' => 'Show index for dnas', 'is_default' => false],
 
         ['name' => 'dna.create', 'description' => 'Create dna', 'is_default' => false],
@@ -22,10 +22,9 @@ class CreateStructureForDnas extends Migration
         ['name' => 'dna.options', 'description' => 'Get dna options for select', 'is_default' => false],
     ];
 
-    protected $menu = [
+    protected array $menu = [
         'name' => 'DNA', 'icon' => 'book', 'route' => 'dna.index', 'order_index' => 999, 'has_children' => false
     ];
 
-    protected $parentMenu = '';
 }
 
