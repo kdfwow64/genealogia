@@ -3,10 +3,12 @@
     "routePrefix": "dna",
     "crtNo": true,
     "buttons": ["excel", "create", "show", "edit", "destroy"],
-    "columns": [{
-        "label": "Id",
-        "name": "id",
-        "data": "dnas.id",
-        "meta": ["searchable", "sortable"]
-    }]
+    "columns": [
+        {
+            "label": "Name",
+            "name": "name",
+            "data": "trees.name",
+            "meta": ["searchable", "sortable"]
+        }
+    ]
 }

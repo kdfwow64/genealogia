@@ -17,7 +17,7 @@ class CreateSourceRepoTable extends Migration
             $table->id();
             $table->string('group');
             $table->integer('gid');
-            $table->integer('repo_id');
+            $table->string('repo_id');
             $table->text('caln');
             $table->timestamps();
         });
