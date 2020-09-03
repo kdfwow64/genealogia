@@ -8,12 +8,12 @@ use LaravelEnso\Tables\Contracts\Table;
 
 class DnaTable implements Table
 {
-    protected const TemplatePath = __DIR__.'/..\../Templates/dnas.json';
+    protected const TemplatePath = __DIR__.'/../Templates/dnas.json';
 
     public function query(): Builder
     {
         return Dna::selectRaw('
-            dnas.id
+            dnas.name
         ');
     }
 
