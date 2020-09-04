@@ -7,15 +7,6 @@
         "edit",
         "destroy"
     ],
-    "filters": [
-        {
-            "label": "Has User",
-            "data": "user.exists",
-            "type": "boolean",
-            "custom": true,
-            "value": false
-        }
-    ],
     "columns": [
         {
             "label": "Title",
@@ -40,15 +31,6 @@
             "label": "Surname",
             "name": "surn",
             "data": "people.surn",
-            "meta": [
-                "searchable",
-                "sortable"
-            ]
-        },
-        {
-            "label": "Company",
-            "name": "company",
-            "data": "companies.name",
             "meta": [
                 "searchable",
                 "sortable"
@@ -90,15 +72,6 @@
                 "searchable",
                 "sortable",
                 "date"
-            ]
-        },
-        {
-            "label": "User",
-            "name": "user",
-            "data": "users.id",
-            "meta": [
-                "boolean",
-                "sortable"
             ]
         },
         {
