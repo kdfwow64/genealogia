@@ -14,7 +14,6 @@ class TreeTable implements Table
     public function query(): Builder
     {
 
-        $user = Auth::
         return Tree::selectRaw('
             trees.id,
             trees.name,
