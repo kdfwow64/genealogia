@@ -19,7 +19,7 @@ class TreeTable implements Table
         return Tree::where('trees.user_id', $user_id)->selectRaw('
             trees.id,
             trees.name,
-            trees.description
+            trees.description,
             trees.user_id
         ');
     }
