@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.151.4",
+            "version": "3.151.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "08d8e5540bdef23127fec4787270d9d12ccc8117"
+                "reference": "b34231eb116dd7dada37f6d30d88343a992c9c3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/08d8e5540bdef23127fec4787270d9d12ccc8117",
-                "reference": "08d8e5540bdef23127fec4787270d9d12ccc8117",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/b34231eb116dd7dada37f6d30d88343a992c9c3e",
+                "reference": "b34231eb116dd7dada37f6d30d88343a992c9c3e",
                 "shasum": ""
             },
             "require": {
@@ -141,7 +141,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-09-01T18:17:03+00:00"
+            "time": "2020-09-03T18:17:59+00:00"
         },
         {
             "name": "barryvdh/laravel-snappy",
@@ -5432,16 +5432,16 @@
         },
         {
             "name": "modularsoftware/laravel-gedcom",
-            "version": "v1.4.1",
+            "version": "v1.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/modularsoftware/laravel-gedcom.git",
-                "reference": "8618a7e15d5298341f71e3ab4d8ecd1ce2de458e"
+                "reference": "6ac78445e393175266f12cac0daf52eaf11a4f43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/modularsoftware/laravel-gedcom/zipball/8618a7e15d5298341f71e3ab4d8ecd1ce2de458e",
-                "reference": "8618a7e15d5298341f71e3ab4d8ecd1ce2de458e",
+                "url": "https://api.github.com/repos/modularsoftware/laravel-gedcom/zipball/6ac78445e393175266f12cac0daf52eaf11a4f43",
+                "reference": "6ac78445e393175266f12cac0daf52eaf11a4f43",
                 "shasum": ""
             },
             "require": {
@@ -5471,7 +5471,7 @@
                 }
             ],
             "description": "A package that converts gedcom files to Eloquent models",
-            "time": "2020-09-02T08:28:22+00:00"
+            "time": "2020-09-04T03:44:37+00:00"
         },
         {
             "name": "modularsoftware/multitenancy",
@@ -5530,16 +5530,16 @@
         },
         {
             "name": "modularsoftware/php-gedcom",
-            "version": "v1.2.0",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/modularsoftware/php-gedcom.git",
-                "reference": "34c9bb51987cda86798eb90c735ff345743d3bed"
+                "reference": "32fd88e4a6369dc6f7eb7c600461b6ca2264d835"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/modularsoftware/php-gedcom/zipball/34c9bb51987cda86798eb90c735ff345743d3bed",
-                "reference": "34c9bb51987cda86798eb90c735ff345743d3bed",
+                "url": "https://api.github.com/repos/modularsoftware/php-gedcom/zipball/32fd88e4a6369dc6f7eb7c600461b6ca2264d835",
+                "reference": "32fd88e4a6369dc6f7eb7c600461b6ca2264d835",
                 "shasum": ""
             },
             "require": {
@@ -5565,7 +5565,7 @@
                 "gedcom",
                 "parser"
             ],
-            "time": "2020-09-02T07:54:05+00:00"
+            "time": "2020-09-04T03:02:32+00:00"
         },
         {
             "name": "moneyphp/money",
@@ -7925,16 +7925,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.50.0",
+            "version": "v7.51.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "0195e3dcc34123df9a441069dbf08db17c3b025d"
+                "reference": "879a3545126ebc77218c53d2055572b7e473fbcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/0195e3dcc34123df9a441069dbf08db17c3b025d",
-                "reference": "0195e3dcc34123df9a441069dbf08db17c3b025d",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/879a3545126ebc77218c53d2055572b7e473fbcf",
+                "reference": "879a3545126ebc77218c53d2055572b7e473fbcf",
                 "shasum": ""
             },
             "require": {
@@ -7978,7 +7978,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2020-08-28T20:17:35+00:00"
+            "time": "2020-09-02T21:04:02+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -12788,16 +12788,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.1.6",
+            "version": "9.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "d25b24b1cd14772bde4d75daeb393dc17db9f6e6"
+                "reference": "2ef92bec3186a827faf7362ff92ae4e8ec2e49d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/d25b24b1cd14772bde4d75daeb393dc17db9f6e6",
-                "reference": "d25b24b1cd14772bde4d75daeb393dc17db9f6e6",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/2ef92bec3186a827faf7362ff92ae4e8ec2e49d2",
+                "reference": "2ef92bec3186a827faf7362ff92ae4e8ec2e49d2",
                 "shasum": ""
             },
             "require": {
@@ -12857,7 +12857,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-31T06:31:46+00:00"
+            "time": "2020-09-03T07:09:19+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
