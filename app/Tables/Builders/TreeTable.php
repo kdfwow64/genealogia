@@ -16,12 +16,12 @@ class TreeTable implements Table
     {
         $user_id = Auth::user()->id;
 
-        return Tree::selectRaw('
+        return Tree::where('trees.user_id', $user_id)->selectRaw('
             trees.id,
             trees.name,
             trees.description
             trees.user_id
-        ')->where('trees.user_id', '=', $user_id);
+        ');
     }
 
     public function templatePath(): string
