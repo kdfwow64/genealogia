@@ -14,10 +14,8 @@ class TreeTable implements Table
     public function query(): Builder
     {
 
-        $conn = $this->getConnection();
-        $db = $this->getDB();
-
-        return Tree::on($conn)->selectRaw('
+        $user = Auth::
+        return Tree::selectRaw('
             trees.id,
             trees.name,
             trees.description
