@@ -14,14 +14,14 @@ class TreeTable implements Table
 
     public function query(): Builder
     {
-        $user = Auth::user();
+        $user_id = Auth::user()->id;
 
         return Tree::selectRaw('
             trees.id,
             trees.name,
             trees.description
             trees.user_id
-        ')->where('trees.user_id', '=', $user->id);
+        ')->where('trees.user_id', '=', $user_id);
     }
 
     public function templatePath(): string
