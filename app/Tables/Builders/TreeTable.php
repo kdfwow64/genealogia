@@ -20,7 +20,8 @@ class TreeTable implements Table
             trees.id,
             trees.name,
             trees.description
-        ')->where(trees.user_id === $user->id);
+            trees.user_id
+        ')->where('trees.user_id', '=', $user->id);
     }
 
     public function templatePath(): string
