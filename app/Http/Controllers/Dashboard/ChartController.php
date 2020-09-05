@@ -57,6 +57,26 @@ class ChartController extends Controller
         $companies = $user->person->company();
         $current_db = \Session::get('companyId');
 
+        $company = $user->company();
+        $tanent = false;
+        if ($company) {
+            $tanent = true;
+        }
+        // set company id as default
+        $main_company = $user->person->company();
+        if ($main_company !== null && !($user->isAdmin())) {
+            $c_id = $main_company->id;
+            $db = $c_id;
+            $this->setConnection(Connections::Tenant, $db, $user->id);
+            error_log('login log: ****************************************'.$db);
+        }else {
+            error_log('admin login log: **************************************** enso');
+
+            $this->setConnection('mysql', 'enso', $user->id);
+
+        }
+
+
         // return $current_db;
         // return $sv;
         return (new Pie())
