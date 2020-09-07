@@ -188,10 +188,10 @@ index 8e4e7b1..709260d 100644
      </div>
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/RegisterForm.vue b/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/RegisterForm.vue
 new file mode 100644
-index 0000000..88a461b
+index 0000000..208cba6
 --- /dev/null
 +++ b/node_modules/@enso-ui/ui/src/bulma/pages/auth/components/RegisterForm.vue
-@@ -0,0 +1,300 @@
+@@ -0,0 +1,331 @@
 +<template>
 +    <div class="login">
 +        <div class="box has-padding-medium">
@@ -366,9 +366,40 @@ index 0000000..88a461b
 +                class="is-pulled-right">
 +                {{ i18n('Log in') }}
 +            </router-link>
-+            <div class="is-clearfix"/>
++
++        <div>
++            <br /><br />
++            <router-link
++                         :to="{ name: 'about.index' }"
++                         class="is-pulled-left">
++                {{ i18n('About') }}&nbsp;
++            </router-link>
++            <router-link
++                         :to="{ name: 'contact.index' }"
++                         class="is-pulled-right">
++                {{ i18n('Contact') }} &nbsp;
++            </router-link>
 +        </div>
-+    </div>
++        <br />
++        <div>
++            <router-link
++                         :to="{ name: 'privacy.index' }"
++                         class="is-pulled-left">
++                {{ i18n('Privacy Policy') }}
++            </router-link>
++            <router-link
++                         :to="{ name: 'termsandconditions.index' }"
++                         class="is-pulled-right">
++                {{ i18n('Terms and Conditions') }}
++            </router-link>
++        </div>
++        <br /><br /><br />
++        <div>
++            Copyright 2020 Genealogia Ltd. International House, 12 Constance Street
++            London, E16 2DQ. Company Number: 12734769
++        </div>
++        <div class="is-clearfix"/>
++        </div></div>
 +</template>
 +
 +<script>
