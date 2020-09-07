@@ -82,7 +82,7 @@ class RegisterController extends Controller
             $this->initiateEmailActivation($user);
 
             $company = Company::create([
-                'name' => $data['first_name'] . ' ' . $data['last_name'],
+                'name' => $data['email'] . '-' .  $data['first_name'] . ' ' . $data['last_name'],
                 'email' => $data['email'],
                 // 'is_active' => 1,
                 'is_tenant' => 1,
