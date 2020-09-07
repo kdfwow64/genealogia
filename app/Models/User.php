@@ -9,5 +9,5 @@ class User extends CoreUser
 {
     use Billable;
     
-    protected $fillable = ['person_id', 'group_id', 'role_id', 'email', 'is_active', 'email_verified_at', 'password'];
+    protected $fillable = ['person_id', 'group_id', 'role_id', 'email', 'is_active', 'email_verified_at', 'password', 'trial_ends_at'];
 }
