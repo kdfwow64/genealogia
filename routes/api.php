@@ -81,6 +81,8 @@ Route::middleware(['web', 'auth', 'multitenant'])
             ->name('changedb');
         Route::post('getdb', 'ChartController@getDB')
             ->name('getdb');
+        Route::get('trial', 'ChartController@trial')
+            ->name('trial');
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])

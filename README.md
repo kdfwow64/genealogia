@@ -92,3 +92,17 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 
 This package is released under the MIT license.
 <!--/h-->
+
+Installation
+------------
+``lineage`` is `available <https://pypi.org/project/lineage/>`_ on the
+`Python Package Index <https://pypi.org>`_. Install ``lineage`` (and its required
+Python dependencies) via ``pip``::
+
+    $ pip install lineage
+
+After installation only need to run python script named dna.py on project root from code like this:
+
+    $ python dna.py filename1 filename2
+
+This will output 2 csv files and 1 png file which needs to be display.
