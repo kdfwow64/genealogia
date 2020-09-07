@@ -3,6 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use Laravel\Cashier\Http\Middleware\VerifyWebhookSignature;
 
+Route::get('fix-trial', function(){
+    $users = App\Models\User::where('role_id', '!=', 1)->get();
+    foreach($users as $user) {
+        $user->trial_ends_at = Carbon\Carbon::parse($user->created_at)->addDays(7);
+        $user->save();
+    }
+});
+
 Route::get('get-plans', 'StripeController@getPlans');
 
 Route::get('get-current-subscription', 'StripeController@getCurrentSubscription')->middleware(['auth']);
