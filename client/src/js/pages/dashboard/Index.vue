@@ -15,6 +15,11 @@
                 </tr>
             </table>
         </div>
+        <div class="column is-one-third">
+            <div class="notification is-primary">
+            You have <strong>{{ days }} days</strong> left on your subscription.
+            </div>
+        </div>
     </div>
 </template>
 
@@ -29,6 +34,7 @@ export default {
 
     data: () => ({
         companies: [],
+        days: 0,
     }),
     computed: {
         getDBLink() {
@@ -40,6 +46,7 @@ export default {
     },
     created() {
         this.getCompany();
+        this.getGracePeriod();
     },
     methods: {
         getCompany() {
@@ -60,6 +67,9 @@ export default {
                 .post(this.changeDBLink, params)
                 .then()
                 .catch();
+        },
+        getGracePeriod() {
+            axios.get('/api/dashboard/trial').then(result => { this.days = result.data.days; });
         },
     },
 };
