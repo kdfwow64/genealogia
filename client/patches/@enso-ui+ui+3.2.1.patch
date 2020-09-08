@@ -1,8 +1,8 @@
 diff --git a/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue b/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue
-index cfb133c..0862418 100644
+index cfb133c..99e0325 100644
 --- a/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue
 +++ b/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue
-@@ -4,64 +4,19 @@
+@@ -4,64 +4,21 @@
              <footer class="footer">
                  <div class="content has-text-centered">
                      <div class="level">
@@ -71,7 +71,9 @@ index cfb133c..0862418 100644
 +                                                        Address: Genealogia Ltd, International House, 12 Constance Street
 +                                                        London, E16 2DQ. Company number 12734769
 +                                                        <br /><br />
-+                                                        <fa icon="facebook" />
++                                                        <span class="icon">
++                                                          <fa :icon="['fab', 'facebook']"/>
++                                                        </span>
 +                                                        <a href="https://www.facebook.com/genealogiawebsite" target="_blank">Genealogia Facebook Page</a>
 +                                                    </div>
 +                                                </div>
@@ -80,7 +82,7 @@ index cfb133c..0862418 100644
                  </div>
              </footer>
          </template>
-@@ -70,11 +25,10 @@
+@@ -70,11 +27,10 @@
  
  <script>
  import { library } from '@fortawesome/fontawesome-svg-core';
