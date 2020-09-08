@@ -3,11 +3,11 @@
 return [
     'version' => '4.1.0',
     'ownerCompanyId' => (int) env('OWNER_COMPANY_ID', 1),
-    'showQuote' => (bool) env('SHOW_QUOTE', true),
+    'showQuote' => (bool) env('SHOW_QUOTE', false),
     'defaultRole' => 'admin',
     'dateFormat' => 'd-m-Y',
     'dateTimeFormat' => 'd-m-Y H:i:s',
-    'facebook' => 'https://facebook.com',
+    'facebook' => 'https://facebook.com/genealogiawebsite',
     'googleplus' => 'https://plus.google.com',
     'twitter' => 'https://twitter.com',
     'ravenKey' => env('RAVEN_DSN', null),
