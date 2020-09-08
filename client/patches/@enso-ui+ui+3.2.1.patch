@@ -1,40 +1,50 @@
 diff --git a/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue b/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue
-index cfb133c..6166757 100644
+index cfb133c..462f52c 100644
 --- a/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue
 +++ b/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue
-@@ -4,6 +4,13 @@
+@@ -4,64 +4,16 @@
              <footer class="footer">
                  <div class="content has-text-centered">
                      <div class="level">
-+                                                <div class="level-item">
-+                                                    <a class="button is-link" href="/contact">Contact</a>&nbsp;
-+                                                    <a class="button is-link" href="/about">About</a>&nbsp;
-+                                                    <a class="button is-link" href="/privacy">Privacy</a>&nbsp;
-+                                                    <a class="button is-link" href="/termsandconditions">Terms and Conditions</a>
-+                                                </div>
-+                        <br />
-                         <div class="level-item">
-                             <strong class="has-margin-right-small">
-                                 {{ meta.appName }} v{{ meta.version }}
-@@ -15,6 +22,14 @@
-                             <span class="has-margin-left-small">
-                                 +
-                             </span>
-+                                                        <a href="https://github.com/laravel-enso/enso"
-+                                                                                            target="_blank">
-+                                                            <img src="/images/enso.svg"
-+                                                                                                      alt="Made with Laravel Enso"
-+                                                                                                      width="28"
-+                                                                                                      height="28">
-+                                                        </a>
-+							+
-                             <a href="https://vuejs.org"
-                                 target="_blank">
-                                 <img src="/images/vue-badge.png"
-@@ -43,19 +58,8 @@
-                             </a>
-                         </div>
-                     </div>
+-                        <div class="level-item">
+-                            <strong class="has-margin-right-small">
+-                                {{ meta.appName }} v{{ meta.version }}
+-                            </strong>
+-                            built with
+-                            <span class="icon has-text-danger">
+-                                <fa icon="heart"/>
+-                            </span>
+-                            <span class="has-margin-left-small">
+-                                +
+-                            </span>
+-                            <a href="https://vuejs.org"
+-                                target="_blank">
+-                                <img src="/images/vue-badge.png"
+-                                    alt="Made with Vue"
+-                                    width="28"
+-                                    height="28">
+-                            </a>
+-                            +
+-                            <a href="https://laravel.com"
+-                                class="has-margin-left-small"
+-                                target="_blank">
+-                                <img src="/images/laravel-badge.png"
+-                                    alt="Made with Laravel"
+-                                    width="28"
+-                                    height="28">
+-                            </a>
+-                            <span class="has-margin-left-small">
+-                                +
+-                            </span>
+-                            <a href="https://bulma.io"
+-                                target="_blank">
+-                                <img src="/images/bulma.svg"
+-                                    alt="Made with Bulma"
+-                                    width="28"
+-                                    height="28">
+-                            </a>
+-                        </div>
+-                    </div>
 -                    <div class="level">
 -                        <div class="level-item">
 -                            <strong>Backed by:</strong>
@@ -46,12 +56,27 @@ index cfb133c..6166757 100644
 -                            </a>
 -                        </div>
 -                    </div>
-                     <div>
+-                    <div>
 -                        <a href="https://github.com/laravel-enso/enso"
-+                        <a href="https://github.com/modularsoftware/genealogy"
-                             target="_blank">
-                             <span class="icon">
-                                 <fa :icon="['fab', 'github']"/>
+-                            target="_blank">
+-                            <span class="icon">
+-                                <fa :icon="['fab', 'github']"/>
+-                            </span>
+-                        </a>
+-                    </div>
++                                                <div class="level-item">
++                                                    <div>
++                                                        Copyright &copy; 2020 Genealogia Ltd
++                                                        <br /><br />
++                                                        Address: Genealogia Ltd, International House, 12 Constance Street
++                                                        London, E16 2DQ. Company number 12734769
++                                                    </div>
++                                                </div>
++
++                </div>
+                 </div>
+             </footer>
+         </template>
 diff --git a/node_modules/@enso-ui/ui/src/bulma/pages/auth/Register.vue b/node_modules/@enso-ui/ui/src/bulma/pages/auth/Register.vue
 new file mode 100644
 index 0000000..aa296ae
