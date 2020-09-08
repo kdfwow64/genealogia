@@ -1,5 +1,5 @@
 diff --git a/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue b/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue
-index cfb133c..1477a22 100644
+index cfb133c..0862418 100644
 --- a/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue
 +++ b/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue
 @@ -4,64 +4,19 @@
@@ -80,8 +80,13 @@ index cfb133c..1477a22 100644
                  </div>
              </footer>
          </template>
-@@ -74,7 +29,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
- import { faGithub } from '@fortawesome/free-brands-svg-icons';
+@@ -70,11 +25,10 @@
+ 
+ <script>
+ import { library } from '@fortawesome/fontawesome-svg-core';
+-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+-import { faGithub } from '@fortawesome/free-brands-svg-icons';
++import { faFacebook } from '@fortawesome/free-brands-svg-icons';
  import BaseAppFooter from '../../core/components/AppFooter.vue';
  
 -library.add(faHeart, faGithub);
