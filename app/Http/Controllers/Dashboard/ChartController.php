@@ -75,6 +75,12 @@ class ChartController extends Controller
 
             $this->setConnection('mysql', 'enso', $user->id);
 
+
+            $user = User::where('id', Auth::id());
+            if (!$user->onGenericTrial()) {
+                $user->role_id = 3; //expired role
+                $user->save();
+            }
         }
 
 
