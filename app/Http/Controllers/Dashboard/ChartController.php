@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Person;
+use App\Models\User;
 use App\Traits\ConnectionTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
