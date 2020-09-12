@@ -43,6 +43,18 @@ Route::post('webhook', 'StripeController@webhook')->middleware([VerifyWebhookSig
     });
 });
 
+Route::namespace('Auth')
+    ->middleware('api')
+    ->group(function () {
+        Route::middleware('guest')->group(function () {
+            Route::post('login', 'LoginController@login')->name('login');
+        });
+
+        Route::middleware('auth')->group(function () {
+            Route::post('logout', 'LoginController@logout')->name('logout');
+        });
+    });
+
     // Route::middleware(['api'])->group(
     //     function() {
     Route::post('register', '\App\Http\Controllers\Auth\RegisterController@register');
