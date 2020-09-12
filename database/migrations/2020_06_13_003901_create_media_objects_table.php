@@ -16,6 +16,7 @@ class CreateMediaObjectsTable extends Migration
         Schema::create('media_objects', function (Blueprint $table) {
             $table->id();
             $table->integer('gid')->nullable();
+            $table->string('rin')->nullable();
             $table->string('group')->nullable();
             $table->string('titl')->nullable();
             $table->string('obje_id')->nullable();
