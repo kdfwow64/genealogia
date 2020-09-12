@@ -59,6 +59,8 @@ class ChartController extends Controller
         $companies = $user->person->company();
         $current_db = \Session::get('companyId');
 
+
+        /**
         $company = $user->company();
         $tanent = false;
         if ($company) {
@@ -82,8 +84,10 @@ class ChartController extends Controller
                 $user->role_id = 3; //expired role
                 $user->save();
             }
-        }
 
+
+        }
+**/
 
         // return $current_db;
         // return $sv;
