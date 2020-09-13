@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Jobs\Tenant\Migration;
+use App\Jobs\Tenant\MigrationNoSeed;
 use App\Models\User;
 use Illuminate\Console\Command;
 use LaravelEnso\Multitenancy\Enums\Connections;
@@ -55,7 +56,7 @@ class RunTenantsMigration extends Command
                     $this->setConnection(Connections::Tenant, $company->id, $user->id);
                 }
                 $name = $user->email . ' - ' . $person->name;
-                Migration::dispatch($company->id, $user->id, $name, $user->email);
+                MigrationNoSeed::dispatch($company->id, $user->id, $name, $user->email);
             }
         }
 
