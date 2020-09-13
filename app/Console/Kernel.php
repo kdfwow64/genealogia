@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
         Commands\DropDatabase::class,
         Commands\DropTables::class,
         Commands\Migrate::class,
+        Commands\RunTenantsMigration::class
     ];
 
     protected function schedule(Schedule $schedule)
