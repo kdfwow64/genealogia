@@ -1,0 +1,2 @@
+- name: PHP Insights App
+  uses: worksome/phpinsights-app@v0.1
