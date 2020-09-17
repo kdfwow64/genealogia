@@ -74,7 +74,7 @@ class LoginController extends Controller
         }else {
             error_log('admin login log: **************************************** enso');
 
-            $this->setConnection('mysql', 'enso', $user->id);
+            $this->setConnection('mysql', 'genealogia', $user->id);
         }
         error_log('admin login log: **************************************** enso');
 
