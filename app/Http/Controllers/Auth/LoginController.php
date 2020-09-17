@@ -66,7 +66,7 @@ class LoginController extends Controller
         }
         // set company id as default
         $main_company = $user->person->company();
-        if ($main_company !== null && !($user->isAdmin())) {
+        if ($main_company !== null && !$user->isAdmin()) {
             $c_id = $main_company->id;
             $db = $c_id;
             $this->setConnection(Connections::Tenant, $db, $user->id);
@@ -74,7 +74,9 @@ class LoginController extends Controller
         }else {
             error_log('admin login log: **************************************** enso');
 
-            $this->setConnection('mysql', 'enso', $user->id);
+            if ($user->isAdmin()) {
+                $this->setConnection('mysql', 'genealogia', $user->id);
+            }
         }
         error_log('admin login log: **************************************** enso');
 

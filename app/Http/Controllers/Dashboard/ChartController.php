@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Person;
+use App\Models\User;
 use App\Traits\ConnectionTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -58,6 +59,8 @@ class ChartController extends Controller
         $companies = $user->person->company();
         $current_db = \Session::get('companyId');
 
+
+        /**
         $company = $user->company();
         $tanent = false;
         if ($company) {
@@ -75,8 +78,16 @@ class ChartController extends Controller
 
             $this->setConnection('mysql', 'enso', $user->id);
 
-        }
 
+            $user = User::find(Auth::user()->id);
+            if (!$user->onGenericTrial()) {
+                $user->role_id = 3; //expired role
+                $user->save();
+            }
+
+
+        }
+**/
 
         // return $current_db;
         // return $sv;

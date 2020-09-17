@@ -3,12 +3,17 @@
 namespace App\Console\Commands;
 
 use App\Jobs\Tenant\Migration;
+use App\Jobs\Tenant\MigrationNoSeed;
 use App\Models\User;
 use Illuminate\Console\Command;
 use LaravelEnso\Multitenancy\Enums\Connections;
+use App\Traits\ConnectionTrait;
 
 class RunTenantsMigration extends Command
 {
+
+    use ConnectionTrait;
+
     /**
      * The name and signature of the console command.
      *
@@ -40,6 +45,7 @@ class RunTenantsMigration extends Command
      */
     public function handle()
     {
+
         $users = User::where('role_id', '!=', 1)->get();
 
         foreach ($users as $user) {
@@ -50,7 +56,7 @@ class RunTenantsMigration extends Command
                     $this->setConnection(Connections::Tenant, $company->id, $user->id);
                 }
                 $name = $user->email . ' - ' . $person->name;
-                Migration::dispatch($company->id, $user->id, $name, $user->email);
+                MigrationNoSeed::dispatch($company->id, $user->id, $name, $user->email);
             }
         }
 
