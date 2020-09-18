@@ -24,6 +24,10 @@
                         </button>
                     </footer>
                 </div>
+                Payments are securely processed by <a href="https://www.stripe.com">Stripe</a>.
+                No card data is stored on our website, it is securely processed
+                directly by Stripe. You can pay regardless of your country currency
+                please check the current exchange rates for how much you will be charged.
             </div>
         </div>
     </div>
