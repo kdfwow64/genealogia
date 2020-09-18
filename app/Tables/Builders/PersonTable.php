@@ -32,6 +32,20 @@ class PersonTable extends \LaravelEnso\People\Tables\Builders\PersonTable
             )->leftJoin('companies', 'company_person.company_id', 'companies.id');
     }
 
+    public function filterApplies(Obj $params): bool
+    {
+        return optional($params->get('user'))->filled('exists') ?? false;
+    }
+
+    public function filter(Builder $query, Obj $params)
+    {
+        return $query->when(
+            $params->get('user')->get('exists'),
+            fn ($query) => $query->whereNotNull('users.id'),
+            fn ($query) => $query->whereNull('users.id')
+        );
+    }
+
     public function templatePath(): string
     {
         return static::TemplatePath;
