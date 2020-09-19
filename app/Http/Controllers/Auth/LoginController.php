@@ -92,7 +92,7 @@ class LoginController extends Controller
 
         if ($user->isInactive()) {
             throw ValidationException::withMessages([
-                'email' => 'Account disabled. Please contact the administrator. wwwwwwwwwwwwwwwwww',
+                'email' => 'Account disabled. Please contact the administrator. support@genealogia.co.uk',
             ]);
         }
 
