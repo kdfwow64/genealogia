@@ -13,7 +13,7 @@ use Illuminate\Console\OutputStyle;
 use Symfony\Component\Console\Input\StringInput;
 use Symfony\Component\Console\Output\StreamOutput;
 use \App\Events\GedComProgressSent;
-use \ModularSoftware\LaravelGedcom\Utils\Importer\Indi;
+use \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Indi;
 use Illuminate\Support\Facades\Log;
 use \App\PersonAlia;
 use \App\PersonAsso;
@@ -88,7 +88,7 @@ class GedcomParser
             // $this->getObje($item);
             if($item) {
                 $_obje_id = $item->getId();
-                $obje_id = \ModularSoftware\LaravelGedcom\Utils\Importer\Obje::read($this->conn,$item);
+                $obje_id = \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Obje::read($this->conn,$item);
                 if($obje_id != 0) {
                     $this->obje_ids[$_obje_id] = $obje_id;
                 }
@@ -99,13 +99,13 @@ class GedcomParser
                 event(new GedComProgressSent($slug, $total, $complete));
             }
         }
-        
+
         // store information about all the submitters to the GEDCOM file.
         foreach ($subm as $item){
             // $this->getSubm($item);
             if($item) {
                 $_subm_id = $item->getSubm();
-                $subm_id = \ModularSoftware\LaravelGedcom\Utils\Importer\Subm::read($this->conn,$item, $this->obje_ids);
+                $subm_id = \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Subm::read($this->conn,$item, $this->obje_ids);
                 $this->subm_ids[$_subm_id] = $subm_id;
             }
             if ($progressBar === true) {
@@ -118,7 +118,7 @@ class GedcomParser
         if($subn != null){
             // store the submission information for the GEDCOM file.
             // $this->getSubn($subn);
-            \ModularSoftware\LaravelGedcom\Utils\Importer\Subn::read($this->conn, $subn, $this->subm_ids);
+            \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Subn::read($this->conn, $subn, $this->subm_ids);
             if($progressBar === true){
                 $bar->advance();
                 $complete++;
@@ -131,7 +131,7 @@ class GedcomParser
             // $this->getNote($item);
             if($item) {
                 $note_id = $item->getId();
-                $_note_id = \ModularSoftware\LaravelGedcom\Utils\Importer\Note::read($this->conn,$item);
+                $_note_id = \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Note::read($this->conn,$item);
                 $this->note_ids[$note_id] = $_note_id;
             }
 
@@ -147,7 +147,7 @@ class GedcomParser
             // $this->getRepo($item);
             if($item) {
                 $repo_id = $item->getId();
-                $_repo_id = \ModularSoftware\LaravelGedcom\Utils\Importer\Repo::read($this->conn,$item);
+                $_repo_id = \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Repo::read($this->conn,$item);
                 $this->repo_ids[$repo_id] = $_repo_id;
             }
             if ($progressBar === true) {
@@ -163,7 +163,7 @@ class GedcomParser
             // $this->getSour($item);
             if($item) {
                 $_sour_id = $item->getSour();
-                $sour_id = \ModularSoftware\LaravelGedcom\Utils\Importer\Sour::read($this->conn,$item, $this->obje_ids);
+                $sour_id = \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Sour::read($this->conn,$item, $this->obje_ids);
                 if($sour_id != 0){
                     $this->sour_ids[$_sour_id] = $sour_id;
                 }
@@ -303,7 +303,7 @@ class GedcomParser
             foreach ($events as $event) {
                 if($event && count($event) > 0){
                     $e_data = $event[0];
-                    \ModularSoftware\LaravelGedcom\Utils\Importer\Indi\Even::read($this->conn, $e_data, $person, $this->obje_ids);
+                    \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Indi\Even::read($this->conn, $e_data, $person, $this->obje_ids);
                 }
             };
         }
@@ -311,7 +311,7 @@ class GedcomParser
         if ($attr !== null) {
             foreach ($attr as $event) {
                 $e_data = $event[0];
-                \ModularSoftware\LaravelGedcom\Utils\Importer\Indi\Even::read($this->conn,$e_data, $person);
+                \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Indi\Even::read($this->conn,$e_data, $person);
             };
         }
 
@@ -319,25 +319,25 @@ class GedcomParser
         $_gid= $person->id;
         if($names != null && count($names) > 0) {
             foreach($names as $item) {
-                \ModularSoftware\LaravelGedcom\Utils\Importer\Indi\Name::read($this->conn,$item, $_group, $_gid);
+                \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Indi\Name::read($this->conn,$item, $_group, $_gid);
             }
         }
         if($note != null && count($note) > 0) {
             foreach($note as $item) {
-                \ModularSoftware\LaravelGedcom\Utils\Importer\NoteRef::read($this->conn,$item, $_group, $_gid);
+                \GenealogiaWebsite\LaravelGedcom\Utils\Importer\NoteRef::read($this->conn,$item, $_group, $_gid);
             }
         }
         if($sour !== null && count($sour) > 0) {
             foreach($sour as $item) {
-                \ModularSoftware\LaravelGedcom\Utils\Importer\SourRef::read($this->conn,$item, $_group, $_gid, $this->sour_ids, $this->obje_ids);
+                \GenealogiaWebsite\LaravelGedcom\Utils\Importer\SourRef::read($this->conn,$item, $_group, $_gid, $this->sour_ids, $this->obje_ids);
             }
         }
 
-        // ?? 
+        // ??
         if($alia && count($alia) > 0) {
             foreach($alia as $item) {
                 if($item) {
-                    \ModularSoftware\LaravelGedcom\Utils\Importer\Indi\Alia::read($this->conn,$item, $_group, $_gid);
+                    \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Indi\Alia::read($this->conn,$item, $_group, $_gid);
                 }
             }
         }
@@ -345,7 +345,7 @@ class GedcomParser
         if($asso && count($asso) > 0) {
             foreach($asso as $item) {
                 if($item) {
-                    \ModularSoftware\LaravelGedcom\Utils\Importer\Indi\Asso::read($this->conn,$item, $_group, $_gid);
+                    \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Indi\Asso::read($this->conn,$item, $_group, $_gid);
                 }
             }
         }
@@ -353,7 +353,7 @@ class GedcomParser
         if($subm && count($subm) > 0) {
             foreach($subm as $item) {
                 if($item) {
-                    \ModularSoftware\LaravelGedcom\Utils\Importer\Indi\Subm::read($this->conn,$item, $_group, $_gid, $this->subm_ids);
+                    \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Indi\Subm::read($this->conn,$item, $_group, $_gid, $this->subm_ids);
                 }
             }
         }
@@ -361,7 +361,7 @@ class GedcomParser
         if($anci && count($anci) > 0) {
             foreach($anci as $item) {
                 if($item) {
-                    \ModularSoftware\LaravelGedcom\Utils\Importer\Indi\Anci::read($this->conn,$item, $_group, $_gid, $this->subm_ids);
+                    \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Indi\Anci::read($this->conn,$item, $_group, $_gid, $this->subm_ids);
                 }
             }
         }
@@ -369,7 +369,7 @@ class GedcomParser
         if($desi && count($desi) > 0) {
             foreach($desi as $item) {
                 if($item) {
-                    \ModularSoftware\LaravelGedcom\Utils\Importer\Indi\Desi::read($this->conn,$item, $_group, $_gid, $this->subm_ids);
+                    \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Indi\Desi::read($this->conn,$item, $_group, $_gid, $this->subm_ids);
                 }
             }
         }
@@ -377,7 +377,7 @@ class GedcomParser
         if($refn && count($refn) > 0) {
             foreach($refn as $item) {
                 if($item) {
-                    \ModularSoftware\LaravelGedcom\Utils\Importer\Refn::read($this->conn,$item, $_group, $_gid);
+                    \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Refn::read($this->conn,$item, $_group, $_gid);
                 }
             }
         }
@@ -385,22 +385,22 @@ class GedcomParser
         if($obje && count($obje) > 0) {
             foreach($obje as $item) {
                 if($item) {
-                    \ModularSoftware\LaravelGedcom\Utils\Importer\ObjeRef::read($this->conn,$item, $_group, $_gid, $this->obje_ids);
+                    \GenealogiaWebsite\LaravelGedcom\Utils\Importer\ObjeRef::read($this->conn,$item, $_group, $_gid, $this->obje_ids);
                 }
             }
         }
 
         if($bapl !== null) {
-            \ModularSoftware\LaravelGedcom\Utils\Importer\Indi\Lds::read($this->conn,$bapl, $_group, $_gid, 'BAPL', $this->sour_ids, $this->obje_ids);
+            \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Indi\Lds::read($this->conn,$bapl, $_group, $_gid, 'BAPL', $this->sour_ids, $this->obje_ids);
         }
         if($conl !== null) {
-            \ModularSoftware\LaravelGedcom\Utils\Importer\Indi\Lds::read($this->conn,$conl, $_group, $_gid, 'CONL', $this->sour_ids, $this->obje_ids);
+            \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Indi\Lds::read($this->conn,$conl, $_group, $_gid, 'CONL', $this->sour_ids, $this->obje_ids);
         }
         if($endl !== null) {
-            \ModularSoftware\LaravelGedcom\Utils\Importer\Indi\Lds::read($this->conn,$endl, $_group, $_gid, 'ENDL', $this->sour_ids, $this->obje_ids);
+            \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Indi\Lds::read($this->conn,$endl, $_group, $_gid, 'ENDL', $this->sour_ids, $this->obje_ids);
         }
         if($slgc !== null) {
-            \ModularSoftware\LaravelGedcom\Utils\Importer\Indi\Lds::read($this->conn,$slgc, $_group, $_gid, 'SLGC', $this->sour_ids, $this->obje_ids);
+            \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Indi\Lds::read($this->conn,$slgc, $_group, $_gid, 'SLGC', $this->sour_ids, $this->obje_ids);
         }
     }
 
@@ -449,7 +449,7 @@ class GedcomParser
         if ($events !== null && count($events) > 0) {
             foreach ($events as $item) {
                 if($item) {
-                    \ModularSoftware\LaravelGedcom\Utils\Importer\Fam\Even::read($this->conn, $item, $family, $this->obje_ids);
+                    \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Fam\Even::read($this->conn, $item, $family, $this->obje_ids);
                 }
                 // $date = $this->getDate($item->getDate());
                 // $place = $this->getPlace($item->getPlac());
@@ -460,41 +460,41 @@ class GedcomParser
         $_gid = $family->id;
         if($_note != null && count($_note) > 0) {
             foreach($_note as $item) {
-                \ModularSoftware\LaravelGedcom\Utils\Importer\NoteRef::read($this->conn,$item, $_group, $_gid);
+                \GenealogiaWebsite\LaravelGedcom\Utils\Importer\NoteRef::read($this->conn,$item, $_group, $_gid);
             }
         }
         if($_obje && count($_obje) > 0) {
             foreach($_obje as $item) {
                 if($item) {
-                    \ModularSoftware\LaravelGedcom\Utils\Importer\ObjeRef::read($this->conn,$item, $_group, $_gid, $this->obje_ids);
+                    \GenealogiaWebsite\LaravelGedcom\Utils\Importer\ObjeRef::read($this->conn,$item, $_group, $_gid, $this->obje_ids);
                 }
             }
         }
         if($_refn && count($_refn) > 0) {
             foreach($_refn as $item) {
                 if($item) {
-                    \ModularSoftware\LaravelGedcom\Utils\Importer\Refn::read($this->conn,$item, $_group, $_gid);
+                    \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Refn::read($this->conn,$item, $_group, $_gid);
                 }
             }
         }
         if($_sour && count($_sour) > 0) {
             foreach($_sour as $item) {
                 if($item) {
-                    \ModularSoftware\LaravelGedcom\Utils\Importer\SourRef::read($this->conn,$item, $_group, $_gid, $this->sour_ids, $this->obje_ids);
+                    \GenealogiaWebsite\LaravelGedcom\Utils\Importer\SourRef::read($this->conn,$item, $_group, $_gid, $this->sour_ids, $this->obje_ids);
                 }
             }
         }
         if($_slgs && count($_slgs) > 0) {
             foreach($_slgs as $item) {
                 if($item) {
-                    \ModularSoftware\LaravelGedcom\Utils\Importer\Fam\Slgs::read($this->conn,$item, $family);
+                    \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Fam\Slgs::read($this->conn,$item, $family);
                 }
             }
         }
         if($subm && count($subm) > 0) {
             foreach($subm as $item) {
                 if($item) {
-                    \ModularSoftware\LaravelGedcom\Utils\Importer\Subm::read($this->conn,$item, $_group, $_gid, $this->obje_ids);
+                    \GenealogiaWebsite\LaravelGedcom\Utils\Importer\Subm::read($this->conn,$item, $_group, $_gid, $this->obje_ids);
                 }
             }
         }
