@@ -96,11 +96,18 @@ class LoginController extends Controller
             ]);
         }
 
+       /**
+        *
         if (!$user->onGenericTrial() && !$user->isAdmin() && $user->role_id == 2) {
             $user->role_id = 3; //expired role
             $user->save();
         }
+        */
 
+       if ($user->role_id == 3) {
+           $user->role_id = 2; // trial role
+           $user->save();
+       }
         return $user;
     }
 }
