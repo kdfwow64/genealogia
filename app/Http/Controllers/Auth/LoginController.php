@@ -92,15 +92,22 @@ class LoginController extends Controller
 
         if ($user->isInactive()) {
             throw ValidationException::withMessages([
-                'email' => 'Account disabled. Please contact the administrator. wwwwwwwwwwwwwwwwww',
+                'email' => 'Account disabled. Please contact the administrator. support@genealogia.co.uk',
             ]);
         }
 
+       /**
+        *
         if (!$user->onGenericTrial() && !$user->isAdmin() && $user->role_id == 2) {
             $user->role_id = 3; //expired role
             $user->save();
         }
+        */
 
+       if ($user->role_id == 3) {
+           $user->role_id = 2; // trial role
+           $user->save();
+       }
         return $user;
     }
 }
