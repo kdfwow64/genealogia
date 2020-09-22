@@ -5,6 +5,7 @@ namespace App\Tables\Builders;
 use App\Dna;
 use Illuminate\Database\Eloquent\Builder;
 use LaravelEnso\Tables\Contracts\Table;
+use Auth;
 
 class DnaTable implements Table
 {
