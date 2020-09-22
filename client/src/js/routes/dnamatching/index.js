@@ -1,7 +1,7 @@
-const DnaMatchingIndex = () => import('../../pages/dna/Index.vue');
+const DnaMatchingIndex = () => import('../../pages/dnamatching/Index.vue');
 
 export default {
-    name: 'dna.index',
+    name: 'dnamatching.index',
     path: '',
     component: DnaMatchingIndex,
     meta: {
