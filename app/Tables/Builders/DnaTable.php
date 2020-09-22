@@ -12,7 +12,10 @@ class DnaTable implements Table
 
     public function query(): Builder
     {
-        return Dna::selectRaw('
+
+	 $user_id = Auth::user()->id;
+
+        return Dna::where('dnas.user_id', $user_id)->selectRaw('
             dnas.variable_name,
             dnas.file_name
         ');
