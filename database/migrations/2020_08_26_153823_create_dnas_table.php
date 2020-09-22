@@ -15,6 +15,8 @@ class CreateDnasTable extends Migration
     {
         Schema::create('dnas', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+	    $table->unsignedInteger('user_id');
             $table->string('variable_name');
             $table->string('file_name');
             $table->string('total_shared_cm')->nullable();

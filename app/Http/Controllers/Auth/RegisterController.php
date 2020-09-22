@@ -65,7 +65,7 @@ class RegisterController extends Controller
             }
 
             // get role_id
-            $role = Role::where('name', 'trial')->first();
+            $role = Role::where('name', 'free')->first();
             $user = User::create([
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),

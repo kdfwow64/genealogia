@@ -36,7 +36,7 @@ class DnaMatching implements ShouldQueue
     {
         $dnas = Dna::where('variable_name', '!=', $this->var_name)->get();
         foreach ($dnas as $dna) {
-            exec('python dna.py ' . $this->var_name . ' ' . $dna->variable_name . ' ' . $this->file_name . ' ' . $dna->file_name);
+            exec('python3 dna.py ' . $this->var_name . ' ' . $dna->variable_name . ' ' . $this->file_name . ' ' . $dna->file_name);
             $dm = new DM();
             $dm->image = 'shared_dna_' . $this->var_name . '_' . $dna->variable_name . '.png';
             $dm->file1 = 'discordant_snps_' . $this->var_name . '_' . $dna->variable_name . '_GRCh37.csv';
