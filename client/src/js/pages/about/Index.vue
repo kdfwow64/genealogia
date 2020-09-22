@@ -18,14 +18,14 @@ features but also be easy and accessible to use. You can easily import
  and export GEDCOM files, view and manipulate the data.
 </div>
 <div>
-It has a tree viewer and DNA support more features are planned such
+It has a tree viewer and DNA support and more features are planned such
  as the inclusion of archive databases and
 collections of records such as census, birth, marriage and death records.
 </div>
 <div>
-It is aimed to be affordable with a 7 day no obligation trial with different
- pricing levels depending on how many trees
-you require. There is no limit to the size of your trees and it should
+It is aimed to be affordable, one tree accounts are free for life with different
+ pricing levels depending on if you require more trees.
+There is no limit to the size of your trees and it should
 easily support hundreds of thousands of records.
 Any issues you can always contact our support team.
 </div>
