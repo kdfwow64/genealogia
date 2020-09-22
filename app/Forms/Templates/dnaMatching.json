@@ -1,0 +1,7 @@
+{
+    "routePrefix": "dnamatching",
+    "sections": [{
+        "columns": 2,
+        "fields": []
+    }]
+}

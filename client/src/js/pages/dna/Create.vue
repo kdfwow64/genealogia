@@ -52,7 +52,7 @@ export default {
     },
     created() {
         this.subscribe();
-        this.getProgressData();
+        // this.getProgressData();
     },
     methods: {
         subscribe() {

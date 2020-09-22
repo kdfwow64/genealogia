@@ -1,7 +1,7 @@
-const DnaMatchingShow = () => import('../../pages/dna/Show.vue');
+const DnaMatchingShow = () => import('../../pages/dnamatching/Show.vue');
 
 export default {
-    name: 'dna.show',
+    name: 'dnamatching.show',
     path: ':dnaMatching',
     component: DnaMatchingShow,
     meta: {

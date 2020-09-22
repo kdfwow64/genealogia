@@ -13,7 +13,8 @@ class DnaTable implements Table
     public function query(): Builder
     {
         return Dna::selectRaw('
-            dnas.name
+            dnas.variable_name,
+            dnas.file_name
         ');
     }
 
