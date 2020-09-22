@@ -15,11 +15,6 @@
                 </tr>
             </table>
         </div>
-        <div class="column is-one-third">
-            <div class="notification is-primary">
-            You have <strong>{{ days }} days</strong> left on your subscription.
-            </div>
-        </div>
     </div>
 </template>
 

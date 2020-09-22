@@ -10,7 +10,7 @@ use App\Traits\ConnectionTrait;
 use File;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use ModularSoftware\LaravelGedcom\Utils\GedcomGenerator;
+use GenealogiaWebsite\LaravelGedcom\Utils\GedcomGenerator;
 use Response;
 
 class Show extends Controller
