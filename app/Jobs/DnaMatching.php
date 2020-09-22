@@ -38,10 +38,35 @@ class DnaMatching implements ShouldQueue
         foreach ($dnas as $dna) {
             exec('python dna.py ' . $this->var_name . ' ' . $dna->variable_name . ' ' . $this->file_name . ' ' . $dna->file_name);
             $dm = new DM();
-            $dm->image = 'shared_dna_'.$this->var_name.'_'.$dna->variable_name.'.png';
-            $dm->file1 = 'shared_dna_one_chrom_'.$this->var_name.'_'.$dna->variable_name.'_GRCh37.csv';
-            $dm->file2 = 'shared_dna_'.$this->var_name.'_'.$dna->variable_name.'_GRCh37.csv';
+            $dm->image = 'shared_dna_' . $this->var_name . '_' . $dna->variable_name . '.png';
+            $dm->file1 = 'discordant_snps_' . $this->var_name . '_' . $dna->variable_name . '_GRCh37.csv';
+            $dm->file2 = 'shared_dna_one_chrom_' . $this->var_name . '_' . $dna->variable_name . '_GRCh37.csv';
             $dm->save();
+
+            $data = readCSV(storage_path('app' . DIRECTORY_SEPARATOR . 'dna' . DIRECTORY_SEPARATOR . 'output' . DIRECTORY_SEPARATOR . $dm->file1), ',');
+            array_shift($data);
+            $data = writeCSV(storage_path('app' . DIRECTORY_SEPARATOR . 'dna' . DIRECTORY_SEPARATOR . 'output' . DIRECTORY_SEPARATOR . $dm->file1), $data);
+
+            $data = readCSV(storage_path('app' . DIRECTORY_SEPARATOR . 'dna' . DIRECTORY_SEPARATOR . 'output' . DIRECTORY_SEPARATOR . $dm->file2), ',');
+            array_shift($data);
+
+            $temp_data = $data;
+            array_shift($temp_data);
+            array_shift($temp_data);
+            $total_cms = 0;
+            $largest_cm = 0;
+            foreach ($temp_data as $line) {
+                if ($line[4] >= $largest_cm) {
+                    $largest_cm = $line[4];
+                }
+                $total_cms = $total_cms + $line[4];
+            }
+            $dna->total_shared_cm = $total_cms;
+            $dna->largest_cm_segment = round($largest_cm, 2);
+            $dna->save();
+
+            $data = writeCSV(storage_path('app' . DIRECTORY_SEPARATOR . 'dna' . DIRECTORY_SEPARATOR . 'output' . DIRECTORY_SEPARATOR . $dm->file2), $data);
+
         }
     }
 }

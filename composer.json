@@ -62,7 +62,8 @@
             "database/factories"
         ],
         "files": [
-            "app/Helpers/string.php"
+            "app/Helpers/string.php",
+            "app/Helpers/csv.php"
         ]
     },
     "autoload-dev": {

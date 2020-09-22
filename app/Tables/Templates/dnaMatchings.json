@@ -2,7 +2,7 @@
     "name": "Dna Matching",
     "routePrefix": "dnamatching",
     "crtNo": true,
-    "buttons": ["excel", "create", "show", "edit", "destroy"],
+    "buttons": ["excel", "create", "edit", "destroy"],
     "columns": [{
         "label": "Id",
         "name": "id",
@@ -13,19 +13,19 @@
         "label": "Image",
         "name": "image",
         "data": "dna_matchings.image",
-        "meta": ["searchable", "sortable"]
+        "meta": ["searchable", "sortable", "slot"]
     },
     {
         "label": "File 1",
         "name": "file1",
         "data": "dna_matchings.file1",
-        "meta": ["searchable", "sortable"]
+        "meta": ["searchable", "sortable", "slot"]
     },
     {
         "label": "File 2",
         "name": "file2",
         "data": "dna_matchings.file2",
-        "meta": ["searchable", "sortable"]
+        "meta": ["searchable", "sortable", "slot"]
     }
     ]
 }
