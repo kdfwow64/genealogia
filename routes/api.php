@@ -844,7 +844,7 @@ Route::namespace('\LaravelEnso\Companies\Http\Controllers')
 
     });
 
-    Route::middleware(['api', 'auth', 'core','multitenant'])
+    Route::middleware(['api', 'auth', 'core'])
     ->group(function () {
         Route::namespace('Dnamatching')
             ->prefix('dnamatching')

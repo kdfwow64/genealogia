@@ -1,4 +1,3 @@
-
 import sys
 from lineage import Lineage
 l = Lineage(output_dir='storage/app/dna/output')
