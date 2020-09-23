@@ -23,6 +23,7 @@ class Store extends Controller
 //                    $db = $this->getDB();
                     $currentUser = Auth::user();
                     $file_name = 'dna_' . $request->file('file')->getClientOriginalName() . uniqid() . '.' . $request->file('file')->extension();
+//                    $file_name = 'dna_' . $request->file('file')->getClientOriginalName() . uniqid() . '.csv';
                     $request->file->storeAs('dna', $file_name);
                     define('STDIN', fopen('php://stdin', 'r'));
                     $random_string = unique_random('dnas', 'variable_name', 5);

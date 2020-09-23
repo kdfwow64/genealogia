@@ -1,4 +1,8 @@
 import sys
+import logging, sys
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+logger.addHandler(logging.StreamHandler(sys.stdout))
 from lineage import Lineage
 l = Lineage(output_dir='storage/app/dna/output')
 
