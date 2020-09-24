@@ -18,6 +18,8 @@ class CreateDnaMatchingsTable extends Migration
             $table->string('image');
             $table->string('file1');
             $table->string('file2');
+            $table->string('total_shared_cm')->nullable();
+            $table->string('largest_cm_segment')->nullable();
             $table->timestamps();
         });
     }

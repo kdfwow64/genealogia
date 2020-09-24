@@ -19,8 +19,6 @@ class CreateDnasTable extends Migration
 	    $table->unsignedInteger('user_id');
             $table->string('variable_name');
             $table->string('file_name');
-            $table->string('total_shared_cm')->nullable();
-            $table->string('largest_cm_segment')->nullable();
             $table->timestamps();
         });
     }
