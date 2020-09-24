@@ -63,9 +63,9 @@ class DnaMatching implements ShouldQueue
                 }
                 $total_cms = $total_cms + $line[4];
             }
-            $dna->total_shared_cm = $total_cms;
-            $dna->largest_cm_segment = round($largest_cm, 2);
-            $dna->save();
+            $dm->total_shared_cm = $total_cms;
+            $dm->largest_cm_segment = round($largest_cm, 2);
+            $dm->save();
 
             $data = writeCSV(storage_path('app' . DIRECTORY_SEPARATOR . 'dna' . DIRECTORY_SEPARATOR . 'output' . DIRECTORY_SEPARATOR . $dm->file2), $data);
 
