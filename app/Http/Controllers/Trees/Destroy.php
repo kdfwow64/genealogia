@@ -14,6 +14,7 @@ class Destroy extends Controller
         $company = Company::find($tree->company_id);
         DropDB::dispatch($company, $tree->user_id);
         $tree->delete();
+        $company->delete();
 
         return [
             'message' => __('The tree was successfully deleted'),

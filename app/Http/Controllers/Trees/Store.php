@@ -31,7 +31,7 @@ class Store extends Controller
         $tree->save();
 
         CreateDB::dispatch($company, $user->id);
-        Migration::dispatch($company->id, $user->id);
+        Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
 
         return [
             'message' => __('The tree was successfully created'),
