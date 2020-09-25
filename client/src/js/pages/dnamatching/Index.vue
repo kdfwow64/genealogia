@@ -3,39 +3,33 @@
         <template v-slot:image="{ row, column }">
             <a
                 :href="'../storage/app/dna/output/' + row[column.name]"
-                target="_blank"
-            >
+                target="_blank">
                 <img
                     :src="'../storage/app/dna/output/' + row[column.name]"
                     width="100"
-                    height="150"
-                />
+                    height="150">
             </a>
         </template>
         <template v-slot:file1="{ row, column }">
             <a
                 :href="'../storage/app/dna/output/' + row[column.name]"
-                target="_blank"
-                >{{ row[column.name] }}</a
-            >
+                target="_blank">{{ row[column.name] }}</a>
         </template>
         <template v-slot:file2="{ row, column }">
             <a
                 :href="'../storage/app/dna/output/' + row[column.name]"
-                target="_blank"
-                >{{ row[column.name] }}</a
-            >
+                target="_blank">{{ row[column.name] }}</a>
         </template>
     </enso-table>
 </template>
 
 <script>
-import { EnsoTable } from "@enso-ui/bulma";
+import { EnsoTable } from '@enso-ui/bulma';
 
 export default {
-    name: "Index",
+    name: 'Index',
 
-    components: { EnsoTable }
+    components: { EnsoTable },
 };
 </script>
 
