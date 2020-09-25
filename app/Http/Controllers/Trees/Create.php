@@ -31,7 +31,7 @@ class Create extends Controller
 
         else{
             return [
-                'message' => __('You do not have permission to create another tree. Please check your subscription package.'),
+                'message' => ('You do not have permission to create another tree. Please check your subscription package.'),
                 'redirect' => 'trees.index',
             ];
         }
