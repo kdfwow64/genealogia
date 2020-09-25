@@ -37,7 +37,6 @@ import { EnsoSelectFilter } from '@enso-ui/filters/bulma';
 
 export default {
     name: 'Index',
-
     components: { EnsoTable, EnsoSelectFilter },
 };
 </script>
