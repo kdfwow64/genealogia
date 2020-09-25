@@ -9,12 +9,11 @@ use Auth;
 
 class DnaTable implements Table
 {
-    protected const TemplatePath = __DIR__.'/../Templates/dnas.json';
+    protected const TemplatePath = __DIR__ . '/../Templates/dnas.json';
 
     public function query(): Builder
     {
-
-	 $user_id = Auth::user()->id;
+        $user_id = Auth::user()->id;
 
         return Dna::where('dnas.user_id', $user_id)->selectRaw('
             dnas.variable_name,
