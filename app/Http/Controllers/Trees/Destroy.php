@@ -20,7 +20,7 @@ class Destroy extends Controller
         $company->delete();
         $user = Auth::user();
 
-        if (count(Company::where('email', $user->email)->find()) < 1) {
+        if (count(Company::where('email', '=', $user->email)->find()) < 1) {
 
             $company_count = Company::count();
             $company = Company::create([
