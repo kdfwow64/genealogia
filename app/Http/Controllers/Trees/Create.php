@@ -29,6 +29,12 @@ class Create extends Controller
             return ['form' => $form->create()];
         }
 
+        else{
+            return [
+                'message' => __('You do not have permission to create another tree. Please check your subscription package.'),
+                'redirect' => 'trees.index',
+            ];
+        }
 
     }
 }
