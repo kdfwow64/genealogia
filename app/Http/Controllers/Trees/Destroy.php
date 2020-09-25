@@ -18,7 +18,7 @@ class Destroy extends Controller
         DropDB::dispatch($company, $tree->user_id);
         $tree->delete();
         $company->delete();
-        $user = Auth::user();
+        $user = auth()->user();
 
         if (Company::where('email', '=', $user->email)->count() < 1) {
 
