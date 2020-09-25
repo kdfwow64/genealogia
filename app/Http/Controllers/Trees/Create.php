@@ -14,13 +14,13 @@ class Create extends Controller
         $user = Auth::user();
 
         if ($user->role_id == 2 || $user->role_id == 4 || $user->role_id == 5) {
-            if(Tree::where('user_id', '=', $user->user_id)->count() < 1){
+            if(Tree::where('user_id', '=', $user->id)->count() < 1){
                 return ['form' => $form->create()];
             }
         }
 
         if ($user->role_id == 6 || $user->role_id == 7) {
-            if(Tree::where('user_id', '=', $user->user_id)->count() < 10){
+            if(Tree::where('user_id', '=', $user->id)->count() < 10){
                 return ['form' => $form->create()];
             }
         }
