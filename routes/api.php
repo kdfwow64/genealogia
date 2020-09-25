@@ -844,3 +844,19 @@ Route::namespace('\LaravelEnso\Companies\Http\Controllers')
 
     });
 
+    Route::middleware(['api', 'auth', 'core'])
+    ->group(function () {
+        Route::namespace('Dnamatching')
+            ->prefix('dnamatching')
+            ->as('dnamatching.')
+            ->group(function () {
+                Route::get('create', 'Create')->name('create');
+                Route::get('{dnaMatching}/edit', 'Edit')->name('edit');
+                Route::get('', 'Index')->name('index');
+                Route::get('initTable', 'InitTable')->name('initTable');
+                Route::get('tableData', 'TableData')->name('tableData');
+                Route::get('{dnaMatching}', 'Show')->name('show');
+                Route::get('exportExcel', 'ExportExcel')->name('exportExcel');
+                Route::delete('{dnaMatching}', 'Destroy')->name('destroy');
+        });
+    });

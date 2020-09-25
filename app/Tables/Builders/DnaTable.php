@@ -5,6 +5,7 @@ namespace App\Tables\Builders;
 use App\Dna;
 use Illuminate\Database\Eloquent\Builder;
 use LaravelEnso\Tables\Contracts\Table;
+use Auth;
 
 class DnaTable implements Table
 {
@@ -12,8 +13,12 @@ class DnaTable implements Table
 
     public function query(): Builder
     {
-        return Dna::selectRaw('
-            dnas.name
+
+	 $user_id = Auth::user()->id;
+
+        return Dna::where('dnas.user_id', $user_id)->selectRaw('
+            dnas.variable_name,
+            dnas.file_name
         ');
     }
 

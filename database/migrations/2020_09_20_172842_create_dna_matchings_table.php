@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDnasTable extends Migration
+class CreateDnaMatchingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateDnasTable extends Migration
      */
     public function up()
     {
-        Schema::create('dnas', function (Blueprint $table) {
+        Schema::create('dna_matchings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-	    $table->unsignedInteger('user_id');
-            $table->string('variable_name');
-            $table->string('file_name');
+            $table->string('image');
+            $table->string('file1');
+            $table->string('file2');
+            $table->string('total_shared_cm')->nullable();
+            $table->string('largest_cm_segment')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateDnasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dnas');
+        Schema::dropIfExists('dna_matchings');
     }
 }

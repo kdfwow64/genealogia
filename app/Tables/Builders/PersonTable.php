@@ -20,7 +20,7 @@ class PersonTable extends \LaravelEnso\People\Tables\Builders\PersonTable
         $db = $this->getDB();
 
         return Person::on($conn)->selectRaw('
-           people.id, people.title, people.name, people.appellative, people.email, people.phone,
+           people.id, people.title, people.name, people.givn, people.surn, people.appellative, people.email, people.phone,
             people.birthday, CASE WHEN users.id is null THEN 0 ELSE 1 END as "user",
             companies.name as company, people.created_at
         ')->leftJoin('users', 'people.id', '=', 'users.person_id')
@@ -32,6 +32,7 @@ class PersonTable extends \LaravelEnso\People\Tables\Builders\PersonTable
             )->leftJoin('companies', 'company_person.company_id', 'companies.id');
     }
 
+/**
     public function filterApplies(Obj $params): bool
     {
         return optional($params->get('user'))->filled('exists') ?? false;
@@ -45,7 +46,7 @@ class PersonTable extends \LaravelEnso\People\Tables\Builders\PersonTable
             fn ($query) => $query->whereNull('users.id')
         );
     }
-
+*/
     public function templatePath(): string
     {
         return static::TemplatePath;
