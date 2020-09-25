@@ -41,7 +41,7 @@ Upload
         Please select a GEDCOM file exported from your desktop software or online website
          and click upload. It should begin to process and show imported data
          processing. If it stops before fully importing contact
-         support@genealogia.co.uk<br/><br/>
+         support@genealogia.co.uk<br><br>
         We do not use your GEDCOM file for any other purpose.
     </div>
 </template>
