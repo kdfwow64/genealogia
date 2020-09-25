@@ -6,6 +6,6 @@ export default {
     component: DnaCreate,
     meta: {
         breadcrumb: 'create',
-        title: 'Create Dna',
+        title: 'DNA Upload',
     },
 };

@@ -2,7 +2,7 @@
     "name": "Dna",
     "routePrefix": "dna",
     "crtNo": true,
-    "buttons": ["excel", "create", "show", "edit", "destroy"],
+    "buttons": ["create"],
     "columns": [
         {
             "label": "Variable Name",

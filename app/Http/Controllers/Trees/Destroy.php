@@ -15,7 +15,7 @@ class Destroy extends Controller
     public function __construct()
     {
         // user must log in to use this controller
-        $this->middleware('auth:api');
+  //      $this->middleware('auth:api');
     }
 
     public function __invoke(Tree $tree)
