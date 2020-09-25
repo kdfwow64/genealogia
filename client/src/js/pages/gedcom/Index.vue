@@ -32,6 +32,13 @@ Upload
                 :value.prop="complete"/>
             <span :value.prop="total">{{ complete }}/{{ total }}</span>
         </div>
+        We value your privacy and do not share your GEDCOM data with any third parties.
+        Your GEDCOM file is used by the website only for processing
+        your data and importing into your tree that you have selected.<br><br>
+        One tree is free for life for everyone and if you require more
+        you will need to <a href="/subscribe" target="_blank">subscribe</a>
+        which helps us continue to provide services and develop new features.<br><br>
+        We do not use your GEDCOM file for any other purpose.
     </div>
 </template>
 <script>
