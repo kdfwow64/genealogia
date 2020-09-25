@@ -12,13 +12,20 @@ use Illuminate\Support\Facades\Auth;
 
 class Destroy extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('core');
+        $this->middleware('api');
+    }
+
     public function __invoke(Tree $tree)
     {
-        $company = Company::find($tree->company_id);
-        DropDB::dispatch($company, $tree->user_id);
+        $original_company = Company::find($tree->company_id);
+        DropDB::dispatch($original_company, $tree->user_id);
         $tree->delete();
         $user = auth()->user();
-        $company->delete();
+
 
         if (Company::where('email', '=', $user->email)->count() < 1) {
 
@@ -40,6 +47,7 @@ class Destroy extends Controller
             CreateDB::dispatch($company, $user->id);
             Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
 
+            $original_company->delete();
         }
         return [
             'message' => __('The tree was successfully deleted'),
