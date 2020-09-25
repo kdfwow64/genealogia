@@ -25,6 +25,13 @@
             <progress :max.prop="total" :value.prop="complete"/>
             <span :value.prop="total">{{ complete }}/{{ total }}</span>
         </div>
+        We value your privacy and do not share your DNA data with any third parties.
+        Your DNA file is used by the website only for processing
+         your matches to other DNA data uploaded.
+        We do not use your DNA file for any other purpose.<br/><br/>
+        We currently support exports from:
+        Ancestry, Family Tree DNA, 23andMe, MyHeritage, DNA.Land, Codigo 46,
+        Genes for Good, LivingDNA, Mapmygenome, Sano Genetics and tellmeGen.
     </div>
 </template>
 
