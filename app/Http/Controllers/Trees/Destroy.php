@@ -8,6 +8,7 @@ use App\Tree;
 use LaravelEnso\Companies\Models\Company;
 use Illuminate\Routing\Controller;
 use App\Jobs\Tenant\DropDB;
+use Illuminate\Support\Facades\Auth;
 
 class Destroy extends Controller
 {
@@ -17,7 +18,7 @@ class Destroy extends Controller
         DropDB::dispatch($company, $tree->user_id);
         $tree->delete();
         $company->delete();
-        $user = auth()->user();
+        $user = Auth::user();
 
         if (count(Company::where('email', $user->email)->find()) < 1) {
 
