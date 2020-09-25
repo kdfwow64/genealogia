@@ -12,12 +12,6 @@ use Illuminate\Support\Facades\Auth;
 
 class Destroy extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('core');
-        $this->middleware('api');
-    }
 
     public function __invoke(Tree $tree)
     {
