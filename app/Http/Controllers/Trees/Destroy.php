@@ -14,13 +14,13 @@ class Destroy extends Controller
 {
     public function __construct()
     {
+        // user must log in to use this controller
         $this->middleware('auth');
-        $this->middleware('core');
-        $this->middleware('api');
     }
 
     public function __invoke(Tree $tree)
     {
+
         $original_company = Company::find($tree->company_id);
         DropDB::dispatch($original_company, $tree->user_id);
         $tree->delete();
