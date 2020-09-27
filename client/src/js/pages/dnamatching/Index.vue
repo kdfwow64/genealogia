@@ -3,7 +3,7 @@
         <enso-select-filter
             title="my title"
             :source="route('dnamatching.options')"
-            v-model="dnas.id"/>
+            v-model="dnamatching.id"/>
         <enso-table
             class="box is-paddingless raises-on-hover"
             id="dna_matchings">
