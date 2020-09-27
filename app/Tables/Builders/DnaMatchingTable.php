@@ -19,7 +19,9 @@ class DnaMatchingTable implements Table, CustomFilter
             dna_matchings.id,
             dna_matchings.image,
             dna_matchings.file1,
-            dna_matchings.file2
+            dna_matchings.file2,
+            dna_matchings.total_shared_cm,
+            dna_matchings.largest_cm_segment
         ');
     }
 

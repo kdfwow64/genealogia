@@ -26,6 +26,18 @@
         "name": "file2",
         "data": "dna_matchings.file2",
         "meta": ["searchable", "sortable", "slot"]
-    }
+    },
+        {
+            "label": "Total Shared cM",
+            "name": "total_shared_cm",
+            "data": "dna_matchings.total_shared_cm",
+            "meta": ["searchable", "sortable"]
+        },
+        {
+            "label": "Largest cM Segment",
+            "name": "largest_cm_segment",
+            "data": "dna_matchings.largest_cm_segment",
+            "meta": ["searchable", "sortable"]
+        }
     ]
 }
