@@ -9,11 +9,23 @@ class Destroy extends Controller
 {
     public function __invoke(Dna $dna)
     {
-        $dna->delete();
+        $user = auth()->user();
+        if ($user->id == $dna->user_id) {
 
-        return [
-            'message' => __('The dna was successfully deleted'),
-            'redirect' => 'dna.index',
-        ];
+
+            $dna->delete();
+
+            return [
+                'message' => __('The dna was successfully deleted'),
+                'redirect' => 'dna.index',
+            ];
+        }
+        else {
+
+            return [
+                'message' => __('The dna could not be deleted'),
+                'redirect' => 'dna.index',
+            ];
+        }
     }
 }
