@@ -13,10 +13,10 @@ class Options extends Controller
 
     protected string $model = DnaMatching::class;
 
-    //protected $queryAttributes = ['name'];
+    protected $queryAttributes = ['largest_cm_segment','total_shared_cm'];
 
-    //public function query(Request $request)
-    //{
-    //    return DnaMatching::query();
-    //}
+    public function query(Request $request)
+    {
+        return DnaMatching::query();
+    }
 }
