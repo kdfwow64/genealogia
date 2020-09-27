@@ -11,9 +11,9 @@
       "meta": ["searchable", "sortable"]
     },
     {
-      "label": "Form",
-      "name": "form",
-      "data": "media_objects.form",
+      "label": "Group",
+      "name": "group",
+      "data": "media_objects.group",
       "meta": ["searchable", "sortable"]
     },
     {
@@ -23,9 +23,9 @@
       "meta": ["searchable", "sortable"]
     },
     {
-      "label": "Blob",
-      "name": "blob",
-      "data": "media_objects.blob",
+      "label": "Object ID",
+      "name": "obje_id",
+      "data": "media_objects.obje_id",
       "meta": ["searchable", "sortable"]
     },
     {
@@ -35,9 +35,9 @@
       "meta": ["searchable", "sortable"]
     },
     {
-      "label": "File",
-      "name": "file",
-      "data": "media_objects.file",
+      "label": "Created at",
+      "name": "created_at",
+      "data": "media_objects.created_at",
       "meta": ["searchable", "sortable"]
     }
 

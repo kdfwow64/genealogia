@@ -49,6 +49,10 @@ class Destroy extends Controller
                 Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
 
                 $original_company->delete();
+
+            $db = $company->id;
+            $this->setConnection(Connections::Tenant, $db, Auth::user()->id);
+
             }
             return [
                 'message' => __('The tree was successfully deleted'),

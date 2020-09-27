@@ -2,7 +2,7 @@
     "name": "Dna Matching",
     "routePrefix": "dnamatching",
     "crtNo": true,
-    "buttons": ["excel", "create", "edit", "destroy"],
+    "buttons": ["excel"],
     "columns": [{
         "label": "Id",
         "name": "id",
