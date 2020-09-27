@@ -1,7 +1,7 @@
-const AddrEdit = () => import('../../pages/addresses/Edit.vue');
+const AddrEdit = () => import('../../pages/addrs/Edit.vue');
 
 export default {
-    name: 'addresses.edit',
+    name: 'addrs.edit',
     path: ':addr/edit',
     component: AddrEdit,
     meta: {

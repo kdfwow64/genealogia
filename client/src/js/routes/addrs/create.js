@@ -1,7 +1,7 @@
-const AddrCreate = () => import('../../pages/addresses/Create.vue');
+const AddrCreate = () => import('../../pages/addrs/Create.vue');
 
 export default {
-    name: 'addresses.create',
+    name: 'addrs.create',
     path: 'create',
     component: AddrCreate,
     meta: {

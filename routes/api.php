@@ -342,9 +342,9 @@ Route::middleware(['api', 'auth', 'core', 'multitenant'])
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Addresses')
-            ->prefix('addresses')
-            ->as('addresses.')
+        Route::namespace('Addrs')
+            ->prefix('addrs')
+            ->as('addrs.')
             ->group(function () {
                 Route::get('', 'Index')->name('index');
                 Route::get('create', 'Create')->name('create');

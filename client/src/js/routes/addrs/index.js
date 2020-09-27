@@ -1,7 +1,7 @@
-const AddrIndex = () => import('../../pages/addresses/Index.vue');
+const AddrIndex = () => import('../../pages/addrs/Index.vue');
 
 export default {
-    name: 'addresses.index',
+    name: 'addrs.index',
     path: '',
     component: AddrIndex,
     meta: {

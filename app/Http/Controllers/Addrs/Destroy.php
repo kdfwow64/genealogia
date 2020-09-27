@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Addresses;
+namespace App\Http\Controllers\Addrs;
 
 use App\Addr;
 use Illuminate\Routing\Controller;
@@ -13,7 +13,7 @@ class Destroy extends Controller
 
         return [
             'message' => __('The addr was successfully deleted'),
-            'redirect' => 'addresses.index',
+            'redirect' => 'addrs.index',
         ];
     }
 }
