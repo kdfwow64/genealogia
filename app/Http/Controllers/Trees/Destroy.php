@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Trees;
 
+use App\Traits\ConnectionTrait;
 use App\Jobs\Tenant\CreateDB;
 use App\Jobs\Tenant\Migration;
 use App\Tree;

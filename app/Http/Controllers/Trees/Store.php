@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Trees;
 
 use App\Tree;
+use App\Traits\ConnectionTrait;
 use LaravelEnso\Companies\Models\Company;
 use Illuminate\Routing\Controller;
 use App\Http\Requests\ValidateTreeRequest;
