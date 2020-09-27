@@ -42,6 +42,7 @@ use ConnectionTrait;
 
             $db = $company->id;
             $this->setConnection(Connections::Tenant, $db, $user->id);
+	    $this->getConnection();
 
         return [
             'message' => __('The tree was successfully created'),
