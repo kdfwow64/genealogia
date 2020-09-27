@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Addresses;
+namespace App\Http\Controllers\Addrs;
 
 use App\Addr;
 use App\Http\Requests\ValidateAddrRequest;
@@ -14,7 +14,7 @@ class Store extends Controller
 
         return [
             'message' => __('The addr was successfully created'),
-            'redirect' => 'addresses.edit',
+            'redirect' => 'addrs.edit',
             'param' => ['addr' => $addr->id],
         ];
     }

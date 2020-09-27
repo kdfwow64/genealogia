@@ -1,7 +1,7 @@
-const AddrShow = () => import('../../pages/addresses/Show.vue');
+const AddrShow = () => import('../../pages/addrs/Show.vue');
 
 export default {
-    name: 'addresses.show',
+    name: 'addrs.show',
     path: ':addr',
     component: AddrShow,
     meta: {
