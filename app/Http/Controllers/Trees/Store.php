@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Trees;
 
 use App\Tree;
 use App\Traits\ConnectionTrait;
+use LaravelEnso\Multitenancy\Enums\Connections;
+use LaravelEnso\Multitenancy\Services\Tenant;
 use LaravelEnso\Companies\Models\Company;
 use Illuminate\Routing\Controller;
 use App\Http\Requests\ValidateTreeRequest;
@@ -14,6 +16,8 @@ class Store extends Controller
 {
     public function __invoke(ValidateTreeRequest $request, Tree $tree)
     {
+	use ConnectionTrait;
+
         $data = $request->validated();
         $user = auth()->user();
         $company_count = Company::count();

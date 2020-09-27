@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Trees;
 
 use App\Traits\ConnectionTrait;
+use LaravelEnso\Multitenancy\Enums\Connections;
+use LaravelEnso\Multitenancy\Services\Tenant;
 use App\Jobs\Tenant\CreateDB;
 use App\Jobs\Tenant\Migration;
 use App\Tree;
@@ -21,8 +23,10 @@ class Destroy extends Controller
 
     public function __invoke(Tree $tree)
     {
+	use ConnectionTrait;
 
         $user = auth()->user();
+
         if ($user->id == $tree->user_id) {
             $original_company = Company::find($tree->company_id);
             DropDB::dispatch($original_company, $tree->user_id);
