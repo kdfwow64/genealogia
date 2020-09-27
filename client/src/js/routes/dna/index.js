@@ -6,6 +6,6 @@ export default {
     component: DnaMatchingIndex,
     meta: {
         breadcrumb: 'index',
-        title: 'Dna Matchings',
+        title: 'Dna',
     },
 };

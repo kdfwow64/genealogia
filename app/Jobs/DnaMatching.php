@@ -34,12 +34,14 @@ class DnaMatching implements ShouldQueue
      */
     public function handle()
     {
+        $user = auth()->user();
         $dnas = Dna::where('variable_name', '!=', $this->var_name)->get();
         foreach ($dnas as $dna) {
 //            system('/usr/bin/python3 /home/genealogia/public_html/dna.py ' . $this->var_name . ' ' . $dna->variable_name . ' ' . '/home/genealogia/public_html/storage/app/dna/'. $this->file_name . ' ' . '/home/genealogia/public_html/storage/app/dna/'. $dna->file_name);
             chdir('/home/genealogia/public_html');
-	    exec('/usr/bin/python3.8 dna.py ' . $this->var_name . ' ' . $dna->variable_name . ' ' . $this->file_name . ' ' .  $dna->file_name);
+	        exec('/usr/bin/python3.8 dna.py ' . $this->var_name . ' ' . $dna->variable_name . ' ' . $this->file_name . ' ' .  $dna->file_name);
             $dm = new DM();
+            $dm->user_id = $user->id;
             $dm->image = 'shared_dna_' . $this->var_name . '_' . $dna->variable_name . '.png';
             $dm->file1 = 'discordant_snps_' . $this->var_name . '_' . $dna->variable_name . '_GRCh37.csv';
             $dm->file2 = 'shared_dna_one_chrom_' . $this->var_name . '_' . $dna->variable_name . '_GRCh37.csv';
@@ -63,6 +65,7 @@ class DnaMatching implements ShouldQueue
                 }
                 $total_cms = $total_cms + $line[4];
             }
+            $dm->user_id = $user->id;
             $dm->total_shared_cm = $total_cms;
             $dm->largest_cm_segment = round($largest_cm, 2);
             $dm->save();
