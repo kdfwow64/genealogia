@@ -11,12 +11,14 @@ use Illuminate\Routing\Controller;
 use App\Http\Requests\ValidateTreeRequest;
 use App\Jobs\Tenant\CreateDB;
 use App\Jobs\Tenant\Migration;
+use Illuminate\Support\Facades\Auth;
 
 class Store extends Controller
 {
+use ConnectionTrait;
+
     public function __invoke(ValidateTreeRequest $request, Tree $tree)
     {
-	use ConnectionTrait;
 
         $data = $request->validated();
         $user = auth()->user();
@@ -39,7 +41,7 @@ class Store extends Controller
         Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
 
             $db = $company->id;
-            $this->setConnection(Connections::Tenant, $db, Auth::user()->id);
+            $this->setConnection(Connections::Tenant, $db, $user->id);
 
         return [
             'message' => __('The tree was successfully created'),

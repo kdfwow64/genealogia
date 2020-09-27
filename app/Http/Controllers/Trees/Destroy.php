@@ -15,15 +15,10 @@ use Illuminate\Support\Facades\Auth;
 
 class Destroy extends Controller
 {
-    public function __construct()
-    {
-        // user must log in to use this controller
-  //      $this->middleware('auth:api');
-    }
+use ConnectionTrait;
 
     public function __invoke(Tree $tree)
     {
-	use ConnectionTrait;
 
         $user = auth()->user();
 
@@ -56,7 +51,7 @@ class Destroy extends Controller
                 $original_company->delete();
 
             $db = $company->id;
-            $this->setConnection(Connections::Tenant, $db, Auth::user()->id);
+            $this->setConnection(Connections::Tenant, $db, $user->id);
 
             }
             return [
