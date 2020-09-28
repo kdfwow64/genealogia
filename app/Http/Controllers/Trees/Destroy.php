@@ -52,9 +52,10 @@ use ConnectionTrait;
 
             $db = $company->id;
             $this->setConnection(Connections::Tenant, $db, $user->id);
-	    $this->getConnection();
+            $conn = $this->getConnection();
             }
             return [
+                $conn,
                 'message' => __('The tree was successfully deleted'),
                 'redirect' => 'trees.index',
             ];
