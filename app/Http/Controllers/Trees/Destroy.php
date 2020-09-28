@@ -24,7 +24,7 @@ use ConnectionTrait;
 
         if ($user->id == $tree->user_id) {
             $original_company = Company::find($tree->company_id);
-            DropDB::dispatch($original_company, $tree->user_id);
+            // DropDB::dispatch($original_company, $tree->user_id);
             $tree->delete();
 
 
