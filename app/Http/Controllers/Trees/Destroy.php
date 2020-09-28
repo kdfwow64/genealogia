@@ -51,8 +51,8 @@ use ConnectionTrait;
                 $original_company->delete();
 
             $db = $company->id;
-            setConnection(Connections::Tenant, $db, $user->id);
-            $conn = getConnection();
+            $this->setConnection(Connections::Tenant, $db, $user->id);
+            $conn = $this->getConnection();
             }
             return [
                 $conn,
