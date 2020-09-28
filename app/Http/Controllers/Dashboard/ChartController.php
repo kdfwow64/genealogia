@@ -149,7 +149,9 @@ class ChartController extends Controller
             $db = $company_id;
             $this->setConnection(Connections::Tenant, $db, Auth::user()->id);
         } else {
-            $this->setConnection('mysql');
+            if (auth()-user()->isAdmin()) {
+                $this->setConnection('mysql');
+            }
         }
         $conn = $this->getConnection();
         return $conn;
