@@ -100,10 +100,7 @@ class LoginController extends Controller
                 $user_id = $user->id;
                 $company_id = $company->id;
 
-                CreateDB::dispatch($company, $user->id);
-                Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
-
-                // $this->setConnection(Connections::Tenant, $company_id, $user_id);
+                $this->setConnection(Connections::Tenant, $company_id, $user_id);
 
 
         }else {
