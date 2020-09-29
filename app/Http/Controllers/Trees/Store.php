@@ -45,7 +45,7 @@ use ConnectionTrait;
         Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
 
         $db = $company->id;
-        $this->setConnection(Connections::Tenant, $db, Auth::user()->id);
+        $this->setConnection(Connections::Tenant, $db, $user->id);
         $this->getConnection();
 
         return [
