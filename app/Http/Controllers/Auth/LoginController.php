@@ -7,6 +7,7 @@ use App\Jobs\Tenant\CreateDB;
 use App\Jobs\Tenant\Migration;
 use App\Models\User;
 use App\Traits\ConnectionTrait;
+use App\Tree;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -77,6 +78,7 @@ class LoginController extends Controller
 
             if ($main_company == null && !$user->isAdmin())
             {
+                $company_count = Company::count();
 
                 $company = Company::create([
                     'name' => $user->person->name . ($company_count + 1),
@@ -86,11 +88,12 @@ class LoginController extends Controller
                     'status' => 1,
                 ]);
                 $user->person->companies()->attach($company->id, ['person_id' => $user->person->id, 'is_main' => 0, 'is_mandatary' => 1, 'company_id' => $company->id]);
-                $tree->name = 'Default';
-                $tree->description = 'Default Tree';
-                $tree->user_id = $user->id;
-                $tree->company_id = $company->id;
-                $tree->save();
+                Tree::create([
+                    'name' => 'Default Tree',
+                    'description' => 'Automatically created tree as only tree remaining was deleted.',
+                    'user_id' => $user->id,
+                    'company_id' => $company->id,
+                ]);
 
                 CreateDB::dispatch($company, $user->id);
                 Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
