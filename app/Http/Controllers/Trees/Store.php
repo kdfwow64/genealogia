@@ -39,13 +39,13 @@ use ConnectionTrait;
         $tree->company_id = $company->id;
         $tree->save();
 
-
+        $user_id = $user->id;
 
         CreateDB::dispatch($company, $user->id);
         Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
 
         $db = $company->id;
-        $this->setConnection(Connections::Tenant, $db, $user->id);
+        $this->setConnection(Connections::Tenant, $db, $user_id);
         $this->getConnection();
 
         return [
