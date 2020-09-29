@@ -8,6 +8,7 @@ use App\Jobs\Tenant\Migration;
 use App\Models\User;
 use App\Traits\ConnectionTrait;
 use App\Tree;
+use App\Person;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -96,10 +97,13 @@ class LoginController extends Controller
                     'company_id' => $company->id,
                 ]);
 
+                $user_id = $user->id;
+                $company_id = $company->id;
+
                 CreateDB::dispatch($company, $user->id);
                 Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
 
-                $this->setConnection(Connections::Tenant, $company->id, $user->id);
+                $this->setConnection(Connections::Tenant, $company_id, $user_id);
 
 
         }else {
@@ -109,7 +113,7 @@ class LoginController extends Controller
                 $this->setConnection('mysql', 'genealogia', $user->id);
             }
         }
-        error_log('admin login log: **************************************** enso');
+        // error_log('admin login log: **************************************** enso');
 
         if (!optional($user)->currentPasswordIs($request->input('password'))) {
             return;
