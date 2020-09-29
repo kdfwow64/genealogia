@@ -45,17 +45,16 @@ use ConnectionTrait;
                 $tree->company_id = $company->id;
                 $tree->save();
 
+                $original_company->delete();
+                $db = $company->id;
+                $this->setConnection(Connections::Tenant, $db, Auth::user()->id);
+                $this->getConnection();
+
                 CreateDB::dispatch($company, $user->id);
                 Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
 
-                $original_company->delete();
-
-            $db = $company->id;
-            $this->setConnection(Connections::Tenant, $db, Auth::user()->id);
-            $conn = $this->getConnection();
             }
             return [
-                $conn,
                 'message' => __('The tree was successfully deleted'),
                 'redirect' => 'trees.index',
             ];
