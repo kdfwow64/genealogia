@@ -26,7 +26,7 @@ use ConnectionTrait;
         $user = auth()->user();
         $company_count = Company::count();
         $company = Company::create([
-            'name' => $user->person->name . ($company_count + 1),
+            'name' => $user->email . ($company_count + 1),
             'email' => $user->email,
             // 'is_active' => 1,
             'is_tenant' => 1,
