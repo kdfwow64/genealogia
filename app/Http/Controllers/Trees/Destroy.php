@@ -13,9 +13,11 @@ use Illuminate\Routing\Controller;
 use App\Jobs\Tenant\DropDB;
 use Illuminate\Support\Facades\Auth;
 
+
 class Destroy extends Controller
 {
 use ConnectionTrait;
+
 
     public function __invoke(Tree $tree)
     {
@@ -48,9 +50,9 @@ use ConnectionTrait;
                     'company_id' => $company->id,
                 ]);
 
-
+                $conn = 'Connections::Tenant';
                 $db = $company->id;
-                $this->setConnection(Connections::Tenant, $db, Auth::user()->id);
+                $this->setConnection($conn, $db, Auth::user()->id);
                 $this->getConnection();
 
                 CreateDB::dispatch($company, $user->id);

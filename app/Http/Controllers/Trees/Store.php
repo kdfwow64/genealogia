@@ -13,9 +13,11 @@ use App\Jobs\Tenant\CreateDB;
 use App\Jobs\Tenant\Migration;
 use Illuminate\Support\Facades\Auth;
 
+
 class Store extends Controller
 {
 use ConnectionTrait;
+
 
     public function __invoke(ValidateTreeRequest $request, Tree $tree)
     {

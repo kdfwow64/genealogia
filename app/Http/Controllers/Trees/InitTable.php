@@ -10,9 +10,12 @@ use Illuminate\Support\Facades\App;
 use LaravelEnso\Tables\Services\TemplateLoader;
 use LaravelEnso\Tables\Traits\ProvidesRequest;
 
+use LaravelEnso\Multitenancy\Enums\Connections;
+
 class InitTable extends Controller
 {
     use ProvidesRequest;
+
 
     protected $tableClass = TreeTable::class;
 

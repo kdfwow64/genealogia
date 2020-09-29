@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use LaravelEnso\Tables\Traits\TableCache;
+use LaravelEnso\Multitenancy\Traits\SystemConnection;
 
 class Tree extends Model
 {
 	use TableCache;
+	use SystemConnection;
 
     /**
      * @var array
