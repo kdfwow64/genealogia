@@ -12,5 +12,5 @@ class Tree extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['name', 'description','company_id','user_id'];
 }

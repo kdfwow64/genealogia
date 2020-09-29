@@ -25,10 +25,11 @@ use ConnectionTrait;
         if ($user->id == $tree->user_id) {
             $original_company = Company::find($tree->company_id);
             // DropDB::dispatch($original_company, $tree->user_id);
+            $original_company->delete();
             $tree->delete();
 
 
-            if (Company::where('email', '=', $user->email)->count() < 1) {
+            if (Company::where('email', '=', $user->email)->count() == 0) {
 
                 $company_count = Company::count();
                 $company = Company::create([
@@ -39,13 +40,15 @@ use ConnectionTrait;
                     'status' => 1,
                 ]);
                 $user->person->companies()->attach($company->id, ['person_id' => $user->person->id, 'is_main' => 0, 'is_mandatary' => 1, 'company_id' => $company->id]);
-                $tree->name = 'Default tree';
-                $tree->description = 'Default tree';
-                $tree->user_id = $user->id;
-                $tree->company_id = $company->id;
-                $tree->save();
 
-                $original_company->delete();
+                Tree::create([
+                    'name' => 'Default Tree',
+                    'description' => 'Automatically created tree as only tree remaining was deleted.',
+                    'user_id' => $user->id,
+                    'company_id' => $company->id,
+                ]);
+
+
                 $db = $company->id;
                 $this->setConnection(Connections::Tenant, $db, Auth::user()->id);
                 $this->getConnection();
