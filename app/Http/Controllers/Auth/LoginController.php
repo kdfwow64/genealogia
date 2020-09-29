@@ -74,7 +74,8 @@ class LoginController extends Controller
             $c_id = $main_company->id;
             $db = $c_id;
             $this->setConnection(Connections::Tenant, $db, $user->id);
-            error_log('login log: ****************************************'.$db);
+            error_log('login log: ****************************************' . $db);
+        }
 
             if ($main_company == null && !$user->isAdmin())
             {
@@ -100,7 +101,7 @@ class LoginController extends Controller
 
                 $this->setConnection(Connections::Tenant, $company->id, $user->id);
 
-            }
+
         }else {
             error_log('admin login log: **************************************** enso');
 
