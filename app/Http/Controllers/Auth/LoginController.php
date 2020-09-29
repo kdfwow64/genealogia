@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\Tenant\CreateDB;
+use App\Jobs\Tenant\Migration;
 use App\Models\User;
 use App\Traits\ConnectionTrait;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use LaravelEnso\Companies\Models\Company;
 use LaravelEnso\Core\Events\Login;
 use LaravelEnso\Multitenancy\Enums\Connections;
 use LaravelEnso\Multitenancy\Services\Tenant;
@@ -71,6 +74,30 @@ class LoginController extends Controller
             $db = $c_id;
             $this->setConnection(Connections::Tenant, $db, $user->id);
             error_log('login log: ****************************************'.$db);
+
+            if ($main_company == null && !$user->isAdmin())
+            {
+
+                $company = Company::create([
+                    'name' => $user->person->name . ($company_count + 1),
+                    'email' => $user->email,
+                    // 'is_active' => 1,
+                    'is_tenant' => 1,
+                    'status' => 1,
+                ]);
+                $user->person->companies()->attach($company->id, ['person_id' => $user->person->id, 'is_main' => 0, 'is_mandatary' => 1, 'company_id' => $company->id]);
+                $tree->name = $data['name'];
+                $tree->description = $data['description'];
+                $tree->user_id = $user->id;
+                $tree->company_id = $company->id;
+                $tree->save();
+
+                CreateDB::dispatch($company, $user->id);
+                Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
+
+                $this->setConnection(Connections::Tenant, $company->id, $user->id);
+
+            }
         }else {
             error_log('admin login log: **************************************** enso');
 
