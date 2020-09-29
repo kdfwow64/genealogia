@@ -50,13 +50,15 @@ use ConnectionTrait;
                     'company_id' => $company->id,
                 ]);
 
+
+                CreateDB::dispatch($company, $user->id);
+                Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
+
                 $conn = 'Connections::Tenant';
                 $db = $company->id;
                 $this->setConnection($conn, $db, Auth::user()->id);
                 $this->getConnection();
 
-                CreateDB::dispatch($company, $user->id);
-                Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
 
             }
             return [

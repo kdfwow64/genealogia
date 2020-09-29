@@ -39,12 +39,14 @@ use ConnectionTrait;
         $tree->company_id = $company->id;
         $tree->save();
 
-        $db = $company->id;
-        $this->setConnection(Connections::Tenant, $db, Auth::user()->id);
-        $this->getConnection();
+
 
         CreateDB::dispatch($company, $user->id);
         Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
+
+        $db = $company->id;
+        $this->setConnection(Connections::Tenant, $db, Auth::user()->id);
+        $this->getConnection();
 
         return [
             'message' => __('The tree was successfully created'),
