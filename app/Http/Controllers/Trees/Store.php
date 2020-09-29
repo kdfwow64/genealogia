@@ -46,10 +46,11 @@ use ConnectionTrait;
         Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
 
         $db = $company_id;
-        $this->setConnection(Connections::Tenant, $db, $user_id);
+        $set = $this->setConnection(Connections::Tenant, $db, $user_id);
         $conn = $this->getConnection();
 
         return [
+            $set,
             $conn,
             'message' => __('The tree was successfully created'),
             'redirect' => 'trees.edit',
