@@ -40,11 +40,12 @@ use ConnectionTrait;
         $tree->save();
 
         $user_id = $user->id;
+        $company_id = $company->id;
 
         CreateDB::dispatch($company, $user->id);
         Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
 
-        $db = $company->id;
+        $db = $company_id;
         $this->setConnection(Connections::Tenant, $db, $user_id);
         $this->getConnection();
 
