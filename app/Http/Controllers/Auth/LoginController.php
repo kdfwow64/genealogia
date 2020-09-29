@@ -86,8 +86,8 @@ class LoginController extends Controller
                     'status' => 1,
                 ]);
                 $user->person->companies()->attach($company->id, ['person_id' => $user->person->id, 'is_main' => 0, 'is_mandatary' => 1, 'company_id' => $company->id]);
-                $tree->name = $data['name'];
-                $tree->description = $data['description'];
+                $tree->name = 'Default';
+                $tree->description = 'Default Tree';
                 $tree->user_id = $user->id;
                 $tree->company_id = $company->id;
                 $tree->save();
