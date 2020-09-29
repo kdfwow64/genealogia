@@ -3,7 +3,7 @@
 return [
     'onDelete' => 'cascade',
     'loggableMorph' => [
-        'addressable' => [],
+        'addressable' => [Person::class => 'name'],
     ],
     'defaultCountryId' => 184,
     'googleMaps' => [
