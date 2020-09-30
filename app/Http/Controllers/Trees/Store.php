@@ -33,7 +33,7 @@ use ConnectionTrait;
             'status' => 1,
         ]);
 
-        if (Tree::where('user_id', '=', $user->id)->count() == 0 && Company::where('email', '=' $user->email)->count() == 0){
+        if (Tree::where('user_id', '=', $user->id)->count() == 0 && Company::where('email', '=', $user->email)->count() == 0){
 
         $user->person->companies()->attach($company->id, ['person_id' => $user->person->id, 'is_main' => 1, 'is_mandatary' => 1, 'company_id' => $company->id]);
     }
