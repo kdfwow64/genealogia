@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Artisan;
 class CreateDB implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    
+
     private $tenant;
     private $user_id;
     /**

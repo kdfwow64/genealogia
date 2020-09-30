@@ -32,26 +32,35 @@ use ConnectionTrait;
             'is_tenant' => 1,
             'status' => 1,
         ]);
+
+        if (Tree::where('user_id', '=', $user->id)->count() == 0 && Company::where('email', '=' $user->email)->count() == 0){
+
+        $user->person->companies()->attach($company->id, ['person_id' => $user->person->id, 'is_main' => 1, 'is_mandatary' => 1, 'company_id' => $company->id]);
+    }
+        else {
+
         $user->person->companies()->attach($company->id, ['person_id' => $user->person->id, 'is_main' => 0, 'is_mandatary' => 1, 'company_id' => $company->id]);
+    }
+
         $tree->name = $data['name'];
         $tree->description = $data['description'];
         $tree->user_id = $user->id;
         $tree->company_id = $company->id;
         $tree->save();
 
-        $user_id = $user->id;
         $company_id = $company->id;
-
-        CreateDB::dispatch($company, $user->id);
-        Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
+        $user_id = $user->id;
+        $person_name = $user->person->name;
+        $user_email = $user->email;
 
         $db = $company_id;
-        $set = $this->setConnection(Connections::Tenant, $db, $user_id);
-        $conn = $this->getConnection();
+        $this->setConnection(Connections::Tenant, $db, $user_id);
+        $this->getConnection();
+
+        CreateDB::dispatch($company, $user_id);
+        Migration::dispatch($company_id, $user_id, $person_name, $user_email);
 
         return [
-            $set,
-            $conn,
             'message' => __('The tree was successfully created'),
             'redirect' => 'trees.edit',
             'param' => ['tree' => $tree->id],

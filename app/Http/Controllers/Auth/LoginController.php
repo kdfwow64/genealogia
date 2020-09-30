@@ -89,7 +89,7 @@ class LoginController extends Controller
                     'is_tenant' => 1,
                     'status' => 1,
                 ]);
-                $user->person->companies()->attach($company->id, ['person_id' => $user->person->id, 'is_main' => 0, 'is_mandatary' => 1, 'company_id' => $company->id]);
+                $user->person->companies()->attach($company->id, ['person_id' => $user->person->id, 'is_main' => 1, 'is_mandatary' => 1, 'company_id' => $company->id]);
                 Tree::create([
                     'name' => 'Default Tree',
                     'description' => 'Automatically created tree as only tree remaining was deleted.',
@@ -97,10 +97,17 @@ class LoginController extends Controller
                     'company_id' => $company->id,
                 ]);
 
-                $user_id = $user->id;
                 $company_id = $company->id;
+                $user_id = $user->id;
+                $person_name = $user->person->name;
+                $user_email = $user->email;
 
-                $this->setConnection(Connections::Tenant, $company_id, $user_id);
+                $db = $company_id;
+                $this->setConnection(Connections::Tenant, $db, $user_id);
+                $this->getConnection();
+
+                CreateDB::dispatch($company, $user_id);
+                Migration::dispatch($company_id, $user_id, $person_name, $user_email);
 
 
         }else {

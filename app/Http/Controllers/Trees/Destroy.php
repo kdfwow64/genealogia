@@ -41,7 +41,7 @@ use ConnectionTrait;
                     'is_tenant' => 1,
                     'status' => 1,
                 ]);
-                $user->person->companies()->attach($company->id, ['person_id' => $user->person->id, 'is_main' => 0, 'is_mandatary' => 1, 'company_id' => $company->id]);
+                $user->person->companies()->attach($company->id, ['person_id' => $user->person->id, 'is_main' => 1, 'is_mandatary' => 1, 'company_id' => $company->id]);
 
                 Tree::create([
                     'name' => 'Default Tree',
@@ -52,14 +52,15 @@ use ConnectionTrait;
 
                 $company_id = $company->id;
                 $user_id = $user->id;
-
-                CreateDB::dispatch($company, $user->id);
-                Migration::dispatch($company->id, $user->id, $user->person->name, $user->email);
+                $person_name = $user->person->name;
+                $user_email = $user->email;
 
                 $db = $company_id;
                 $this->setConnection(Connections::Tenant, $db, $user_id);
                 $this->getConnection();
 
+                CreateDB::dispatch($company, $user_id);
+                Migration::dispatch($company_id, $user_id, $person_name, $user_email);
 
             }
             return [
