@@ -18,7 +18,7 @@ use LaravelEnso\Multitenancy\Traits\SystemConnection;
 use LaravelEnso\People\Enums\Genders;
 use LaravelEnso\People\Enums\Titles;
 use LaravelEnso\Rememberable\Traits\Rememberable;
-use LaravelEnso\Tables\Traits\TableCache;
+use LaravelEnso\Tables\Traits\TableCache
 use LaravelEnso\TrackWho\Traits\CreatedBy;
 use LaravelEnso\TrackWho\Traits\UpdatedBy;
 
@@ -36,10 +36,10 @@ class Person extends \LaravelEnso\People\Models\Person
         SystemConnection;
 
 
-         public function __construct(Array $attributes = [])
-        {
-            parent::__construct($attributes);
-        }
+    public function __construct(Array $attributes = [])
+    {
+        parent::__construct($attributes);
+    }
 
 
     /**
