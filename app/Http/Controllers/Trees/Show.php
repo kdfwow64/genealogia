@@ -26,7 +26,7 @@ class Show extends Controller
 
     public function __invoke(Request $request)
     {
-        $start_id = $request->get('start_id', 1);
+        $start_id = $request->get('start_id', 3);
         $nest = $request->get('nest', 3);
         $ret = [];
         $ret['start'] = (int) $start_id;
