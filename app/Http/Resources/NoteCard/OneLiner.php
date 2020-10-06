@@ -10,12 +10,9 @@ class OneLiner extends JsonResource
     {
         return [
             'id' => $this->id,
-            'label' => $this->relationLoaded('region') && $this->relationLoaded('locality')
-                ? $this->label()
-                : null,
+            'name' => $this->name,
+            'description' => $this->description,
             'isDefault' => $this->is_default,
-            'isBilling' => $this->is_billing,
-            'isShipping' => $this->is_shipping,
         ];
     }
 }
