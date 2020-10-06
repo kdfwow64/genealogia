@@ -14,6 +14,8 @@ class NoteCard extends Model
 {
     use AvoidsDeletionConflicts, UpdatesOnTouch, Rememberable;
 
+    protected $table = 'notes';
+
     protected $guarded = ['id'];
 
     protected $touches = ['notecard'];
