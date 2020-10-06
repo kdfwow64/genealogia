@@ -24,6 +24,8 @@ class CreateNotesTable extends Migration
             $table->string('gid')->nullable();
             $table->longText('note')->nullable();
             $table->string('rin')->nullable();
+            $table->morphs('notes');
+            $table->boolean('is_default');
             $table->timestamps();
         });
     }
