@@ -18,7 +18,7 @@ module.exports = {
                 ? '../resources/views/index.blade.php'
                 : './index.html',
             template: inProduction()
-                ? '../vendor/laravel-enso/core/stubs/production-index.blade.stub'
+                ? 'src/stubs/production-index.blade.stub'
                 : '../vendor/laravel-enso/core/stubs/development-index.stub',
         },
     },
