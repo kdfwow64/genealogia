@@ -9,29 +9,11 @@ class ValidateNoteCardRequest extends FormRequest
 {
     public function rules()
     {
-        $country = Country::find($this->get('country_id'));
-        $hasLocalities = $country->localities()->exists();
-        $hasRegions = $country->regions()->exists();
 
         return parent::rules() + [
-            'country_id' => 'required',
-            'region_id' => ['nullable', 'exists:regions,id', $this->required($hasRegions)],
-            'locality_id' => ['nullable', 'exists:localities,id', $this->required($hasLocalities)],
-            'city' => ['nullable', 'string', 'max:255', $this->required(! $hasLocalities)],
-            'street' => 'required|string|max:255',
+            'name' => 'required',
+            'description' => 'required',
             'is_default' => 'required|boolean',
-            'is_billing' => 'required|boolean',
-            'is_shipping' => 'required|boolean',
-            'additional' => 'nullable|string|max:255',
-            'postcode' => 'nullable',
-            'notes' => 'nullable',
-            'lat' => ['nullable', new Latitude()],
-            'long' => ['nullable', new Longitude()],
-        ];
-    }
-
-    private function required(bool $hasLocalities)
-    {
-        return Rule::requiredIf($hasLocalities);
+          ];
     }
 }
