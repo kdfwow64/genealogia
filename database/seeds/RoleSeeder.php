@@ -9,7 +9,7 @@ class RoleSeeder extends Seeder
 {
     private const Roles = [
         ['menu_id' => 1, 'name' => 'admin', 'display_name' => 'Administrator', 'description' => 'Administrator role. Full featured.'],
-        ['menu_id' => 1, 'name' => 'trial', 'display_name' => 'Trial', 'description' => 'Trial role.'],
+        ['menu_id' => 1, 'name' => 'free', 'display_name' => 'Free', 'description' => 'Free role.'],
         ['menu_id' => 1, 'name' => 'expired', 'display_name' => 'Expired', 'description' => 'Expired role.'],
         ['menu_id' => 1, 'name' => 'otm', 'display_name' => 'One tree monthly', 'description' => 'OTM role.'],
         ['menu_id' => 1, 'name' => 'oty', 'display_name' => 'One tree yearly', 'description' => 'OTY role.'],

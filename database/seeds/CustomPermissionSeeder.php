@@ -64,7 +64,7 @@ class CustomPermissionSeeder extends Seeder
     ];
     public function run()
     {
-        $trial = Role::where('name', 'trial')->first();
+        $trial = Role::where('name', 'free')->first();
         $role_id = $trial->id;
         foreach($this->link as $link){
             $permission = Permission::where('name', $link)->first();
@@ -95,7 +95,7 @@ class CustomPermissionSeeder extends Seeder
                 $permission->roles()->attach($role_id);
             }
         }
-        $roles = Role::whereNotIn('name', ['trial', 'expired'])->get();
+        $roles = Role::whereNotIn('name', ['free', 'expired'])->get();
         foreach($roles as $role) {
 
             $permissions = Permission::where([
