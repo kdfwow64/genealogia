@@ -961,9 +961,7 @@ Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->namespace('')
     ->prefix('api/core/calendar')
     ->as('core.calendar.')
-    ->group(function () {
-Route::namespace('')
-    ->group(function () {
+    ->group(function (){
         Route::get('', CalendarIndex::class)->name('index');
         Route::get('create', CalendarCreate::class)->name('create');
         Route::post('', CalendarStore::class)->name('store');
@@ -971,9 +969,9 @@ Route::namespace('')
         Route::patch('{calendar}', CalendarUpdate::class)->name('update');
         Route::delete('{calendar}', CalendarDestroy::class)->name('destroy');
         Route::get('options', CalendarOptions::class)->name('options');
-    });
+});
 
-Route::namespace('Events')
+Route::namespace('')
     ->prefix('events')
     ->as('events.')
     ->group(function () {
@@ -983,8 +981,6 @@ Route::namespace('Events')
         Route::get('{event}/edit', EventEdit::class)->name('edit');
         Route::patch('{event}', EventUpdate::class)->name('update');
         Route::delete('{event}', EventDestroy::class)->name('destroy');
-    });
-
     });
 
 Route::middleware(['api', 'auth', 'core'])
