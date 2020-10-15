@@ -891,7 +891,7 @@ Route::middleware(['api', 'auth', 'core'])
             });
     });
 
-Route::namespace('\LaravelEnso\People\Http\Controllers')
+Route::namespace('')
     ->middleware(['api', 'auth', 'core','multitenant'])
     ->prefix('api/administration/people')
     ->as('administration.people.')
@@ -909,13 +909,11 @@ Route::namespace('\LaravelEnso\People\Http\Controllers')
         Route::get('options', PeopleOptions::class)->name('options');
     });
 
-Route::namespace('\LaravelEnso\Companies\Http\Controllers')
+Route::namespace('')
     ->middleware(['api', 'auth', 'core','multitenant'])
     ->prefix('api/administration/companies')
     ->as('administration.companies.')
     ->group(function () {
-        Route::namespace('Company')
-            ->group(function () {
                 Route::get('create', CompanyCreate::class)->name('create');
                 Route::post('', CompanyStore::class)->name('store');
                 Route::get('{company}/edit', CompanyEdit::class)->name('edit');
@@ -928,7 +926,7 @@ Route::namespace('\LaravelEnso\Companies\Http\Controllers')
 
                 Route::get('options', CompanyOptions::class)->name('options');
             });
-        Route::namespace('Person')
+        Route::namespace('')
             ->group(function () {
                 Route::prefix('people')
                     ->as('people.')
@@ -940,8 +938,6 @@ Route::namespace('\LaravelEnso\Companies\Http\Controllers')
                         Route::post('', PeopleCompanyStore::class)->name('store');
                         Route::delete('{company}/{person}', PeopleCompanyDestroy::class)->name('destroy');
                     });
-            });
-
     });
 
     Route::middleware(['api', 'auth', 'core'])
@@ -962,11 +958,11 @@ Route::namespace('\LaravelEnso\Companies\Http\Controllers')
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
-    ->namespace('\LaravelEnso\Calendar\Http\Controllers')
+    ->namespace('')
     ->prefix('api/core/calendar')
     ->as('core.calendar.')
     ->group(function () {
-Route::namespace('Calendar')
+Route::namespace('')
     ->group(function () {
         Route::get('', CalendarIndex::class)->name('index');
         Route::get('create', CalendarCreate::class)->name('create');
@@ -1017,15 +1013,15 @@ Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->prefix('api/core/notes')->as('core.notes.')
     ->namespace('NoteCard')
     ->group(function () {
-        Route::get('', [NoteCardController::class, 'index']);
-        Route::get('create', [NoteCardController::class, 'create']);
-        Route::post('', [NoteCardController::class, 'store']);
-        Route::get('options', [NoteCardController::class, 'options']);
-        Route::get('{note}/edit', [NoteCardController::class, 'edit']);
-        Route::patch('{note}', [NoteCardController::class, 'update']);
-        Route::delete('{note}', [NoteCardController::class, 'destroy']);
+        Route::get('', [NoteCard::class, 'index']);
+        Route::get('create', [NoteCard::class, 'create']);
+        Route::post('', [NoteCard::class, 'store']);
+        Route::get('options', [NoteCard::class, 'options']);
+        Route::get('{note}/edit', [NoteCard::class, 'edit']);
+        Route::patch('{note}', [NoteCard::class, 'update']);
+        Route::delete('{note}', [NoteCard::class, 'destroy']);
 
-        Route::get('{note}', [NoteCardController::class, 'show']);
+        Route::get('{note}', [NoteCard::class, 'show']);
     });
 
 Broadcast::routes(['middleware' => ['auth:sanctum']]);
