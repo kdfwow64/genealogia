@@ -56,7 +56,7 @@ Route::namespace('Auth')
     ->middleware('api')
     ->group(function () {
         Route::middleware('guest')->group(function () {
-            Route::post('login', [LoginController::class, 'login']))->name('login');
+            Route::post('login', [LoginController::class, 'login'])->name('login');
         });
 
         Route::middleware('auth')->group(function () {
