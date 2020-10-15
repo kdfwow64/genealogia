@@ -5,16 +5,26 @@ use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\Facades\Route;
 use Laravel\Cashier\Http\Middleware\VerifyWebhookSignature;
 use App\Http\Controllers\StripeController;
-use App\Http\Controllers\About;
-use App\Http\Controllers\Privacy;
-use App\Http\Controllers\Termsandconditions;
-use App\Http\Controllers\Contact;
+use App\Http\Controllers\About\Index as AboutIndex;
+use App\Http\Controllers\Privacy\Index as PrivacyIndex;
+use App\Http\Controllers\Termsandconditions\Index as TermsandconditionsIndex;
+use App\Http\Controllers\Contact\Index as ContactIndex;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Citation;
-use App\Http\Controllers\Family;
-use App\Http\Controllers\Note;
-use App\Http\Controllers\Place;
+
+use App\Http\Controllers\Citations\Create as CitationsCreate;
+use App\Http\Controllers\Citations\Destroy as CitationsDestroy;
+use App\Http\Controllers\Citations\Edit as CitationsEdit;
+use App\Http\Controllers\Citations\ExportExcel as CitationsExportExcel;
+use App\Http\Controllers\Citations\InitTable as CitationsInitTable;
+use App\Http\Controllers\Citations\Options as CitationsOptions;
+use App\Http\Controllers\Citations\Store as CitationsStore;
+use App\Http\Controllers\Citations\TableData as CitationsTableData;
+use App\Http\Controllers\Citations\Update as CitationsUpdate;
+
+use App\Http\Controllers\Families;
+use App\Http\Controllers\Notes;
+use App\Http\Controllers\Places;
 use App\Http\Controllers\Repositories;
 use App\Http\Controllers\Sources;
 use App\Http\Controllers\Types;
@@ -121,25 +131,25 @@ Route::post('webhook', [StripeController::class, 'webhook'])->middleware([Verify
             ->prefix('about')
             ->as('about.')
             ->group(function () {
-                Route::get('about', [AboutController::class, 'index'])->name('index');
+                Route::get('about', [AboutIndex::class, 'index'])->name('index');
     });
         Route::namespace('Termsandconditions')
             ->prefix('termsandconditions')
             ->as('termsandconditions.')
             ->group(function () {
-                Route::get('termsandconditions', [Termsandconditions::class, 'index'])->name('index');
+                Route::get('termsandconditions', [TermsandconditionsIndex::class, 'index'])->name('index');
     });
         Route::namespace('Privacy')
             ->prefix('privacy')
             ->as('privacy.')
             ->group(function () {
-                Route::get('privacy', [Privacy::class, 'index'])->name('index');
+                Route::get('privacy', [PrivacyIndex::class, 'index'])->name('index');
     });
         Route::namespace('Contact')
             ->prefix('contact')
             ->as('contact.')
             ->group(function () {
-                Route::get('contact', [Contact::class, 'index'])->name('index');
+                Route::get('contact', [ContactIndex::class, 'index'])->name('index');
     });
 });
 
@@ -195,21 +205,21 @@ Route::middleware(['api', 'auth', 'core', 'multitenant'])
             ->prefix('citations')
             ->as('citations.')
             ->group(function () {
-                Route::get('', [CitationController::class, 'index']);
-                Route::get('create', [CitationController::class, 'create']);
-                Route::post('', [CitationController::class, 'store']);
-                Route::get('{citation}/edit', [CitationController::class, 'edit']);
+                Route::get('', [CitationsIndex::class, 'index']);
+                Route::get('create', [CitationsCreate::class, 'create']);
+                Route::post('', [CitationsStore::class, 'store']);
+                Route::get('{citation}/edit', [CitationsEdit::class, 'edit']);
 
-                Route::patch('{citation}', [CitationController::class, 'update']);
+                Route::patch('{citation}', [CitationsUpdate::class, 'update']);
 
-                Route::delete('{citation}', [CitationController::class, 'destroy']);
+                Route::delete('{citation}', [CitationsDestroy::class, 'destroy']);
 
-                Route::get('initTable', [CitationController::class, 'initTable']);
-                Route::get('tableData', [CitationController::class, 'tableData']);
-                Route::get('exportExcel', [CitationController::class, 'exportExcel']);
+                Route::get('initTable', [CitationsInitTable::class, 'initTable']);
+                Route::get('tableData', [CitationsTableData::class, 'tableData']);
+                Route::get('exportExcel', [CitationsExportExcel::class, 'exportExcel']);
 
-                Route::get('options', [CitationController::class, 'options']);
-                Route::get('{citation}', [CitationController::class, 'show']);
+                Route::get('options', [CitationsOptions::class, 'options']);
+                Route::get('{citation}', [CitationsShow::class, 'show']);
             });
     });
 
