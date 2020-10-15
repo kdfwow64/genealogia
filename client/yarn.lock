@@ -1057,7 +1057,7 @@
     vue "^2.5.16"
     vuex "^3.0.0"
 
-"@enso-ui/confirmation@^1.0":
+"@enso-ui/confirmation@^1.0", "@enso-ui/confirmation@^1.0.17":
   version "1.0.17"
   resolved "https://registry.yarnpkg.com/@enso-ui/confirmation/-/confirmation-1.0.17.tgz#b68ad940ab8f7f8b5d8850a424d15c6e0b6cbb2a"
   integrity sha512-apIpYEpVmtceR8umqSt0XtmCaMzUIGkp5ihCMWamsN07IPPf4idG48fYfHbd1v8sRJXE5uq6J6bkSrj78dteWw==

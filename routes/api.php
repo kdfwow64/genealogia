@@ -4,15 +4,22 @@ use App\Http\Controllers\Dashboard\ChartController;
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\Facades\Route;
 use Laravel\Cashier\Http\Middleware\VerifyWebhookSignature;
+use App\Http\Controllers\StripeController;
+use App\Http\Controllers\About;
+use App\Http\Controllers\Privacy;
+use App\Http\Controllers\Termsandconditions;
+use App\Http\Controllers\Contact;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
-Route::get('get-plans', 'StripeController@getPlans');
+Route::get('get-plans', [StripeController::class, 'getPlans']);
 
-Route::get('get-current-subscription', 'StripeController@getCurrentSubscription')->middleware(['auth']);
+Route::get('get-current-subscription', [StripeController::class, 'getCurrentSubscription'])->middleware(['auth']);
 
-Route::get('get-intent', 'StripeController@getIntent')->middleware(['auth']);
-Route::post('subscribe', 'StripeController@subscribe')->middleware(['auth']);
-Route::post('unsubscribe', 'StripeController@unsubscribe')->middleware(['auth']);
-Route::post('webhook', 'StripeController@webhook')->middleware([VerifyWebhookSignature::class]);
+Route::get('get-intent', [StripeController::class, 'getIntent'])->middleware(['auth']);
+Route::post('subscribe', [StripeController::class, 'subscribe'])->middleware(['auth']);
+Route::post('unsubscribe', [StripeController::class, 'unsubscribe'])->middleware(['auth']);
+Route::post('webhook', [StripeController::class, 'webhook'])->middleware([VerifyWebhookSignature::class]);
 
      Route::middleware(['guest'])
 	->prefix('api')
@@ -23,25 +30,25 @@ Route::post('webhook', 'StripeController@webhook')->middleware([VerifyWebhookSig
             ->prefix('about')
             ->as('about.')
             ->group(function () {
-                Route::get('about', 'Index')->name('index');
+                Route::get('about', [AboutController::class, 'index'])->name('index');
     });
         Route::namespace('Termsandconditions')
             ->prefix('termsandconditions')
             ->as('termsandconditions.')
             ->group(function () {
-                Route::get('termsandconditions', 'Index')->name('index');
+                Route::get('termsandconditions', [Termsandconditions::class, 'index'])->name('index');
     });
         Route::namespace('Privacy')
             ->prefix('privacy')
             ->as('privacy.')
             ->group(function () {
-                Route::get('privacy', 'Index')->name('index');
+                Route::get('privacy', [Privacy::class, 'index'])->name('index');
     });
         Route::namespace('Contact')
             ->prefix('contact')
             ->as('contact.')
             ->group(function () {
-                Route::get('contact', 'Index')->name('index');
+                Route::get('contact', [Contact::class, 'index'])->name('index');
     });
 });
 
@@ -49,18 +56,18 @@ Route::namespace('Auth')
     ->middleware('api')
     ->group(function () {
         Route::middleware('guest')->group(function () {
-            Route::post('login', 'LoginController@login')->name('login');
+            Route::post('login', [LoginController::class, 'login']))->name('login');
         });
 
         Route::middleware('auth')->group(function () {
-            Route::post('logout', 'LoginController@logout')->name('logout');
+            Route::post('logout', [LoginController::class, 'logout'])->name('logout');
         });
     });
 
     // Route::middleware(['api'])->group(
     //     function() {
-    Route::post('register', '\App\Http\Controllers\Auth\RegisterController@register');
-    Route::post('verify', '\App\Http\Controllers\Auth\VerificationController@verify_user');
+    Route::post('register', [RegisterController::class, 'register']);
+    Route::post('verify', [RegisterController::class, 'verify_user']);
     //     }
     // );
 
