@@ -83,11 +83,11 @@ Route::middleware(['web', 'auth', 'multitenant'])
             ->name('polar');
         Route::get('bubble', [ChartController::class, 'bubble'])
             ->name('bubble');
-        Route::post('changedb', 'ChartController@changedb')
+        Route::post('changedb', [ChartController::class, 'changedb'])
             ->name('changedb');
-        Route::post('getdb', 'ChartController@getDB')
+        Route::post('getdb', [ChartController::class, 'getDB'])
             ->name('getdb');
-        Route::get('trial', 'ChartController@trial')
+        Route::get('trial', [ChartController::class, 'trial'])
             ->name('trial');
     });
 
