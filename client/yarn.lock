@@ -968,7 +968,7 @@
     vue-cal "^3.0"
     vuex "^3.0.0"
 
-"@enso-ui/card@^2.0":
+"@enso-ui/card@^2.0", "@enso-ui/card@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@enso-ui/card/-/card-2.0.0.tgz#b63b7bc3ed8569e6e6054c016c343c405cd2465d"
   integrity sha512-EAhhOotDp0U1oW3Crhwa6OHosyyrBOR7dArpqKJrPpw8qIItLRjVguXc8vgJQhjX+VzPHI9im8hMBI8ZE3CDNQ==

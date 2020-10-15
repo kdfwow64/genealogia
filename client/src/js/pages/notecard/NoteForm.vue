@@ -122,7 +122,7 @@ export default {
                     this.$refs.form.field('lat').value = lat;
                     this.$refs.form.field('long').value = long;
                     this.loading = false;
-                }).catch((error) => {
+                }).catch(error => {
                     this.loading = false;
                     this.errorHandler(error);
                 });
@@ -166,7 +166,7 @@ export default {
                     || this.$refs.form.field('street').value;
 
                 this.loading = false;
-            }).catch((error) => {
+            }).catch(error => {
                 const { status, data } = error.response;
                 this.loading = false;
 
