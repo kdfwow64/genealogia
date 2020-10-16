@@ -122,17 +122,17 @@ use App\Http\Controllers\Publications\Show as PublicationsShow;
 
 use App\Http\Controllers\Gedcom\Store as GedcomStore;
 
-use App\Http\Controllers\Mediaobjects\Index as MediaobjectsIndex;
-use App\Http\Controllers\Mediaobjects\Create as MediaobjectsCreate;
-use App\Http\Controllers\Mediaobjects\Destroy as MediaobjectsDestroy;
-use App\Http\Controllers\Mediaobjects\Edit as MediaobjectsEdit;
-use App\Http\Controllers\Mediaobjects\ExportExcel as MediaobjectsExportExcel;
-use App\Http\Controllers\Mediaobjects\InitTable as MediaobjectsInitTable;
-use App\Http\Controllers\Mediaobjects\Options as MediaobjectsOptions;
-use App\Http\Controllers\Mediaobjects\Store as MediaobjectsStore;
-use App\Http\Controllers\Mediaobjects\TableData as MediaobjectsTableData;
-use App\Http\Controllers\Mediaobjects\Update as MediaobjectsUpdate;
-use App\Http\Controllers\Mediaobjects\Show as MediaobjectsShow;
+use App\Http\Controllers\MediaObjects\Index as MediaObjectsIndex;
+use App\Http\Controllers\MediaObjects\Create as MediaObjectsCreate;
+use App\Http\Controllers\MediaObjects\Destroy as MediaObjectsDestroy;
+use App\Http\Controllers\MediaObjects\Edit as MediaObjectsEdit;
+use App\Http\Controllers\MediaObjects\ExportExcel as MediaObjectsExportExcel;
+use App\Http\Controllers\MediaObjects\InitTable as MediaObjectsInitTable;
+use App\Http\Controllers\MediaObjects\Options as MediaObjectsOptions;
+use App\Http\Controllers\MediaObjects\Store as MediaObjectsStore;
+use App\Http\Controllers\MediaObjects\TableData as MediaObjectsTableData;
+use App\Http\Controllers\MediaObjects\Update as MediaObjectsUpdate;
+use App\Http\Controllers\MediaObjects\Show as MediaObjectsShow;
 
 use App\Http\Controllers\Addrs\Index as AddrsIndex;
 use App\Http\Controllers\Addrs\Create as AddrsCreate;
