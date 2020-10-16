@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use LaravelEnso\Companies\Models\Company;
 use App\Models\User;
 use App\Family;
@@ -27,6 +28,7 @@ class Person extends \LaravelEnso\People\Models\Person
     use Addressable,
         AvoidsDeletionConflicts,
         CreatedBy,
+        HasFactory,
         Relations,
         Rememberable,
         RoutesNotifications,
