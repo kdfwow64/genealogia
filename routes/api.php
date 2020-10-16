@@ -12,6 +12,7 @@ use App\Http\Controllers\Contact\Index as ContactIndex;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 
+use App\Http\Controllers\Citations\Index as CitationsIndex;
 use App\Http\Controllers\Citations\Create as CitationsCreate;
 use App\Http\Controllers\Citations\Destroy as CitationsDestroy;
 use App\Http\Controllers\Citations\Edit as CitationsEdit;
@@ -21,7 +22,9 @@ use App\Http\Controllers\Citations\Options as CitationsOptions;
 use App\Http\Controllers\Citations\Store as CitationsStore;
 use App\Http\Controllers\Citations\TableData as CitationsTableData;
 use App\Http\Controllers\Citations\Update as CitationsUpdate;
+use App\Http\Controllers\Citations\Show as CitationsShow;
 
+use App\Http\Controllers\Families\Index as FamiliesIndex;
 use App\Http\Controllers\Families\Create as FamiliesCreate;
 use App\Http\Controllers\Families\Destroy as FamiliesDestroy;
 use App\Http\Controllers\Families\Edit as FamiliesEdit;
@@ -31,7 +34,9 @@ use App\Http\Controllers\Families\Options as FamiliesOptions;
 use App\Http\Controllers\Families\Store as FamiliesStore;
 use App\Http\Controllers\Families\TableData as FamiliesTableData;
 use App\Http\Controllers\Families\Update as FamiliesUpdate;
+use App\Http\Controllers\Families\Show as FamiliesShow;
 
+use App\Http\Controllers\Notes\Index as NotesIndex;
 use App\Http\Controllers\Notes\Create as NotesCreate;
 use App\Http\Controllers\Notes\Destroy as NotesDestroy;
 use App\Http\Controllers\Notes\Edit as NotesEdit;
@@ -41,7 +46,9 @@ use App\Http\Controllers\Notes\Options as NotesOptions;
 use App\Http\Controllers\Notes\Store as NotesStore;
 use App\Http\Controllers\Notes\TableData as NotesTableData;
 use App\Http\Controllers\Notes\Update as NotesUpdate;
+use App\Http\Controllers\Notes\Show as NotesShow;
 
+use App\Http\Controllers\Places\Index as PlacesIndex;
 use App\Http\Controllers\Places\Create as PlacesCreate;
 use App\Http\Controllers\Places\Destroy as PlacesDestroy;
 use App\Http\Controllers\Places\Edit as PlacesEdit;
@@ -51,7 +58,9 @@ use App\Http\Controllers\Places\Options as PlacesOptions;
 use App\Http\Controllers\Places\Store as PlacesStore;
 use App\Http\Controllers\Places\TableData as PlacesTableData;
 use App\Http\Controllers\Places\Update as PlacesUpdate;
+use App\Http\Controllers\Places\Show as PlacesShow;
 
+use App\Http\Controllers\Repositories\Index as RepositoriesIndex;
 use App\Http\Controllers\Repositories\Create as RepositoriesCreate;
 use App\Http\Controllers\Repositories\Destroy as RepositoriesDestroy;
 use App\Http\Controllers\Repositories\Edit as RepositoriesEdit;
@@ -61,7 +70,9 @@ use App\Http\Controllers\Repositories\Options as RepositoriesOptions;
 use App\Http\Controllers\Repositories\Store as RepositoriesStore;
 use App\Http\Controllers\Repositories\TableData as RepositoriesTableData;
 use App\Http\Controllers\Repositories\Update as RepositoriesUpdate;
+use App\Http\Controllers\Repositories\Show as RepositoriesShow;
 
+use App\Http\Controllers\Sources\Index as SourcesIndex;
 use App\Http\Controllers\Sources\Create as SourcesCreate;
 use App\Http\Controllers\Sources\Destroy as SourcesDestroy;
 use App\Http\Controllers\Sources\Edit as SourcesEdit;
@@ -71,7 +82,9 @@ use App\Http\Controllers\Sources\Options as SourcesOptions;
 use App\Http\Controllers\Sources\Store as SourcesStore;
 use App\Http\Controllers\Sources\TableData as SourcesTableData;
 use App\Http\Controllers\Sources\Update as SourcesUpdate;
+use App\Http\Controllers\Sources\Show as SourcesShow;
 
+use App\Http\Controllers\Types\Index as TypesIndex;
 use App\Http\Controllers\Types\Create as TypesCreate;
 use App\Http\Controllers\Types\Destroy as TypesDestroy;
 use App\Http\Controllers\Types\Edit as TypesEdit;
@@ -81,7 +94,9 @@ use App\Http\Controllers\Types\Options as TypesOptions;
 use App\Http\Controllers\Types\Store as TypesStore;
 use App\Http\Controllers\Types\TableData as TypesTableData;
 use App\Http\Controllers\Types\Update as TypesUpdate;
+use App\Http\Controllers\Types\Show as TypesShow;
 
+use App\Http\Controllers\Authors\Index as AuthorsIndex;
 use App\Http\Controllers\Authors\Create as AuthorsCreate;
 use App\Http\Controllers\Authors\Destroy as AuthorsDestroy;
 use App\Http\Controllers\Authors\Edit as AuthorsEdit;
@@ -91,7 +106,9 @@ use App\Http\Controllers\Authors\Options as AuthorsOptions;
 use App\Http\Controllers\Authors\Store as AuthorsStore;
 use App\Http\Controllers\Authors\TableData as AuthorsTableData;
 use App\Http\Controllers\Authors\Update as AuthorsUpdate;
+use App\Http\Controllers\Authors\Show as AuthorsShow;
 
+use App\Http\Controllers\Publications\Index as PublicationsIndex;
 use App\Http\Controllers\Publications\Create as PublicationsCreate;
 use App\Http\Controllers\Publications\Destroy as PublicationsDestroy;
 use App\Http\Controllers\Publications\Edit as PublicationsEdit;
@@ -101,9 +118,11 @@ use App\Http\Controllers\Publications\Options as PublicationsOptions;
 use App\Http\Controllers\Publications\Store as PublicationsStore;
 use App\Http\Controllers\Publications\TableData as PublicationsTableData;
 use App\Http\Controllers\Publications\Update as PublicationsUpdate;
+use App\Http\Controllers\Publications\Show as PublicationsShow;
 
 use App\Http\Controllers\Gedcom\Store as GedcomStore;
 
+use App\Http\Controllers\Mediaobjects\Index as MediaobjectsIndex;
 use App\Http\Controllers\Mediaobjects\Create as MediaobjectsCreate;
 use App\Http\Controllers\Mediaobjects\Destroy as MediaobjectsDestroy;
 use App\Http\Controllers\Mediaobjects\Edit as MediaobjectsEdit;
@@ -113,7 +132,9 @@ use App\Http\Controllers\Mediaobjects\Options as MediaobjectsOptions;
 use App\Http\Controllers\Mediaobjects\Store as MediaobjectsStore;
 use App\Http\Controllers\Mediaobjects\TableData as MediaobjectsTableData;
 use App\Http\Controllers\Mediaobjects\Update as MediaobjectsUpdate;
+use App\Http\Controllers\Mediaobjects\Show as MediaobjectsShow;
 
+use App\Http\Controllers\Addrs\Index as AddrsIndex;
 use App\Http\Controllers\Addrs\Create as AddrsCreate;
 use App\Http\Controllers\Addrs\Destroy as AddrsDestroy;
 use App\Http\Controllers\Addrs\Edit as AddrsEdit;
@@ -123,7 +144,9 @@ use App\Http\Controllers\Addrs\Options as AddrsOptions;
 use App\Http\Controllers\Addrs\Store as AddrsStore;
 use App\Http\Controllers\Addrs\TableData as AddrsTableData;
 use App\Http\Controllers\Addrs\Update as AddrsUpdate;
+use App\Http\Controllers\Addrs\Show as AddrsShow;
 
+use App\Http\Controllers\Chan\Index as ChanIndex;
 use App\Http\Controllers\Chan\Create as ChanCreate;
 use App\Http\Controllers\Chan\Destroy as ChanDestroy;
 use App\Http\Controllers\Chan\Edit as ChanEdit;
@@ -133,7 +156,9 @@ use App\Http\Controllers\Chan\Options as ChanOptions;
 use App\Http\Controllers\Chan\Store as ChanStore;
 use App\Http\Controllers\Chan\TableData as ChanTableData;
 use App\Http\Controllers\Chan\Update as ChanUpdate;
+use App\Http\Controllers\Chan\Show as ChanShow;
 
+use App\Http\Controllers\Familyevents\Index as FamilyeventsIndex;
 use App\Http\Controllers\Familyevents\Create as FamilyeventsCreate;
 use App\Http\Controllers\Familyevents\Destroy as FamilyeventsDestroy;
 use App\Http\Controllers\Familyevents\Edit as FamilyeventsEdit;
@@ -143,7 +168,9 @@ use App\Http\Controllers\Familyevents\Options as FamilyeventsOptions;
 use App\Http\Controllers\Familyevents\Store as FamilyeventsStore;
 use App\Http\Controllers\Familyevents\TableData as FamilyeventsTableData;
 use App\Http\Controllers\Familyevents\Update as FamilyeventsUpdate;
+use App\Http\Controllers\Familyevents\Show as FamilyeventsShow;
 
+use App\Http\Controllers\Familyslugs\Index as FamilyslugsIndex;
 use App\Http\Controllers\Familyslugs\Create as FamilyslugsCreate;
 use App\Http\Controllers\Familyslugs\Destroy as FamilyslugsDestroy;
 use App\Http\Controllers\Familyslugs\Edit as FamilyslugsEdit;
@@ -153,7 +180,9 @@ use App\Http\Controllers\Familyslugs\Options as FamilyslugsOptions;
 use App\Http\Controllers\Familyslugs\Store as FamilyslugsStore;
 use App\Http\Controllers\Familyslugs\TableData as FamilyslugsTableData;
 use App\Http\Controllers\Familyslugs\Update as FamilyslugsUpdate;
+use App\Http\Controllers\Familyslugs\Show as FamilyslugsShow;
 
+use App\Http\Controllers\Personalias\Index as PersonaliasIndex;
 use App\Http\Controllers\Personalias\Create as PersonaliasCreate;
 use App\Http\Controllers\Personalias\Destroy as PersonaliasDestroy;
 use App\Http\Controllers\Personalias\Edit as PersonaliasEdit;
@@ -163,7 +192,9 @@ use App\Http\Controllers\Personalias\Options as PersonaliasOptions;
 use App\Http\Controllers\Personalias\Store as PersonaliasStore;
 use App\Http\Controllers\Personalias\TableData as PersonaliasTableData;
 use App\Http\Controllers\Personalias\Update as PersonaliasUpdate;
+use App\Http\Controllers\Personalias\Show as PersonaliasShow;
 
+use App\Http\Controllers\Personanci\Index as PersonanciIndex;
 use App\Http\Controllers\Personanci\Create as PersonanciCreate;
 use App\Http\Controllers\Personanci\Destroy as PersonanciDestroy;
 use App\Http\Controllers\Personanci\Edit as PersonanciEdit;
@@ -173,7 +204,9 @@ use App\Http\Controllers\Personanci\Options as PersonanciOptions;
 use App\Http\Controllers\Personanci\Store as PersonanciStore;
 use App\Http\Controllers\Personanci\TableData as PersonanciTableData;
 use App\Http\Controllers\Personanci\Update as PersonanciUpdate;
+use App\Http\Controllers\Personanci\Show as PersonanciShow;
 
+use App\Http\Controllers\Personasso\Index as PersonassoIndex;
 use App\Http\Controllers\Personasso\Create as PersonassoCreate;
 use App\Http\Controllers\Personasso\Destroy as PersonassoDestroy;
 use App\Http\Controllers\Personasso\Edit as PersonassoEdit;
@@ -183,7 +216,9 @@ use App\Http\Controllers\Personasso\Options as PersonassoOptions;
 use App\Http\Controllers\Personasso\Store as PersonassoStore;
 use App\Http\Controllers\Personasso\TableData as PersonassoTableData;
 use App\Http\Controllers\Personasso\Update as PersonassoUpdate;
+use App\Http\Controllers\Personasso\Show as PersonassoShow;
 
+use App\Http\Controllers\Personevent\Index as PersoneventIndex;
 use App\Http\Controllers\Personevent\Create as PersoneventCreate;
 use App\Http\Controllers\Personevent\Destroy as PersoneventDestroy;
 use App\Http\Controllers\Personevent\Edit as PersoneventEdit;
@@ -193,7 +228,9 @@ use App\Http\Controllers\Personevent\Options as PersoneventOptions;
 use App\Http\Controllers\Personevent\Store as PersoneventStore;
 use App\Http\Controllers\Personevent\TableData as PersoneventTableData;
 use App\Http\Controllers\Personevent\Update as PersoneventUpdate;
+use App\Http\Controllers\Personevent\Show as PersoneventShow;
 
+use App\Http\Controllers\Personlds\Index as PersonldsIndex;
 use App\Http\Controllers\Personlds\Create as PersonldsCreate;
 use App\Http\Controllers\Personlds\Destroy as PersonldsDestroy;
 use App\Http\Controllers\Personlds\Edit as PersonldsEdit;
@@ -203,7 +240,9 @@ use App\Http\Controllers\Personlds\Options as PersonldsOptions;
 use App\Http\Controllers\Personlds\Store as PersonldsStore;
 use App\Http\Controllers\Personlds\TableData as PersonldsTableData;
 use App\Http\Controllers\Personlds\Update as PersonldsUpdate;
+use App\Http\Controllers\Personlds\Show as PersonldsShow;
 
+use App\Http\Controllers\Personsubm\Index as PersonsubmIndex;
 use App\Http\Controllers\Personsubm\Create as PersonsubmCreate;
 use App\Http\Controllers\Personsubm\Destroy as PersonsubmDestroy;
 use App\Http\Controllers\Personsubm\Edit as PersonsubmEdit;
@@ -213,7 +252,9 @@ use App\Http\Controllers\Personsubm\Options as PersonsubmOptions;
 use App\Http\Controllers\Personsubm\Store as PersonsubmStore;
 use App\Http\Controllers\Personsubm\TableData as PersonsubmTableData;
 use App\Http\Controllers\Personsubm\Update as PersonsubmUpdate;
+use App\Http\Controllers\Personsubm\Show as PersonsubmShow;
 
+use App\Http\Controllers\Refn\Index as RefnIndex;
 use App\Http\Controllers\Refn\Create as RefnCreate;
 use App\Http\Controllers\Refn\Destroy as RefnDestroy;
 use App\Http\Controllers\Refn\Edit as RefnEdit;
@@ -223,7 +264,9 @@ use App\Http\Controllers\Refn\Options as RefnOptions;
 use App\Http\Controllers\Refn\Store as RefnStore;
 use App\Http\Controllers\Refn\TableData as RefnTableData;
 use App\Http\Controllers\Refn\Update as RefnUpdate;
+use App\Http\Controllers\Refn\Show as RefnShow;
 
+use App\Http\Controllers\Sourcedata\Index as SourcedataIndex;
 use App\Http\Controllers\Sourcedata\Create as SourcedataCreate;
 use App\Http\Controllers\Sourcedata\Destroy as SourcedataDestroy;
 use App\Http\Controllers\Sourcedata\Edit as SourcedataEdit;
@@ -233,7 +276,9 @@ use App\Http\Controllers\Sourcedata\Options as SourcedataOptions;
 use App\Http\Controllers\Sourcedata\Store as SourcedataStore;
 use App\Http\Controllers\Sourcedata\TableData as SourcedataTableData;
 use App\Http\Controllers\Sourcedata\Update as SourcedataUpdate;
+use App\Http\Controllers\Sourcedata\Show as SourcedataShow;
 
+use App\Http\Controllers\Sourcedataevent\Index as SourcedataeventIndex;
 use App\Http\Controllers\Sourcedataevent\Create as SourcedataeventCreate;
 use App\Http\Controllers\Sourcedataevent\Destroy as SourcedataeventDestroy;
 use App\Http\Controllers\Sourcedataevent\Edit as SourcedataeventEdit;
@@ -243,7 +288,9 @@ use App\Http\Controllers\Sourcedataevent\Options as SourcedataeventOptions;
 use App\Http\Controllers\Sourcedataevent\Store as SourcedataeventStore;
 use App\Http\Controllers\Sourcedataevent\TableData as SourcedataeventTableData;
 use App\Http\Controllers\Sourcedataevent\Update as SourcedataeventUpdate;
+use App\Http\Controllers\Sourcedataevent\Show as SourcedataeventShow;
 
+use App\Http\Controllers\Sourcerefevents\Index as SourcerefeventsIndex;
 use App\Http\Controllers\Sourcerefevents\Create as SourcerefeventsCreate;
 use App\Http\Controllers\Sourcerefevents\Destroy as SourcerefeventsDestroy;
 use App\Http\Controllers\Sourcerefevents\Edit as SourcerefeventsEdit;
@@ -253,7 +300,9 @@ use App\Http\Controllers\Sourcerefevents\Options as SourcerefeventsOptions;
 use App\Http\Controllers\Sourcerefevents\Store as SourcerefeventsStore;
 use App\Http\Controllers\Sourcerefevents\TableData as SourcerefeventsTableData;
 use App\Http\Controllers\Sourcerefevents\Update as SourcerefeventsUpdate;
+use App\Http\Controllers\Sourcerefevents\Show as SourcerefeventsShow;
 
+use App\Http\Controllers\Subm\Index as SubmIndex;
 use App\Http\Controllers\Subm\Create as SubmCreate;
 use App\Http\Controllers\Subm\Destroy as SubmDestroy;
 use App\Http\Controllers\Subm\Edit as SubmEdit;
@@ -263,7 +312,9 @@ use App\Http\Controllers\Subm\Options as SubmOptions;
 use App\Http\Controllers\Subm\Store as SubmStore;
 use App\Http\Controllers\Subm\TableData as SubmTableData;
 use App\Http\Controllers\Subm\Update as SubmUpdate;
+use App\Http\Controllers\Subm\Show as SubmShow;
 
+use App\Http\Controllers\Subn\Index as SubnIndex;
 use App\Http\Controllers\Subn\Create as SubnCreate;
 use App\Http\Controllers\Subn\Destroy as SubnDestroy;
 use App\Http\Controllers\Subn\Edit as SubnEdit;
@@ -273,7 +324,9 @@ use App\Http\Controllers\Subn\Options as SubnOptions;
 use App\Http\Controllers\Subn\Store as SubnStore;
 use App\Http\Controllers\Subn\TableData as SubnTableData;
 use App\Http\Controllers\Subn\Update as SubnUpdate;
+use App\Http\Controllers\Subn\Show as SubnShow;
 
+use App\Http\Controllers\Trees\Index as TreesIndex;
 use App\Http\Controllers\Trees\Create as TreesCreate;
 use App\Http\Controllers\Trees\Destroy as TreesDestroy;
 use App\Http\Controllers\Trees\Edit as TreesEdit;
@@ -283,7 +336,9 @@ use App\Http\Controllers\Trees\Options as TreesOptions;
 use App\Http\Controllers\Trees\Store as TreesStore;
 use App\Http\Controllers\Trees\TableData as TreesTableData;
 use App\Http\Controllers\Trees\Update as TreesUpdate;
+use App\Http\Controllers\Trees\Show as TreesShow;
 
+use App\Http\Controllers\Dna\Index as DnaIndex;
 use App\Http\Controllers\Dna\Create as DnaCreate;
 use App\Http\Controllers\Dna\Destroy as DnaDestroy;
 use App\Http\Controllers\Dna\Edit as DnaEdit;
@@ -293,7 +348,9 @@ use App\Http\Controllers\Dna\Options as DnaOptions;
 use App\Http\Controllers\Dna\Store as DnaStore;
 use App\Http\Controllers\Dna\TableData as DnaTableData;
 use App\Http\Controllers\Dna\Update as DnaUpdate;
+use App\Http\Controllers\Dna\Show as DnaShow;
 
+use App\Http\Controllers\Dnamatching\Index as DnamatchingIndex;
 use App\Http\Controllers\Dnamatching\Create as DnamatchingCreate;
 use App\Http\Controllers\Dnamatching\Destroy as DnamatchingDestroy;
 use App\Http\Controllers\Dnamatching\Edit as DnamatchingEdit;
@@ -303,6 +360,7 @@ use App\Http\Controllers\Dnamatching\Options as DnamatchingOptions;
 use App\Http\Controllers\Dnamatching\Store as DnamatchingStore;
 use App\Http\Controllers\Dnamatching\TableData as DnamatchingTableData;
 use App\Http\Controllers\Dnamatching\Update as DnamatchingUpdate;
+use App\Http\Controllers\Dnamatching\Show as DnamatchingShow;
 
 use App\Http\Controllers\NoteCard\Create as NoteCardCreate;
 use App\Http\Controllers\NoteCard\Destroy as NoteCardDestroy;
