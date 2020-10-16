@@ -282,7 +282,7 @@ use App\Http\Controllers\Sourcedataevent\Index as SourcedataeventIndex;
 use App\Http\Controllers\Sourcedataevent\Create as SourcedataeventCreate;
 use App\Http\Controllers\Sourcedataevent\Destroy as SourcedataeventDestroy;
 use App\Http\Controllers\Sourcedataevent\Edit as SourcedataeventEdit;
-use App\Http\Controllers\Sourcedataevents\ExportExcel as SourcedataeventExportExcel;
+use App\Http\Controllers\Sourcedataevent\ExportExcel as SourcedataeventExportExcel;
 use App\Http\Controllers\Sourcedataevent\InitTable as SourcedataeventInitTable;
 use App\Http\Controllers\Sourcedataevent\Options as SourcedataeventOptions;
 use App\Http\Controllers\Sourcedataevent\Store as SourcedataeventStore;
@@ -362,6 +362,7 @@ use App\Http\Controllers\Dnamatching\TableData as DnamatchingTableData;
 use App\Http\Controllers\Dnamatching\Update as DnamatchingUpdate;
 use App\Http\Controllers\Dnamatching\Show as DnamatchingShow;
 
+use App\Http\Controllers\NoteCard\Index as NoteCardIndex;
 use App\Http\Controllers\NoteCard\Create as NoteCardCreate;
 use App\Http\Controllers\NoteCard\Destroy as NoteCardDestroy;
 use App\Http\Controllers\NoteCard\Edit as NoteCardEdit;
@@ -371,6 +372,7 @@ use App\Http\Controllers\NoteCard\Options as NoteCardOptions;
 use App\Http\Controllers\NoteCard\Store as NoteCardStore;
 use App\Http\Controllers\NoteCard\TableData as NoteCardTableData;
 use App\Http\Controllers\NoteCard\Update as NoteCardUpdate;
+use App\Http\Controllers\NoteCard\Show as NoteCardShow;
 
 use LaravelEnso\Addresses\Http\Controllers\Create as AddressCreate;
 use LaravelEnso\Addresses\Http\Controllers\Destroy as AddressDestroy;
@@ -445,29 +447,29 @@ Route::post('webhook', [StripeController::class, 'webhook'])->middleware([Verify
 	->group(
          function() {
 
-        Route::namespace('About')
+        Route::namespace('')
             ->prefix('about')
             ->as('about.')
             ->group(function () {
-                Route::get('about', [AboutIndex::class, 'index'])->name('index');
+                Route::get('about', AboutIndex::class)->name('index');
     });
-        Route::namespace('Termsandconditions')
+        Route::namespace('')
             ->prefix('termsandconditions')
             ->as('termsandconditions.')
             ->group(function () {
-                Route::get('termsandconditions', [TermsandconditionsIndex::class, 'index'])->name('index');
+                Route::get('termsandconditions', TermsandconditionsIndex::class)->name('index');
     });
-        Route::namespace('Privacy')
+        Route::namespace('')
             ->prefix('privacy')
             ->as('privacy.')
             ->group(function () {
-                Route::get('privacy', [PrivacyIndex::class, 'index'])->name('index');
+                Route::get('privacy', PrivacyIndex::class)->name('index');
     });
-        Route::namespace('Contact')
+        Route::namespace('')
             ->prefix('contact')
             ->as('contact.')
             ->group(function () {
-                Route::get('contact', [ContactIndex::class, 'index'])->name('index');
+                Route::get('contact', ContactIndex::class)->name('index');
     });
 });
 
@@ -492,7 +494,7 @@ Route::namespace('Auth')
 
         // example data for the dashboard
 Route::middleware(['web', 'auth', 'multitenant'])
-    ->namespace('Dashboard')
+    ->namespace('')
     ->prefix('dashboard')->as('dashboard.')
     ->group(function () {
         Route::get('line', [ChartController::class, 'line'])
@@ -523,222 +525,222 @@ Route::middleware(['api', 'auth', 'core', 'multitenant'])
             ->prefix('citations')
             ->as('citations.')
             ->group(function () {
-                Route::get('', [CitationsIndex::class, 'index']);
-                Route::get('create', [CitationsCreate::class, 'create']);
-                Route::post('', [CitationsStore::class, 'create']);
-                Route::get('{citation}/edit', [CitationsEdit::class, 'edit']);
+                Route::get('', CitationsIndex::class)->name('index');
+                Route::get('create', CitationsCreate::class)->name('create');
+                Route::post('', CitationsStore::class)->name('store');
+                Route::get('{citation}/edit', CitationsEdit::class)->name('edit');
 
-                Route::patch('{citation}', [CitationsUpdate::class, 'update']);
+                Route::patch('{citation}', CitationsUpdate::class)->name('update');
 
-                Route::delete('{citation}', [CitationsDestroy::class, 'destroy']);
+                Route::delete('{citation}', CitationsDestroy::class)->name('destroy');
 
-                Route::get('initTable', [CitationsInitTable::class, 'initTable']);
-                Route::get('tableData', [CitationsTableData::class, 'tableData']);
-                Route::get('exportExcel', [CitationsExportExcel::class, 'exportExcel']);
+                Route::get('initTable', CitationsInitTable::class)->name('initTable');
+                Route::get('tableData', CitationsTableData::class)->name('tableData');
+                Route::get('exportExcel', CitationsExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [CitationsOptions::class, 'options']);
-                Route::get('{citation}', [CitationsShow::class, 'show']);
+                Route::get('options', CitationsOptions::class)->name('options');
+                Route::get('{citation}', CitationsShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Families')
+        Route::namespace('')
             ->prefix('families')
             ->as('families.')
             ->group(function () {
-                Route::get('', [FamiliesIndex::class, 'index']);
-                Route::get('create', [FamiliesCreate::class, 'create']);
-                Route::post('', [FamiliesStore::class, 'create']);
-                Route::get('{family}/edit', [FamiliesEdit::class, 'edit']);
+                Route::get('', FamiliesIndex::class)->name('index');
+                Route::get('create', FamiliesCreate::class)->name('create');
+                Route::post('', FamiliesStore::class)->name('store');
+                Route::get('{family}/edit', FamiliesEdit::class)->name('edit');
 
-                Route::patch('{family}', [FamiliesUpdate::class, 'update']);
+                Route::patch('{family}', FamiliesUpdate::class)->name('update');
 
-                Route::delete('{family}', [FamiliesDestroy::class, 'destroy']);
+                Route::delete('{family}', FamiliesDestroy::class)->name('destroy');
 
-                Route::get('initTable', [FamiliesInitTable::class, 'initTable']);
-                Route::get('tableData', [FamiliesTableData::class, 'tableData']);
-                Route::get('exportExcel', [FamiliesExportExcel::class, 'exportExcel']);
+                Route::get('initTable', FamiliesInitTable::class)->name('initTable');
+                Route::get('tableData', FamiliesTableData::class)->name('tableData');
+                Route::get('exportExcel', FamiliesExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [FamiliesOptions::class, 'options']);
-                Route::get('{family}', [FamiliesShow::class, 'show']);
+                Route::get('options', FamiliesOptions::class)->name('options');
+                Route::get('{family}', FamiliesShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Notes')
+        Route::namespace('')
             ->prefix('notes')
             ->as('notes.')
             ->group(function () {
-                Route::get('', [NotesIndex::class, 'index']);
-                Route::get('create', [NotesCreate::class, 'create']);
-                Route::post('', [NotesStore::class, 'create']);
-                Route::get('{note}/edit', [NotesEdit::class, 'edit']);
+                Route::get('', NotesIndex::class)->name('index');
+                Route::get('create', NotesCreate::class)->name('create');
+                Route::post('', NotesStore::class)->name('store');
+                Route::get('{note}/edit', NotesEdit::class)->name('edit');
 
-                Route::patch('{note}', [NotesUpdate::class, 'update']);
+                Route::patch('{note}', NotesUpdate::class)->name('update');
 
-                Route::delete('{note}', [NotesDestroy::class, 'destroy']);
+                Route::delete('{note}', NotesDestroy::class)->name('destroy');
 
-                Route::get('initTable', [NotesInitTable::class, 'initTable']);
-                Route::get('tableData', [NotesTableData::class, 'tableData']);
-                Route::get('exportExcel', [NotesExportExcel::class, 'exportExcel']);
+                Route::get('initTable', NotesInitTable::class)->name('initTable');
+                Route::get('tableData', NotesTableData::class)->name('tableData');
+                Route::get('exportExcel', NotesExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [NotesOptions::class, 'options']);
-                Route::get('{note}', [NotesShow::class, 'show']);
+                Route::get('options', NotesOptions::class)->name('options');
+                Route::get('{note}', NotesShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Places')
+        Route::namespace('')
             ->prefix('places')
             ->as('places.')
             ->group(function () {
-                Route::get('', [PlacesIndex::class, 'index']);
-                Route::get('create', [PlacesCreate::class, 'create']);
-                Route::post('', [PlacesStore::class, 'create']);
-                Route::get('{place}/edit', [PlacesEdit::class, 'edit']);
+                Route::get('', PlacesIndex::class)->name('index');
+                Route::get('create', PlacesCreate::class)->name('create');
+                Route::post('', PlacesStore::class)->name('store');
+                Route::get('{place}/edit', PlacesEdit::class)->name('edit');
 
-                Route::patch('{place}', [PlacesUpdate::class, 'update']);
+                Route::patch('{place}', PlacesUpdate::class)->name('update');
 
-                Route::delete('{place}', [PlacesDestroy::class, 'destroy']);
+                Route::delete('{place}', PlacesDestroy::class)->name('destroy');
 
-                Route::get('initTable', [PlacesInitTable::class, 'initTable']);
-                Route::get('tableData', [PlacesTableData::class, 'tableData']);
-                Route::get('exportExcel', [PlacesExportExcel::class, 'exportExcel']);
+                Route::get('initTable', PlacesInitTable::class)->name('initTable');
+                Route::get('tableData', PlacesTableData::class)->name('tableData');
+                Route::get('exportExcel', PlacesExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [PlacesOptions::class, 'options']);
-                Route::get('{place}', [PlacesShow::class, 'show']);
+                Route::get('options', PlacesOptions::class)->name('options');
+                Route::get('{place}', PlacesShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Repositories')
+        Route::namespace('')
             ->prefix('repositories')
             ->as('repositories.')
             ->group(function () {
-                Route::get('', [RepositoriesIndex::class, 'index']);
-                Route::get('create', [RepositoriesCreate::class, 'create']);
-                Route::post('', [RepositoriesStore::class, 'create']);
-                Route::get('{repository}/edit', [RepositoriesEdit::class, 'edit']);
+                Route::get('', RepositoriesIndex::class)->name('index');
+                Route::get('create', RepositoriesCreate::class)->name('create');
+                Route::post('', RepositoriesStore::class)->name('store');
+                Route::get('{repository}/edit', RepositoriesEdit::class)->name('edit');
 
-                Route::patch('{repository}', [RepositoriesUpdate::class, 'update']);
+                Route::patch('{repository}', RepositoriesUpdate::class)->name('update');
 
-                Route::delete('{repository}', [RepositoriesDestroy::class, 'destroy']);
+                Route::delete('{repository}', RepositoriesDestroy::class)->name('destroy');
 
-                Route::get('initTable', [RepositoriesInitTable::class, 'initTable']);
-                Route::get('tableData', [RepositoriesTableData::class, 'tableData']);
-                Route::get('exportExcel', [RepositoriesExportExcel::class, 'exportExcel']);
+                Route::get('initTable', RepositoriesInitTable::class)->name('initTable');
+                Route::get('tableData', RepositoriesTableData::class)->name('tableData');
+                Route::get('exportExcel', RepositoriesExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [RepositoriesOptions::class, 'options']);
-                Route::get('{repository}', [RepositoriesShow::class, 'show']);
+                Route::get('options', RepositoriesOptions::class)->name('options');
+                Route::get('{repository}', RepositoriesShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('NoteCard')
+        Route::namespace('')
             ->prefix('sources')
             ->as('sources.')
             ->group(function () {
-                Route::get('', [SourcesIndex::class, 'index']);
-                Route::get('create', [SourcesCreate::class, 'create']);
-                Route::post('', [SourcesStore::class, 'create']);
-                Route::get('{source}/edit', [SourcesEdit::class, 'edit']);
+                Route::get('', SourcesIndex::class)->name('index');
+                Route::get('create', SourcesCreate::class)->name('create');
+                Route::post('', SourcesStore::class)->name('store');
+                Route::get('{source}/edit', SourcesEdit::class)->name('edit');
 
-                Route::patch('{source}', [SourcesUpdate::class, 'update']);
+                Route::patch('{source}', SourcesUpdate::class)->name('update');
 
-                Route::delete('{source}', [SourcesDestroy::class, 'destroy']);
+                Route::delete('{source}', SourcesDestroy::class)->name('destroy');
 
-                Route::get('initTable', [SourcesInitTable::class, 'initTable']);
-                Route::get('tableData', [SourcesTableData::class, 'tableData']);
-                Route::get('exportExcel', [SourcesExportExcel::class, 'exportExcel']);
+                Route::get('initTable', SourcesInitTable::class)->name('initTable');
+                Route::get('tableData', SourcesTableData::class)->name('tableData');
+                Route::get('exportExcel', SourcesExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [SourcesOptions::class, 'options']);
-                Route::get('{source}', [SourcesShow::class, 'show']);
+                Route::get('options', SourcesOptions::class)->name('options');
+                Route::get('{source}', SourcesShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Types')
+        Route::namespace('')
             ->prefix('types')
             ->as('types.')
             ->group(function () {
-                Route::get('', [TypesIndex::class, 'index']);
-                Route::get('create', [TypesCreate::class, 'create']);
-                Route::post('', [TypesStore::class, 'create']);
-                Route::get('{type}/edit', [TypesEdit::class, 'edit']);
+                Route::get('', TypesIndex::class)->name('index');
+                Route::get('create', TypesCreate::class)->name('create');
+                Route::post('', TypesStore::class)->name('store');
+                Route::get('{type}/edit', TypesEdit::class)->name('edit');
 
-                Route::patch('{type}', [TypesUpdate::class, 'update']);
+                Route::patch('{type}', TypesUpdate::class)->name('update');
 
-                Route::delete('{type}', [TypesDestroy::class, 'destroy']);
+                Route::delete('{type}', TypesDestroy::class)->name('destroy');
 
-                Route::get('initTable', [TypesInitTable::class, 'initTable']);
-                Route::get('tableData', [TypesTableData::class, 'tableData']);
-                Route::get('exportExcel', [TypesExportExcel::class, 'exportExcel']);
+                Route::get('initTable', TypesInitTable::class)->name('initTable');
+                Route::get('tableData', TypesTableData::class)->name('tableData');
+                Route::get('exportExcel', TypesExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [TypesOptions::class, 'options']);
-                Route::get('{type}', [TypesShow::class, 'show']);
+                Route::get('options', TypesOptions::class)->name('options');
+                Route::get('{type}', TypesShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Authors')
+        Route::namespace('')
             ->prefix('authors')
             ->as('authors.')
             ->group(function () {
-                Route::get('', [AuthorsIndex::class, 'index']);
-                Route::get('create', [AuthorsCreate::class, 'create']);
-                Route::post('', [AuthorsStore::class, 'create']);
-                Route::get('{author}/edit', [AuthorsEdit::class, 'edit']);
+                Route::get('', AuthorsIndex::class)->name('index');
+                Route::get('create', AuthorsCreate::class)->name('create');
+                Route::post('', AuthorsStore::class)->name('store');
+                Route::get('{author}/edit', AuthorsEdit::class)->name('edit');
 
-                Route::patch('{author}', [AuthorsUpdate::class, 'update']);
+                Route::patch('{author}', AuthorsUpdate::class)->name('update');
 
-                Route::delete('{author}', [AuthorsDestroy::class, 'destroy']);
+                Route::delete('{author}', AuthorsDestroy::class)->name('destroy');
 
-                Route::get('initTable', [AuthorsInitTable::class, 'initTable']);
-                Route::get('tableData', [AuthorsTableData::class, 'tableData']);
-                Route::get('exportExcel', [AuthorsExportExcel::class, 'exportExcel']);
+                Route::get('initTable', AuthorsInitTable::class)->name('initTable');
+                Route::get('tableData', AuthorsTableData::class)->name('tableData');
+                Route::get('exportExcel', AuthorsExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [AuthorsOptions::class, 'options']);
-                Route::get('{author}', [AuthorsShow::class, 'show']);
+                Route::get('options', AuthorsOptions::class)->name('options');
+                Route::get('{author}', AuthorsShow::class)->name('show');
             });
     });
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Publications')
+        Route::namespace('')
             ->prefix('publications')
             ->as('publications.')
             ->group(function () {
-                Route::get('', [PublicationsIndex::class, 'index']);
-                Route::get('create', [PublicationsCreate::class, 'create']);
-                Route::post('', [PublicationsStore::class, 'create']);
-                Route::get('{publication}/edit', [PublicationsEdit::class, 'edit']);
+                Route::get('', PublicationsIndex::class)->name('index');
+                Route::get('create', PublicationsCreate::class)->name('create');
+                Route::post('', PublicationsStore::class)->name('store');
+                Route::get('{publication}/edit', PublicationsEdit::class)->name('edit');
 
-                Route::patch('{publication}', [PublicationsUpdate::class, 'update']);
+                Route::patch('{publication}', PublicationsUpdate::class)->name('update');
 
-                Route::delete('{publication}', [PublicationsDestroy::class, 'destroy']);
+                Route::delete('{publication}', PublicationsDestroy::class)->name('destroy');
 
-                Route::get('initTable', [PublicationsInitTable::class, 'initTable']);
-                Route::get('tableData', [PublicationsTableData::class, 'tableData']);
-                Route::get('exportExcel', [PublicationsExportExcel::class, 'exportExcel']);
+                Route::get('initTable', PublicationsInitTable::class)->name('initTable');
+                Route::get('tableData', PublicationsTableData::class)->name('tableData');
+                Route::get('exportExcel', PublicationsExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [PublicationsOptions::class, 'options']);
-                Route::get('{publication}', [PublicationsShow::class, 'show']);
+                Route::get('options', PublicationsOptions::class)->name('options');
+                Route::get('{publication}', PublicationsShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Gedcom')
+        Route::namespace('')
             ->prefix('gedcom')
             ->as('gedcom.')
             ->group(function () {
-                Route::post('store', [GedcomStore::class, 'create']);
+                Route::post('store', GedcomStore::class)->name('store');
             });
     });
 
@@ -746,409 +748,409 @@ Route::get('gedcom/progress', '\App\Http\Controllers\Gedcom\Progress@index')->na
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('MediaObjects')
+        Route::namespace('')
             ->prefix('mediaobjects')
             ->as('mediaobjects.')
             ->group(function () {
-                Route::get('', [MediaObjectsIndex::class, 'index']);
-                Route::get('create', [MediaObjectsCreate::class, 'create']);
-                Route::post('', [MediaObjectsStore::class, 'create']);
-                Route::get('{mediaobjects}/edit', [MediaObjectsEdit::class, 'edit']);
+                Route::get('', MediaObjectsIndex::class)->name('index');
+                Route::get('create', MediaObjectsCreate::class)->name('create');
+                Route::post('', MediaObjectsStore::class)->name('store');
+                Route::get('{mediaobjects}/edit', MediaObjectsEdit::class)->name('edit');
 
-                Route::patch('{mediaobjects}', [MediaObjectsUpdate::class, 'update']);
+                Route::patch('{mediaobjects}', MediaObjectsUpdate::class)->name('update');
 
-                Route::delete('{mediaobjects}', [MediaObjectsDestroy::class, 'destroy']);
+                Route::delete('{mediaobjects}', MediaObjectsDestroy::class)->name('destroy');
 
-                Route::get('initTable', [MediaObjectsInitTable::class, 'initTable']);
-                Route::get('tableData', [MediaObjectsTableData::class, 'tableData']);
-                Route::get('exportExcel', [MediaObjectsExportExcel::class, 'exportExcel']);
+                Route::get('initTable', MediaObjectsInitTable::class)->name('initTable');
+                Route::get('tableData', MediaObjectsTableData::class)->name('tableData');
+                Route::get('exportExcel', MediaObjectsExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [MediaObjectsOptions::class, 'options']);
-                Route::get('{mediaobject}', [MediaObjectsShow::class, 'show']);
+                Route::get('options', MediaObjectsOptions::class)->name('options');
+                Route::get('{mediaobject}', MediaObjectsShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Addrs')
+        Route::namespace('')
             ->prefix('addrs')
             ->as('addrs.')
             ->group(function () {
-                Route::get('', [AddrsIndex::class, 'index']);
-                Route::get('create', [AddrsCreate::class, 'create']);
-                Route::post('', [AddrsStore::class, 'create']);
-                Route::get('{addr}/edit', [AddrsEdit::class, 'edit']);
+                Route::get('', AddrsIndex::class)->name('index');
+                Route::get('create', AddrsCreate::class)->name('create');
+                Route::post('', AddrsStore::class)->name('store');
+                Route::get('{addr}/edit', AddrsEdit::class)->name('edit');
 
-                Route::patch('{addr}', [AddrsUpdate::class, 'update']);
+                Route::patch('{addr}', AddrsUpdate::class)->name('update');
 
-                Route::delete('{addr}', [AddrsDestroy::class, 'destroy']);
+                Route::delete('{addr}', AddrsDestroy::class)->name('destroy');
 
-                Route::get('initTable', [AddrsInitTable::class, 'initTable']);
-                Route::get('tableData', [AddrsTableData::class, 'tableData']);
-                Route::get('exportExcel', [AddrsExportExcel::class, 'exportExcel']);
+                Route::get('initTable', AddrsInitTable::class)->name('initTable');
+                Route::get('tableData', AddrsTableData::class)->name('tableData');
+                Route::get('exportExcel', AddrsExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [AddrsOptions::class, 'options']);
-                Route::get('{addr}', [AddrsShow::class, 'show']);
+                Route::get('options', AddrsOptions::class)->name('options');
+                Route::get('{addr}', AddrsShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Chan')
+        Route::namespace('')
             ->prefix('chan')
             ->as('chan.')
             ->group(function () {
-                Route::get('', [ChanIndex::class, 'index']);
-                Route::get('create', [ChanCreate::class, 'create']);
-                Route::post('', [ChanStore::class, 'create']);
-                Route::get('{chan}/edit', [ChanEdit::class, 'edit']);
+                Route::get('', ChanIndex::class)->name('index');
+                Route::get('create', ChanCreate::class)->name('create');
+                Route::post('', ChanStore::class)->name('store');
+                Route::get('{chan}/edit', ChanEdit::class)->name('edit');
 
-                Route::patch('{chan}', [ChanUpdate::class, 'update']);
+                Route::patch('{chan}', ChanUpdate::class)->name('update');
 
-                Route::delete('{chan}', [ChanDestroy::class, 'destroy']);
+                Route::delete('{chan}', ChanDestroy::class)->name('destroy');
 
-                Route::get('initTable', [ChanInitTable::class, 'initTable']);
-                Route::get('tableData', [ChanTableData::class, 'tableData']);
-                Route::get('exportExcel', [ChanExportExcel::class, 'exportExcel']);
+                Route::get('initTable', ChanInitTable::class)->name('initTable');
+                Route::get('tableData', ChanTableData::class)->name('tableData');
+                Route::get('exportExcel', ChanExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [ChanOptions::class, 'options']);
-                Route::get('{chan}', [ChanShow::class, 'show']);
+                Route::get('options', ChanOptions::class)->name('options');
+                Route::get('{chan}', ChanShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Familyevents')
+        Route::namespace('')
             ->prefix('familyevents')
             ->as('familyevents.')
             ->group(function () {
-                Route::get('', [FamilyeventsIndex::class, 'index']);
-                Route::get('create', [FamilyeventsCreate::class, 'create']);
-                Route::post('', [FamilyeventsStore::class, 'create']);
-                Route::get('{familyEvent}/edit', [FamilyeventsEdit::class, 'edit']);
+                Route::get('', FamilyeventsIndex::class)->name('index');
+                Route::get('create', FamilyeventsCreate::class)->name('create');
+                Route::post('', FamilyeventsStore::class)->name('store');
+                Route::get('{familyEvent}/edit', FamilyeventsEdit::class)->name('edit');
 
-                Route::patch('{familyEvent}', [FamilyeventsUpdate::class, 'update']);
+                Route::patch('{familyEvent}', FamilyeventsUpdate::class)->name('update');
 
-                Route::delete('{familyEvent}', [FamilyeventsDestroy::class, 'destroy']);
+                Route::delete('{familyEvent}', FamilyeventsDestroy::class)->name('destroy');
 
-                Route::get('initTable', [FamilyeventsInitTable::class, 'initTable']);
-                Route::get('tableData', [FamilyeventsTableData::class, 'tableData']);
-                Route::get('exportExcel', [FamilyeventsExportExcel::class, 'exportExcel']);
+                Route::get('initTable', FamilyeventsInitTable::class)->name('initTable');
+                Route::get('tableData', FamilyeventsTableData::class)->name('tableData');
+                Route::get('exportExcel', FamilyeventsExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [FamilyeventsOptions::class, 'options']);
-                Route::get('{familyEvent}', [FamilyeventsShow::class, 'show']);
+                Route::get('options', FamilyeventsOptions::class)->name('options');
+                Route::get('{familyEvent}', FamilyeventsShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Familyslugs')
+        Route::namespace('')
             ->prefix('familyslugs')
             ->as('familyslugs.')
             ->group(function () {
-                Route::get('', [FamilyslugsIndex::class, 'index']);
-                Route::get('create', [FamilyslugsCreate::class, 'create']);
-                Route::post('', [FamilyslugsStore::class, 'create']);
-                Route::get('{familySlgs}/edit', [FamilyslugsEdit::class, 'edit']);
+                Route::get('', FamilyslugsIndex::class)->name('index');
+                Route::get('create', FamilyslugsCreate::class)->name('create');
+                Route::post('', FamilyslugsStore::class)->name('store');
+                Route::get('{familySlgs}/edit', FamilyslugsEdit::class)->name('edit');
 
-                Route::patch('{familySlgs}', [FamilyslugsUpdate::class, 'update']);
+                Route::patch('{familySlgs}', FamilyslugsUpdate::class)->name('update');
 
-                Route::delete('{familySlgs}', [FamilyslugsDestroy::class, 'destroy']);
+                Route::delete('{familySlgs}', FamilyslugsDestroy::class)->name('destroy');
 
-                Route::get('initTable', [FamilyslugsInitTable::class, 'initTable']);
-                Route::get('tableData', [FamilyslugsTableData::class, 'tableData']);
-                Route::get('exportExcel', [FamilyslugsExportExcel::class, 'exportExcel']);
+                Route::get('initTable', FamilyslugsInitTable::class)->name('initTable');
+                Route::get('tableData', FamilyslugsTableData::class)->name('tableData');
+                Route::get('exportExcel', FamilyslugsExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [FamilyslugsOptions::class, 'options']);
-                Route::get('{familySlgs}', [FamiliesslugsShow::class, 'show']);
+                Route::get('options', FamilyslugsOptions::class)->name('options');
+                Route::get('{familySlgs}', FamilyslugsShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Personalias')
+        Route::namespace('')
             ->prefix('personalias')
             ->as('personalias.')
             ->group(function () {
-                Route::get('', [PersonaliasIndex::class, 'index']);
-                Route::get('create', [PersonaliasCreate::class, 'create']);
-                Route::post('', [PersonaliasStore::class, 'create']);
-                Route::get('{personAlia}/edit', [PersonaliasEdit::class, 'edit']);
+                Route::get('', PersonaliasIndex::class)->name('index');
+                Route::get('create', PersonaliasCreate::class)->name('create');
+                Route::post('', PersonaliasStore::class)->name('store');
+                Route::get('{personAlia}/edit', PersonaliasEdit::class)->name('edit');
 
-                Route::patch('{personAlia}', [PersonaliasUpdate::class, 'update']);
+                Route::patch('{personAlia}', PersonaliasUpdate::class)->name('update');
 
-                Route::delete('{personAlia}', [PersonaliasDestroy::class, 'destroy']);
+                Route::delete('{personAlia}', PersonaliasDestroy::class)->name('destroy');
 
-                Route::get('initTable', [PersonaliasInitTable::class, 'initTable']);
-                Route::get('tableData', [PersonaliasTableData::class, 'tableData']);
-                Route::get('exportExcel', [PersonaliasExportExcel::class, 'exportExcel']);
+                Route::get('initTable', PersonaliasInitTable::class)->name('initTable');
+                Route::get('tableData', PersonaliasTableData::class)->name('tableData');
+                Route::get('exportExcel', PersonaliasExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [PersonaliasOptions::class, 'options']);
-                Route::get('{personAlia}', [PersonaliasShow::class, 'show']);
+                Route::get('options', PersonaliasOptions::class)->name('options');
+                Route::get('{personAlia}', PersonaliasShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Personanci')
+        Route::namespace('')
             ->prefix('personanci')
             ->as('personanci.')
             ->group(function () {
-                Route::get('', [PersonanciIndex::class, 'index']);
-                Route::get('create', [PersonanciCreate::class, 'create']);
-                Route::post('', [PersonanciStore::class, 'create']);
-                Route::get('{personAnci}/edit', [PersonanciEdit::class, 'edit']);
+                Route::get('', PersonanciIndex::class)->name('index');
+                Route::get('create', PersonanciCreate::class)->name('create');
+                Route::post('', PersonanciStore::class)->name('store');
+                Route::get('{personAnci}/edit', PersonanciEdit::class)->name('edit');
 
-                Route::patch('{personAnci}', [PersonanciUpdate::class, 'update']);
+                Route::patch('{personAnci}', PersonanciUpdate::class)->name('update');
 
-                Route::delete('{personAnci}', [PersonanciDestroy::class, 'destroy']);
+                Route::delete('{personAnci}', PersonanciDestroy::class)->name('destroy');
 
-                Route::get('initTable', [PersonanciInitTable::class, 'initTable']);
-                Route::get('tableData', [PersonanciTableData::class, 'tableData']);
-                Route::get('exportExcel', [PersonanciExportExcel::class, 'exportExcel']);
+                Route::get('initTable', PersonanciInitTable::class)->name('initTable');
+                Route::get('tableData', PersonanciTableData::class)->name('tableData');
+                Route::get('exportExcel', PersonanciExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [PersonanciOptions::class, 'options']);
-                Route::get('{personAnci}', [PersonanciShow::class, 'show']);
+                Route::get('options', PersonanciOptions::class)->name('options');
+                Route::get('{personAnci}', PersonanciShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Personasso')
+        Route::namespace('')
             ->prefix('personasso')
             ->as('personasso.')
             ->group(function () {
-                Route::get('', [PersonassoIndex::class, 'index']);
-                Route::get('create', [PersonassoCreate::class, 'create']);
-                Route::post('', [PersonassoStore::class, 'create']);
-                Route::get('{personAsso}/edit', [PersonassoEdit::class, 'edit']);
+                Route::get('', PersonassoIndex::class)->name('index');
+                Route::get('create', PersonassoCreate::class)->name('create');
+                Route::post('', PersonassoStore::class)->name('store');
+                Route::get('{personAsso}/edit', PersonassoEdit::class)->name('edit');
 
-                Route::patch('{personAsso}', [PersonassoUpdate::class, 'update']);
+                Route::patch('{personAsso}', PersonassoUpdate::class)->name('update');
 
-                Route::delete('{personAsso}', [PersonassoDestroy::class, 'destroy']);
+                Route::delete('{personAsso}', PersonassoDestroy::class)->name('destroy');
 
-                Route::get('initTable', [PersonassoInitTable::class, 'initTable']);
-                Route::get('tableData', [PersonassoTableData::class, 'tableData']);
-                Route::get('exportExcel', [PersonassoExportExcel::class, 'exportExcel']);
+                Route::get('initTable', PersonassoInitTable::class)->name('initTable');
+                Route::get('tableData', PersonassoTableData::class)->name('tableData');
+                Route::get('exportExcel', PersonassoExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [PersonassoOptions::class, 'options']);
-                Route::get('{personAsso}', [PersonassoShow::class, 'show']);
+                Route::get('options', PersonassoOptions::class)->name('options');
+                Route::get('{personAsso}', PersonassoShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Personevent')
+        Route::namespace('')
             ->prefix('personevent')
             ->as('personevent.')
             ->group(function () {
-                Route::get('', [PersoneventIndex::class, 'index']);
-                Route::get('create', [PersoneventCreate::class, 'create']);
-                Route::post('', [PersoneventStore::class, 'create']);
-                Route::get('{personEvent}/edit', [PersoneventEdit::class, 'edit']);
+                Route::get('', PersoneventIndex::class)->name('index');
+                Route::get('create', PersoneventCreate::class)->name('create');
+                Route::post('', PersoneventStore::class)->name('store');
+                Route::get('{personEvent}/edit', PersoneventEdit::class)->name('edit');
 
-                Route::patch('{personEvent}', [PersoneventUpdate::class, 'update']);
+                Route::patch('{personEvent}', PersoneventUpdate::class)->name('update');
 
-                Route::delete('{personEvent}', [PersoneventDestroy::class, 'destroy']);
+                Route::delete('{personEvent}', PersoneventDestroy::class)->name('destroy');
 
-                Route::get('initTable', [PersoneventInitTable::class, 'initTable']);
-                Route::get('tableData', [PersoneventTableData::class, 'tableData']);
-                Route::get('exportExcel', [PersoneventExportExcel::class, 'exportExcel']);
+                Route::get('initTable', PersoneventInitTable::class)->name('initTable');
+                Route::get('tableData', PersoneventTableData::class)->name('tableData');
+                Route::get('exportExcel', PersoneventExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [PersoneventOptions::class, 'options']);
-                Route::get('{personEvent}', [PersoneventShow::class, 'show']);
+                Route::get('options', PersoneventOptions::class)->name('options');
+                Route::get('{personEvent}', PersoneventShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Personlds')
+        Route::namespace('')
             ->prefix('personlds')
             ->as('personlds.')
             ->group(function () {
-                Route::get('', [PersonldsIndex::class, 'index']);
-                Route::get('create', [PersonldsCreate::class, 'create']);
-                Route::post('', [PersonldsStore::class, 'create']);
-                Route::get('{personLds}/edit', [PersonldsEdit::class, 'edit']);
+                Route::get('', PersonldsIndex::class)->name('index');
+                Route::get('create', PersonldsCreate::class)->name('create');
+                Route::post('', PersonldsStore::class)->name('store');
+                Route::get('{personLds}/edit', PersonldsEdit::class)->name('edit');
 
-                Route::patch('{personLds}', [PersonldsUpdate::class, 'update']);
+                Route::patch('{personLds}', PersonldsUpdate::class)->name('update');
 
-                Route::delete('{personLds}', [PersonldsDestroy::class, 'destroy']);
+                Route::delete('{personLds}', PersonldsDestroy::class)->name('destroy');
 
-                Route::get('initTable', [PersonldsInitTable::class, 'initTable']);
-                Route::get('tableData', [PersonldsTableData::class, 'tableData']);
-                Route::get('exportExcel', [PersonldsExportExcel::class, 'exportExcel']);
+                Route::get('initTable', PersonldsInitTable::class)->name('initTable');
+                Route::get('tableData', PersonldsTableData::class)->name('tableData');
+                Route::get('exportExcel', PersonldsExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [PersonldsOptions::class, 'options']);
-                Route::get('{personLds}', [PersonldsShow::class, 'show']);
+                Route::get('options', PersonldsOptions::class)->name('options');
+                Route::get('{personLds}', PersonldsShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Refn')
+        Route::namespace('')
             ->prefix('refn')
             ->as('refn.')
             ->group(function () {
-                Route::get('', [RefnIndex::class, 'index']);
-                Route::get('create', [RefnCreate::class, 'create']);
-                Route::post('', [RefnStore::class, 'create']);
-                Route::get('{refn}/edit', [RefnEdit::class, 'edit']);
+                Route::get('', RefnIndex::class)->name('index');
+                Route::get('create', RefnCreate::class)->name('create');
+                Route::post('', RefnStore::class)->name('store');
+                Route::get('{refn}/edit', RefnEdit::class)->name('edit');
 
-                Route::patch('{refn}', [RefnUpdate::class, 'update']);
+                Route::patch('{refn}', RefnUpdate::class)->name('update');
 
-                Route::delete('{refn}', [RefnDestroy::class, 'destroy']);
+                Route::delete('{refn}', RefnDestroy::class)->name('destroy');
 
-                Route::get('initTable', [RefnInitTable::class, 'initTable']);
-                Route::get('tableData', [RefnTableData::class, 'tableData']);
-                Route::get('exportExcel', [RefnExportExcel::class, 'exportExcel']);
+                Route::get('initTable', RefnInitTable::class)->name('initTable');
+                Route::get('tableData', RefnTableData::class)->name('tableData');
+                Route::get('exportExcel', RefnExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [RefnOptions::class, 'options']);
-                Route::get('{refn}', [RefnShow::class, 'show']);
+                Route::get('options', RefnOptions::class)->name('options');
+                Route::get('{refn}', RefnShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Sourcedata')
+        Route::namespace('')
             ->prefix('sourcedata')
             ->as('sourcedata.')
             ->group(function () {
-                Route::get('', [SourcedataIndex::class, 'index']);
-                Route::get('create', [SourcedataCreate::class, 'create']);
-                Route::post('', [SourcedataStore::class, 'create']);
-                Route::get('{sourceData}/edit', [SourcedataEdit::class, 'edit']);
+                Route::get('', SourcedataIndex::class)->name('index');
+                Route::get('create', SourcedataCreate::class)->name('create');
+                Route::post('', SourcedataStore::class)->name('store');
+                Route::get('{sourceData}/edit', SourcedataEdit::class)->name('edit');
 
-                Route::patch('{sourceData}', [SourcedataUpdate::class, 'update']);
+                Route::patch('{sourceData}', SourcedataUpdate::class)->name('update');
 
-                Route::delete('{sourceData}', [SourcedataDestroy::class, 'destroy']);
+                Route::delete('{sourceData}', SourcedataDestroy::class)->name('destroy');
 
-                Route::get('initTable', [SourcedataInitTable::class, 'initTable']);
-                Route::get('tableData', [SourcedataTableData::class, 'tableData']);
-                Route::get('exportExcel', [SourcedataExportExcel::class, 'exportExcel']);
+                Route::get('initTable', SourcedataInitTable::class)->name('initTable');
+                Route::get('tableData', SourcedataTableData::class)->name('tableData');
+                Route::get('exportExcel', SourcedataExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [SourcedataOptions::class, 'options']);
-                Route::get('{sourceData}', [SourcedataShow::class, 'show']);
+                Route::get('options', SourcedataOptions::class)->name('options');
+                Route::get('{sourceData}', SourcedataShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Sourcedataevent')
+        Route::namespace('')
             ->prefix('sourcedataevent')
             ->as('sourcedataevent.')
             ->group(function () {
-                Route::get('', [SourcedataeventIndex::class, 'index']);
-                Route::get('create', [SourcedataeventCreate::class, 'create']);
-                Route::post('', [SourcedataeventStore::class, 'create']);
-                Route::get('{sourceDataEven}/edit', [SourcedataeventEdit::class, 'edit']);
+                Route::get('', SourcedataeventIndex::class)->name('index');
+                Route::get('create', SourcedataeventCreate::class)->name('create');
+                Route::post('', SourcedataeventStore::class)->name('store');
+                Route::get('{sourceDataEven}/edit', SourcedataeventEdit::class)->name('edit');
 
-                Route::patch('{sourceDataEven}', [SourcedataeventUpdate::class, 'update']);
+                Route::patch('{sourceDataEven}', SourcedataeventUpdate::class)->name('update');
 
-                Route::delete('{sourceDataEven}', [SourcedataeventDestroy::class, 'destroy']);
+                Route::delete('{sourceDataEven}', SourcedataeventDestroy::class)->name('destroy');
 
-                Route::get('initTable', [SourcedataeventInitTable::class, 'initTable']);
-                Route::get('tableData', [SourcedataeventTableData::class, 'tableData']);
-                Route::get('exportExcel', [SourcedataeventExportExcel::class, 'exportExcel']);
+                Route::get('initTable', SourcedataeventInitTable::class)->name('initTable');
+                Route::get('tableData', SourcedataeventTableData::class)->name('tableData');
+                Route::get('exportExcel', SourcedataeventExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [SourcedataeventOptions::class, 'options']);
-                Route::get('{sourceDataEven}', [SourcedataeventShow::class, 'show']);
+                Route::get('options', SourcedataeventOptions::class)->name('options');
+                Route::get('{sourceDataEven}', SourcedataeventShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Sourcerefevents')
+        Route::namespace('')
             ->prefix('sourcerefevents')
             ->as('sourcerefevents.')
             ->group(function () {
-                Route::get('', [SourcerefeventsIndex::class, 'index']);
-                Route::get('create', [SourcerefeventsCreate::class, 'create']);
-                Route::post('', [SourcerefeventsStore::class, 'create']);
-                Route::get('{sourceRefEven}/edit', [SourcerefeventsEdit::class, 'edit']);
+                Route::get('', SourcerefeventsIndex::class)->name('index');
+                Route::get('create', SourcerefeventsCreate::class)->name('create');
+                Route::post('', SourcerefeventsStore::class)->name('store');
+                Route::get('{sourceRefEven}/edit', SourcerefeventsEdit::class)->name('edit');
 
-                Route::patch('{sourceRefEven}', [SourcerefeventsUpdate::class, 'update']);
+                Route::patch('{sourceRefEven}', SourcerefeventsUpdate::class)->name('update');
 
-                Route::delete('{sourceRefEven}', [SourcerefeventsDestroy::class, 'destroy']);
+                Route::delete('{sourceRefEven}', SourcerefeventsDestroy::class)->name('destroy');
 
-                Route::get('initTable', [SourcerefeventsInitTable::class, 'initTable']);
-                Route::get('tableData', [SourcerefeventsTableData::class, 'tableData']);
-                Route::get('exportExcel', [SourcerefeventsExportExcel::class, 'exportExcel']);
+                Route::get('initTable', SourcerefeventsInitTable::class)->name('initTable');
+                Route::get('tableData', SourcerefeventsTableData::class)->name('tableData');
+                Route::get('exportExcel', SourcerefeventsExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [SourcerefeventsOptions::class, 'options']);
-                Route::get('{sourceRefEven}', [SourcerefeventsShow::class, 'show']);
+                Route::get('options', SourcerefeventsOptions::class)->name('options');
+                Route::get('{sourceRefEven}', SourcerefeventsShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Subm')
+        Route::namespace('')
             ->prefix('subm')
             ->as('subm.')
             ->group(function () {
-                Route::get('', [SubmIndex::class, 'index']);
-                Route::get('create', [SubmCreate::class, 'create']);
-                Route::post('', [SubmStore::class, 'create']);
-                Route::get('{subm}/edit', [SubmEdit::class, 'edit']);
+                Route::get('', SubmIndex::class)->name('index');
+                Route::get('create', SubmCreate::class)->name('create');
+                Route::post('', SubmStore::class)->name('store');
+                Route::get('{subm}/edit', SubmEdit::class)->name('edit');
 
-                Route::patch('{subm}', [SubmUpdate::class, 'update']);
+                Route::patch('{subm}', SubmUpdate::class)->name('update');
 
-                Route::delete('{subm}', [SubmDestroy::class, 'destroy']);
+                Route::delete('{subm}', SubmDestroy::class)->name('destroy');
 
-                Route::get('initTable', [SubmInitTable::class, 'initTable']);
-                Route::get('tableData', [SubmTableData::class, 'tableData']);
-                Route::get('exportExcel', [SubmExportExcel::class, 'exportExcel']);
+                Route::get('initTable', SubmInitTable::class)->name('initTable');
+                Route::get('tableData', SubmTableData::class)->name('tableData');
+                Route::get('exportExcel', SubmExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [SubmOptions::class, 'options']);
-                Route::get('{subm}', [SubmShow::class, 'show']);
+                Route::get('options', SubmOptions::class)->name('options');
+                Route::get('{subm}', SubmShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Subn')
+        Route::namespace('')
             ->prefix('subn')
             ->as('subn.')
             ->group(function () {
-                Route::get('', [SubnIndex::class, 'index']);
-                Route::get('create', [SubnCreate::class, 'create']);
-                Route::post('', [SubnStore::class, 'create']);
-                Route::get('{subn}/edit', [SubnEdit::class, 'edit']);
+                Route::get('', SubnIndex::class)->name('index');
+                Route::get('create', SubnCreate::class)->name('create');
+                Route::post('', SubnStore::class)->name('store');
+                Route::get('{subn}/edit', SubnEdit::class)->name('edit');
 
-                Route::patch('{subn}', [SubnUpdate::class, 'update']);
+                Route::patch('{subn}', SubnUpdate::class)->name('update');
 
-                Route::delete('{subn}', [SubnDestroy::class, 'destroy']);
+                Route::delete('{subn}', SubnDestroy::class)->name('destroy');
 
-                Route::get('initTable', [SubnInitTable::class, 'initTable']);
-                Route::get('tableData', [SubnTableData::class, 'tableData']);
-                Route::get('exportExcel', [SubnExportExcel::class, 'exportExcel']);
+                Route::get('initTable', SubnInitTable::class)->name('initTable');
+                Route::get('tableData', SubnTableData::class)->name('tableData');
+                Route::get('exportExcel', SubnExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [SubnOptions::class, 'options']);
-                Route::get('{subn}', [SubnShow::class, 'show']);
+                Route::get('options', SubnOptions::class)->name('options');
+                Route::get('{subn}', SubnShow::class)->name('show');
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Personsubm')
+        Route::namespace('')
             ->prefix('personsubm')
             ->as('personsubm.')
             ->group(function () {
-                Route::get('', [PersonSubmIndex::class, 'index']);
-                Route::get('create', [PersonSubmCreate::class, 'create']);
-                Route::post('', [PersonSubmStore::class, 'create']);
-                Route::get('{personSubm}/edit', [PersonSubmEdit::class, 'edit']);
+                Route::get('', PersonSubmIndex::class)->name('index');
+                Route::get('create', PersonSubmCreate::class)->name('create');
+                Route::post('', PersonSubmStore::class)->name('store');
+                Route::get('{personSubm}/edit', PersonSubmEdit::class)->name('edit');
 
-                Route::patch('{personSubm}', [PersonSubmUpdate::class, 'update']);
+                Route::patch('{personSubm}', PersonSubmUpdate::class)->name('update');
 
-                Route::delete('{personSubm}', [PersonSubmDestroy::class, 'destroy']);
+                Route::delete('{personSubm}', PersonSubmDestroy::class)->name('destroy');
 
-                Route::get('initTable', [PersonSubmInitTable::class, 'initTable']);
-                Route::get('tableData', [PersonSubmTableData::class, 'tableData']);
-                Route::get('exportExcel', [PersonSubmExportExcel::class, 'exportExcel']);
+                Route::get('initTable', PersonSubmInitTable::class)->name('initTable');
+                Route::get('tableData', PersonSubmTableData::class)->name('tableData');
+                Route::get('exportExcel', PersonSubmExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [PersonSubmOptions::class, 'options']);
-                Route::get('{personSubm}', [PersonSubmShow::class, 'show']);
+                Route::get('options', PersonSubmOptions::class)->name('options');
+                Route::get('{personSubm}', PersonSubmShow::class)->name('show');
             });
     });
 
@@ -1167,26 +1169,26 @@ Route::middleware(['api', 'auth'])
 
 Route::middleware(['api', 'auth', 'core'])
     ->group(function () {
-        Route::namespace('Trees')
+        Route::namespace('')
             ->prefix('trees')
             ->as('trees.')
             ->group(function () {
 
-                Route::get('', [TreesIndex::class, 'index']);
-                Route::get('create', [TreesCreate::class, 'create']);
-                Route::post('', [TreesStore::class, 'create']);
-                Route::get('{tree}/edit', [TreesEdit::class, 'edit']);
+                Route::get('', TreesIndex::class)->name('index');
+                Route::get('create', TreesCreate::class)->name('create');
+                Route::post('', TreesStore::class)->name('store');
+                Route::get('{tree}/edit', TreesEdit::class)->name('edit');
 
-                Route::patch('{tree}', [TreesUpdate::class, 'update']);
+                Route::patch('{tree}', TreesUpdate::class)->name('update');
 
-                Route::delete('{tree}', [TreesDestroy::class, 'destroy']);
+                Route::delete('{tree}', TreesDestroy::class)->name('destroy');
 
-                Route::get('initTable', [TreesInitTable::class, 'initTable']);
-                Route::get('tableData', [TreesTableData::class, 'tableData']);
-                Route::get('exportExcel', [TreesExportExcel::class, 'exportExcel']);
+                Route::get('initTable', TreesInitTable::class)->name('initTable');
+                Route::get('tableData', TreesTableData::class)->name('tableData');
+                Route::get('exportExcel', TreesExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [TreesOptions::class, 'options']);
-                Route::get('{tree}', [TreesShow::class, 'show']);
+                Route::get('options', TreesOptions::class)->name('options');
+                Route::get('{tree}', TreesShow::class)->name('show');
 
 
             });
@@ -1194,26 +1196,26 @@ Route::middleware(['api', 'auth', 'core'])
 
 Route::middleware(['api', 'auth', 'core'])
     ->group(function () {
-        Route::namespace('Dna')
+        Route::namespace('')
             ->prefix('dna')
             ->as('dna.')
             ->group(function () {
 
-                Route::get('', [DnaIndex::class, 'index']);
-                Route::get('create', [DnaCreate::class, 'create']);
-                Route::post('store', [DnaStore::class, 'create']);
-                Route::get('{dna}/edit', [DnaEdit::class, 'edit']);
+                Route::get('', DnaIndex::class)->name('index');
+                Route::get('create', DnaCreate::class)->name('create');
+                Route::post('store', DnaStore::class)->name('store');
+                Route::get('{dna}/edit', DnaEdit::class)->name('edit');
 
-                Route::patch('{dna}', [DnaUpdate::class, 'update']);
+                Route::patch('{dna}', DnaUpdate::class)->name('update');
 
-                Route::delete('{dna}', [DnaDestroy::class, 'destroy']);
+                Route::delete('{dna}', DnaDestroy::class)->name('destroy');
 
-                Route::get('initTable', [DnaInitTable::class, 'initTable']);
-                Route::get('tableData', [DnaTableData::class, 'tableData']);
-                Route::get('exportExcel', [DnaExportExcel::class, 'exportExcel']);
+                Route::get('initTable', DnaInitTable::class)->name('initTable');
+                Route::get('tableData', DnaTableData::class)->name('tableData');
+                Route::get('exportExcel', DnaExportExcel::class)->name('exportExcel');
 
-                Route::get('options', [DnaOptions::class, 'options']);
-                Route::get('{dna}', [DnaShow::class, 'show']);
+                Route::get('options', DnaOptions::class)->name('options');
+                Route::get('{dna}', DnaShow::class)->name('show');
 
 
             });
@@ -1270,18 +1272,18 @@ Route::namespace('')
 
     Route::middleware(['api', 'auth', 'core'])
     ->group(function () {
-        Route::namespace('Dnamatching')
+        Route::namespace('')
             ->prefix('dnamatching')
             ->as('dnamatching.')
             ->group(function () {
-                Route::get('create', [DnamatchingCreate::class, 'create']);
-                Route::get('{dnaMatching}/edit', [DnamatchingEdit::class, 'edit']);
-                Route::get('', [DnamatchingIndex::class, 'index']);
-                Route::get('initTable', [DnamatchingInitTable::class, 'initTable']);
-                Route::get('tableData', [DnamatchingTableData::class, 'tableData']);
-                Route::get('{dnaMatching}', [DnamatchingShow::class, 'show']);
-                Route::get('exportExcel', [DnamatchingExportExcel::class, 'exportExcel']);
-                Route::delete('{dnaMatching}', [DnamatchingDestroy::class, 'destroy']);
+                Route::get('create', DnamatchingCreate::class)->name('create');
+                Route::get('{dnaMatching}/edit', DnamatchingEdit::class)->name('edit');
+                Route::get('', DnamatchingIndex::class)->name('index');
+                Route::get('initTable', DnamatchingInitTable::class)->name('initTable');
+                Route::get('tableData', DnamatchingTableData::class)->name('tableData');
+                Route::get('{dnaMatching}', DnamatchingShow::class)->name('show');
+                Route::get('exportExcel', DnamatchingExportExcel::class)->name('exportExcel');
+                Route::delete('{dnaMatching}', DnamatchingDestroy::class)->name('destroy');
         });
     });
 
@@ -1335,17 +1337,17 @@ Route::middleware(['api', 'auth', 'core'])
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->prefix('api/core/notes')->as('core.notes.')
-    ->namespace('NoteCard')
+    ->namespace('')
     ->group(function () {
-        Route::get('', [NoteCardIndex::class, 'index']);
-        Route::get('create', [NoteCardCreate::class, 'create']);
-        Route::post('', [NoteCardStore::class, 'create']);
-        Route::get('options', [NoteCardOptions::class, 'options']);
-        Route::get('{note}/edit', [NoteCardEdit::class, 'edit']);
-        Route::patch('{note}', [NoteCardUpdate::class, 'update']);
-        Route::delete('{note}', [NoteCardDestroy::class, 'destroy']);
+        Route::get('', NoteCardIndex::class)->name('index');
+        Route::get('create', NoteCardCreate::class)->name('create');
+        Route::post('', NoteCardStore::class)->name('store');
+        Route::get('options', NoteCardOptions::class)->name('options');
+        Route::get('{note}/edit', NoteCardEdit::class)->name('edit');
+        Route::patch('{note}', NoteCardUpdate::class)->name('update');
+        Route::delete('{note}', NoteCardDestroy::class)->name('destroy');
 
-        Route::get('{note}', [NotesCardShow::class, 'show']);
+        Route::get('{note}', NoteCardShow::class)->name('show');
     });
 
 Broadcast::routes(['middleware' => ['auth:sanctum']]);
