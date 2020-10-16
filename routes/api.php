@@ -22,10 +22,45 @@ use App\Http\Controllers\Citations\Store as CitationsStore;
 use App\Http\Controllers\Citations\TableData as CitationsTableData;
 use App\Http\Controllers\Citations\Update as CitationsUpdate;
 
-use App\Http\Controllers\Families;
-use App\Http\Controllers\Notes;
-use App\Http\Controllers\Places;
-use App\Http\Controllers\Repositories;
+use App\Http\Controllers\Families\Create as FamiliesCreate;
+use App\Http\Controllers\Families\Destroy as FamiliesDestroy;
+use App\Http\Controllers\Families\Edit as FamiliesEdit;
+use App\Http\Controllers\Families\ExportExcel as FamiliesExportExcel;
+use App\Http\Controllers\Families\InitTable as FamiliesInitTable;
+use App\Http\Controllers\Families\Options as FamiliesOptions;
+use App\Http\Controllers\Families\Store as FamiliesStore;
+use App\Http\Controllers\Families\TableData as FamiliesTableData;
+use App\Http\Controllers\Families\Update as FamiliesUpdate;
+
+use App\Http\Controllers\Notes\Create as NotesCreate;
+use App\Http\Controllers\Notes\Destroy as NotesDestroy;
+use App\Http\Controllers\Notes\Edit as NotesEdit;
+use App\Http\Controllers\Notes\ExportExcel as NotesExportExcel;
+use App\Http\Controllers\Notes\InitTable as NotesInitTable;
+use App\Http\Controllers\Notes\Options as NotesOptions;
+use App\Http\Controllers\Notes\Store as NotesStore;
+use App\Http\Controllers\Notes\TableData as NotesTableData;
+use App\Http\Controllers\Notes\Update as NotesUpdate;
+
+use App\Http\Controllers\Places\Create as PlacesCreate;
+use App\Http\Controllers\Places\Destroy as PlacesDestroy;
+use App\Http\Controllers\Places\Edit as PlacesEdit;
+use App\Http\Controllers\Places\ExportExcel as PlacesExportExcel;
+use App\Http\Controllers\Places\InitTable as PlacesInitTable;
+use App\Http\Controllers\Places\Options as PlacesOptions;
+use App\Http\Controllers\Places\Store as PlacesStore;
+use App\Http\Controllers\Places\TableData as PlacesTableData;
+use App\Http\Controllers\Places\Update as PlacesUpdate;
+
+use App\Http\Controllers\Repositories\Create as RepositoriesCreate;
+use App\Http\Controllers\Repositories\Destroy as RepositoriesDestroy;
+use App\Http\Controllers\Repositories\Edit as RepositoriesEdit;
+use App\Http\Controllers\Repositories\ExportExcel as RepositoriesExportExcel;
+use App\Http\Controllers\Repositories\InitTable as RepositoriesInitTable;
+use App\Http\Controllers\Repositories\Options as RepositoriesOptions;
+use App\Http\Controllers\Repositories\Store as RepositoriesStore;
+use App\Http\Controllers\Repositories\TableData as RepositoriesTableData;
+use App\Http\Controllers\Repositories\Update as RepositoriesUpdate;
 
 use App\Http\Controllers\Sources\Create as SourcesCreate;
 use App\Http\Controllers\Sources\Destroy as SourcesDestroy;
@@ -37,32 +72,247 @@ use App\Http\Controllers\Sources\Store as SourcesStore;
 use App\Http\Controllers\Sources\TableData as SourcesTableData;
 use App\Http\Controllers\Sources\Update as SourcesUpdate;
 
-use App\Http\Controllers\Types;
-use App\Http\Controllers\Authors;
-use App\Http\Controllers\Publications;
-use App\Http\Controllers\Gedcom;
-use App\Http\Controllers\MediaObjects;
-use App\Http\Controllers\Addrs;
-use App\Http\Controllers\Chan;
-use App\Http\Controllers\Familyevents;
-use App\Http\Controllers\Familyslugs;
-use App\Http\Controllers\Personalias;
-use App\Http\Controllers\Personanci;
-use App\Http\Controllers\Personasso;
-use App\Http\Controllers\Personevent;
-use App\Http\Controllers\Personlds;
-use App\Http\Controllers\PersonSubm;
-use App\Http\Controllers\Refn;
-use App\Http\Controllers\Sourcedata;
-use App\Http\Controllers\Sourcedataevent;
-use App\Http\Controllers\Sourcerefevents;
-use App\Http\Controllers\Subm;
-use App\Http\Controllers\Subn;
-use App\Http\Controllers\Trees;
-use App\Http\Controllers\Dna;
-use App\Http\Controllers\Dnamatching;
-use App\Http\Controllers\NoteCard;
+use App\Http\Controllers\Types\Create as TypesCreate;
+use App\Http\Controllers\Types\Destroy as TypesDestroy;
+use App\Http\Controllers\Types\Edit as TypesEdit;
+use App\Http\Controllers\Types\ExportExcel as TypesExportExcel;
+use App\Http\Controllers\Types\InitTable as TypesInitTable;
+use App\Http\Controllers\Types\Options as TypesOptions;
+use App\Http\Controllers\Types\Store as TypesStore;
+use App\Http\Controllers\Types\TableData as TypesTableData;
+use App\Http\Controllers\Types\Update as TypesUpdate;
 
+use App\Http\Controllers\Authors\Create as AuthorsCreate;
+use App\Http\Controllers\Authors\Destroy as AuthorsDestroy;
+use App\Http\Controllers\Authors\Edit as AuthorsEdit;
+use App\Http\Controllers\Authors\ExportExcel as AuthorsExportExcel;
+use App\Http\Controllers\Authors\InitTable as AuthorsInitTable;
+use App\Http\Controllers\Authors\Options as AuthorsOptions;
+use App\Http\Controllers\Authors\Store as AuthorsStore;
+use App\Http\Controllers\Authors\TableData as AuthorsTableData;
+use App\Http\Controllers\Authors\Update as AuthorsUpdate;
+
+use App\Http\Controllers\Publications\Create as PublicationsCreate;
+use App\Http\Controllers\Publications\Destroy as PublicationsDestroy;
+use App\Http\Controllers\Publications\Edit as PublicationsEdit;
+use App\Http\Controllers\Publications\ExportExcel as PublicationsExportExcel;
+use App\Http\Controllers\Publications\InitTable as PublicationsInitTable;
+use App\Http\Controllers\Publications\Options as PublicationsOptions;
+use App\Http\Controllers\Publications\Store as PublicationsStore;
+use App\Http\Controllers\Publications\TableData as PublicationsTableData;
+use App\Http\Controllers\Publications\Update as PublicationsUpdate;
+
+use App\Http\Controllers\Gedcom\Store as GedcomStore;
+
+use App\Http\Controllers\Mediaobjects\Create as MediaobjectsCreate;
+use App\Http\Controllers\Mediaobjects\Destroy as MediaobjectsDestroy;
+use App\Http\Controllers\Mediaobjects\Edit as MediaobjectsEdit;
+use App\Http\Controllers\Mediaobjects\ExportExcel as MediaobjectsExportExcel;
+use App\Http\Controllers\Mediaobjects\InitTable as MediaobjectsInitTable;
+use App\Http\Controllers\Mediaobjects\Options as MediaobjectsOptions;
+use App\Http\Controllers\Mediaobjects\Store as MediaobjectsStore;
+use App\Http\Controllers\Mediaobjects\TableData as MediaobjectsTableData;
+use App\Http\Controllers\Mediaobjects\Update as MediaobjectsUpdate;
+
+use App\Http\Controllers\Addrs\Create as AddrsCreate;
+use App\Http\Controllers\Addrs\Destroy as AddrsDestroy;
+use App\Http\Controllers\Addrs\Edit as AddrsEdit;
+use App\Http\Controllers\Addrs\ExportExcel as AddrsExportExcel;
+use App\Http\Controllers\Addrs\InitTable as AddrsInitTable;
+use App\Http\Controllers\Addrs\Options as AddrsOptions;
+use App\Http\Controllers\Addrs\Store as AddrsStore;
+use App\Http\Controllers\Addrs\TableData as AddrsTableData;
+use App\Http\Controllers\Addrs\Update as AddrsUpdate;
+
+use App\Http\Controllers\Chan\Create as ChanCreate;
+use App\Http\Controllers\Chan\Destroy as ChanDestroy;
+use App\Http\Controllers\Chan\Edit as ChanEdit;
+use App\Http\Controllers\Chan\ExportExcel as ChanExportExcel;
+use App\Http\Controllers\Chan\InitTable as ChanInitTable;
+use App\Http\Controllers\Chan\Options as ChanOptions;
+use App\Http\Controllers\Chan\Store as ChanStore;
+use App\Http\Controllers\Chan\TableData as ChanTableData;
+use App\Http\Controllers\Chan\Update as ChanUpdate;
+
+use App\Http\Controllers\Familyevents\Create as FamilyeventsCreate;
+use App\Http\Controllers\Familyevents\Destroy as FamilyeventsDestroy;
+use App\Http\Controllers\Familyevents\Edit as FamilyeventsEdit;
+use App\Http\Controllers\Familyevents\ExportExcel as FamilyeventsExportExcel;
+use App\Http\Controllers\Familyevents\InitTable as FamilyeventsInitTable;
+use App\Http\Controllers\Familyevents\Options as FamilyeventsOptions;
+use App\Http\Controllers\Familyevents\Store as FamilyeventsStore;
+use App\Http\Controllers\Familyevents\TableData as FamilyeventsTableData;
+use App\Http\Controllers\Familyevents\Update as FamilyeventsUpdate;
+
+use App\Http\Controllers\Familyslugs\Create as FamilyslugsCreate;
+use App\Http\Controllers\Familyslugs\Destroy as FamilyslugsDestroy;
+use App\Http\Controllers\Familyslugs\Edit as FamilyslugsEdit;
+use App\Http\Controllers\Familyslugs\ExportExcel as FamilyslugsExportExcel;
+use App\Http\Controllers\Familyslugs\InitTable as FamilyslugsInitTable;
+use App\Http\Controllers\Familyslugs\Options as FamilyslugsOptions;
+use App\Http\Controllers\Familyslugs\Store as FamilyslugsStore;
+use App\Http\Controllers\Familyslugs\TableData as FamilyslugsTableData;
+use App\Http\Controllers\Familyslugs\Update as FamilyslugsUpdate;
+
+use App\Http\Controllers\Personalias\Create as PersonaliasCreate;
+use App\Http\Controllers\Personalias\Destroy as PersonaliasDestroy;
+use App\Http\Controllers\Personalias\Edit as PersonaliasEdit;
+use App\Http\Controllers\Personalias\ExportExcel as PersonaliasExportExcel;
+use App\Http\Controllers\Personalias\InitTable as PersonaliasInitTable;
+use App\Http\Controllers\Personalias\Options as PersonaliasOptions;
+use App\Http\Controllers\Personalias\Store as PersonaliasStore;
+use App\Http\Controllers\Personalias\TableData as PersonaliasTableData;
+use App\Http\Controllers\Personalias\Update as PersonaliasUpdate;
+
+use App\Http\Controllers\Personanci\Create as PersonanciCreate;
+use App\Http\Controllers\Personanci\Destroy as PersonanciDestroy;
+use App\Http\Controllers\Personanci\Edit as PersonanciEdit;
+use App\Http\Controllers\Personanci\ExportExcel as PersonanciExportExcel;
+use App\Http\Controllers\Personanci\InitTable as PersonanciInitTable;
+use App\Http\Controllers\Personanci\Options as PersonanciOptions;
+use App\Http\Controllers\Personanci\Store as PersonanciStore;
+use App\Http\Controllers\Personanci\TableData as PersonanciTableData;
+use App\Http\Controllers\Personanci\Update as PersonanciUpdate;
+
+use App\Http\Controllers\Personasso\Create as PersonassoCreate;
+use App\Http\Controllers\Personasso\Destroy as PersonassoDestroy;
+use App\Http\Controllers\Personasso\Edit as PersonassoEdit;
+use App\Http\Controllers\Personasso\ExportExcel as PersonassoExportExcel;
+use App\Http\Controllers\Personasso\InitTable as PersonassoInitTable;
+use App\Http\Controllers\Personasso\Options as PersonassoOptions;
+use App\Http\Controllers\Personasso\Store as PersonassoStore;
+use App\Http\Controllers\Personasso\TableData as PersonassoTableData;
+use App\Http\Controllers\Personasso\Update as PersonassoUpdate;
+
+use App\Http\Controllers\Personevent\Create as PersoneventCreate;
+use App\Http\Controllers\Personevent\Destroy as PersoneventDestroy;
+use App\Http\Controllers\Personevent\Edit as PersoneventEdit;
+use App\Http\Controllers\Personevent\ExportExcel as PersoneventExportExcel;
+use App\Http\Controllers\Personevent\InitTable as PersoneventInitTable;
+use App\Http\Controllers\Personevent\Options as PersoneventOptions;
+use App\Http\Controllers\Personevent\Store as PersoneventStore;
+use App\Http\Controllers\Personevent\TableData as PersoneventTableData;
+use App\Http\Controllers\Personevent\Update as PersoneventUpdate;
+
+use App\Http\Controllers\Personlds\Create as PersonldsCreate;
+use App\Http\Controllers\Personlds\Destroy as PersonldsDestroy;
+use App\Http\Controllers\Personlds\Edit as PersonldsEdit;
+use App\Http\Controllers\Personlds\ExportExcel as PersonldsExportExcel;
+use App\Http\Controllers\Personlds\InitTable as PersonldsInitTable;
+use App\Http\Controllers\Personlds\Options as PersonldsOptions;
+use App\Http\Controllers\Personlds\Store as PersonldsStore;
+use App\Http\Controllers\Personlds\TableData as PersonldsTableData;
+use App\Http\Controllers\Personlds\Update as PersonldsUpdate;
+
+use App\Http\Controllers\Personsubm\Create as PersonsubmCreate;
+use App\Http\Controllers\Personsubm\Destroy as PersonsubmDestroy;
+use App\Http\Controllers\Personsubm\Edit as PersonsubmEdit;
+use App\Http\Controllers\Personsubm\ExportExcel as PersonsubmExportExcel;
+use App\Http\Controllers\Personsubm\InitTable as PersonsubmInitTable;
+use App\Http\Controllers\Personsubm\Options as PersonsubmOptions;
+use App\Http\Controllers\Personsubm\Store as PersonsubmStore;
+use App\Http\Controllers\Personsubm\TableData as PersonsubmTableData;
+use App\Http\Controllers\Personsubm\Update as PersonsubmUpdate;
+
+use App\Http\Controllers\Refn\Create as RefnCreate;
+use App\Http\Controllers\Refn\Destroy as RefnDestroy;
+use App\Http\Controllers\Refn\Edit as RefnEdit;
+use App\Http\Controllers\Refn\ExportExcel as RefnExportExcel;
+use App\Http\Controllers\Refn\InitTable as RefnInitTable;
+use App\Http\Controllers\Refn\Options as RefnOptions;
+use App\Http\Controllers\Refn\Store as RefnStore;
+use App\Http\Controllers\Refn\TableData as RefnTableData;
+use App\Http\Controllers\Refn\Update as RefnUpdate;
+
+use App\Http\Controllers\Sourcedata\Create as SourcedataCreate;
+use App\Http\Controllers\Sourcedata\Destroy as SourcedataDestroy;
+use App\Http\Controllers\Sourcedata\Edit as SourcedataEdit;
+use App\Http\Controllers\Sourcedata\ExportExcel as SourcedataExportExcel;
+use App\Http\Controllers\Sourcedata\InitTable as SourcedataInitTable;
+use App\Http\Controllers\Sourcedata\Options as SourcedataOptions;
+use App\Http\Controllers\Sourcedata\Store as SourcedataStore;
+use App\Http\Controllers\Sourcedata\TableData as SourcedataTableData;
+use App\Http\Controllers\Sourcedata\Update as SourcedataUpdate;
+
+use App\Http\Controllers\Sourcedataevent\Create as SourcedataeventCreate;
+use App\Http\Controllers\Sourcedataevent\Destroy as SourcedataeventDestroy;
+use App\Http\Controllers\Sourcedataevent\Edit as SourcedataeventEdit;
+use App\Http\Controllers\Sourcedataevents\ExportExcel as SourcedataeventExportExcel;
+use App\Http\Controllers\Sourcedataevent\InitTable as SourcedataeventInitTable;
+use App\Http\Controllers\Sourcedataevent\Options as SourcedataeventOptions;
+use App\Http\Controllers\Sourcedataevent\Store as SourcedataeventStore;
+use App\Http\Controllers\Sourcedataevent\TableData as SourcedataeventTableData;
+use App\Http\Controllers\Sourcedataevent\Update as SourcedataeventUpdate;
+
+use App\Http\Controllers\Sourcerefevents\Create as SourcerefeventsCreate;
+use App\Http\Controllers\Sourcerefevents\Destroy as SourcerefeventsDestroy;
+use App\Http\Controllers\Sourcerefevents\Edit as SourcerefeventsEdit;
+use App\Http\Controllers\Sourcerefevents\ExportExcel as SourcerefeventsExportExcel;
+use App\Http\Controllers\Sourcerefevents\InitTable as SourcerefeventsInitTable;
+use App\Http\Controllers\Sourcerefevents\Options as SourcerefeventsOptions;
+use App\Http\Controllers\Sourcerefevents\Store as SourcerefeventsStore;
+use App\Http\Controllers\Sourcerefevents\TableData as SourcerefeventsTableData;
+use App\Http\Controllers\Sourcerefevents\Update as SourcerefeventsUpdate;
+
+use App\Http\Controllers\Subm\Create as SubmCreate;
+use App\Http\Controllers\Subm\Destroy as SubmDestroy;
+use App\Http\Controllers\Subm\Edit as SubmEdit;
+use App\Http\Controllers\Subm\ExportExcel as SubmExportExcel;
+use App\Http\Controllers\Subm\InitTable as SubmInitTable;
+use App\Http\Controllers\Subm\Options as SubmOptions;
+use App\Http\Controllers\Subm\Store as SubmStore;
+use App\Http\Controllers\Subm\TableData as SubmTableData;
+use App\Http\Controllers\Subm\Update as SubmUpdate;
+
+use App\Http\Controllers\Subn\Create as SubnCreate;
+use App\Http\Controllers\Subn\Destroy as SubnDestroy;
+use App\Http\Controllers\Subn\Edit as SubnEdit;
+use App\Http\Controllers\Subn\ExportExcel as SubnExportExcel;
+use App\Http\Controllers\Subn\InitTable as SubnInitTable;
+use App\Http\Controllers\Subn\Options as SubnOptions;
+use App\Http\Controllers\Subn\Store as SubnStore;
+use App\Http\Controllers\Subn\TableData as SubnTableData;
+use App\Http\Controllers\Subn\Update as SubnUpdate;
+
+use App\Http\Controllers\Trees\Create as TreesCreate;
+use App\Http\Controllers\Trees\Destroy as TreesDestroy;
+use App\Http\Controllers\Trees\Edit as TreesEdit;
+use App\Http\Controllers\Trees\ExportExcel as TreesExportExcel;
+use App\Http\Controllers\Trees\InitTable as TreesInitTable;
+use App\Http\Controllers\Trees\Options as TreesOptions;
+use App\Http\Controllers\Trees\Store as TreesStore;
+use App\Http\Controllers\Trees\TableData as TreesTableData;
+use App\Http\Controllers\Trees\Update as TreesUpdate;
+
+use App\Http\Controllers\Dna\Create as DnaCreate;
+use App\Http\Controllers\Dna\Destroy as DnaDestroy;
+use App\Http\Controllers\Dna\Edit as DnaEdit;
+use App\Http\Controllers\Dna\ExportExcel as DnaExportExcel;
+use App\Http\Controllers\Dna\InitTable as DnaInitTable;
+use App\Http\Controllers\Dna\Options as DnaOptions;
+use App\Http\Controllers\Dna\Store as DnaStore;
+use App\Http\Controllers\Dna\TableData as DnaTableData;
+use App\Http\Controllers\Dna\Update as DnaUpdate;
+
+use App\Http\Controllers\Dnamatching\Create as DnamatchingCreate;
+use App\Http\Controllers\Dnamatching\Destroy as DnamatchingDestroy;
+use App\Http\Controllers\Dnamatching\Edit as DnamatchingEdit;
+use App\Http\Controllers\Dnamatching\ExportExcel as DnamatchingExportExcel;
+use App\Http\Controllers\Dnamatching\InitTable as DnamatchingInitTable;
+use App\Http\Controllers\Dnamatching\Options as DnamatchingOptions;
+use App\Http\Controllers\Dnamatching\Store as DnamatchingStore;
+use App\Http\Controllers\Dnamatching\TableData as DnamatchingTableData;
+use App\Http\Controllers\Dnamatching\Update as DnamatchingUpdate;
+
+use App\Http\Controllers\NoteCard\Create as NoteCardCreate;
+use App\Http\Controllers\NoteCard\Destroy as NoteCardDestroy;
+use App\Http\Controllers\NoteCard\Edit as NoteCardEdit;
+use App\Http\Controllers\NoteCard\ExportExcel as NoteCardExportExcel;
+use App\Http\Controllers\NoteCard\InitTable as NoteCardInitTable;
+use App\Http\Controllers\NoteCard\Options as NoteCardOptions;
+use App\Http\Controllers\NoteCard\Store as NoteCardStore;
+use App\Http\Controllers\NoteCard\TableData as NoteCardTableData;
+use App\Http\Controllers\NoteCard\Update as NoteCardUpdate;
 
 use LaravelEnso\Addresses\Http\Controllers\Create as AddressCreate;
 use LaravelEnso\Addresses\Http\Controllers\Destroy as AddressDestroy;
@@ -263,21 +513,21 @@ Route::middleware(['api', 'auth', 'core', 'multitenant'])
             ->prefix('notes')
             ->as('notes.')
             ->group(function () {
-                Route::get('', [NoteIndex::class, 'index']);
-                Route::get('create', [NoteCreate::class, 'create']);
-                Route::post('', [NoteStore::class, 'create']);
-                Route::get('{note}/edit', [NoteEdit::class, 'edit']);
+                Route::get('', [NotesIndex::class, 'index']);
+                Route::get('create', [NotesCreate::class, 'create']);
+                Route::post('', [NotesStore::class, 'create']);
+                Route::get('{note}/edit', [NotesEdit::class, 'edit']);
 
-                Route::patch('{note}', [NoteUpdate::class, 'update']);
+                Route::patch('{note}', [NotesUpdate::class, 'update']);
 
-                Route::delete('{note}', [NoteDestroy::class, 'destroy']);
+                Route::delete('{note}', [NotesDestroy::class, 'destroy']);
 
-                Route::get('initTable', [NoteInitTable::class, 'initTable']);
-                Route::get('tableData', [NoteTableData::class, 'tableData']);
-                Route::get('exportExcel', [NoteExportExcel::class, 'exportExcel']);
+                Route::get('initTable', [NotesInitTable::class, 'initTable']);
+                Route::get('tableData', [NotesTableData::class, 'tableData']);
+                Route::get('exportExcel', [NotesExportExcel::class, 'exportExcel']);
 
-                Route::get('options', [NoteOptions::class, 'options']);
-                Route::get('{note}', [NoteShow::class, 'show']);
+                Route::get('options', [NotesOptions::class, 'options']);
+                Route::get('{note}', [NotesShow::class, 'show']);
             });
     });
 
@@ -287,21 +537,21 @@ Route::middleware(['api', 'auth', 'core', 'multitenant'])
             ->prefix('places')
             ->as('places.')
             ->group(function () {
-                Route::get('', [PlaceIndex::class, 'index']);
-                Route::get('create', [PlaceCreate::class, 'create']);
-                Route::post('', [PlaceStore::class, 'create']);
-                Route::get('{place}/edit', [PlaceEdit::class, 'edit']);
+                Route::get('', [PlacesIndex::class, 'index']);
+                Route::get('create', [PlacesCreate::class, 'create']);
+                Route::post('', [PlacesStore::class, 'create']);
+                Route::get('{place}/edit', [PlacesEdit::class, 'edit']);
 
-                Route::patch('{place}', [PlaceUpdate::class, 'update']);
+                Route::patch('{place}', [PlacesUpdate::class, 'update']);
 
-                Route::delete('{place}', [PlaceDestroy::class, 'destroy']);
+                Route::delete('{place}', [PlacesDestroy::class, 'destroy']);
 
-                Route::get('initTable', [PlaceInitTable::class, 'initTable']);
-                Route::get('tableData', [PlaceTableData::class, 'tableData']);
-                Route::get('exportExcel', [PlaceExportExcel::class, 'exportExcel']);
+                Route::get('initTable', [PlacesInitTable::class, 'initTable']);
+                Route::get('tableData', [PlacesTableData::class, 'tableData']);
+                Route::get('exportExcel', [PlacesExportExcel::class, 'exportExcel']);
 
-                Route::get('options', [PlaceOptions::class, 'options']);
-                Route::get('{place}', [PlaceShow::class, 'show']);
+                Route::get('options', [PlacesOptions::class, 'options']);
+                Route::get('{place}', [PlacesShow::class, 'show']);
             });
     });
 
@@ -311,27 +561,27 @@ Route::middleware(['api', 'auth', 'core', 'multitenant'])
             ->prefix('repositories')
             ->as('repositories.')
             ->group(function () {
-                Route::get('', [RepostioriesIndex::class, 'index']);
-                Route::get('create', [RepostioriesCreate::class, 'create']);
-                Route::post('', [RepostioriesStore::class, 'create']);
-                Route::get('{repository}/edit', [RepostioriesEdit::class, 'edit']);
+                Route::get('', [RepositoriesIndex::class, 'index']);
+                Route::get('create', [RepositoriesCreate::class, 'create']);
+                Route::post('', [RepositoriesStore::class, 'create']);
+                Route::get('{repository}/edit', [RepositoriesEdit::class, 'edit']);
 
-                Route::patch('{repository}', [RepostioriesUpdate::class, 'update']);
+                Route::patch('{repository}', [RepositoriesUpdate::class, 'update']);
 
-                Route::delete('{repository}', [RepostioriesDestroy::class, 'destroy']);
+                Route::delete('{repository}', [RepositoriesDestroy::class, 'destroy']);
 
-                Route::get('initTable', [RepostioriesInitTable::class, 'initTable']);
-                Route::get('tableData', [RepostioriesTableData::class, 'tableData']);
-                Route::get('exportExcel', [RepostioriesExportExcel::class, 'exportExcel']);
+                Route::get('initTable', [RepositoriesInitTable::class, 'initTable']);
+                Route::get('tableData', [RepositoriesTableData::class, 'tableData']);
+                Route::get('exportExcel', [RepositoriesExportExcel::class, 'exportExcel']);
 
-                Route::get('options', [RepostioriesOptions::class, 'options']);
-                Route::get('{repository}', [RepostioriesShow::class, 'show']);
+                Route::get('options', [RepositoriesOptions::class, 'options']);
+                Route::get('{repository}', [RepositoriesShow::class, 'show']);
             });
     });
 
 Route::middleware(['api', 'auth', 'core', 'multitenant'])
     ->group(function () {
-        Route::namespace('Sources')
+        Route::namespace('NoteCard')
             ->prefix('sources')
             ->as('sources.')
             ->group(function () {
@@ -1037,7 +1287,7 @@ Route::middleware(['api', 'auth', 'core', 'multitenant'])
         Route::patch('{note}', [NoteCardUpdate::class, 'update']);
         Route::delete('{note}', [NoteCardDestroy::class, 'destroy']);
 
-        Route::get('{note}', [NoteCardShow::class, 'show']);
+        Route::get('{note}', [NotesCardShow::class, 'show']);
     });
 
 Broadcast::routes(['middleware' => ['auth:sanctum']]);
