@@ -8,8 +8,8 @@ use LaravelEnso\Core\Database\Seeders\UserSeeder;
 use LaravelEnso\Countries\Database\Seeders\CountrySeeder;
 use LaravelEnso\Localisation\Database\Seeders\LanguageSeeder;
 use LaravelEnso\Roles\Database\Seeders\RoleSeeder;
-use CompanySeeder;
-use CustomPermissionSeeder;
+use Database\Seeders\CompanySeeder;
+use Database\Seeders\CustomPermissionSeeder;
 
 class DatabaseSeeder extends Seeder
 {
