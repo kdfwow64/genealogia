@@ -26,6 +26,8 @@ class LoginController extends Controller
     }
     protected $redirectTo = '/';
 
+    private ?User $user;
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
