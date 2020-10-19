@@ -15,13 +15,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use LaravelEnso\Companies\Models\Company;
 use LaravelEnso\Core\Events\Login;
+use LaravelEnso\Core\Traits\Logout;
 use LaravelEnso\Multitenancy\Enums\Connections;
 use LaravelEnso\Multitenancy\Services\Tenant;
 
 class LoginController extends Controller
 {
-    use AuthenticatesUsers, ConnectionTrait;
-
+    use AuthenticatesUsers, ConnectionTrait, Logout {
+        Logout::logout insteadof AuthenticatesUsers;
+    }
     protected $redirectTo = '/';
 
     public function __construct()
@@ -40,17 +42,53 @@ class LoginController extends Controller
 
     protected function attemptLogin(Request $request)
     {
-        $user = $this->loggableUser($request);
+        $this->user = $this->loggableUser($request);
 
-        if (!$user) {
+        if (! $this->user) {
             return false;
         }
 
-        Auth::login($user, $request->input('remember'));
+        if ($request->attributes->get('sanctum')) {
+            Auth::guard('web')->login($this->user, $request->input('remember'));
+        }
 
-        Login::dispatch($user, $request->ip(), $request->header('User-Agent'));
+        Login::dispatch($this->user, $request->ip(), $request->header('User-Agent'));
 
         return true;
+    }
+
+    protected function sendLoginResponse(Request $request)
+    {
+        $this->clearLoginAttempts($request);
+
+        if ($request->attributes->get('sanctum')) {
+            $request->session()->regenerate();
+
+            return [
+                'auth' => Auth::check(),
+                'csrfToken' => csrf_token(),
+            ];
+        }
+
+        $token = $this->user->createToken($request->get('device_name'));
+
+        return response()->json(['token' => $token->plainTextToken])
+            ->cookie('webview', true)
+            ->cookie('Authorization', $token->plainTextToken);
+    }
+
+    protected function validateLogin(Request $request)
+    {
+        $attributes = [
+            $this->username() => 'required|string',
+            'password' => 'required|string',
+        ];
+
+        if (! $request->attributes->get('sanctum')) {
+            $attributes['device_name'] = 'required|string';
+        }
+
+        $request->validate($attributes);
     }
 
     protected function authenticated(Request $request, $user)
