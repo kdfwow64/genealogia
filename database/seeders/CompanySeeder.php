@@ -8,6 +8,7 @@ use LaravelEnso\People\Models\Person;
 
 class CompanySeeder extends Seeder
 {
+
     public function run()
     {
         $company = $this->company();

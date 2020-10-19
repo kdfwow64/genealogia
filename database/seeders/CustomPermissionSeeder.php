@@ -12,6 +12,7 @@ class CustomPermissionSeeder extends Seeder
      *
      * @return void
      */
+
     private $link = [
         'administration.people.initTable',
         'administration.people.tableData',
@@ -65,6 +66,36 @@ class CustomPermissionSeeder extends Seeder
     ];
     public function run()
     {
+        $roles = [
+            ['menu_id' => 1, 'name' => 'free', 'display_name' => 'Free', 'description' => 'Free role.'],
+            ['menu_id' => 1, 'name' => 'expired', 'display_name' => 'Expired', 'description' => 'Expired role.'],
+            ['menu_id' => 1, 'name' => 'otm', 'display_name' => 'One tree monthly', 'description' => 'OTM role.'],
+            ['menu_id' => 1, 'name' => 'oty', 'display_name' => 'One tree yearly', 'description' => 'OTY role.'],
+            ['menu_id' => 1, 'name' => 'ttm', 'display_name' => 'Ten tree monthly', 'description' => 'TTM role.'],
+            ['menu_id' => 1, 'name' => 'tty', 'display_name' => 'Ten tree yearly', 'description' => 'TTY role.'],
+            ['menu_id' => 1, 'name' => 'utm', 'display_name' => 'Unlimited tree monthly', 'description' => 'UTM role.'],
+            ['menu_id' => 1, 'name' => 'uty', 'display_name' => 'Unlimited tree yearly', 'description' => 'UTY role.'],
+        ];
+
+        foreach ($roles as $role)
+        {
+            Role::create($role);
+        }
+
+        /**
+        $admin = $roles->first();
+
+        $admin->permissions()->sync(Permission::pluck('id'));
+
+        $supervisor = $roles->skip(1)->first();
+
+        $supervisor->permissions()->sync(Permission::implicit()->pluck('id'));
+        $user = $roles->last();
+
+        $user->permissions()->sync(Permission::implicit()->pluck('id'));
+
+        **/
+
         $trial = Role::where('name', 'free')->first();
         $role_id = $trial->id;
         foreach($this->link as $link){
