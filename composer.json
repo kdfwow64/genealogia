@@ -8,7 +8,7 @@
         "doctrine/dbal": "^2.8",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
-        "genealogiawebsite/laravel-gedcom": "^2.0",
+        "genealogiawebsite/laravel-gedcom": "^2.3",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel-enso/activity-log": "^4.0",
         "laravel-enso/calendar": "^2.0",
