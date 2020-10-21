@@ -1,8 +1,8 @@
 diff --git a/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue b/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue
-index f0ca2f8..3198dd0 100644
+index f0ca2f8..d18a802 100644
 --- a/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue
 +++ b/node_modules/@enso-ui/ui/src/bulma/components/AppFooter.vue
-@@ -5,63 +5,18 @@
+@@ -5,63 +5,19 @@
                  <div class="content has-text-centered">
                      <div class="level">
                          <div class="level-item">
@@ -54,7 +54,7 @@ index f0ca2f8..3198dd0 100644
 +                                <a href="https://www.facebook.com/genealogiawebsite" target="_blank">Genealogia Facebook Page</a>
 +                            </div>
                          </div>
--                    </div>
+                     </div>
 -                    <div class="level">
 -                        <div class="level-item">
 -                            <strong>{{ i18n('Backed by') }}:</strong>
@@ -77,7 +77,7 @@ index f0ca2f8..3198dd0 100644
                  </div>
              </footer>
          </template>
-@@ -70,11 +25,10 @@
+@@ -70,11 +26,10 @@
  
  <script>
  import { library } from '@fortawesome/fontawesome-svg-core';
